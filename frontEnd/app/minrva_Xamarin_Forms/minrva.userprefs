@@ -1,9 +1,8 @@
 ﻿<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/App.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/MessagesPage.xaml.cs">
     <Files>
-      <File FileName="minrva/MainTabContainer.xaml.cs" Line="1" Column="1" />
-      <File FileName="minrva/Profile.xaml.cs" Line="1" Column="1" />
-      <File FileName="minrva/App.cs" Line="1" Column="1" />
+      <File FileName="minrva/AddItemPage.xaml.cs" Line="8" Column="27" />
+      <File FileName="minrva/MessagesPage.xaml.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />

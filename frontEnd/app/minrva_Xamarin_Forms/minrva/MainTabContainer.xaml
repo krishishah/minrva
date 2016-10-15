@@ -6,6 +6,8 @@
 	<TabbedPage.Children>
 		<mypages:Feed Title="Feed" />
 		<mypages:BrowsePage Title="Search" />
+		<mypages:TodoList Title="Add" />
+		<mypages:MessagesPage Title="Message" />
 		<mypages:Profile Title="Profile" />
 	</TabbedPage.Children>
 </TabbedPage>
