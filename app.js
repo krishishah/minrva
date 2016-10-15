@@ -9,6 +9,7 @@ var express = require('express'),
 // Set up a standard Express app
 var app = express();
 
+
 // If you are producing a combined Web + Mobile app, then you should handle
 // anything like logging, registering middleware, etc. here
 
@@ -20,7 +21,7 @@ var mobileApp = azureMobileApps({
     homePage: true,
     // Explicitly enable swagger support. UI support is enabled by
     // installing the swagger-ui npm module.
-    // swagger: true,
+     swagger: true,
     // App will use MS_SqliteFilename or MS_TableConnectionString to choose the SQLite or SQL data provider
     data: {
         dynamicSchema: true
@@ -41,3 +42,9 @@ mobileApp.tables.initialize()
         app.use(mobileApp);    // Register the Azure Mobile Apps middleware
         app.listen(process.env.PORT || 3000);   // Listen for requests
     });
+    
+
+app.get('/borrow', function(req,res) {
+   res.send('What would you like to borrow?<br><form><input type="text"></form>'); 
+   res.end();
+});
