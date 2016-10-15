@@ -111,6 +111,13 @@
     <BundleResource Include="Resources\Icon-Small-40.png" />
     <BundleResource Include="Resources\Icon-Small-40%402x.png" />
     <BundleResource Include="Resources\Icon-Small-40%403x.png" />
+    <BundleResource Include="Resources\Activity Feed-50%402x.png" />
+    <BundleResource Include="Resources\Google Web Search-50%402x.png" />
+    <BundleResource Include="Resources\Hospital-50%402x.png" />
+    <BundleResource Include="Resources\Speech Bubble-50%402x.png" />
+    <BundleResource Include="Resources\Gender Neutral User-50%402x.png" />
+    <BundleResource Include="Resources\Search-50%402x.png" />
+    <BundleResource Include="Resources\Plus-50%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
