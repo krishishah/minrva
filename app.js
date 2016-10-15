@@ -48,3 +48,7 @@ app.get('/borrow', function(req,res) {
    res.send('What would you like to borrow?<br><form><input type="text"></form>'); 
    res.end();
 });
+
+app.get('/', function(req, res) {
+   res.end('<b>Welcome to Minrva!</b>'); 
+});
