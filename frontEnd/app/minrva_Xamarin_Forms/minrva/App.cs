@@ -8,8 +8,8 @@ namespace minrva
 	{
 		public App ()
 		{
-			// The root page of your application
-			MainPage = new TodoList();
+			// The root page of your applicationn
+			MainPage = new MainTabContainer();
 		}
 
 		protected override void OnStart ()
