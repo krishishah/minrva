@@ -8,6 +8,9 @@ namespace minrva
     {
         TodoItemManager manager;
 
+		// Track whether the user has authenticated. 
+		bool authenticated = false;
+
         public TodoList()
         {
             InitializeComponent();
@@ -29,13 +32,29 @@ namespace minrva
             }
         }
 
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
+        //protected override async void OnAppearing()
+        //{
+        //    base.OnAppearing();
 
-            // Set syncItems to true in order to synchronize the data on startup when running in offline mode
-            await RefreshItems(true, syncItems: false);
-        }
+        //    // Set syncItems to true in order to synchronize the data on startup when running in offline mode
+        //    await RefreshItems(true, syncItems: false);
+        //}
+
+		protected override async void OnAppearing()
+		{
+			base.OnAppearing();
+
+			// Refresh items only when authenticated.
+			if (authenticated == true)
+			{
+				// Set syncItems to true in order to synchronize the data 
+				// on startup when running in offline mode.
+				await RefreshItems(true, syncItems: false);
+
+				// Hide the Sign-in button.
+				this.loginButton.IsVisible = false;
+			}
+		}
 
         // Data methods
         async Task AddItem(TodoItem item)
@@ -61,6 +80,17 @@ namespace minrva
         }
 
         // Event handlers
+
+		async void loginButton_Clicked(object sender, EventArgs e)
+		{
+			if (App.Authenticator != null)
+				authenticated = await App.Authenticator.Authenticate();
+
+			// Set syncItems to true to synchronize the data on startup when offline is enabled.
+			if (authenticated == true)
+				await RefreshItems(true, syncItems: false);
+		}
+
         public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var todo = e.SelectedItem as TodoItem;
