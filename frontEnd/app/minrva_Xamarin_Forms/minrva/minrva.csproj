@@ -51,8 +51,8 @@
     <Compile Include="Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddItemPage.xaml.cs">
-      <DependentUpon>AddItemPage.xaml</DependentUpon>
+    <Compile Include="InsertItemPage.xaml.cs">
+      <DependentUpon>InsertItemPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MessagesPage.xaml.cs">
       <DependentUpon>MessagesPage.xaml</DependentUpon>
@@ -110,7 +110,7 @@
     <EmbeddedResource Include="Profile.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddItemPage.xaml">
+    <EmbeddedResource Include="InsertItemPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="MessagesPage.xaml">
