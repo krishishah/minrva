@@ -1,10 +1,9 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/TodoList.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/BoardgamesManager.cs">
     <Files>
-      <File FileName="minrva/BoardgamesManager.cs" Line="31" Column="25" />
+      <File FileName="minrva/BoardgamesManager.cs" Line="40" Column="4" />
       <File FileName="minrva/BrowsePage.xaml.cs" Line="11" Column="23" />
-      <File FileName="minrva/InsertItemPage.xaml.cs" Line="59" Column="50" />
-      <File FileName="minrva/TodoList.xaml.cs" Line="78" Column="22" />
+      <File FileName="minrva/InsertItemPage.xaml.cs" Line="50" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
