@@ -8,7 +8,7 @@ namespace minrva
 	{
 		string id;
 		string name;
-		bool done;
+		int lend_duration;
 
 		[JsonProperty(PropertyName = "id")]
 		public string Id
@@ -25,10 +25,10 @@ namespace minrva
 		}
 
 		[JsonProperty(PropertyName = "lend_duration")]
-		public bool Done
+		public int Lend_duration
 		{
-			get { return done; }
-			set { done = value; }
+			get { return lend_duration; }
+			set { lend_duration = value; }
 		}
 
 		[Version]
