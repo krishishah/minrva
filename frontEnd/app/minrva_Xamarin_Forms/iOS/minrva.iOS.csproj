@@ -118,6 +118,7 @@
     <BundleResource Include="Resources\Gender Neutral User-50%402x.png" />
     <BundleResource Include="Resources\Search-50%402x.png" />
     <BundleResource Include="Resources\Plus-50%402x.png" />
+    <BundleResource Include="Resources\gender_neutral_user.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
