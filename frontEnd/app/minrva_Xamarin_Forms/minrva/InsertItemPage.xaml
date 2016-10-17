@@ -14,20 +14,31 @@
                        IsVisible="False"
                        IsEnabled="True"
                        x:Name="syncIndicator"/>
-    <StackLayout Grid.Row="0" BackgroundColor="#5ABAFF" Padding="10,30,10,5">
-      <Label TextColor="#555555" Text="Azure App Service" />
+    <StackLayout Grid.Row="0" BackgroundColor="#B35050" Padding="10,30,10,5">
       <Grid>
         <Grid.ColumnDefinitions>
           <ColumnDefinition/>
           <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Entry x:Name="newItemName"
-                  Placeholder="Item name" />
-        <StackLayout x:Name="buttonsPanel" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-          <Button Text="+"
+		<StackLayout>
+		<Label TextColor="#190800" Text="Enter Category" />
+		<Picker x:Name="newItemCategory">
+			<Picker.Items>
+            	<x:String>Board Game</x:String> 
+            	<x:String>Book</x:String>
+        	</Picker.Items>
+			<Picker.SelectedIndex>0</Picker.SelectedIndex>
+		</Picker>
+		<Label TextColor="#190800" Text="Enter Name" />
+        <Entry x:Name="newItemName"/>
+		<Label TextColor="#190800" Text="Enter Description" />
+		<Editor x:Name="newItemDescription"/>
+		<Label TextColor="#190800" Text="Enter Number of Days Willing to Lend" />
+        <Entry x:Name="newItemLendDuration"/>
+		<Button x:Name="buttonsPanel" TextColor="#190800" Text="Add Item"
                   MinimumHeightRequest="30"
-                  Clicked="OnAdd" />
-        </StackLayout>
+                  Clicked="OnAdd" BorderColor="#190800" BorderWidth="2" />
+		</StackLayout>  
       </Grid>
     </StackLayout>
     <ListView x:Name="insertItemPage"

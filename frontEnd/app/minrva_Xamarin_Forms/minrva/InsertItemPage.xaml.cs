@@ -13,20 +13,6 @@ namespace minrva
 			InitializeComponent();
 
 			manager = BoardgamesManager.DefaultManager;
-
-			// OnPlatform<T> doesn't currently support the "Windows" target platform, so we have this check here.
-			if (manager.IsOfflineEnabled &&
-				(Device.OS == TargetPlatform.Windows || Device.OS == TargetPlatform.WinPhone))
-			{
-				var syncButton = new Button
-				{
-					Text = "Sync items",
-					HeightRequest = 30
-				};
-				syncButton.Clicked += OnSyncItems;
-
-				buttonsPanel.Children.Add(syncButton);
-			}
 		}
 
 		protected override async void OnAppearing()
@@ -46,10 +32,13 @@ namespace minrva
 
 		public async void OnAdd(object sender, EventArgs e)
 		{
-			var boardgames = new Boardgames { Name = newItemName.Text };
+			var boardgames = new Boardgames { Name = newItemName.Text, Description = newItemDescription.Text, Lend_duration = Int32.Parse(newItemLendDuration.Text)};
 			await AddItem(boardgames);
 
 			newItemName.Text = string.Empty;
+			newItemDescription.Text = string.Empty;
+			newItemLendDuration.Text = string.Empty;
+			newItemCategory.SelectedIndex = 0;
 			newItemName.Unfocus();
 		}
 

@@ -8,6 +8,7 @@ namespace minrva
 	{
 		string id;
 		string name;
+		string description;
 		int lend_duration;
 
 		[JsonProperty(PropertyName = "id")]
@@ -22,6 +23,13 @@ namespace minrva
 		{
 			get { return name; }
 			set { name = value; }
+		}
+
+		[JsonProperty(PropertyName = "description")]
+		public string Description
+		{
+			get { return description; }
+			set { description = value; }
 		}
 
 		[JsonProperty(PropertyName = "lend_duration")]
