@@ -16,6 +16,7 @@ namespace minrva
 		public Feed()
 		{
 			InitializeComponent();
+			manager = TodoItemManager.DefaultManager;
 
 
 		}
