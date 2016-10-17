@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.Feed">
-	<ContentPage.Content>
+		<StackLayout>
+			<ActivityIndicator Grid.RowSpan="2"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       IsVisible="False"
+                       IsEnabled="True"
+                       x:Name="syncIndicator"/>
 		<Label Text="News Feed" VerticalOptions="Center" HorizontalOptions="Center" />
-	</ContentPage.Content>
+		<Button x:Name="loginButton" Text="Sign-in" MinimumHeightRequest="30" 
+    			  Clicked="loginButton_Clicked"/>
+		<ListView x:Name="feedList"
+				ItemSelected="OnSelected"
+				IsPullToRefreshEnabled="true" Refreshing="OnRefresh"
+				Grid.Row="1">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.ContextActions>
+              <MenuItem Clicked="OnComplete" Text="Complete" CommandParameter="{Binding .}"/>
+            </ViewCell.ContextActions>
+            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="15,5,0,0">
+              <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+                <Label Text="{Binding Name}"  />
+              </StackLayout>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+	</StackLayout>
 </ContentPage>
