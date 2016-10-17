@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage 	xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				x:Class="minrva.TodoList"
@@ -27,6 +27,8 @@
           <Button Text="+"
                   MinimumHeightRequest="30"
                   Clicked="OnAdd" />
+		  <Button x:Name="loginButton" Text="Sign-in" MinimumHeightRequest="30" 
+    			  Clicked="loginButton_Clicked"/>
         </StackLayout>
       </Grid>
     </StackLayout>
