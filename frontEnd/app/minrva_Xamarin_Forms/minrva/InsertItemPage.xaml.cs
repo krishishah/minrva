@@ -19,15 +19,12 @@ namespace minrva
 		{
 			base.OnAppearing();
 
-			// Set syncItems to true in order to synchronize the data on startup when running in offline mode
-			await RefreshItems(true, syncItems: false);
 		}
 
 		// Data methods
 		async Task AddItem(Boardgames item)
 		{
 			await manager.SaveTaskAsync(item);
-			insertItemPage.ItemsSource = await manager.GetBoardgamesAsync();
 		}
 
 		public async void OnAdd(object sender, EventArgs e)
@@ -42,48 +39,6 @@ namespace minrva
 			newItemName.Unfocus();
 		}
 
-		// Event handlers
-		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
-		{
-			var boardgames = e.SelectedItem as Boardgames;
-		}
-
-		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh
-		public async void OnRefresh(object sender, EventArgs e)
-		{
-			var list = (ListView)sender;
-			Exception error = null;
-			try
-			{
-				await RefreshItems(false, true);
-			}
-			catch (Exception ex)
-			{
-				error = ex;
-			}
-			finally
-			{
-				list.EndRefresh();
-			}
-
-			if (error != null)
-			{
-				await DisplayAlert("Refresh Error", "Couldn't refresh data (" + error.Message + ")", "OK");
-			}
-		}
-
-		public async void OnSyncItems(object sender, EventArgs e)
-		{
-			await RefreshItems(true, true);
-		}
-
-		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
-		{
-			using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
-			{
-				insertItemPage.ItemsSource = await manager.GetBoardgamesAsync(syncItems);
-			}
-		}
 
 		private class ActivityIndicatorScope : IDisposable
 		{
