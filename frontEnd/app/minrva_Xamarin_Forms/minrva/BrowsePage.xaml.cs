@@ -1,44 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using Xamarin.Forms;
 
 namespace minrva
 {
 	public partial class BrowsePage : ContentPage
 	{
-		Label resultsLabel;
-		SearchBar searchBar;
+		BoardgamesManager manager;
 		public BrowsePage()
 		{
-			resultsLabel = new Label
-			{
-				Text = "Result will appear here.",
-				VerticalOptions = LayoutOptions.FillAndExpand,
-				FontSize = 25
-			};
+			InitializeComponent();
+			manager = BoardgamesManager.DefaultManager;
+		}
 
-			searchBar = new SearchBar
+		public async void OnSearch(object sender, EventArgs e)
+		{
+			var boardGamesTable = await manager.GetBoardgamesAsync();
+			var results = boardGamesTable.Where(b => b.Name == searchBar.Text);
+			if (results.Count() > 0)
 			{
-				Placeholder = "Browse items, users, categories",
-				SearchCommand = new Command(() => { 
-					resultsLabel.Text = "You searched for " + searchBar.Text; 
-				})
-			};
+				var game = results.ElementAt(0);
+				var message = game.Description + "\nThis game is available for " + game.Lend_duration + " days\n Would you like to borrow it?";
+				await DisplayAlert(game.Name, message, "Yes", "Cancel");
+			}
+			else {
+				await DisplayAlert("Result", searchBar.Text + " is currently not available", "Cancel");
+			}
 
-			Content = new StackLayout
-			{
-				VerticalOptions = LayoutOptions.Start,
-				Children = {
-					searchBar,
-					new ScrollView
-					{
-						Content = resultsLabel,
-						VerticalOptions = LayoutOptions.FillAndExpand
-					}
-				},
-				Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5)
-			};
 		}
 	}
 }
