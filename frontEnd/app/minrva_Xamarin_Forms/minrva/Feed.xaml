@@ -12,14 +12,10 @@
     			  Clicked="loginButton_Clicked"/>
 		<ListView x:Name="feedList"
 				ItemSelected="OnSelected"
-				IsPullToRefreshEnabled="true" Refreshing="OnRefresh"
-				Grid.Row="1">
+				IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-            <ViewCell.ContextActions>
-              <MenuItem Clicked="OnComplete" Text="Complete" CommandParameter="{Binding .}"/>
-            </ViewCell.ContextActions>
             <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="15,5,0,0">
               <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
                 <Label Text="{Binding Name}"  />

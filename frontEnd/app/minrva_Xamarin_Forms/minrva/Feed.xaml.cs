@@ -9,23 +9,23 @@ namespace minrva
 	public partial class Feed : ContentPage
 	{
 
-		TodoItemManager manager;
+		BoardgamesManager manager;
 		// Track whether the user has authenticated. 
 		bool authenticated = false;
 
 		public Feed()
 		{
 			InitializeComponent();
-			manager = TodoItemManager.DefaultManager;
+			manager = BoardgamesManager.DefaultManager;
 
 
 		}
 
-		async Task CompleteItem(TodoItem item)
+		async Task BorrowItem(Boardgames item)
 		{
-			item.Done = true;
-			await manager.SaveTaskAsync(item);
-			feedList.ItemsSource = await manager.GetTodoItemsAsync();
+			//item.Done = true;
+			//await manager.SaveTaskAsync(item);
+			//feedList.ItemsSource = await manager.GetTodoItemsAsync();
 		}
 
 		async void loginButton_Clicked(object sender, EventArgs e)
@@ -56,20 +56,20 @@ namespace minrva
 
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
-			var todo = e.SelectedItem as TodoItem;
-			if (Device.OS != TargetPlatform.iOS && todo != null)
+			var game = e.SelectedItem as Boardgames;
+			if (Device.OS != TargetPlatform.iOS && game != null)
 			{
 				// Not iOS - the swipe-to-delete is discoverable there
 				if (Device.OS == TargetPlatform.Android)
 				{
-					await DisplayAlert(todo.Name, "Press-and-hold to complete task " + todo.Name, "Got it!");
+					await DisplayAlert(game.Name, "Press-and-hold to borrow item " + game.Name, "Got it!");
 				}
 				else
 				{
 					// Windows, not all platforms support the Context Actions yet
-					if (await DisplayAlert("Mark completed?", "Do you wish to complete " + todo.Name + "?", "Complete", "Cancel"))
+					if (await DisplayAlert("Borrow?", "Do you wish to borrow " + game.Name + "?", "Yes", "No"))
 					{
-						await CompleteItem(todo);
+						await BorrowItem(game);
 					}
 				}
 			}
@@ -111,7 +111,7 @@ namespace minrva
 		{
 			using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
 			{
-				feedList.ItemsSource = await manager.GetTodoItemsAsync(syncItems);
+				feedList.ItemsSource = await manager.GetBoardgamesAsync(syncItems);
 			}
 		}
 
