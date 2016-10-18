@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.Feed">
-		<StackLayout Padding="0,20,0,0">
+		<StackLayout Padding="20,20,20,0">
 			<ActivityIndicator Grid.RowSpan="2"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
@@ -10,6 +10,7 @@
 		<Label Text="News Feed" VerticalOptions="Center" HorizontalOptions="Center" />
 		<Button x:Name="loginButton" Text="Sign-in" MinimumHeightRequest="30" 
     			  Clicked="loginButton_Clicked"/>
+		<Label Text="Available Items" VerticalOptions="Center" HorizontalOptions="Start" />
 		<ListView x:Name="feedList"
 				ItemSelected="OnSelected"
 				IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
@@ -19,6 +20,8 @@
             <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="15,5,0,0">
               <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
                 <Label Text="{Binding Name}"  />
+				<Label Text="{Binding Description}" />
+				<Label Text="{Binding Lend_duration}" />				
               </StackLayout>
             </StackLayout>
           </ViewCell>
