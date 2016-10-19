@@ -24,7 +24,7 @@ namespace minrva
 		public App ()
 		{
 			// The root page of your applicationn
-			MainPage = new MainTabContainer();
+			MainPage = new LoginPage();
 
 		//	var welcomeLabel = new Label
 		//	{

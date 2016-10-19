@@ -17,8 +17,12 @@ namespace minrva
 		{
 			InitializeComponent();
 			manager = BoardgamesManager.DefaultManager;
+			RefreshItems(true, syncItems: false);
+		}
 
-
+		public void Authenticate()
+		{
+			authenticated = true;
 		}
 
 		async Task BorrowItem(Boardgames item)
@@ -26,16 +30,6 @@ namespace minrva
 			//item.Done = true;
 			//await manager.SaveTaskAsync(item);
 			//feedList.ItemsSource = await manager.GetTodoItemsAsync();
-		}
-
-		async void loginButton_Clicked(object sender, EventArgs e)
-		{
-			if (App.Authenticator != null)
-				authenticated = await App.Authenticator.Authenticate();
-
-			// Set syncItems to true to synchronize the data on startup when offline is enabled.
-			if (authenticated == true)
-				await RefreshItems(true, syncItems: false);
 		}
 
 		protected override async void OnAppearing()
@@ -49,8 +43,6 @@ namespace minrva
 				// on startup when running in offline mode.
 				await RefreshItems(true, syncItems: false);
 
-				// Hide the Sign-in button.
-				this.loginButton.IsVisible = false;
 			}
 		}
 

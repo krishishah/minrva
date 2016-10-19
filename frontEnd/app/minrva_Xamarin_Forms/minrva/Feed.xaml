@@ -8,8 +8,6 @@
                        IsEnabled="True"
                        x:Name="syncIndicator"/>
 		<Label Text="News Feed" VerticalOptions="Center" HorizontalOptions="Center" />
-		<Button x:Name="loginButton" Text="Sign-in" MinimumHeightRequest="30" 
-    			  Clicked="loginButton_Clicked"/>
 		<Label Text="Available Items" VerticalOptions="Center" HorizontalOptions="Start" />
 		<ListView x:Name="feedList"
 				ItemSelected="OnSelected"

@@ -1,11 +1,10 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/BrowsePage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/Feed.xaml.cs">
     <Files>
       <File FileName="minrva/BoardgamesManager.cs" Line="46" Column="4" />
       <File FileName="minrva/Boardgames.cs" Line="36" Column="27" />
-      <File FileName="minrva/BrowsePage.xaml.cs" Line="20" Column="83" />
-      <File FileName="minrva/InsertItemPage.xaml.cs" Line="21" Column="4" />
-      <File FileName="minrva/Feed.xaml.cs" Line="27" Column="40" />
+      <File FileName="minrva/BrowsePage.xaml.cs" Line="41" Column="4" />
+      <File FileName="minrva/Feed.xaml.cs" Line="22" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />

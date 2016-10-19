@@ -21,13 +21,23 @@ namespace minrva
 			if (results.Count() > 0)
 			{
 				var game = results.ElementAt(0);
-				var message = game.Description + "\nThis game is available for " + game.Lend_duration + " days\n Would you like to borrow it?";
-				await DisplayAlert(game.Name, message, "Yes", "Cancel");
+				var message = game.Description + "\nThis game is available for " + game.Lend_duration + " days\n";
+				var alert = await DisplayAlert(game.Name, message, "Borrow", "Cancel");
+				if (alert)
+				{
+					BorrowItem(game);
+				}
+				
 			}
 			else {
 				await DisplayAlert("Result", searchBar.Text + " is currently not available", "Cancel");
 			}
 
+		}
+
+		private async void BorrowItem(Boardgames game)
+		{
+			await DisplayAlert("Success", "You've borrowed this item", "Exit");
 		}
 	}
 }
