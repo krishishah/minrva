@@ -14,13 +14,7 @@
 				IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
       <ListView.ItemTemplate>
         <DataTemplate>
-          <ViewCell>
-            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="15,5,0,0">
-              <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
-                <Label Text="{Binding Name}"  />				
-              </StackLayout>
-            </StackLayout>
-          </ViewCell>
+          <TextCell Text="{Binding Name}" Detail="{Binding Location}"/>
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>

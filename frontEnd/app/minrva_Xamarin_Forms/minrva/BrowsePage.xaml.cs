@@ -20,20 +20,27 @@ namespace minrva
 			var results = boardGamesTable.Where(b => String.Equals(b.Name, searchBar.Text, StringComparison.CurrentCultureIgnoreCase));
 			if (results.Count() > 0)
 			{
-				var game = results.ElementAt(0);
-				var message = game.Description + "\n\nThis game is available for " + game.Lend_duration + " days\n";
-				var alert = await DisplayAlert(game.Name, message, "Borrow", "Cancel");
-				if (alert)
-				{
-					BorrowItem(game);
-				}
-				searchBar.Text = "";
-				
+				resultList.ItemsSource = results;
 			}
 			else {
-				await DisplayAlert("Result", searchBar.Text + " is currently not available", "Cancel");
+				await DisplayAlert("No results found", searchBar.Text + " is currently not available", "Cancel");
 			}
+		}
 
+		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
+		{
+			var game = e.SelectedItem as Boardgames;
+			var message = game.Description + "\n\nThis game is available in " + game.Location + " for " + game.Lend_duration + " days\n";
+			var alert = false;
+			if (Device.OS != TargetPlatform.iOS && game != null)
+			{
+				alert = await DisplayAlert(game.Name, message, "Borrow", "Cancel");
+			}
+			else {
+				alert = await DisplayAlert(game.Name, message, "Borrow", "Cancel");
+			}
+			if (alert)
+				BorrowItem(game);
 		}
 
 		private async void BorrowItem(Boardgames game)

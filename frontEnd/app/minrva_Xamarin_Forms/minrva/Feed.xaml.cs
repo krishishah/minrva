@@ -47,7 +47,7 @@ namespace minrva
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var game = e.SelectedItem as Boardgames;
-			var message = game.Description + "\n\nThis game is available for " + game.Lend_duration + " days\n";
+			var message = game.Description + "\n\nThis game is available in " + game.Location + " for " + game.Lend_duration + " days\n";
 			var alert = false;
 			if (Device.OS != TargetPlatform.iOS && game != null)
 			{

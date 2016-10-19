@@ -41,10 +41,10 @@ namespace minrva
 		}
 
 		[JsonProperty(PropertyName = "location")]
-		public int Location
+		public string Location
 		{
-			get { return lend_duration; }
-			set { lend_duration = value; }
+			get { return location; }
+			set { location = value; }
 		}
 
 		[Version]

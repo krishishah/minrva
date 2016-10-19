@@ -35,6 +35,8 @@
 		<Editor x:Name="newItemDescription"/>
 		<Label TextColor="#190800" Text="Enter Number of Days Willing to Lend" />
         <Entry x:Name="newItemLendDuration"/>
+		<Label TextColor="#190800" Text="Enter Location" />
+        <Entry x:Name="newItemLocation"/>
 		<Button x:Name="buttonsPanel" TextColor="#190800" Text="Add Item"
                   MinimumHeightRequest="30"
                   Clicked="OnAdd" BorderColor="#190800" BorderWidth="2" />
