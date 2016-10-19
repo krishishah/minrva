@@ -51,7 +51,7 @@ namespace minrva.Droid
 			try
 			{
 				// Sign in with Facebook login using a server-managed flow.
-				user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(this,
+				user = await BoardgamesManager.DefaultManager.CurrentClient.LoginAsync(this,
 					MobileServiceAuthenticationProvider.Facebook);
 				if (user != null)
 				{

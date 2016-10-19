@@ -28,10 +28,6 @@ namespace minrva
 		async Task BorrowItem(Boardgames game)
 		{
 			await DisplayAlert("Success", "You've borrowed " + game.Name, "Exit");
-			feedList.SelectedItem = null;
-			//item.Done = true;
-			//await manager.SaveTaskAsync(item);
-			//feedList.ItemsSource = await manager.GetTodoItemsAsync();
 		}
 
 		protected override async void OnAppearing()
