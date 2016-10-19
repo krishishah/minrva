@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.Feed">
-		<StackLayout Padding="20,20,20,0">
-			<ActivityIndicator Grid.RowSpan="2"
+	<StackLayout Padding="20,20,20,0">
+		<ActivityIndicator Grid.RowSpan="2"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
                        IsVisible="False"
@@ -12,11 +12,11 @@
 		<ListView x:Name="feedList"
 				ItemSelected="OnSelected"
 				IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <TextCell Text="{Binding Name}" Detail="{Binding Location}"/>
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
+      		<ListView.ItemTemplate>
+        		<DataTemplate>
+          			<TextCell Text="{Binding Name}" Detail="{Binding Location}"/>
+        		</DataTemplate>
+      		</ListView.ItemTemplate>
+    	</ListView>
 	</StackLayout>
 </ContentPage>
