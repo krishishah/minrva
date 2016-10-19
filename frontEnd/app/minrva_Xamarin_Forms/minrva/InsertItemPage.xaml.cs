@@ -36,7 +36,7 @@ namespace minrva
 			newItemDescription.Text = string.Empty;
 			newItemLendDuration.Text = string.Empty;
 			newItemLocation.Text = string.Empty;
-			newItemCategory.SelectedIndex = 0;
+			newItemCategory.Title = "Enter Category";
 			newItemName.Unfocus();
 		}
 
