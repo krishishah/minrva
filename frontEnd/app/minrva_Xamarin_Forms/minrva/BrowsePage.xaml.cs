@@ -17,7 +17,7 @@ namespace minrva
 		public async void OnSearch(object sender, EventArgs e)
 		{
 			var boardGamesTable = await manager.GetBoardgamesAsync();
-			var results = boardGamesTable.Where(b => b.Name == searchBar.Text);
+			var results = boardGamesTable.Where(b => String.Equals(b.Name, searchBar.Text, StringComparison.CurrentCultureIgnoreCase));
 			if (results.Count() > 0)
 			{
 				var game = results.ElementAt(0);
@@ -27,6 +27,7 @@ namespace minrva
 				{
 					BorrowItem(game);
 				}
+				searchBar.Text = "";
 				
 			}
 			else {
