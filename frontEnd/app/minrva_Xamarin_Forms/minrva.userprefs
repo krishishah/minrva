@@ -1,7 +1,8 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/BrowsePage.xaml.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="minrva/BrowsePage.xaml.cs" Line="27" Column="6" />
+      <File FileName="minrva/BrowsePage.xaml.cs" Line="20" Column="44" />
+      <File FileName="iOS/AppDelegate.cs" Line="45" Column="63" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />

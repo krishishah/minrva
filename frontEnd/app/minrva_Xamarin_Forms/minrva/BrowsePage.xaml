@@ -3,6 +3,21 @@
 	<ContentPage.Content>
 		<StackLayout Padding="0,20,0,0">
 			<SearchBar x:Name="searchBar" SearchButtonPressed="OnSearch" Placeholder="Browse boardgames" />
+			<ListView x:Name="resultList"
+				ItemSelected="OnSelected"
+				IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
+      			<ListView.ItemTemplate>
+        			<DataTemplate>
+          			<ViewCell>
+            		<StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="15,5,0,0">
+              			<StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+                			<Label Text="{Binding Location}"  />				
+              			</StackLayout>
+            		</StackLayout>
+          			</ViewCell>
+        			</DataTemplate>
+      			</ListView.ItemTemplate>
+    		</ListView>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
