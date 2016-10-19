@@ -45,7 +45,8 @@ namespace minrva
 
 		private async void BorrowItem(Boardgames game)
 		{
-			await DisplayAlert("Success", "You've borrowed " + game.Name, "Exit");
+
+			this.Content = new BorrowItemPage(game).Content;
 		}
 	}
 }
