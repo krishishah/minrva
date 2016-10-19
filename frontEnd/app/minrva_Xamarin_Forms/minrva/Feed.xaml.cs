@@ -25,8 +25,10 @@ namespace minrva
 			authenticated = true;
 		}
 
-		async Task BorrowItem(Boardgames item)
+		async Task BorrowItem(Boardgames game)
 		{
+			await DisplayAlert("Success", "You've borrowed " + game.Name, "Exit");
+			feedList.SelectedItem = null;
 			//item.Done = true;
 			//await manager.SaveTaskAsync(item);
 			//feedList.ItemsSource = await manager.GetTodoItemsAsync();
@@ -49,25 +51,17 @@ namespace minrva
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var game = e.SelectedItem as Boardgames;
+			var message = game.Description + "\n\nThis game is available for " + game.Lend_duration + " days\n";
+			var alert = false;
 			if (Device.OS != TargetPlatform.iOS && game != null)
 			{
-				// Not iOS - the swipe-to-delete is discoverable there
-				if (Device.OS == TargetPlatform.Android)
-				{
-					await DisplayAlert(game.Name, "Press-and-hold to borrow item " + game.Name, "Got it!");
-				}
-				else
-				{
-					// Windows, not all platforms support the Context Actions yet
-					if (await DisplayAlert("Borrow?", "Do you wish to borrow " + game.Name + "?", "Yes", "No"))
-					{
-						await BorrowItem(game);
-					}
-				}
+				alert = await DisplayAlert(game.Name, message, "Borrow", "Cancel");
 			}
-
-			// prevents background getting highlighted
-			feedList.SelectedItem = null;
+			else {
+				alert = await DisplayAlert(game.Name, message, "Borrow", "Cancel");
+			}
+			if (alert)
+				await BorrowItem(game);
 		}
 
 		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh
