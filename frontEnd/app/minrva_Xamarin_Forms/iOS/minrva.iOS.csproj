@@ -119,6 +119,7 @@
     <BundleResource Include="Resources\Search-50%402x.png" />
     <BundleResource Include="Resources\Plus-50%402x.png" />
     <BundleResource Include="Resources\gender_neutral_user.png" />
+    <BundleResource Include="Resources\minrva_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

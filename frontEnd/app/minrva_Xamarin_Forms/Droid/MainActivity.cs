@@ -55,8 +55,8 @@ namespace minrva.Droid
 					MobileServiceAuthenticationProvider.Facebook);
 				if (user != null)
 				{
-					message = string.Format("you are now signed-in as {0}. and your MobileServiceAuthToken is {1}",
-					                        user.UserId, user.MobileServiceAuthenticationToken);
+					message = string.Format("you are now signed-in as {0}",
+					                        user.UserId);
 					success = true;
 				}
 			}
