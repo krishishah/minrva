@@ -24,7 +24,8 @@ namespace minrva
 			string endDateString = String.Format("{0:dd/MM/yyyy}", endDate.Date);
 			string msg = "Request sent to lender, to borrow " + gameName.Text + " from " + startDateString + " to "
 																		+ endDateString;                                                         
-			await App.Current.MainPage.DisplayAlert("Success", msg, "Cancel");
+			await DisplayAlert("Success", msg, "Cancel");
+			await Navigation.PopModalAsync(false);	
 		}
 	}
 }
