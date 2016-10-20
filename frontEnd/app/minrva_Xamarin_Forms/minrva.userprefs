@@ -1,20 +1,13 @@
-﻿<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/AppDelegate.cs">
+﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/Info.plist">
     <Files>
-      <File FileName="iOS/AppDelegate.cs" Line="52" Column="12" />
-      <File FileName="minrva/Boardgames.cs" Line="1" Column="1" />
-      <File FileName="minrva/SocialLogin.cs" Line="1" Column="1" />
-      <File FileName="Droid/MainActivity.cs" Line="21" Column="101" />
-      <File FileName="minrva/Profile.xaml.cs" Line="28" Column="2" />
-      <File FileName="minrva/BorrowItemPage.xaml.cs" Line="47" Column="26" />
-      <File FileName="minrva/LoginPage.xaml.cs" Line="44" Column="48" />
-      <File FileName="minrva/App.cs" Line="6" Column="1" />
-      <File FileName="minrva/RegisterPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="iOS/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="iOS/Info.plist" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B7239893-9B6B-4B06-9C2F-5C0940E8BDAE" />
+  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7A34A718-826D-412A-A52D-0DC1889CD6B4" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
