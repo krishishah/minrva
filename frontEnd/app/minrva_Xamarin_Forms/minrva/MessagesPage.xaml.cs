@@ -30,7 +30,8 @@ namespace minrva
 				await tableManager.SaveRequestAsync(req);
 				requestedItem.Borrowed = true;
 				await tableManager.SaveBoardgamesAsync(requestedItem);
-				RefreshItems(true, syncItems: false);
+				await DisplayAlert("Success", "You have confirmed the loan. You can now contact " + reqMsg.Borrower.FirstName + " " + reqMsg.Borrower.LastName + " at " + reqMsg.Borrower.Email + " to confirm when and where to complete the transaction.", "Ok");
+				await RefreshItems(true, syncItems: false);
 			}
 		}
 
