@@ -14,21 +14,6 @@ namespace minrva
 		string endDate;
 		bool accepted;
 
-		User borrowingUser;
-		Boardgames requestedItem;
-
-		public User BorrowingUser
-		{
-			get { return borrowingUser; }
-			set { borrowingUser = value; }
-		}
-
-		public Boardgames RequestedItem
-		{
-			get { return requestedItem; }
-			set { requestedItem = value; }
-		}
-
 		[JsonProperty(PropertyName = "id")]
 		public string Id
 		{
@@ -77,5 +62,6 @@ namespace minrva
 			get { return accepted; }
 			set { accepted = value; }
 		}
+
 	}
 }
