@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.BorrowItemPage">
+	<StackLayout Padding="20,20,20,20">
+		<Label x:Name="gameName" FontAttributes="Bold" HorizontalOptions="Start"/>
+		<Label x:Name="gameDescription" HorizontalOptions="Start"/>
+		<Label x:Name="gameLendDuration" HorizontalOptions="Start"/>
+		<Label Text="Borrow Start Date" HorizontalOptions="Start"/>
+		<DatePicker x:Name="startDate">
+         <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+      	</DatePicker>
+		<Label Text="Borrow End Date" HorizontalOptions="Start"/>
+	 	<DatePicker x:Name="endDate">
+         <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+      	</DatePicker>
+		<Button x:Name="buttonsPanel" Text="Send borrow request" Clicked="OnBorrow"/>
+	</StackLayout>
+</ContentPage>

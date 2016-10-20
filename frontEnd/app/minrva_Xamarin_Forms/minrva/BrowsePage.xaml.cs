@@ -27,6 +27,12 @@ namespace minrva
 			}
 		}
 
+		public async void OnTextChanged(object sender, TextChangedEventArgs e)
+		{
+			if (e.NewTextValue == string.Empty)
+				resultList.ItemsSource = null;
+		}
+
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var game = e.SelectedItem as Boardgames;
@@ -45,7 +51,15 @@ namespace minrva
 
 		private async void BorrowItem(Boardgames game)
 		{
-			await DisplayAlert("Success", "You've borrowed " + game.Name, "Exit");
+			BorrowItemPage borrowPage = new BorrowItemPage(game);
+			await Navigation.PushModalAsync(borrowPage, false);
+			resultList.ItemsSource = null;
+
+		}
+
+		public async void OnDisappearing()
+		{
+			resultList.ItemsSource = null;
 		}
 	}
 }
