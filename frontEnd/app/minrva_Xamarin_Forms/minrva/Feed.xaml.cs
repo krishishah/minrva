@@ -94,7 +94,7 @@ namespace minrva
 			{
 				string sid = await App.Authenticator.GetUserId();
 				var available = await manager.GetBoardgamesAsync(syncItems);
-				feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (game.Borrowed = false));
+				feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (game.Borrowed == false));
 			}
 		}
 

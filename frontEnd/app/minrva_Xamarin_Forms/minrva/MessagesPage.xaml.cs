@@ -21,6 +21,7 @@ namespace minrva
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var requested = e.SelectedItem as Request;
+			Debug.WriteLine(requested.GetType());
 			var alert = await DisplayAlert("Borrowing request", "Would you like to lend " + requested.RequestedItem.Name + " to " + requested.BorrowingUser.FirstName + " " + requested.BorrowingUser.LastName + " from " + requested.StartDate + " to " + requested.EndDate, "Yes", "No");
 			if (alert)
 			{
@@ -69,7 +70,7 @@ namespace minrva
 				var reqs = await tableManager.GetRequestAsync(syncItems);
 				var games = await tableManager.GetBoardgamesAsync(syncItems);
 				var users = await tableManager.GetUserAsync(syncItems);
-				var lenderItemRequests = reqs.Where(r => (String.Equals(r.Lender, sid)) && (r.Accepted = false));
+				var lenderItemRequests = reqs.Where(r => (String.Equals(r.Lender, sid)) && (r.Accepted == false));
 				foreach (Request r in lenderItemRequests)
 				{
 					r.BorrowingUser = users.Where(user => String.Equals(r.Borrower, user.UserId)).ElementAt(0);
