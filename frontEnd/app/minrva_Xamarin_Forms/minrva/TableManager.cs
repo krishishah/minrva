@@ -33,6 +33,7 @@ namespace minrva
 #else
 		IMobileServiceTable<User> userTable;
 		IMobileServiceTable<Boardgames> boardgamesTable;
+		IMobileServiceTable<Request> requestTable;
 #endif
 
 		const string offlineDbPath = @"localstore.db";
@@ -52,6 +53,7 @@ namespace minrva
 #else
 			this.userTable = client.GetTable<User>();
 			this.boardgamesTable = client.GetTable<Boardgames>();
+			this.requestTable = client.GetTable<Request>();
 #endif
 		}
 
@@ -129,6 +131,31 @@ namespace minrva
 			return null;
 		}
 
+		public async Task<ObservableCollection<Request>> GetRequestAsync(bool syncItems = false)
+		{
+			try
+			{
+#if OFFLINE_SYNC_ENABLED
+                if (syncItems)
+                {
+                    await this.SyncAsync();
+                }
+#endif
+				IEnumerable<Request> items = await requestTable
+					.ToEnumerableAsync();
+
+				return new ObservableCollection<Request>(items);
+			}
+			catch (MobileServiceInvalidOperationException msioe)
+			{
+				Debug.WriteLine(@"Invalid sync operation: {0}", msioe.Message);
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(@"Sync error: {0}", e.Message);
+			}
+			return null;
+		}
 		public async Task SaveUserAsync(User item)
 		{
 			if (item.Id == null)
@@ -150,6 +177,17 @@ namespace minrva
 			else
 			{
 				await boardgamesTable.UpdateAsync(item);
+			}
+		}
+		public async Task SaveRequestAsync(Request item)
+		{
+			if (item.Id == null)
+			{
+				await requestTable.InsertAsync(item);
+			}
+			else
+			{
+				await requestTable.UpdateAsync(item);
 			}
 		}
 
