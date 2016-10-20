@@ -7,11 +7,11 @@ namespace minrva
 {
 	public partial class BrowsePage : ContentPage
 	{
-		BoardgamesManager manager;
+		TableManager manager;
 		public BrowsePage()
 		{
 			InitializeComponent();
-			manager = BoardgamesManager.DefaultManager;
+			manager = TableManager.DefaultManager;
 		}
 
 		public async void OnSearch(object sender, EventArgs e)

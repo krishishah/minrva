@@ -42,11 +42,12 @@ namespace minrva.iOS
 				// Sign in with Facebook login using a server-managed flow.
 				if (user == null)
 				{
-					user = await UserManager.DefaultManager.CurrentClient
+					user = await TableManager.DefaultManager.CurrentClient
 						.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController,
 						MobileServiceAuthenticationProvider.Facebook);
 					if (user != null)
 					{
+						
 						message = string.Format("You are now signed-in as {0}.", user.UserId);
 						success = true;
 					}

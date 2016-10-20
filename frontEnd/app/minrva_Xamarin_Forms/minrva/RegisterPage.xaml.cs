@@ -7,19 +7,19 @@ namespace minrva
 {
 	public partial class RegisterPage : ContentPage
 	{
-		UserManager manager;
+		TableManager manager;
 
 
 		public RegisterPage()
 		{
 			InitializeComponent();
-			manager = UserManager.DefaultManager;
+			manager = TableManager.DefaultManager;
 		}
 
 		// Data methods
 		async Task AddItem(User item)
 		{
-			await manager.SaveTaskAsync(item);
+			await manager.SaveUserAsync(item);
 		}
 
 		async void registerButton_Clicked(object sender, EventArgs e)

@@ -6,19 +6,19 @@ namespace minrva
 {
 	public partial class InsertItemPage : ContentPage
 	{
-		BoardgamesManager manager;
+		TableManager manager;
 
 		public InsertItemPage()
 		{
 			InitializeComponent();
 
-			manager = BoardgamesManager.DefaultManager;
+			manager = TableManager.DefaultManager;
 		}
 
 		// Data methods
 		async Task AddItem(Boardgames item)
 		{
-			await manager.SaveTaskAsync(item);
+			await manager.SaveBoardgamesAsync(item);
 		}
 
 		public async void OnAdd(object sender, EventArgs e)

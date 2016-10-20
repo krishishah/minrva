@@ -9,14 +9,14 @@ namespace minrva
 	public partial class Feed : ContentPage
 	{
 
-		BoardgamesManager manager;
+		TableManager manager;
 		// Track whether the user has authenticated. 
 		bool authenticated = false;
 
 		public Feed()
 		{
 			InitializeComponent();
-			manager = BoardgamesManager.DefaultManager;
+			manager = TableManager.DefaultManager;
 			RefreshItems(true, syncItems: false);
 		}
 

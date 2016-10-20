@@ -23,37 +23,39 @@ using Microsoft.WindowsAzure.MobileServices.Sync;
 
 namespace minrva
 {
-	public partial class BoardgamesManager
+	public partial class TableManager
 	{
-		static BoardgamesManager defaultInstance = new BoardgamesManager();
+		static TableManager defaultInstance = new TableManager();
 		MobileServiceClient client;
 
 #if OFFLINE_SYNC_ENABLED
-        IMobileServiceSyncTable<Boardgames> BoardgamesTable;
+        IMobileServiceSyncTable<User> userTable;
 #else
+		IMobileServiceTable<User> userTable;
 		IMobileServiceTable<Boardgames> boardgamesTable;
 #endif
 
 		const string offlineDbPath = @"localstore.db";
 
-		private BoardgamesManager()
+		private TableManager()
 		{
 			this.client = new MobileServiceClient(Constants.ApplicationURL);
 
 #if OFFLINE_SYNC_ENABLED
             var store = new MobileServiceSQLiteStore(offlineDbPath);
-            store.DefineTable<Boardgames>();
+            store.DefineTable<User>();
 
             //Initializes the SyncContext using the default IMobileServiceSyncHandler.
             this.client.SyncContext.InitializeAsync(store);
 
-            this.boardgamesTable = client.GetSyncTable<Boardgames>();
+            this.userTable = client.GetSyncTable<User>();
 #else
+			this.userTable = client.GetTable<User>();
 			this.boardgamesTable = client.GetTable<Boardgames>();
 #endif
 		}
 
-		public static BoardgamesManager DefaultManager
+		public static TableManager DefaultManager
 		{
 			get
 			{
@@ -72,7 +74,33 @@ namespace minrva
 
 		public bool IsOfflineEnabled
 		{
-			get { return boardgamesTable is Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable<Boardgames>; }
+			get { return userTable is Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable<User>; }
+		}
+
+		public async Task<ObservableCollection<User>> GetUserAsync(bool syncItems = false)
+		{
+			try
+			{
+#if OFFLINE_SYNC_ENABLED
+                if (syncItems)
+                {
+                    await this.SyncAsync();
+                }
+#endif
+				IEnumerable<User> items = await userTable
+					.ToEnumerableAsync();
+
+				return new ObservableCollection<User>(items);
+			}
+			catch (MobileServiceInvalidOperationException msioe)
+			{
+				Debug.WriteLine(@"Invalid sync operation: {0}", msioe.Message);
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(@"Sync error: {0}", e.Message);
+			}
+			return null;
 		}
 
 		public async Task<ObservableCollection<Boardgames>> GetBoardgamesAsync(bool syncItems = false)
@@ -101,7 +129,19 @@ namespace minrva
 			return null;
 		}
 
-		public async Task SaveTaskAsync(Boardgames item)
+		public async Task SaveUserAsync(User item)
+		{
+			if (item.Id == null)
+			{
+				await userTable.InsertAsync(item);
+			}
+			else
+			{
+				await userTable.UpdateAsync(item);
+			}
+		}
+
+		public async Task SaveBoardgamesAsync(Boardgames item)
 		{
 			if (item.Id == null)
 			{
@@ -122,11 +162,11 @@ namespace minrva
             {
                 await this.client.SyncContext.PushAsync();
 
-                await this.boardgamesTable.PullAsync(
+                await this.userTable.PullAsync(
                     //The first parameter is a query name that is used internally by the client SDK to implement incremental sync.
                     //Use a different query name for each unique query in your program
-                    "allBoardgames",
-                    this.boardgamesTable.CreateQuery());
+                    "allUser",
+                    this.userTable.CreateQuery());
             }
             catch (MobileServicePushFailedException exc)
             {
@@ -160,3 +200,4 @@ namespace minrva
 #endif
 	}
 }
+

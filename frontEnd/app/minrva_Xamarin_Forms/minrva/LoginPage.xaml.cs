@@ -10,12 +10,12 @@ namespace minrva
 	public partial class LoginPage : ContentPage
 	{
 		bool authenticated = false;
-		UserManager manager;
+		TableManager manager;
 
 		public LoginPage()
 		{
 			InitializeComponent();
-			manager = UserManager.DefaultManager;
+			manager = TableManager.DefaultManager;
 		}
 
 		public async Task<bool> hasRegistered()
