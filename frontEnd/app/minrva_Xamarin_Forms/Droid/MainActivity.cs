@@ -12,31 +12,31 @@ using System.Threading.Tasks;
 
 namespace minrva.Droid
 {
-	[Activity (Label = "minrva.Droid",
+	[Activity(Label = "minrva.Droid",
 		Icon = "@drawable/icon",
 		MainLauncher = true,
 		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
 		Theme = "@android:style/Theme.Holo.Light")]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
 	{
-		protected override void OnCreate (Bundle bundle)
+		protected override void OnCreate(Bundle bundle)
 		{
-			base.OnCreate (bundle);
+			base.OnCreate(bundle);
 
 			// Initialize Azure Mobile Apps
 			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 
 			// Initialize Xamarin Forms
-			global::Xamarin.Forms.Forms.Init (this, bundle);
+			global::Xamarin.Forms.Forms.Init(this, bundle);
 
 			// Initialize the authenticator before loading the app.
 			App.Init((IAuthenticate)this);
 
 			// Load the main application
-			LoadApplication (new App ());
+			LoadApplication(new App());
 		}
 
-			// Define a authenticated user.
+		// Define a authenticated user.
 		private MobileServiceUser user;
 
 		//private static async Task<SocialLoginResult> GetUserData()
@@ -56,7 +56,7 @@ namespace minrva.Droid
 				if (user != null)
 				{
 					message = string.Format("you are now signed-in as {0}",
-					                        user.UserId);
+											user.UserId);
 					success = true;
 				}
 			}
@@ -85,7 +85,6 @@ namespace minrva.Droid
 		}
 	}
 }
-
 
 
 

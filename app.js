@@ -43,8 +43,3 @@ mobileApp.tables.initialize()
         app.listen(process.env.PORT || 3000);   // Listen for requests
     });
     
-
-app.get('/borrow', function(req,res) {
-   res.send('What would you like to borrow?<br><form><input type="text"></form>'); 
-   res.end();
-});
