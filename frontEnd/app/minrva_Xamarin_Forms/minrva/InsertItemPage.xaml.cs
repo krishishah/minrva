@@ -29,13 +29,14 @@ namespace minrva
 
 		public async void OnAdd(object sender, EventArgs e)
 		{
-			var boardgames = new Boardgames { Name = newItemName.Text, Description = newItemDescription.Text, Lend_duration = Int32.Parse(newItemLendDuration.Text)};
+			var boardgames = new Boardgames { Name = newItemName.Text, Description = newItemDescription.Text, Lend_duration = Int32.Parse(newItemLendDuration.Text), Location = newItemLocation.Text};
 			await AddItem(boardgames);
 
 			newItemName.Text = string.Empty;
 			newItemDescription.Text = string.Empty;
 			newItemLendDuration.Text = string.Empty;
-			newItemCategory.SelectedIndex = 0;
+			newItemLocation.Text = string.Empty;
+			newItemCategory.Title = "Enter Category";
 			newItemName.Unfocus();
 		}
 

@@ -3,6 +3,14 @@
 	<ContentPage.Content>
 		<StackLayout Padding="0,20,0,0">
 			<SearchBar x:Name="searchBar" SearchButtonPressed="OnSearch" Placeholder="Browse boardgames" />
+			<ListView x:Name="resultList"
+				ItemSelected="OnSelected">
+      			<ListView.ItemTemplate>
+        			<DataTemplate>
+						<TextCell Text="{Binding Name}" Detail="{Binding Location}"/>
+        			</DataTemplate>
+      			</ListView.ItemTemplate>
+    		</ListView>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

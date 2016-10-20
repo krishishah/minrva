@@ -1,25 +1,16 @@
-﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/BoardgamesManager.cs">
+<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="minrva/Boardgames.cs" Line="42" Column="11" />
-      <File FileName="minrva/SocialLogin.cs" Line="1" Column="1" />
-      <File FileName="minrva/LoginPage.xaml.cs" Line="26" Column="20" />
-      <File FileName="Droid/MainActivity.cs" Line="83" Column="4" />
-      <File FileName="minrva/UserManager.cs" Line="115" Column="4" />
-      <File FileName="minrva/BrowsePage.xaml.cs" Line="22" Column="5" />
-      <File FileName="iOS/Main.cs" Line="17" Column="1" />
-      <File FileName="iOS/AppDelegate.cs" Line="27" Column="4" />
-      <File FileName="minrva/RegisterPage.xaml.cs" Line="27" Column="56" />
-      <File FileName="minrva/User.cs" Line="18" Column="12" />
-      <File FileName="minrva/TodoItemManager.cs" Line="92" Column="12" />
-      <File FileName="minrva/BoardgamesManager.cs" Line="63" Column="5" />
+      <File FileName="iOS/AppDelegate.cs" Line="45" Column="63" />
+      <File FileName="minrva/BrowsePage.xaml.cs" Line="1" Column="1" />
+      <File FileName="minrva/Feed.xaml.cs" Line="1" Column="1" />
+      <File FileName="minrva/InsertItemPage.xaml.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B7239893-9B6B-4B06-9C2F-5C0940E8BDAE" />
+  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.9BDD953F-D16D-4306-8F47-C8DBF667C40F" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-</Properties>
