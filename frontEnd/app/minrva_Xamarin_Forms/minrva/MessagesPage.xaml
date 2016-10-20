@@ -2,8 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.MessagesPage">
 	<StackLayout Padding="20,20,20,20">
 		<Label Text="Messages" HorizontalOptions="Center"/>
-		<Label Text="Contacts" HorizontalOptions="Start"/>
-		<ListView x:Name="contactsList">
-		</ListView>
+		<Label Text="Requests" HorizontalOptions="Start"/>
+		<ActivityIndicator Grid.RowSpan="2"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       IsVisible="False"
+                       IsEnabled="True"
+                       x:Name="syncIndicator"/>
+		<ListView x:Name="requestsList"
+				ItemSelected="OnSelected"
+				IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
+      		<ListView.ItemTemplate>
+        		<DataTemplate>
+          			<TextCell Text="{Binding RequestedItem.Name}" Detail="{Binding BorrowingUser.FirstName}"/>
+        		</DataTemplate>
+      		</ListView.ItemTemplate>
+    	</ListView>
 	</StackLayout>
 </ContentPage>

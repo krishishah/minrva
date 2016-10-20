@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using System.Linq;
 
 namespace minrva
 {
@@ -23,11 +24,6 @@ namespace minrva
 		public void Authenticate()
 		{
 			authenticated = true;
-		}
-
-		async Task BorrowItem(Boardgames game)
-		{
-			await DisplayAlert("Success", "You've borrowed " + game.Name, "Exit");
 		}
 
 		protected override async void OnAppearing()
@@ -57,7 +53,10 @@ namespace minrva
 				alert = await DisplayAlert(game.Name, message, "Borrow", "Cancel");
 			}
 			if (alert)
-				await BorrowItem(game);
+			{
+				BorrowItemPage borrowPage = new BorrowItemPage(game);
+				await Navigation.PushModalAsync(borrowPage, false);
+			}
 		}
 
 		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh
@@ -93,7 +92,9 @@ namespace minrva
 		{
 			using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
 			{
-				feedList.ItemsSource = await manager.GetBoardgamesAsync(syncItems);
+				string sid = await App.Authenticator.GetUserId();
+				var available = await manager.GetBoardgamesAsync(syncItems);
+				feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (game.Borrowed = false));
 			}
 		}
 

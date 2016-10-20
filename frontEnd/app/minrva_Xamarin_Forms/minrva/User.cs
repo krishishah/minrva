@@ -54,6 +54,11 @@ namespace minrva
 			set { email = value; }
 		}
 
+		public override string ToString()
+		{
+			return string.Format("{0}, {1}", FirstName, LastName);
+		}
+
 	}
 }
 
