@@ -74,6 +74,15 @@ namespace minrva.Droid
 
 			return success;
 		}
+
+		public async Task<string> GetUserId()
+		{
+			while (user.UserId == null)
+			{
+			}
+
+			return user.UserId;
+		}
 	}
 }
 

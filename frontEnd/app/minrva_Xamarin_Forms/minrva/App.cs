@@ -10,6 +10,7 @@ namespace minrva
 	public interface IAuthenticate
 	{
 		Task<bool> Authenticate();
+		Task<string> GetUserId();
 	}
 
 	public class App : Application
@@ -25,43 +26,6 @@ namespace minrva
 		{
 			// The root page of your applicationn
 			MainPage = new LoginPage();
-
-		//	var welcomeLabel = new Label
-		//	{
-		//		HorizontalOptions = LayoutOptions.CenterAndExpand
-		//	};
-		//	var fbButton = new Button
-		//	{
-		//		Text = "Facebook",
-		//		HorizontalOptions = LayoutOptions.CenterAndExpand,
-		//		BackgroundColor = Color.FromHex("#3b5998")
-		//	};
-		//	var googleButton = new Button
-		//	{
-		//		Text = "Google+",
-		//		HorizontalOptions = LayoutOptions.CenterAndExpand,
-		//		BackgroundColor = Color.FromHex("#d50f25")
-		//	};
-		//	var twitterButton = new Button
-		//	{
-		//		Text = "Twitter",
-		//		HorizontalOptions = LayoutOptions.CenterAndExpand,
-		//		BackgroundColor = Color.FromHex("#55acee")
-		//	};
-
-		//	MainPage = new ContentPage
-		//	{
-		//		Content = new StackLayout
-		//		{
-		//			VerticalOptions = LayoutOptions.Center,
-		//			Children = {
-		//	fbButton,
-		//	googleButton,
-		//	twitterButton,
-		//	welcomeLabel
-		//}
-		//		}
-		//	};
 		}
 
 		protected override void OnStart ()
