@@ -20,16 +20,17 @@ namespace minrva
 
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
-			var requested = e.SelectedItem as Request;
-			Debug.WriteLine(requested.GetType());
-			var alert = await DisplayAlert("Borrowing request", "Would you like to lend " + requested.RequestedItem.Name + " to " + requested.BorrowingUser.FirstName + " " + requested.BorrowingUser.LastName + " from " + requested.StartDate + " to " + requested.EndDate, "Yes", "No");
+			var reqMsg = e.SelectedItem as RequestMessage;
+			Request req = reqMsg.Request;
+			Boardgames requestedItem = reqMsg.RequestedItem;
+			var alert = await DisplayAlert("Borrowing request", "Would you like to lend " + requestedItem.Name + " to " + reqMsg.Borrower.FirstName + " " + reqMsg.Borrower.LastName + " from " + req.StartDate + " to " + req.EndDate, "Yes", "No");
 			if (alert)
 			{
-				requested.Accepted = true;
-				await tableManager.SaveRequestAsync(requested);
-				Boardgames game = requested.RequestedItem;
-				game.Borrowed = true;
-				await tableManager.SaveBoardgamesAsync(game);
+				req.Accepted = true;
+				await tableManager.SaveRequestAsync(req);
+				requestedItem.Borrowed = true;
+				await tableManager.SaveBoardgamesAsync(requestedItem);
+				RefreshItems(true, syncItems: false);
 			}
 		}
 
@@ -71,12 +72,14 @@ namespace minrva
 				var games = await tableManager.GetBoardgamesAsync(syncItems);
 				var users = await tableManager.GetUserAsync(syncItems);
 				var lenderItemRequests = reqs.Where(r => (String.Equals(r.Lender, sid)) && (r.Accepted == false));
+				List<RequestMessage> reqMsgs = new List<RequestMessage>();
 				foreach (Request r in lenderItemRequests)
 				{
-					r.BorrowingUser = users.Where(user => String.Equals(r.Borrower, user.UserId)).ElementAt(0);
-					r.RequestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
+					User borrowingUser = users.Where(user => String.Equals(r.Borrower, user.UserId)).ElementAt(0);
+					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
+					reqMsgs.Add(new RequestMessage(requestedItem, borrowingUser, r));
 				}
-				requestsList.ItemsSource = lenderItemRequests;
+				requestsList.ItemsSource = reqMsgs;
 			}
 		}
 

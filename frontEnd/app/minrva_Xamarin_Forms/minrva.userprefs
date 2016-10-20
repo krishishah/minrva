@@ -1,11 +1,10 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/Request.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/MessagesPage.xaml.cs">
     <Files>
       <File FileName="minrva/BorrowItemPage.xaml.cs" Line="33" Column="4" />
-      <File FileName="minrva/MessagesPage.xaml.cs" Line="24" Column="41" />
       <File FileName="minrva/TableManager.cs" Line="192" Column="4" />
-      <File FileName="iOS/Main.cs" Line="17" Column="1" />
-      <File FileName="minrva/Request.cs" Line="18" Column="28" />
+      <File FileName="minrva/MessagesPage.xaml.cs" Line="24" Column="38" />
+      <File FileName="iOS/Main.cs" Line="13" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
