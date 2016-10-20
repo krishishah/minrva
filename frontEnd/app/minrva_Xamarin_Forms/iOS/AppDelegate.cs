@@ -69,12 +69,35 @@ namespace minrva.iOS
 
 		public async Task<string> GetUserId()
 		{
-			while (user.UserId == null)
-			{
-				Debug.WriteLine("Busy waiting");
-			}
 			Debug.WriteLine("UserId from appDelegate.cs: {0}", user.UserId);
 			return user.UserId;
+		}
+
+		public async Task<bool> LogoutAsync()
+		{
+			bool success = false;
+			try
+			{
+				if (user != null)
+				{
+					foreach (var cookie in NSHttpCookieStorage.SharedStorage.Cookies)
+					{
+						NSHttpCookieStorage.SharedStorage.DeleteCookie(cookie);
+					}
+
+					await TableManager.DefaultManager.CurrentClient.LogoutAsync();
+					var logoutAlert = new UIAlertView("Authentication", "You are now logged out " + user.UserId, null, "OK", null);
+					logoutAlert.Show();
+				}
+				user = null;
+				success = true;
+			}
+			catch (Exception ex)
+			{
+				var logoutAlert = new UIAlertView("Logout failed", ex.Message, null, "OK", null);
+				logoutAlert.Show();
+			}
+			return success;
 		}
 	}
 }

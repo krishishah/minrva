@@ -11,6 +11,8 @@ namespace minrva
 		string description;
 		int lend_duration;
 		string location;
+		string owner;
+		bool borrowed;
 
 		[JsonProperty(PropertyName = "id")]
 		public string Id
@@ -45,6 +47,20 @@ namespace minrva
 		{
 			get { return location; }
 			set { location = value; }
+		}
+
+		[JsonProperty(PropertyName = "owner")]
+		public string Owner
+		{
+			get { return owner; }
+			set { owner = value; }
+		}
+
+		[JsonProperty(PropertyName = "borrowed")]
+		public bool Borrowed
+		{
+			get { return borrowed; }
+			set { borrowed = value; }
 		}
 
 		[Version]

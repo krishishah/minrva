@@ -9,6 +9,7 @@ using Android.OS;
 
 using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
+using Android.Webkit;
 
 namespace minrva.Droid
 {
@@ -82,6 +83,38 @@ namespace minrva.Droid
 			}
 
 			return user.UserId;
+		}
+
+		public async Task<bool> LogoutAsync()
+		{
+			bool success = false;
+
+			try
+			{
+				if (user != null)
+				{
+					CookieManager.Instance.RemoveAllCookie();
+					await TableManager.DefaultManager.CurrentClient.LogoutAsync();
+
+					var message = string.Format("You are now logged out - {0}", user.UserId);
+
+					AlertDialog.Builder builder = new AlertDialog.Builder(this);
+					builder.SetMessage(message);
+					builder.SetTitle("Sign-in result");
+					builder.Create().Show();
+				}
+				user = null;
+				success = true;
+			}
+			catch (Exception ex)
+			{
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				builder.SetMessage("You have failed to log out.");
+				builder.SetTitle("Logout failed");
+				builder.Create().Show();
+			}
+
+			return success;
 		}
 	}
 }

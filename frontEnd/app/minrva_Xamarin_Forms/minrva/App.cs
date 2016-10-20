@@ -11,6 +11,7 @@ namespace minrva
 	{
 		Task<bool> Authenticate();
 		Task<string> GetUserId();
+		Task<bool> LogoutAsync();
 	}
 
 	public class App : Application
