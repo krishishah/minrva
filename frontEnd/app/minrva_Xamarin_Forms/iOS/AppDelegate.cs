@@ -27,6 +27,8 @@ namespace minrva.iOS
 
 			LoadApplication (new App ());
 
+			UITabBar.Appearance.SelectedImageTintColor = UIColor.Red;
+
 			return base.FinishedLaunching (app, options);
 		}
 
