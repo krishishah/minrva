@@ -1,11 +1,9 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/Request.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/MessagesPage.xaml.cs">
     <Files>
-      <File FileName="minrva/BorrowItemPage.xaml.cs" Line="48" Column="48" />
-      <File FileName="minrva/LoginPage.xaml.cs" Line="25" Column="11" />
-      <File FileName="minrva/TableManager.cs" Line="192" Column="4" />
-      <File FileName="minrva/InsertItemPage.xaml.cs" Line="19" Column="3" />
-      <File FileName="minrva/Request.cs" Line="65" Column="3" />
+      <File FileName="minrva/BorrowItemPage.xaml.cs" Line="28" Column="4" />
+      <File FileName="minrva/MessagesPage.xaml.cs" Line="56" Column="5" />
+      <File FileName="minrva/Feed.xaml.cs" Line="18" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
