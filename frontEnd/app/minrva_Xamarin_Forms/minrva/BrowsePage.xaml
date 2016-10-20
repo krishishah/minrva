@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.BrowsePage">
 	<ContentPage.Content>
 		<StackLayout Padding="0,20,0,0">
-			<SearchBar x:Name="searchBar" SearchButtonPressed="OnSearch" Placeholder="Browse boardgames" />
+			<SearchBar x:Name="searchBar" SearchButtonPressed="OnSearch" Placeholder="Browse board games" TextChanged="OnTextChanged"/>
 			<ListView x:Name="resultList"
 				ItemSelected="OnSelected">
       			<ListView.ItemTemplate>
