@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage BackgroundColor="White" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.LoginPage">
+<ContentPage BackgroundColor="#b35050" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.LoginPage">
 	<ContentPage.Content>
-		<StackLayout VerticalOptions="Center" Padding="10,20,10,10">			
+		<StackLayout Spacing="20" Padding="10,20,10,10">			
+			<Image Source="minrva_icon.png" />
 			<Button x:Name="loginButton" Text="Sign-in"
-    			  Clicked="loginButton_Clicked" BackgroundColor="#b35050" TextColor="White"/>			
+    			  Clicked="loginButton_Clicked" TextColor="White" BorderColor="White" BorderWidth="1" />			
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
