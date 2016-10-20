@@ -17,7 +17,8 @@ namespace minrva
 		public async void OnSearch(object sender, EventArgs e)
 		{
 			var boardGamesTable = await manager.GetBoardgamesAsync();
-			var results = boardGamesTable.Where(b => (String.Equals(b.Name, searchBar.Text, StringComparison.CurrentCultureIgnoreCase)) && b.Borrowed == false);
+			string sid = await App.Authenticator.GetUserId();
+			var results = boardGamesTable.Where(b => (!String.Equals(b.Owner, sid)) && (String.Equals(b.Name, searchBar.Text, StringComparison.CurrentCultureIgnoreCase)) && b.Borrowed == false);
 			if (results.Count() > 0)
 			{
 				resultList.ItemsSource = results;
