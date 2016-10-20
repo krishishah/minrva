@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+<ContentPage BackgroundColor="#b35050" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:minrva;assembly=minrva" x:Class="minrva.RegisterPage">
-	<StackLayout>
-		<Label x:Name="registerLabel" Text ="Register Page"/>
+	<StackLayout Padding="10,20,10,10" Spacing="20">
+		<Image Source="minrva_icon.png" />
+		<Label x:Name="registerLabel" />
 		<Entry x:Name="firstNameEntry" Placeholder="First Name *"/>
 		<Entry x:Name="lastNameEntry" Placeholder="Last Name *"/>
 		<Entry x:Name="emailEntry" Keyboard="Email" Placeholder="Email Address *"/>
@@ -20,7 +21,7 @@
 	    	Style="{Binding Source={x:Reference emailValidator},
 	                        Path=IsValid,
 	                        Converter={StaticResource boolToStyleImage}}"/> -->
-		<Button x:Name="registerButton" Text="Register"
+		<Button x:Name="registerButton" Text="Register" TextColor="White" BorderWidth="1" BorderColor="White"
 			Clicked="registerButton_Clicked"/>
 	</StackLayout>
 </ContentPage>
