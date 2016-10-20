@@ -21,6 +21,15 @@ namespace minrva
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var requested = e.SelectedItem as Request;
+			var alert = await DisplayAlert("Borrowing request", "Would you like to lend " + requested.RequestedItem.Name + " to " + requested.BorrowingUser.FirstName + " " + requested.BorrowingUser.LastName + " from " + requested.StartDate + " to " + requested.EndDate, "Yes", "No");
+			if (alert)
+			{
+				requested.Accepted = true;
+				await tableManager.SaveRequestAsync(requested);
+				Boardgames game = requested.RequestedItem;
+				game.Borrowed = true;
+				await tableManager.SaveBoardgamesAsync(game);
+			}
 		}
 
 		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh
@@ -58,12 +67,15 @@ namespace minrva
 			{
 				string sid = await App.Authenticator.GetUserId();
 				var reqs = await tableManager.GetRequestAsync(syncItems);
-				var myReqs = reqs.Where(r => String.Equals(r.Lender, sid));
-				//foreach (Request r in myReqs)
-				//{
-						
-				//}
-				requestsList.ItemsSource = myReqs;
+				var games = await tableManager.GetBoardgamesAsync(syncItems);
+				var users = await tableManager.GetUserAsync(syncItems);
+				var lenderItemRequests = reqs.Where(r => (String.Equals(r.Lender, sid)) && (r.Accepted = false));
+				foreach (Request r in lenderItemRequests)
+				{
+					r.BorrowingUser = users.Where(user => String.Equals(r.Borrower, user.UserId)).ElementAt(0);
+					r.RequestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
+				}
+				requestsList.ItemsSource = lenderItemRequests;
 			}
 		}
 

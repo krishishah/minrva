@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/MessagesPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/Feed.xaml.cs">
     <Files>
       <File FileName="minrva/BorrowItemPage.xaml.cs" Line="28" Column="4" />
-      <File FileName="minrva/MessagesPage.xaml.cs" Line="56" Column="5" />
-      <File FileName="minrva/Feed.xaml.cs" Line="18" Column="4" />
+      <File FileName="minrva/MessagesPage.xaml.cs" Line="31" Column="50" />
+      <File FileName="minrva/Feed.xaml.cs" Line="97" Column="53" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
