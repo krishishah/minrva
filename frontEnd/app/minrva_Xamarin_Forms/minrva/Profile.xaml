@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.Profile">
-	<ContentPage.Padding>
- 		<OnPlatform x:TypeArguments="Thickness" iOS="10, 20, 10, 10" WinPhone="20,20,20,20" />
- 	</ContentPage.Padding>
+<ContentPage Padding="10,20,10,10" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.Profile">	
 	<ContentPage.Content>
 		<Grid>			
-			<BoxView BackgroundColor="Green" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="1" />
-			<BoxView BackgroundColor="Green" Grid.Row="0" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="2"/>
-			<BoxView BackgroundColor="Green" Grid.Row="1" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="2"/>
-			<BoxView BackgroundColor="Green" Grid.Row="2" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="2"/>
-			<BoxView BackgroundColor="Green" Grid.Row="3" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="3"/>
-			<BoxView BackgroundColor="Green" Grid.Row="4" Grid.Column="0" Grid.RowSpan="8" Grid.ColumnSpan="3"/>
+			<Image VerticalOptions="Start" Source="minrva_icon.png" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="1" />
+			<Label Text="Username" Grid.Row="0" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="2"/>
+			<Label Text="Rating" FontSize="Small" Grid.Row="1" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="1"/>
+			<Label Text="ooooo" FontSize="Small" Grid.Row="1" Grid.Column="2" Grid.RowSpan="1" Grid.ColumnSpan="1"/>
+			<Label Text="Stats" FontSize="Small" Grid.Row="2" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="1"/>
+			<Label Text="L 0 | B 0" FontSize="Small" Grid.Row="2" Grid.Column="2" Grid.RowSpan="1" Grid.ColumnSpan="1"/>
+			<ListView Grid.Row="3" Grid.Column="0" Grid.RowSpan="10" Grid.ColumnSpan="3"/>
+			<Button Text="Logout" Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="3" />
 		</Grid>
 	</ContentPage.Content>
 </ContentPage>

@@ -1,4 +1,4 @@
-﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
+<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="minrva/Feed.xaml.cs">
     <Files>
       <File FileName="minrva/BorrowItemPage.xaml.cs" Line="28" Column="4" />
@@ -10,8 +10,9 @@
       <File FileName="Droid/MainActivity.cs" Line="54" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.9BDD953F-D16D-4306-8F47-C8DBF667C40F" />
+  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B7239893-9B6B-4B06-9C2F-5C0940E8BDAE" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
