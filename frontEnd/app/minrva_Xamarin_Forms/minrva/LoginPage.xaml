@@ -4,7 +4,7 @@
 		<StackLayout Spacing="20" Padding="10,20,10,10">			
 			<Image Source="minrva_icon.png" />
 			<Button x:Name="loginButton" Text="Sign-in"
-    			  Clicked="loginButton_Clicked" TextColor="White" BorderColor="White" BorderWidth="1" />			
+    			  Clicked="loginButton_Clicked" TextColor="White" BorderColor="White" BorderWidth="1" BackgroundColor="Transparent" VerticalOptions="Center" />			
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

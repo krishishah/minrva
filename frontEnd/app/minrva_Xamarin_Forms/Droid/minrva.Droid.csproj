@@ -137,6 +137,7 @@
     <AndroidResource Include="Resources\drawable-hdpi\minrva_icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\minrva_icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\minrva_icon.png" />
+    <AndroidResource Include="Resources\drawable\minrva_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
