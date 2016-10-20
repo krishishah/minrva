@@ -8,6 +8,7 @@ using UIKit;
 
 using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace minrva.iOS
 {
@@ -41,7 +42,7 @@ namespace minrva.iOS
 				// Sign in with Facebook login using a server-managed flow.
 				if (user == null)
 				{
-					user = await BoardgamesManager.DefaultManager.CurrentClient
+					user = await UserManager.DefaultManager.CurrentClient
 						.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController,
 						MobileServiceAuthenticationProvider.Facebook);
 					if (user != null)
@@ -61,6 +62,16 @@ namespace minrva.iOS
 			avAlert.Show();
 
 			return success;
+		}
+
+		public async Task<string> GetUserId()
+		{
+			while (user.UserId == null)
+			{
+				Debug.WriteLine("Busy waiting");
+			}
+			Debug.WriteLine("UserId from appDelegate.cs: {0}", user.UserId);
+			return user.UserId;
 		}
 	}
 }
