@@ -17,7 +17,6 @@ namespace minrva
 		public BorrowItemPage(Boardgames game)
 		{
 			InitializeComponent();
-
 			tableManager = TableManager.DefaultManager;
 			gameName.Text = game.Name;
 			gameDescription.Text = game.Description;
