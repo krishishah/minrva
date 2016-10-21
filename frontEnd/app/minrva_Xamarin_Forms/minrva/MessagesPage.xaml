@@ -18,5 +18,13 @@
         		</DataTemplate>
       		</ListView.ItemTemplate>
     	</ListView>
+		<ListView x:Name="acceptedList"
+				IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
+      		<ListView.ItemTemplate>
+        		<DataTemplate>
+          			<TextCell Text="{Binding RequestedItem.Name}" Detail="{Binding Borrower.FirstName}"/>
+        		</DataTemplate>
+      		</ListView.ItemTemplate>
+    	</ListView>
 	</StackLayout>
 </ContentPage>
