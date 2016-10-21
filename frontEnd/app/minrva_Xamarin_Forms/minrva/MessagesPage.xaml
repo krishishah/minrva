@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.MessagesPage">
 	<StackLayout Padding="20,20,20,20">
 		<Label Text="Messages" HorizontalOptions="Center"/>
-		<Label Text="Requests" HorizontalOptions="Start"/>
+		<Label Text="Lend Requests" HorizontalOptions="Start"/>
 		<ActivityIndicator Grid.RowSpan="2"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
@@ -18,6 +18,7 @@
         		</DataTemplate>
       		</ListView.ItemTemplate>
     	</ListView>
+		<Label Text="Accepted Borrow Requests"/>
 		<ListView x:Name="acceptedList"
 				IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
       		<ListView.ItemTemplate>
