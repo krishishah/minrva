@@ -7,20 +7,6 @@
 		<Entry x:Name="firstNameEntry" Placeholder="First Name *"/>
 		<Entry x:Name="lastNameEntry" Placeholder="Last Name *"/>
 		<Entry x:Name="emailEntry" Keyboard="Email" Placeholder="Email Address *"/>
-
-<!--		<Entry Grid.Row="0"
-		 		Grid.Column="1"
-		        Placeholder="Email" >
-			<Entry.Behaviors>
-			  <local:EmailValidatorBehavior x:Name="emailValidator"/>
-			</Entry.Behaviors>
-		</Entry>
-		<Image Grid.Row="0"
-	    	Grid.Column="2"
-	    	x:Name="emailSuccessErrorImage"
-	    	Style="{Binding Source={x:Reference emailValidator},
-	                        Path=IsValid,
-	                        Converter={StaticResource boolToStyleImage}}"/> -->
 		<Button x:Name="registerButton" Text="Register" TextColor="White" BorderWidth="1" BorderColor="White"
 			Clicked="registerButton_Clicked"/>
 	</StackLayout>
