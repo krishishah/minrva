@@ -1,12 +1,17 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/Main.cs">
     <Files>
-      <File FileName="iOS/Main.cs" Line="11" Column="3" />
-      <File FileName="minrva/AppPages/UserAuth/RegisterPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/MessagesPage.xaml.cs" Line="36" Column="88" />
+      <File FileName="minrva/AppPages/NewMessagePage.xaml.cs" Line="10" Column="53" />
+      <File FileName="minrva/AppPages/BorrowItemPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="25" Column="4" />
+      <File FileName="minrva/AppPages/Profile.xaml.cs" Line="18" Column="6" />
+      <File FileName="iOS/Main.cs" Line="17" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
-  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B7239893-9B6B-4B06-9C2F-5C0940E8BDAE" />
+  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.D7BA792E-D538-4BE2-A3D1-1F022ED6199B" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
