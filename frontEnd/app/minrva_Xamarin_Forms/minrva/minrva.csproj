@@ -33,42 +33,42 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App.cs" />
-    <Compile Include="Constants.cs" />
-    <Compile Include="Feed.xaml.cs">
-      <DependentUpon>Feed.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainTabContainer.xaml.cs">
-      <DependentUpon>MainTabContainer.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Profile.xaml.cs">
-      <DependentUpon>Profile.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="InsertItemPage.xaml.cs">
-      <DependentUpon>InsertItemPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MessagesPage.xaml.cs">
-      <DependentUpon>MessagesPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Boardgames.cs" />
-    <Compile Include="SocialLogin.cs" />
-    <Compile Include="BrowsePage.xaml.cs">
-      <DependentUpon>BrowsePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="LoginPage.xaml.cs">
-      <DependentUpon>LoginPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="BorrowItemPage.xaml.cs">
+    <Compile Include="Tables\Request.cs" />
+    <Compile Include="Tables\RequestMessage.cs" />
+    <Compile Include="Tables\TableManager.cs" />
+    <Compile Include="Tables\User.cs" />
+    <Compile Include="Tables\Boardgames.cs" />
+    <Compile Include="AppPages\BorrowItemPage.xaml.cs">
       <DependentUpon>BorrowItemPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RegisterPage.xaml.cs">
+    <Compile Include="AppPages\BrowsePage.xaml.cs">
+      <DependentUpon>BrowsePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Feed.xaml.cs">
+      <DependentUpon>Feed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\InsertItemPage.xaml.cs">
+      <DependentUpon>InsertItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\MainTabContainer.xaml.cs">
+      <DependentUpon>MainTabContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\MessagesPage.xaml.cs">
+      <DependentUpon>MessagesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Profile.xaml.cs">
+      <DependentUpon>Profile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\UserAuth\Constants.cs" />
+    <Compile Include="AppPages\UserAuth\EmailValidatorBehavior.cs" />
+    <Compile Include="AppPages\UserAuth\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\UserAuth\NumberValidatorBehavior.cs" />
+    <Compile Include="AppPages\UserAuth\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
-    <Compile Include="EmailValidatorBehavior.cs" />
-    <Compile Include="NumberValidatorBehavior.cs" />
-    <Compile Include="TableManager.cs" />
-    <Compile Include="Request.cs" />
-    <Compile Include="RequestMessage.cs" />
+    <Compile Include="AppPages\UserAuth\SocialLogin.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -105,31 +105,36 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Feed.xaml">
+    <EmbeddedResource Include="AppPages\BorrowItemPage.xaml" />
+    <EmbeddedResource Include="AppPages\BrowsePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainTabContainer.xaml">
+    <EmbeddedResource Include="AppPages\Feed.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Profile.xaml">
+    <EmbeddedResource Include="AppPages\InsertItemPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="InsertItemPage.xaml">
+    <EmbeddedResource Include="AppPages\MainTabContainer.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="MessagesPage.xaml">
+    <EmbeddedResource Include="AppPages\MessagesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="BrowsePage.xaml">
+    <EmbeddedResource Include="AppPages\Profile.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginPage.xaml">
+    <EmbeddedResource Include="AppPages\UserAuth\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="BorrowItemPage.xaml" />
-    <EmbeddedResource Include="RegisterPage.xaml">
+    <EmbeddedResource Include="AppPages\UserAuth\RegisterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AppPages\" />
+    <Folder Include="Tables\" />
+    <Folder Include="AppPages\UserAuth\" />
   </ItemGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
