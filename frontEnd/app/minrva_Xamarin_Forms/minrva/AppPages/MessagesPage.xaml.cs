@@ -33,7 +33,7 @@ namespace minrva
 				var result = await DisplayAlert("Success", "You have confirmed the loan. Would you like to message " + reqMsg.Borrower.FirstName + " " + reqMsg.Borrower.LastName , "Yes", "No");
 				if (result)
 				{
-					NewMessagePage messagePage = new NewMessagePage(reqMsg.Borrower.UserId, req.ItemId);
+					NewMessagePage messagePage = new NewMessagePage(reqMsg.Borrower.FirstName, req.ItemId);
 					await Navigation.PushModalAsync(messagePage, false);
 				}
 				await RefreshItems(true, syncItems: false);

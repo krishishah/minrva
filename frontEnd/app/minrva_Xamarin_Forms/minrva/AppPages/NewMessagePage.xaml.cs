@@ -5,11 +5,21 @@ using Xamarin.Forms;
 
 namespace minrva
 {
+
 	public partial class NewMessagePage : ContentPage
 	{
-		public NewMessagePage(String userID, String itemID)
+		public String Username { get; set;}
+
+
+		public NewMessagePage(String name, String itemID)
 		{
 			InitializeComponent();
+			Username = name;
+			BindingContext = this;
+
 		}
+
+
 	}
+
 }
