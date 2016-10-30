@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/InsertItemPage.xaml.cs">
     <Files>
-      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="48" Column="31" />
+      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="16" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
