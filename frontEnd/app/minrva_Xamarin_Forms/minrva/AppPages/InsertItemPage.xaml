@@ -19,7 +19,7 @@
 		</Picker>
         <Entry Placeholder="Enter Name" x:Name="newItemName"/>
 		<Editor x:Name="newItemDescription" Text="Enter Description" HeightRequest="100" />
-        <Entry Placeholder="Enter Number of Days Willing to Lend" x:Name="newItemLendDuration"/>		
+        <Entry Keyboard="Numeric" Placeholder="Enter Number of Days Willing to Lend" x:Name="newItemLendDuration"/>		
         <Entry Placeholder="Enter Location" x:Name="newItemLocation"/>
 		<Button x:Name="buttonsPanel" Text="Add Item"
                   MinimumHeightRequest="30"
