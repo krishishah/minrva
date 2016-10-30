@@ -52,6 +52,22 @@ namespace minrva
 			}
 		}
 
+		public async void ShowCategory(object sender, EventArgs e)
+		{
+			string sid = await App.Authenticator.GetUserId();
+			var available = await manager.GetBoardgamesAsync();
+			string category = selectCategory.Items[selectCategory.SelectedIndex];
+			if (string.Equals(category, "All"))
+			{
+				feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed));
+			}
+			else
+			{
+				feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed) && (String.Equals(game.Category, category)));
+			}
+
+		}
+
 		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh
 		public async void OnRefresh(object sender, EventArgs e)
 		{
