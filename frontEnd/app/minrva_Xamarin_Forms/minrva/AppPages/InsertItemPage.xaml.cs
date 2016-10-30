@@ -15,6 +15,10 @@ namespace minrva
 			InitializeComponent();
 
 			manager = TableManager.DefaultManager;
+
+			newItemName.Keyboard = Keyboard.Create(KeyboardFlags.All);
+			newItemDescription.Keyboard = Keyboard.Create(KeyboardFlags.All);
+			newItemLocation.Keyboard = Keyboard.Create(KeyboardFlags.All);
 		}
 
 		void Handle_Focused(object sender, Xamarin.Forms.FocusEventArgs e)
@@ -42,6 +46,7 @@ namespace minrva
 				string sid = await App.Authenticator.GetUserId();
 				var boardgames = new Boardgames { Name = newItemName.Text, Description = newItemDescription.Text, Lend_duration = Int32.Parse(newItemLendDuration.Text), Location = newItemLocation.Text, Owner = sid, Borrowed = false };
 				await AddItem(boardgames);
+				await DisplayAlert("Success", "Your item has been added", "Ok");
 
 				newItemName.Text = string.Empty;
 				newItemDescription.Text = descriptionPlaceholder;
