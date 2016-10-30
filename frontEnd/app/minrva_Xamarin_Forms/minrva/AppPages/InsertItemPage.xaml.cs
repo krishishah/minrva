@@ -24,6 +24,7 @@ namespace minrva
 		public async void OnAdd(object sender, EventArgs e)
 		{
 			string sid = await App.Authenticator.GetUserId();
+
 			var boardgames = new Boardgames { Name = newItemName.Text, Description = newItemDescription.Text, Lend_duration = Int32.Parse(newItemLendDuration.Text), Location = newItemLocation.Text, Owner = sid, Borrowed = false};
 			await AddItem(boardgames);
 

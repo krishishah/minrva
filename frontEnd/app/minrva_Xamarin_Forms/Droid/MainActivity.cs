@@ -30,6 +30,8 @@ namespace minrva.Droid
 			// Initialize Xamarin Forms
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 
+			Xamarin.FormsMaps.Init(this, bundle);
+
 			// Initialize the authenticator before loading the app.
 			App.Init((IAuthenticate)this);
 

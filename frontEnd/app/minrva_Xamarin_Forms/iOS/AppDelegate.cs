@@ -23,6 +23,8 @@ namespace minrva.iOS
 			// Initialize Xamarin Forms
 			global::Xamarin.Forms.Forms.Init ();
 
+			Xamarin.FormsMaps.Init();
+
 			App.Init(this);
 
 			LoadApplication (new App ());
