@@ -44,14 +44,7 @@ namespace minrva
 		{
 			var game = e.SelectedItem as Boardgames;
 			var message = game.Description + "\n\nThis game is available in " + game.Location + " for " + game.Lend_duration + " days\n";
-			var alert = false;
-			if (Device.OS != TargetPlatform.iOS && game != null)
-			{
-				alert = await DisplayAlert(game.Name, message, "Borrow", "Cancel");
-			}
-			else {
-				alert = await DisplayAlert(game.Name, message, "Borrow", "Cancel");
-			}
+			bool alert = await DisplayAlert(game.Name, message, "Borrow", "Cancel");
 			if (alert)
 			{
 				BorrowItemPage borrowPage = new BorrowItemPage(game);
