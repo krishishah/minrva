@@ -39,7 +39,8 @@ namespace minrva
 		{
 			string sid = await App.Authenticator.GetUserId();
 			var requestTable = await tableManager.GetRequestAsync();
-			int lendCount = requestTable.Where(user => String.Equals(sid, user.Lender)).Count();
+			var itemsTable = await tableManager.GetBoardgamesAsync();
+			int lendCount = itemsTable.Where(item => String.Equals(sid, item.Owner)).Count();
 			int borrowCount = requestTable.Where(user => String.Equals(sid, user.Borrower)).Count();
 			LendBorrow.Text = String.Format("L:{0} | B:{1}", lendCount, borrowCount);
 		}
@@ -111,6 +112,11 @@ namespace minrva
 				string sid = await App.Authenticator.GetUserId();
 				var lendingItems = await tableManager.GetBoardgamesAsync(syncItems);
 				myItems.ItemsSource = lendingItems.Where(game => (String.Equals(game.Owner, sid)));
+		}
+
+		protected override void OnAppearing()
+		{
+			displayDetails();
 		}
 	}
 
