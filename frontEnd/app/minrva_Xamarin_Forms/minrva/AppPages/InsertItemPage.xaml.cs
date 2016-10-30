@@ -8,12 +8,22 @@ namespace minrva
 	public partial class InsertItemPage : ContentPage
 	{
 		TableManager manager;
+		string descriptionPlaceholder = "Enter Description";
 
 		public InsertItemPage()
 		{
 			InitializeComponent();
 
 			manager = TableManager.DefaultManager;
+		}
+
+		void Handle_Focused(object sender, Xamarin.Forms.FocusEventArgs e)
+		{
+			if (Equals(newItemDescription.Text, descriptionPlaceholder))
+			{
+				newItemDescription.Text = string.Empty;
+				newItemDescription.TextColor = Color.Black;
+			}
 		}
 
 		// Data methods
@@ -34,7 +44,8 @@ namespace minrva
 				await AddItem(boardgames);
 
 				newItemName.Text = string.Empty;
-				newItemDescription.Text = "Enter Description";
+				newItemDescription.Text = descriptionPlaceholder;
+				newItemDescription.TextColor = Color.Gray;
 				newItemLendDuration.Text = string.Empty;
 				newItemLocation.Text = string.Empty;
 				newItemCategory.SelectedIndex = -1;
