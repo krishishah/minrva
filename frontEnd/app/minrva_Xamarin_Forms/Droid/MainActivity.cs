@@ -13,8 +13,8 @@ using Android.Webkit;
 
 namespace minrva.Droid
 {
-	[Activity(Label = "minrva.Droid",
-		Icon = "@drawable/icon",
+	[Activity(Label = "Minrva",
+		Icon = "@drawable/minrva_icon",
 		MainLauncher = true,
 		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
 		Theme = "@android:style/Theme.Material.Light")]
@@ -39,11 +39,6 @@ namespace minrva.Droid
 
 		// Define a authenticated user.
 		private MobileServiceUser user;
-
-		//private static async Task<SocialLoginResult> GetUserData()
-		//{
-		//	return await Client.InvokeApiAsync<SocialLoginResult>("getextrauserinfo", HttpMethod.Get, null);
-		//}
 
 		public async Task<bool> Authenticate()
 		{
