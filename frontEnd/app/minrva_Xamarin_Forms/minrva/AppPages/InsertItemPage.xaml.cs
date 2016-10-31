@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 
 namespace minrva
 {
 	public partial class InsertItemPage : ContentPage
 	{
 		TableManager manager;
+		Geocoder geocoder;
 
 		public InsertItemPage()
 		{
 			InitializeComponent();
 
 			manager = TableManager.DefaultManager;
+			geocoder = new Geocoder();
 		}
 
 		// Data methods
@@ -35,6 +38,7 @@ namespace minrva
 			newItemCategory.Title = "Enter Category";
 			newItemName.Unfocus();
 		}
+
 	}
 }
 
