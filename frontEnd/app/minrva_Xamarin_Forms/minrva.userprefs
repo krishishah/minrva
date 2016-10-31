@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/InsertItemPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/Tables/Boardgames.cs">
     <Files>
       <File FileName="iOS/AppDelegate.cs" Line="26" Column="11" />
       <File FileName="Droid/MainActivity.cs" Line="12" Column="22" />
-      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="11" Column="8" />
+      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="31" Column="32" />
+      <File FileName="minrva/Tables/Boardgames.cs" Line="61" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
