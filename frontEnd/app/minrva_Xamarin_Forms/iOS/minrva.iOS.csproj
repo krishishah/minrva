@@ -84,6 +84,9 @@
     <MtouchUseSGen>true</MtouchUseSGen>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchLink>None</MtouchLink>
+    <BuildIpa>true</BuildIpa>
+    <IpaIncludeArtwork>false</IpaIncludeArtwork>
+    <IpaPackageDir>$(OutputPath)</IpaPackageDir>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAzure.Mobile">
