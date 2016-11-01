@@ -11,7 +11,7 @@ using System.Diagnostics;
 namespace minrva.iOS
 {
 	[Register ("AppDelegate")]
-	public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
+	public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
 	{
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
@@ -21,7 +21,10 @@ namespace minrva.iOS
 			// Initialize Xamarin Forms
 			global::Xamarin.Forms.Forms.Init ();
 
-			App.Init((IAuthenticate)this);
+			Xamarin.FormsMaps.Init();
+
+			App.Init(this);
+			//App.Init((IAuthenticate)this);
 
 			LoadApplication (new App ());
 
