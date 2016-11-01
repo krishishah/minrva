@@ -1,14 +1,17 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="minrva/App.cs" Line="12" Column="17" />
-      <File FileName="minrva/AppPages/MessagesPage.xaml.cs" Line="137" Column="2" />
+      <File FileName="minrva/AppPages/MessagesPage.xaml.cs" Line="17" Column="24" />
+      <File FileName="iOS/Main.cs" Line="20" Column="3" />
+      <File FileName="minrva/AppPages/ChatPage.xaml.cs" Line="21" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.3E63DB6D-E618-4EAB-BB98-DABBF21F51F5" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/Ashwitha/minrva/frontEnd/app/minrva_Xamarin_Forms/minrva/NewMessagePage.xaml.cs" line="23" column="36" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

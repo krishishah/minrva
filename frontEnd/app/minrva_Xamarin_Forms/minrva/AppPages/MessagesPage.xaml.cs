@@ -36,6 +36,9 @@ namespace minrva
 			//	await DisplayAlert("Success", "You have confirmed the loan. You can now contact " + reqMsg.Borrower.FirstName + " " + reqMsg.Borrower.LastName + " at " + reqMsg.Borrower.Email + " to confirm when and where to complete the transaction.", "Ok");
 			//	await RefreshItems(true, syncItems: false);
 			//}
+			ChatPage chatPage = new ChatPage(reqMsg.Borrower.FirstName, req.ItemId);
+			await Navigation.PushModalAsync(chatPage, false);
+
 		}
 
 		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh

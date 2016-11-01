@@ -1,13 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.NewMessagePage">
-	<StackLayout Orientation="Vertical" Padding="5, 20, 5, 0">
-		<Label Text="To">
-		</Label>
-		<Label Text="{Binding Username}">
-		</Label>
-		<Entry Text="{Binding Message}" Placeholder="Message">
-		</Entry>
-		<Button Text="Send Message" Command="{Binding SendMessageCommand}">
-		</Button>
-	</StackLayout>
+	<ContentPage.Content>
+	</ContentPage.Content>
 </ContentPage>

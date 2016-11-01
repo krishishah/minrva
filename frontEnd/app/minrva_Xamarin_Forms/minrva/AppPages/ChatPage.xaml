@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.ChatPage">
+	<ContentPage.Content>
+		<StackLayout Orientation="Vertical" Padding="5, 20, 5, 0">
+		<Button Text="Back" Clicked="BackButtonCommand" HorizontalOptions="Start">
+		</Button>
+		<Label Text="{Binding Username}" HorizontalOptions="Center">
+		</Label>
+		<ListView x:Name="acceptedList">
+  		<ListView.ItemTemplate>
+    		<DataTemplate>
+      			<TextCell Text="" Detail=""/>					 	
+    		</DataTemplate>
+  		</ListView.ItemTemplate>
+    	</ListView>
+		<Entry Text="{Binding Message}" Placeholder="Message">
+		</Entry>
+		<Button Text="Send Message" Command="{Binding SendMessageCommand}">
+		</Button>
+	</StackLayout>
+		
+	</ContentPage.Content>
+</ContentPage>

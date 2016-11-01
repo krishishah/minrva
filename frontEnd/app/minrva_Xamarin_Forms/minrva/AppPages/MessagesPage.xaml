@@ -19,11 +19,11 @@
       		</ListView.ItemTemplate>
     	</ListView>-->
 <!--		<Label Text="Accepted Borrow Requests"/>-->
-		<ListView x:Name="acceptedList"
+		<ListView x:Name="acceptedList" ItemSelected="OnSelected"
 				IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
       		<ListView.ItemTemplate>
         		<DataTemplate>
-          			<TextCell Text="{Binding RequestedItem.Name}" Detail="{Binding Borrower.FirstName}"/>
+          			<TextCell Text="{Binding RequestedItem.Name}" Detail="{Binding Borrower.FirstName}"/>					 	
         		</DataTemplate>
       		</ListView.ItemTemplate>
     	</ListView>
