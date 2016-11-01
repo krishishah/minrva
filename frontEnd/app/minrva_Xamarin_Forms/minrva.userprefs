@@ -1,8 +1,7 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/Main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/InsertItemPage.xaml.cs">
     <Files>
-      <File FileName="minrva/AppPages/BorrowItemPage.xaml.cs" Line="37" Column="59" />
-      <File FileName="iOS/Main.cs" Line="18" Column="1" />
+      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="35" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
