@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
 using Foundation;
 using UIKit;
-
 using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
 using System.Diagnostics;
-
+             
 namespace minrva.iOS
 {
 	[Register ("AppDelegate")]
@@ -23,11 +21,18 @@ namespace minrva.iOS
 			// Initialize Xamarin Forms
 			global::Xamarin.Forms.Forms.Init ();
 
+			Xamarin.FormsMaps.Init();
+
 			App.Init(this);
+			//App.Init((IAuthenticate)this);
 
 			LoadApplication (new App ());
 
 			UITabBar.Appearance.SelectedImageTintColor = UIColor.Red;
+
+			#if ENABLE_TEST_CLOUD
+			Xamarin.Calabash.Start();
+			#endif
 
 			return base.FinishedLaunching (app, options);
 		}

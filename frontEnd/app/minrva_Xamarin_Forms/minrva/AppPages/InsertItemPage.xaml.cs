@@ -2,20 +2,21 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 
 namespace minrva
 {
 	public partial class InsertItemPage : ContentPage
 	{
 		TableManager manager;
+		Geocoder geocoder;
 		string descriptionPlaceholder = "Enter Description";
-
 		public InsertItemPage()
 		{
 			InitializeComponent();
 
 			manager = TableManager.DefaultManager;
-
+			geocoder = new Geocoder();
 			newItemName.Keyboard = Keyboard.Create(KeyboardFlags.All);
 			newItemDescription.Keyboard = Keyboard.Create(KeyboardFlags.All);
 			newItemLocation.Keyboard = Keyboard.Create(KeyboardFlags.All);
@@ -38,13 +39,17 @@ namespace minrva
 
 		public async void OnAdd(object sender, EventArgs e)
 		{
+			string sid = await App.Authenticator.GetUserId();
+
 			if (string.IsNullOrEmpty(newItemName.Text)|| newItemCategory.SelectedIndex.Equals(-1) || string.IsNullOrEmpty(newItemDescription.Text) || string.IsNullOrEmpty(newItemLendDuration.Text) || string.IsNullOrEmpty(newItemLocation.Text))
 			{
 				await DisplayAlert("Error", "All fields must be completed", "Ok");
 			}
 			else {
-				string sid = await App.Authenticator.GetUserId();
-				var boardgames = new Boardgames { Name = newItemName.Text, Description = newItemDescription.Text, Lend_duration = Int32.Parse(newItemLendDuration.Text), Location = newItemLocation.Text, Owner = sid, Borrowed = false, Category = newItemCategory.Items[newItemCategory.SelectedIndex] };
+				var location = newItemLocation.Text;
+				var latitude = await getLatitudeFromLocation(location);
+				var longitude = await getLongitudeFromLocation(location);
+				var boardgames = new Boardgames { Name = newItemName.Text, Description = newItemDescription.Text, Lend_duration = Int32.Parse(newItemLendDuration.Text), Location = location, Latitude = latitude, Longitude = longitude, Owner = sid, Borrowed = false, Category = newItemCategory.Items[newItemCategory.SelectedIndex] };
 				await AddItem(boardgames);
 				await DisplayAlert("Success", "Your item has been added", "Ok");
 
@@ -57,6 +62,25 @@ namespace minrva
 				newItemName.Unfocus();
 			}
 		}
+
+		private async Task<double> getLatitudeFromLocation(string location)
+		{
+			var approximateLocations = await geocoder.GetPositionsForAddressAsync(location);
+			var enumerator = approximateLocations.GetEnumerator();
+			enumerator.MoveNext();
+			var position = enumerator.Current;
+			return position.Latitude;
+		}
+
+		private async Task<double> getLongitudeFromLocation(string location)
+		{
+			var approximateLocations = await geocoder.GetPositionsForAddressAsync(location);
+			var enumerator = approximateLocations.GetEnumerator();
+			enumerator.MoveNext();
+			var position = enumerator.Current;
+			return position.Longitude;
+		}
+
 	}
 }
 

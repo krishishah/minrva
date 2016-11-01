@@ -59,5 +59,9 @@
 	</array>
 	<key>CFBundleName</key>
 	<string>minrva</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Can we use your location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We are using your location</string>
 </dict>
 </plist>

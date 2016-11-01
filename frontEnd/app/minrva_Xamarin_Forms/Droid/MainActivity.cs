@@ -6,7 +6,6 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-
 using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
 using Android.Webkit;
@@ -18,7 +17,7 @@ namespace minrva.Droid
 		MainLauncher = true,
 		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
 		Theme = "@android:style/Theme.Material.Light")]
-	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
+	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
 	{
 		protected override void OnCreate(Bundle bundle)
 		{
@@ -29,6 +28,8 @@ namespace minrva.Droid
 
 			// Initialize Xamarin Forms
 			global::Xamarin.Forms.Forms.Init(this, bundle);
+
+			Xamarin.FormsMaps.Init(this, bundle);
 
 			// Initialize the authenticator before loading the app.
 			App.Init((IAuthenticate)this);
