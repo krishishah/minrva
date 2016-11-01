@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/MessagesPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="minrva/App.cs" Line="12" Column="17" />
-      <File FileName="minrva/AppPages/MessagesPage.xaml.cs" Line="36" Column="35" />
+      <File FileName="minrva/AppPages/MessagesPage.xaml.cs" Line="137" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
