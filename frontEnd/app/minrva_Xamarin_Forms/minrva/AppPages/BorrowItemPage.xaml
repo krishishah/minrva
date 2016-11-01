@@ -5,7 +5,7 @@
 		<Label x:Name="gameDescription" HorizontalOptions="Start"/>
 		<Label x:Name="gameLendDuration" HorizontalOptions="Start"/>
 		<Label Text="Borrow Start Date" HorizontalOptions="Start"/>
-		<DatePicker x:Name="startDate">
+		<DatePicker x:Name="startDate" DateSelected="startDateChanged">
          <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
       	</DatePicker>
 		<Label Text="Borrow End Date" HorizontalOptions="Start"/>
