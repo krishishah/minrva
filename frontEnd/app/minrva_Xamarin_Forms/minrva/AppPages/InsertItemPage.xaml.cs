@@ -67,8 +67,8 @@ namespace minrva
 		{
 			var approximateLocations = await geocoder.GetPositionsForAddressAsync(location);
 			var enumerator = approximateLocations.GetEnumerator();
+			enumerator.MoveNext();
 			var position = enumerator.Current;
-			System.Diagnostics.Debug.WriteLine("Latitude: " + position.Latitude);
 			return position.Latitude;
 		}
 
@@ -76,8 +76,8 @@ namespace minrva
 		{
 			var approximateLocations = await geocoder.GetPositionsForAddressAsync(location);
 			var enumerator = approximateLocations.GetEnumerator();
+			enumerator.MoveNext();
 			var position = enumerator.Current;
-			System.Diagnostics.Debug.WriteLine("Longitude: " + position.Longitude);
 			return position.Longitude;
 		}
 
