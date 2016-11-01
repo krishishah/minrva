@@ -28,7 +28,11 @@ namespace minrva
 		{
 			string sid = await App.Authenticator.GetUserId();
 
-			var boardgames = new Boardgames { Name = newItemName.Text, Description = newItemDescription.Text, Lend_duration = Int32.Parse(newItemLendDuration.Text), Location = newItemLocation.Text, Latitude = getLatitudeFromLocation(newItemLocation.Text).ToString(), Longitude = getLongitudeFromLocation(newItemLocation.Text).ToString(), Owner = sid, Borrowed = false};
+			var location = newItemLocation.Text;
+			var latitude = await getLatitudeFromLocation(location);
+			var longitude = await getLongitudeFromLocation(location);
+
+			var boardgames = new Boardgames { Name = newItemName.Text, Description = newItemDescription.Text, Lend_duration = Int32.Parse(newItemLendDuration.Text), Location = location, Latitude = latitude, Longitude = longitude, Owner = sid, Borrowed = false};
 			await AddItem(boardgames);
 
 			newItemName.Text = string.Empty;
