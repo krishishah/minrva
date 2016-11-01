@@ -7,13 +7,6 @@ using System.Threading.Tasks;
 namespace minrva
 {
 
-	public interface IAuthenticate
-	{
-		Task<bool> Authenticate();
-		Task<string> GetUserId();
-		Task<bool> LogoutAsync();
-	}
-
 	public class App : Application
 	{
 		public static IAuthenticate Authenticator { get; private set; }

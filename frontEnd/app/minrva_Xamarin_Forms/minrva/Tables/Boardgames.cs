@@ -13,6 +13,9 @@ namespace minrva
 		string location;
 		string owner;
 		bool borrowed;
+		double latitude;
+		double longitude;
+		string category;
 
 		[JsonProperty(PropertyName = "id")]
 		public string Id
@@ -49,6 +52,20 @@ namespace minrva
 			set { location = value; }
 		}
 
+		[JsonProperty(PropertyName = "latitude")]
+		public double Latitude
+		{
+			get { return latitude; }
+			set { latitude = value; }
+		}
+
+		[JsonProperty(PropertyName = "longitude")]
+		public double Longitude
+		{
+			get { return longitude; }
+			set { longitude = value; }
+		}
+
 		[JsonProperty(PropertyName = "owner")]
 		public string Owner
 		{
@@ -61,6 +78,13 @@ namespace minrva
 		{
 			get { return borrowed; }
 			set { borrowed = value; }
+		}
+
+		[JsonProperty(PropertyName = "category")]
+		public string Category
+		{
+			get { return category; }
+			set { category = value; }
 		}
 
 		[Version]

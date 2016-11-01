@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,12 +33,7 @@ namespace minrva
 				await tableManager.SaveRequestAsync(req);
 				requestedItem.Borrowed = true;
 				await tableManager.SaveBoardgamesAsync(requestedItem);
-				var result = await DisplayAlert("Success", "You have confirmed the loan. Would you like to message " + reqMsg.Borrower.FirstName + " " + reqMsg.Borrower.LastName , "Yes", "No");
-				if (result)
-				{
-					NewMessagePage messagePage = new NewMessagePage(reqMsg.Borrower.FirstName, req.ItemId);
-					await Navigation.PushModalAsync(messagePage, false);
-				}
+				await DisplayAlert("Success", "You have confirmed the loan. You can now contact " + reqMsg.Borrower.FirstName + " " + reqMsg.Borrower.LastName + " at " + reqMsg.Borrower.Email + " to confirm when and where to complete the transaction.", "Ok");
 				await RefreshItems(true, syncItems: false);
 			}
 		}

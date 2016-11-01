@@ -1,15 +1,12 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Profile.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/MessagesPage.xaml.cs">
     <Files>
-      <File FileName="minrva/AppPages/NewMessagePage.xaml.cs" Line="16" Column="26" />
-      <File FileName="minrva/AppPages/MessagesPage.xaml.cs" Line="38" Column="6" />
-      <File FileName="iOS/Main.cs" Line="17" Column="1" />
-      <File FileName="minrva/AppPages/Profile.xaml.cs" Line="19" Column="20" />
+      <File FileName="minrva/App.cs" Line="12" Column="17" />
+      <File FileName="minrva/AppPages/MessagesPage.xaml.cs" Line="36" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
-  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.D7BA792E-D538-4BE2-A3D1-1F022ED6199B" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.3E63DB6D-E618-4EAB-BB98-DABBF21F51F5" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
