@@ -25,6 +25,8 @@
     <MtouchProfiling>false</MtouchProfiling>
     <CodesignKey>iPhone Developer</CodesignKey>
     <AssemblyName>minrva.iOS</AssemblyName>
+    <RootNamespace>minrva.iOS</RootNamespace>
+
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>full</DebugType>

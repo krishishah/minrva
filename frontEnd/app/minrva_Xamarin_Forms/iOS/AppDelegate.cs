@@ -22,9 +22,9 @@ namespace minrva.iOS
 			// Initialize Xamarin Forms
 			global::Xamarin.Forms.Forms.Init ();
 
-			minrva.App.Init((IAuthenticate)this);
+			App.Init((IAuthenticate)this);
 
-			LoadApplication (new minrva.App ());
+			LoadApplication (new App ());
 
 			UITabBar.Appearance.SelectedImageTintColor = UIColor.Red;
 
@@ -43,7 +43,7 @@ namespace minrva.iOS
 				// Sign in with Facebook login using a server-managed flow.
 				if (user == null)
 				{
-					user = await minrva.TableManager.DefaultManager.CurrentClient
+					user = await TableManager.DefaultManager.CurrentClient
 						.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController,
 						MobileServiceAuthenticationProvider.Facebook);
 					if (user != null)
@@ -84,7 +84,7 @@ namespace minrva.iOS
 						NSHttpCookieStorage.SharedStorage.DeleteCookie(cookie);
 					}
 
-					await minrva.TableManager.DefaultManager.CurrentClient.LogoutAsync();
+					await TableManager.DefaultManager.CurrentClient.LogoutAsync();
 					var logoutAlert = new UIAlertView("Authentication", "You are now logged out " + user.UserId, null, "OK", null);
 					logoutAlert.Show();
 				}
