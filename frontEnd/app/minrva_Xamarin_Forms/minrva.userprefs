@@ -1,18 +1,33 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/AppDelegate.cs">
     <Files>
       <File FileName="iOS/Main.cs" Line="11" Column="3" />
       <File FileName="minrva/AppPages/UserAuth/SocialLogin.cs" Line="1" Column="1" />
-      <File FileName="minrva/App.cs" Line="14" Column="19" />
+      <File FileName="minrva/App.cs" Line="9" Column="2" />
       <File FileName="Droid/Properties/AssemblyInfo.cs" Line="9" Column="37" />
       <File FileName="Droid/Properties/AndroidManifest.xml" Line="1" Column="1" />
       <File FileName="Droid/Resources/Resource.designer2.cs" Line="13" Column="1" />
       <File FileName="iOS/packages.config" Line="5" Column="47" />
-      <File FileName="iOS/AppDelegate.cs" Line="10" Column="26" />
-      <File FileName="minrva/IAuthenticate.cs" Line="12" Column="1" />
-      <File FileName="minrva/packages.config" Line="1" Column="1" />
-      <File FileName="Droid/MainActivity.cs" Line="25" Column="8" />
+      <File FileName="iOS/AppDelegate.cs" Line="20" Column="50" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="minrva" expanded="True">
+            <Node name="minrva" expanded="True">
+              <Node name="Properties" expanded="True" />
+            </Node>
+            <Node name="minrva.Droid" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="Properties" expanded="True" />
+            </Node>
+            <Node name="minrva.iOS" expanded="True">
+              <Node name="AppDelegate.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />

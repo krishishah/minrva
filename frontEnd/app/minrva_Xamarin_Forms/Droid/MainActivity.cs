@@ -6,7 +6,6 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-
 using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
 using Android.Webkit;
