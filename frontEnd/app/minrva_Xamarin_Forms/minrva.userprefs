@@ -3,8 +3,8 @@
     <Files>
       <File FileName="iOS/AppDelegate.cs" Line="26" Column="11" />
       <File FileName="Droid/MainActivity.cs" Line="12" Column="22" />
-      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="25" Column="4" />
-      <File FileName="minrva/Tables/Boardgames.cs" Line="63" Column="4" />
+      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="42" Column="45" />
+      <File FileName="minrva/Tables/Boardgames.cs" Line="62" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />

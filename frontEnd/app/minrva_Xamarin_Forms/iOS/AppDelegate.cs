@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
 using Foundation;
 using UIKit;
-
+using minrva;
 using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
 using System.Diagnostics;
-
+             
 namespace minrva.iOS
 {
 	[Register ("AppDelegate")]
-	public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
+	public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
 	{
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
@@ -25,7 +24,8 @@ namespace minrva.iOS
 
 			Xamarin.FormsMaps.Init();
 
-			App.Init(this);
+			//App.Init(this);
+			App.Init((IAuthenticate)this);
 
 			LoadApplication (new App ());
 

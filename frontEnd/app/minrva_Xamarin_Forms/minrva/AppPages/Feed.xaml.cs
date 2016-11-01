@@ -44,19 +44,28 @@ namespace minrva
 		{
 			var game = e.SelectedItem as Boardgames;
 			var message = game.Description + "\n\nThis game is available in " + game.Location + " for " + game.Lend_duration + " days\n";
-			var alert = false;
-			if (Device.OS != TargetPlatform.iOS && game != null)
-			{
-				alert = await DisplayAlert(game.Name, message, "Borrow", "Cancel");
-			}
-			else {
-				alert = await DisplayAlert(game.Name, message, "Borrow", "Cancel");
-			}
+			bool alert = await DisplayAlert(game.Name, message, "Borrow", "Cancel");
 			if (alert)
 			{
 				BorrowItemPage borrowPage = new BorrowItemPage(game);
 				await Navigation.PushModalAsync(borrowPage, false);
 			}
+		}
+
+		public async void ShowCategory(object sender, EventArgs e)
+		{
+			string sid = await App.Authenticator.GetUserId();
+			var available = await manager.GetBoardgamesAsync();
+			string category = selectCategory.Items[selectCategory.SelectedIndex];
+			if (string.Equals(category, "All"))
+			{
+				feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed));
+			}
+			else
+			{
+				feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed) && (String.Equals(game.Category, category)));
+			}
+
 		}
 
 		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh
