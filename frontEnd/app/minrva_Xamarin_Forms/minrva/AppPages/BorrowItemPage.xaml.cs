@@ -40,7 +40,7 @@ namespace minrva
 				string borrower = await App.Authenticator.GetUserId();
 				string startDateString = String.Format("{0:dd/MM/yyyy}", startDate.Date);
 				string endDateString = String.Format("{0:dd/MM/yyyy}", endDate.Date);
-				var request = new Request { Borrower = borrower, Lender = owner, ItemId = id, StartDate = startDateString, EndDate = endDateString, Accepted = false };
+				var request = new Request { Borrower = borrower, Lender = owner, ItemId = id, StartDate = startDateString, EndDate = endDateString, Accepted = "Pending" };
 				await AddItem(request);
 				string msg = "Request sent to " + lender.FirstName + " " + lender.LastName + " to borrow " + gameName.Text + " from " + startDateString + " to "
 																			+ endDateString;

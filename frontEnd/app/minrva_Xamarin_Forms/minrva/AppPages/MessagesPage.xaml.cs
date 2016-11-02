@@ -38,7 +38,6 @@ namespace minrva
 			//}
 			ChatPage chatPage = new ChatPage(reqMsg.Borrower.FirstName, req.ItemId);
 			await Navigation.PushModalAsync(chatPage, false);
-
 		}
 
 		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh
@@ -79,7 +78,7 @@ namespace minrva
 				var games = await tableManager.GetBoardgamesAsync(syncItems);
 				var users = await tableManager.GetUserAsync(syncItems);
 				//var lenderItemRequests = reqs.Where(r => (String.Equals(r.Lender, sid)) && (r.Accepted == false));
-				var borrowItemRequests = reqs.Where(r => (String.Equals(r.Borrower, sid)) && (r.Accepted == true));
+				var borrowItemRequests = reqs.Where(r => (String.Equals(r.Borrower, sid)) && (r.Accepted == "True"));
 				//List<RequestMessage> reqMsgs = new List<RequestMessage>();
 				List<RequestMessage> acceptedMsgs = new List<RequestMessage>();
 				//foreach (Request r in lenderItemRequests)
@@ -88,12 +87,11 @@ namespace minrva
 				//	Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
 				//	reqMsgs.Add(new RequestMessage(requestedItem, borrowingUser, r));
 				//}
-
 				foreach (Request r in borrowItemRequests)
 				{
 					User lendingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
-					acceptedMsgs.Add(new RequestMessage(requestedItem, lendingUser, r));
+					//acceptedMsgs.Add(new RequestMessage(requestedItem, lendingUser, r));
 				}
 				//requestsList.ItemsSource = reqMsgs;
 				acceptedList.ItemsSource = acceptedMsgs;
