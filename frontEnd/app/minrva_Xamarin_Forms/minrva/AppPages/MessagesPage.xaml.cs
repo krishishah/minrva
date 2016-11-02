@@ -26,7 +26,7 @@ namespace minrva
 			var alert = await DisplayAlert("Borrowing request", "Would you like to lend " + requestedItem.Name + " to " + reqMsg.Borrower.FirstName + " " + reqMsg.Borrower.LastName + " from " + req.StartDate + " to " + req.EndDate, "Yes", "No");
 			if (alert)
 			{
-				req.Accepted = true;
+				req.Accepted = "True";
 				await tableManager.SaveRequestAsync(req);
 				requestedItem.Borrowed = true;
 				await tableManager.SaveBoardgamesAsync(requestedItem);
@@ -72,22 +72,22 @@ namespace minrva
 				var reqs = await tableManager.GetRequestAsync(syncItems);
 				var games = await tableManager.GetBoardgamesAsync(syncItems);
 				var users = await tableManager.GetUserAsync(syncItems);
-				var lenderItemRequests = reqs.Where(r => (String.Equals(r.Lender, sid)) && (r.Accepted == false));
-				var borrowItemRequests = reqs.Where(r => (String.Equals(r.Borrower, sid)) && (r.Accepted == true));
+				var lenderItemRequests = reqs.Where(r => (String.Equals(r.Lender, sid)) && (r.Accepted == "False"));
+				var borrowItemRequests = reqs.Where(r => (String.Equals(r.Borrower, sid)) && (r.Accepted == "True"));
 				List<RequestMessage> reqMsgs = new List<RequestMessage>();
 				List<RequestMessage> acceptedMsgs = new List<RequestMessage>();
 				foreach (Request r in lenderItemRequests)
 				{
 					User borrowingUser = users.Where(user => String.Equals(r.Borrower, user.UserId)).ElementAt(0);
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
-					reqMsgs.Add(new RequestMessage(requestedItem, borrowingUser, r));
+					//reqMsgs.Add(new RequestMessage(requestedItem, borrowingUser, r));
 				}
 
 				foreach (Request r in borrowItemRequests)
 				{
 					User lendingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
-					acceptedMsgs.Add(new RequestMessage(requestedItem, lendingUser, r));
+					//acceptedMsgs.Add(new RequestMessage(requestedItem, lendingUser, r));
 				}
 				requestsList.ItemsSource = reqMsgs;
 				acceptedList.ItemsSource = acceptedMsgs;

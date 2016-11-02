@@ -12,7 +12,8 @@ namespace minrva
 		string itemId;
 		string startDate;
 		string endDate;
-		bool accepted;
+		string accepted;
+		string updatedAt;
 
 		[JsonProperty(PropertyName = "id")]
 		public string Id
@@ -57,7 +58,14 @@ namespace minrva
 		}
 
 		[JsonProperty(PropertyName = "accepted")]
-		public bool Accepted
+		public string Accepted
+		{
+			get { return accepted; }
+			set { accepted = value; }
+		}
+
+		[JsonProperty(PropertyName = "updatedAt")]
+		public string UpdatedAt
 		{
 			get { return accepted; }
 			set { accepted = value; }

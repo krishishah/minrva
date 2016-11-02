@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.NotificationsPage">
+	<StackLayout Padding="20,20,20,20">
+		<Label Text="Notifications" HorizontalOptions="Center"/>
+<!--		<Label Text="Lend Requests" HorizontalOptions="Start"/>
+-->		<ActivityIndicator Grid.RowSpan="2"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       IsVisible="False"
+                       IsEnabled="True"
+                       x:Name="syncIndicator"/>
+		<ListView x:Name="notifsList"
+				ItemSelected="OnSelected"
+				IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
+      		<ListView.ItemTemplate>
+        		<DataTemplate>
+          			<TextCell Text="{Binding RequestType}: {Binding RequestedItem.Name}" Detail="{Binding Borrower.FirstName}"/>
+        		</DataTemplate>
+				
+      		</ListView.ItemTemplate>
+    	</ListView>
+	</StackLayout>
+</ContentPage>
