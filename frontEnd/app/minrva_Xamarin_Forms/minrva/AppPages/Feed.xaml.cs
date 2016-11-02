@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using System.Linq;
+using Plugin.Geolocator;
 
 namespace minrva
 {
@@ -13,11 +14,16 @@ namespace minrva
 		TableManager manager;
 		// Track whether the user has authenticated. 
 		bool authenticated = false;
+		double cLat;
+		double cLon;
+		Plugin.Geolocator.Abstractions.IGeolocator locator;
 
 		public Feed()
 		{
 			InitializeComponent();
 			manager = TableManager.DefaultManager;
+			locator = CrossGeolocator.Current;
+
 			RefreshItems(true, syncItems: false);
 		}
 
@@ -32,7 +38,7 @@ namespace minrva
 
 			// Refresh items only when authenticated.
 			if (authenticated == true)
-			{
+			{				
 				// Set syncItems to true in order to synchronize the data 
 				// on startup when running in offline mode.
 				await RefreshItems(true, syncItems: false);
@@ -71,6 +77,7 @@ namespace minrva
 		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh
 		public async void OnRefresh(object sender, EventArgs e)
 		{
+			
 			var list = (ListView)sender;
 			Exception error = null;
 			try
@@ -99,11 +106,22 @@ namespace minrva
 
 		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
 		{
+			var position = await locator.GetPositionAsync(timeoutMilliseconds: 10000);
+			cLat = position.Latitude;
+			cLon = position.Longitude;
+			await DisplayAlert("Lat", cLat.ToString(), "OK");
+			
 			using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
-			{
-				string sid = await App.Authenticator.GetUserId();
+			{				
+
 				var available = await manager.GetBoardgamesAsync(syncItems);
-				feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (game.Borrowed == false));
+
+				string sid = await App.Authenticator.GetUserId();
+
+
+				var list = available.Where(game => !String.Equals(game.Owner, sid) && (game.Borrowed == false));
+				list = list.OrderBy(s => (s.Latitude - cLat) * (s.Latitude - cLat) + (s.Longitude = cLon) * (s.Longitude = cLon));
+				feedList.ItemsSource = list;
 			}
 		}
 
