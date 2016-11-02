@@ -14,9 +14,8 @@
 				IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
       		<ListView.ItemTemplate>
         		<DataTemplate>
-          			<TextCell Text="{Binding RequestType}: {Binding RequestedItem.Name}" Detail="{Binding Borrower.FirstName}"/>
+          			<TextCell Text="{Binding NotificationView}" Detail="{Binding NotificationViewDetail}"/>
         		</DataTemplate>
-				
       		</ListView.ItemTemplate>
     	</ListView>
 	</StackLayout>

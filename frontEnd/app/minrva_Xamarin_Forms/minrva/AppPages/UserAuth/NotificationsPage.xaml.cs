@@ -25,7 +25,7 @@ namespace minrva
 			Request req = reqMsg.Request;
 			Boardgames requestedItem = reqMsg.RequestedItem;
 
-			if (reqMsg.AcceptStatus.Equals("Pending") && reqMsg.RequestType.Equals("Borrow Request"))
+			if (reqMsg.AcceptStatus.Equals("Pending") && reqMsg.RequestType.Equals("Lend Request"))
 			{
 				alert = await DisplayAlert("Borrowing request", "Would you like to lend " + requestedItem.Name + " to " + reqMsg.Borrower.FirstName + " " + reqMsg.Borrower.LastName + " from " + req.StartDate + " to " + req.EndDate, "Yes", "No");
 			}
@@ -98,7 +98,11 @@ namespace minrva
 					User borrowingUser = users.Where(user => String.Equals(r.Borrower, user.UserId)).ElementAt(0);
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
 					//lenderPendingMsgs.Add(new RequestMessage(requestedItem, borrowingUser, "Lend Request", "Pending", r.UpdatedAt, r));
-					requestsMsgs.Add(new RequestMessage(requestedItem, borrowingUser, String.Format("Lend Request"), "Pending", r.UpdatedAt, r));
+					string requestType = "Lend Request";
+					string requestStatus = "Pending";
+					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
+					string notifViewDetail = String.Format("{0} - {1}", borrowingUser.FirstName, requestStatus);
+					requestsMsgs.Add(new RequestMessage(requestedItem, borrowingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
 
 				}
 
@@ -107,7 +111,11 @@ namespace minrva
 					User borrowingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
 					//lenderAcceptedMsgs.Add(new RequestMessage(requestedItem, borrowingUser, "Lend Request", "True", r.UpdatedAt, r));
-					requestsMsgs.Add(new RequestMessage(requestedItem, borrowingUser, "Lend Request", "True", r.UpdatedAt, r));
+					string requestType = "Lend Request";
+					string requestStatus = "Accepted";
+					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
+					string notifViewDetail = String.Format("{0} - {1}", borrowingUser.FirstName, requestStatus);
+					requestsMsgs.Add(new RequestMessage(requestedItem, borrowingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
 
 				}
 
@@ -116,7 +124,11 @@ namespace minrva
 					User lendingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
 					//borrowerAcceptedMsgs.Add(new RequestMessage(requestedItem, lendingUser, "Borrow Request", "True", r.UpdatedAt, r));
-					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, "Borrow Request", "True", r.UpdatedAt, r));
+					string requestType = "Borrow Request";
+					string requestStatus = "Accepted";
+					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
+					string notifViewDetail = String.Format("{0} - {1}", lendingUser.FirstName, requestStatus);
+					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
 
 				}
 
@@ -125,7 +137,11 @@ namespace minrva
 					User lendingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
 					//borrowerPendingMsgs.Add(new RequestMessage(requestedItem, lendingUser, "Borrow Request", "Pending", r.UpdatedAt, r));
-					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, "Borrow Request", "Pending", r.UpdatedAt, r));
+					string requestType = "Borrow Request";
+					string requestStatus = "Pending";
+					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
+					string notifViewDetail = String.Format("{0} - {1}", lendingUser.FirstName, requestStatus);
+					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
 
 				}
 
@@ -134,16 +150,17 @@ namespace minrva
 					User lendingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
 					//borrowerRejectedMsgs.Add(new RequestMessage(requestedItem, lendingUser, "Borrow Request", "False", r.UpdatedAt, r));
-					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, "Borrow Request", "False", r.UpdatedAt, r));
+					string requestType = "Borrow Request";
+					string requestStatus = "Rejected";
+					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
+					string notifViewDetail = String.Format("{0} - {1}", lendingUser.FirstName, requestStatus);
+					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
 
 				}
 
 				requestsMsgs.Sort((y, x) => x.UpdatedAt.CompareTo(y.UpdatedAt));
 
 				notifsList.ItemsSource = requestsMsgs;
-
-				//requestsList.ItemsSource = reqMsgs;
-				//acceptedList.ItemsSource = acceptedMsgs;
 			}
 		}
 
