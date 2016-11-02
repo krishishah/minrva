@@ -34,6 +34,10 @@ namespace minrva
 		IMobileServiceTable<User> userTable;
 		IMobileServiceTable<Boardgames> boardgamesTable;
 		IMobileServiceTable<Request> requestTable;
+		IMobileServiceTable<Message> messageTable;
+		IMobileServiceTable<Chat> chatTable;
+
+
 #endif
 
 		const string offlineDbPath = @"localstore.db";
@@ -54,6 +58,8 @@ namespace minrva
 			this.userTable = client.GetTable<User>();
 			this.boardgamesTable = client.GetTable<Boardgames>();
 			this.requestTable = client.GetTable<Request>();
+			this.messageTable = client.GetTable<Message>();
+			this.chatTable = client.GetTable<Chat>();
 #endif
 		}
 
@@ -77,6 +83,32 @@ namespace minrva
 		public bool IsOfflineEnabled
 		{
 			get { return userTable is Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable<User>; }
+		}
+
+		public async Task<ObservableCollection<Chat>> GetChatAsync(bool syncItems = false)
+		{
+			try
+			{
+#if OFFLINE_SYNC_ENABLED
+                if (syncItems)
+                {
+                    await this.SyncAsync();
+                }
+#endif
+				IEnumerable<Chat> items = await chatTable
+					.ToEnumerableAsync();
+
+				return new ObservableCollection<Chat>(items);
+			}
+			catch (MobileServiceInvalidOperationException msioe)
+			{
+				Debug.WriteLine(@"Invalid sync operation: {0}", msioe.Message);
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(@"Sync error: {0}", e.Message);
+			}
+			return null;
 		}
 
 		public async Task<ObservableCollection<User>> GetUserAsync(bool syncItems = false)
@@ -156,6 +188,32 @@ namespace minrva
 			}
 			return null;
 		}
+
+		public async Task<ObservableCollection<Message>> GetMessageAsync(bool syncItems = false)
+		{
+			try
+			{
+#if OFFLINE_SYNC_ENABLED
+                if (syncItems)
+                {
+                    await this.SyncAsync();
+                }
+#endif
+				IEnumerable<Message> items = await messageTable
+					.ToEnumerableAsync();
+
+				return new ObservableCollection<Message>(items);
+			}
+			catch (MobileServiceInvalidOperationException msioe)
+			{
+				Debug.WriteLine(@"Invalid sync operation: {0}", msioe.Message);
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(@"Sync error: {0}", e.Message);
+			}
+			return null;
+		}
 		public async Task SaveUserAsync(User item)
 		{
 			if (item.Id == null)
@@ -165,6 +223,30 @@ namespace minrva
 			else
 			{
 				await userTable.UpdateAsync(item);
+			}
+		}
+
+		public async Task SaveMessageAsync(Message item)
+		{
+			if (item.Id == null)
+			{
+				await messageTable.InsertAsync(item);
+			}
+			else
+			{
+				await messageTable.UpdateAsync(item);
+			}
+		}
+
+		public async Task SaveChatAsync(Chat item)
+		{
+			if (item.Id == null)
+			{
+				await chatTable.InsertAsync(item);
+			}
+			else
+			{
+				await chatTable.UpdateAsync(item);
 			}
 		}
 
