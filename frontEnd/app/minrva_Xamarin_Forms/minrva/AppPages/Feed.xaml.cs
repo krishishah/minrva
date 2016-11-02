@@ -103,7 +103,21 @@ namespace minrva
 			{
 				string sid = await App.Authenticator.GetUserId();
 				var available = await manager.GetBoardgamesAsync(syncItems);
-				feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (game.Borrowed == false));
+				if (selectCategory.SelectedIndex == -1)
+				{
+					feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed));
+				}
+				else {
+					string category = selectCategory.Items[selectCategory.SelectedIndex];
+					if (string.Equals(category, "All"))
+					{
+						feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed));
+					}
+					else
+					{
+						feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed) && (String.Equals(game.Category, category)));
+					}
+				}
 			}
 		}
 

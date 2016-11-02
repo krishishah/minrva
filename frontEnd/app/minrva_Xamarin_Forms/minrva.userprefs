@@ -1,7 +1,8 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/InsertItemPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Feed.xaml.cs">
     <Files>
-      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="35" Column="31" />
+      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="54" Column="6" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
