@@ -15,6 +15,7 @@ namespace minrva
 		TableManager manager;
 		bool authenticated = false;
 
+
 		public MessagePage(User name, String itemId)
 		{
 			InitializeComponent();
@@ -94,6 +95,8 @@ namespace minrva
 		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
 		{
 			string sid = await App.Authenticator.GetUserId();
+			
+			
 			using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
 			{
 				var message = await manager.GetMessageAsync(syncItems);
@@ -105,7 +108,9 @@ namespace minrva
 		public async void SendMessageCommand(object sender, EventArgs e)
 		{
 			string sid = await App.Authenticator.GetUserId();
-
+			var chat = await manager.GetChatAsync();
+			string chatId = chat.Where(chat => ((String.Equals(chat.Lender, sid)) && String.Equals(chat.Receiver, Receiver.UserId)) ||
+							     ((String.Equals(chat.Receiver, sid)) && String.Equals(chat.Sender, Receiver.UserId))).ElementAt(0);
 			var message = new Message {Sender = sid, Receiver = Receiver.UserId, Text = newMessage.Text};
 			await AddItem(message);
 		}
