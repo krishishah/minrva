@@ -125,6 +125,11 @@ namespace minrva
 			}
 		}
 
+		async void gotoFeedMapPage(object sender, EventArgs e)
+		{
+			App.Current.MainPage = new FeedMapPage();
+		}
+
 		private class ActivityIndicatorScope : IDisposable
 		{
 			private bool showIndicator;
@@ -161,5 +166,6 @@ namespace minrva
 				}
 			}
 		}
+
 	}
 }

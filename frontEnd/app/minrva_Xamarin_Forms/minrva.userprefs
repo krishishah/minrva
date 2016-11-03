@@ -1,15 +1,16 @@
-﻿<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
-  <MonoDevelop.Ide.Workbench>
+﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/FeedMapPage.xaml.cs">
     <Files>
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="1" Column="1" />
-      <File FileName="minrva/AppPages/BrowsePage.xaml.cs" Line="14" Column="31" />
-      <File FileName="minrva/AppPages/Profile.xaml.cs" Line="45" Column="42" />
-      <File FileName="minrva/AppPages/FeedMapPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="Droid/Properties/AndroidManifest.xml" Line="7" Column="118" />
+      <File FileName="minrva/AppPages/FeedMapPage.xaml.cs" Line="21" Column="1" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="107" Column="77" />
+      <File FileName="minrva/AppPages/UserAuth/LoginPage.xaml.cs" Line="33" Column="60" />
+      <File FileName="minrva/AppPages/MainTabContainer.xaml.cs" Line="12" Column="1" />
+      <File FileName="iOS/Main.cs" Line="18" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.06ae9ac1f0e96674" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.87FEEF8E-9FC2-4ACD-B113-53736C27E77E" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
