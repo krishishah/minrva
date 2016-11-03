@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using System.Linq;
 using Plugin.Geolocator;
+using Xamarin.Forms.Maps;
 
 namespace minrva
 {
@@ -17,13 +18,13 @@ namespace minrva
 		double cLat;
 		double cLon;
 		Plugin.Geolocator.Abstractions.IGeolocator locator;
+		Position position;
 
 		public Feed()
 		{
 			InitializeComponent();
 			manager = TableManager.DefaultManager;
 			locator = CrossGeolocator.Current;
-
 			RefreshItems(true, syncItems: false);
 		}
 
@@ -109,7 +110,8 @@ namespace minrva
 			var position = await locator.GetPositionAsync(timeoutMilliseconds: 10000);
 			cLat = position.Latitude;
 			cLon = position.Longitude;
-			await DisplayAlert("Lat", cLat.ToString(), "OK");
+			this.position = new Position(cLat, cLon);
+			//await DisplayAlert("Lat", cLat.ToString(), "OK");
 			
 			using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
 			{				
@@ -127,7 +129,7 @@ namespace minrva
 
 		async void gotoFeedMapPage(object sender, EventArgs e)
 		{
-			App.Current.MainPage = new FeedMapPage();
+			App.Current.MainPage = new FeedMapPage(position: position);
 		}
 
 		private class ActivityIndicatorScope : IDisposable
