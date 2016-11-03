@@ -124,7 +124,7 @@ namespace minrva
 					seen = false;
 				}
 
-				acceptedList.ItemsSource = reqs.Where(r => (String.Equals(r.Lender, sid)) && (String.Equals(r.Accepted, "True")));
+				acceptedList.ItemsSource = acceptedMsgs;
 				//acceptedList.ItemsSource = chats.Where(r => (String.Equals(r.Lender, sid)) || (String.Equals(r.Borrower, sid));
 			}
 		}
