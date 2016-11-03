@@ -6,6 +6,7 @@
 	<TabbedPage.Children>
 		<mypages:Feed Title="Available" Icon="Activity Feed-50@2x.png" />
 		<mypages:BrowsePage Title="Search" Icon="Search-50@2x.png" />
+		<mypages:NotificationsPage Title="Notifications" Icon="Notifications-50@2x.png" />
 		<mypages:InsertItemPage Title="Add" Icon="Plus-50@2x.png" />
 		<mypages:MessagesPage Title="Message" Icon="Speech Bubble-50@2x.png" />
 		<mypages:Profile Title="Profile" Icon="Gender Neutral User-50@2x.png" />
