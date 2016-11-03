@@ -19,6 +19,7 @@ namespace minrva
 		double cLon;
 		Plugin.Geolocator.Abstractions.IGeolocator locator;
 		Position position;
+		IEnumerable<Boardgames> listOfItems;
 
 		public Feed()
 		{
@@ -124,12 +125,13 @@ namespace minrva
 				var list = available.Where(game => !String.Equals(game.Owner, sid) && (game.Borrowed == false));
 				list = list.OrderBy(s => (s.Latitude - cLat) * (s.Latitude - cLat) + (s.Longitude = cLon) * (s.Longitude = cLon));
 				feedList.ItemsSource = list;
+				listOfItems = list;
 			}
 		}
 
 		async void gotoFeedMapPage(object sender, EventArgs e)
 		{
-			App.Current.MainPage = new FeedMapPage(position: position);
+			App.Current.MainPage = new FeedMapPage(position: position, list_of_items: listOfItems);
 		}
 
 		private class ActivityIndicatorScope : IDisposable

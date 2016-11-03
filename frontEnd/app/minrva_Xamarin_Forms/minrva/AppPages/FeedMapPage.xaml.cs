@@ -10,21 +10,24 @@ namespace minrva
 	{
 		TableManager manager;
 		Position currentPosition;
+		IEnumerable<Boardgames> list_of_items;
 
-		public FeedMapPage(Position position)
+		public FeedMapPage(Position position, IEnumerable<Boardgames> list_of_items)
 		{
 			InitializeComponent();
 			manager = TableManager.DefaultManager;
 			currentPosition = position;
+			this.list_of_items = list_of_items;
 			displayItems();
 		}
 
 		private async void displayItems()
 		{
 			MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(currentPosition, Distance.FromMiles(5.0)));
-			var available = await manager.GetBoardgamesAsync();
-			string sid = await App.Authenticator.GetUserId();
-			var list = available.Where(game => !String.Equals(game.Owner, sid) && (game.Borrowed == false));
+			//var available = await manager.GetBoardgamesAsync();
+			//string sid = await App.Authenticator.GetUserId();
+			//var list = available.Where(game => !String.Equals(game.Owner, sid) && (game.Borrowed == false));
+			var list = list_of_items;
 			foreach (var item in list)
 			{
 				Position position = new Position(item.Latitude, item.Longitude);

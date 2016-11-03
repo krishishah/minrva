@@ -1,10 +1,8 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/FeedMapPage.xaml.cs">
     <Files>
-      <File FileName="minrva/AppPages/FeedMapPage.xaml.cs" Line="35" Column="20" />
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="137" Column="3" />
-      <File FileName="minrva/AppPages/UserAuth/LoginPage.xaml.cs" Line="33" Column="60" />
-      <File FileName="iOS/Main.cs" Line="18" Column="1" />
+      <File FileName="minrva/AppPages/FeedMapPage.xaml.cs" Line="32" Column="5" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="134" Column="91" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
