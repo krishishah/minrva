@@ -124,14 +124,6 @@ namespace minrva
 			}
 		}
 
-		public async void OnTextChanged(object sender, TextChangedEventArgs e)
-		{
-			//feedList.ItemsSource = null;
-			//if (e.NewTextValue != string.Empty)
-			//{
-			//	selectCategory.IsVisible = false;
-			//}
-		}
 
 		public async void CancelPressed(object sender, EventArgs e)
 		{

@@ -1,9 +1,7 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Feed.xaml.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="139" Column="6" />
-      <File FileName="minrva/AppPages/BrowsePage.xaml.cs" Line="35" Column="4" />
-      <File FileName="iOS/Main.cs" Line="19" Column="1" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="126" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
