@@ -5,7 +5,6 @@
             xmlns:mypages="clr-namespace:minrva;assembly=minrva" x:Name="tabs">
 	<TabbedPage.Children>
 		<mypages:Feed Title="Available" Icon="Activity Feed-50@2x.png" />
-		<mypages:BrowsePage Title="Search" Icon="Search-50@2x.png" />
 		<mypages:NotificationsPage Title="Notifications" Icon="Notifications-50@2x.png" />
 		<mypages:InsertItemPage Title="Add" Icon="Plus-50@2x.png" />
 		<mypages:ChatsPage Title="Chat" Icon="Speech Bubble-50@2x.png" />
