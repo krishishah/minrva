@@ -1,20 +1,13 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Feed.xaml.cs">
     <Files>
-<<<<<<< HEAD
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="126" Column="3" />
-=======
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="139" Column="6" />
-      <File FileName="minrva/AppPages/BrowsePage.xaml.cs" Line="35" Column="4" />
-      <File FileName="iOS/Main.cs" Line="19" Column="1" />
-      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="54" Column="6" />
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="1" Column="1" />
->>>>>>> f0749aeb8a01490d2c51de9af08cb7d42dc5aa9c
+      <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="170" Column="17" />
+      <File FileName="minrva/Tables/Request.cs" Line="71" Column="19" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="45" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.6E3AF544-60A6-4E04-A970-175A18AD3689" />
+  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B9D00A3C-265B-47F0-813D-E693E601846D" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
