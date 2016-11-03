@@ -109,10 +109,11 @@ namespace minrva
 		{
 			string sid = await App.Authenticator.GetUserId();
 			var chat = await manager.GetChatAsync();
-			string chatId = chat.Where(chat => ((String.Equals(chat.Lender, sid)) && String.Equals(chat.Receiver, Receiver.UserId)) ||
-							     ((String.Equals(chat.Receiver, sid)) && String.Equals(chat.Sender, Receiver.UserId))).ElementAt(0);
-			var message = new Message {Sender = sid, Receiver = Receiver.UserId, Text = newMessage.Text};
+			var chatId = chat.Where(c => ((String.Equals(c.Lender, sid)) && String.Equals(c.Borrower, Receiver.UserId)) ||
+			                           ((String.Equals(c.Borrower, sid)) && String.Equals(c.Lender, Receiver.UserId))).ElementAt(0);
+			var message = new Message {Sender = sid, Receiver = Receiver.UserId, Text = newMessage.Text, ChatId = chatId.Id};
 			await AddItem(message);
+			await RefreshItems(false, false);
 		}
 
 		private class ActivityIndicatorScope : IDisposable
