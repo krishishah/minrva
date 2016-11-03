@@ -49,17 +49,26 @@ namespace minrva
 				var location = newItemLocation.Text;
 				var latitude = await getLatitudeFromLocation(location);
 				var longitude = await getLongitudeFromLocation(location);
-				var boardgames = new Boardgames { Name = newItemName.Text, Description = newItemDescription.Text, Lend_duration = Int32.Parse(newItemLendDuration.Text), Location = location, Latitude = latitude, Longitude = longitude, Owner = sid, Borrowed = false, Category = newItemCategory.Items[newItemCategory.SelectedIndex] };
-				await AddItem(boardgames);
-				await DisplayAlert("Success", "Your item has been added", "Ok");
+				int duration;
+				if (int.TryParse(newItemLendDuration.Text, out duration) && duration > 0)
+				{
+					var boardgames = new Boardgames { Name = newItemName.Text, Description = newItemDescription.Text, Lend_duration = Int32.Parse(newItemLendDuration.Text), Location = location, Latitude = latitude, Longitude = longitude, Owner = sid, Borrowed = false, Category = newItemCategory.Items[newItemCategory.SelectedIndex] };
+					await AddItem(boardgames);
+					await DisplayAlert("Success", "Your item has been added", "Ok");
 
-				newItemName.Text = string.Empty;
-				newItemDescription.Text = descriptionPlaceholder;
-				newItemDescription.TextColor = Color.Gray;
-				newItemLendDuration.Text = string.Empty;
-				newItemLocation.Text = string.Empty;
-				newItemCategory.SelectedIndex = -1;
-				newItemName.Unfocus();
+					newItemName.Text = string.Empty;
+					newItemDescription.Text = descriptionPlaceholder;
+					newItemDescription.TextColor = Color.Gray;
+					newItemLendDuration.Text = string.Empty;
+					newItemLocation.Text = string.Empty;
+					newItemCategory.SelectedIndex = -1;
+					newItemName.Unfocus();
+				}
+				else
+				{
+					await DisplayAlert("Error", "Number of days must be a whole number", "Ok");
+				}
+
 			}
 		}
 

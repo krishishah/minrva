@@ -137,8 +137,28 @@ namespace minrva
 		{
 			if (searchBar.Text == null)
 			{
+<<<<<<< HEAD
 				selectCategory.IsVisible = true;
 				await RefreshItems(false, syncItems: false);
+=======
+				string sid = await App.Authenticator.GetUserId();
+				var available = await manager.GetBoardgamesAsync(syncItems);
+				if (selectCategory.SelectedIndex == -1)
+				{
+					feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed));
+				}
+				else {
+					string category = selectCategory.Items[selectCategory.SelectedIndex];
+					if (string.Equals(category, "All"))
+					{
+						feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed));
+					}
+					else
+					{
+						feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed) && (String.Equals(game.Category, category)));
+					}
+				}
+>>>>>>> borrowitem
 			}
 		}
 
