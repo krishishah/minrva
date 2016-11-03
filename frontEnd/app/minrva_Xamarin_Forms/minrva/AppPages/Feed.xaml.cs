@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using System.Linq;
 using Plugin.Geolocator;
 using Xamarin.Forms.Maps;
+using System.Diagnostics;
 
 namespace minrva
 {
@@ -123,7 +124,12 @@ namespace minrva
 
 
 				var list = available.Where(game => !String.Equals(game.Owner, sid) && (game.Borrowed == false));
-				list = list.OrderBy(s => (s.Latitude - cLat) * (s.Latitude - cLat) + (s.Longitude = cLon) * (s.Longitude = cLon));
+				list = list.OrderBy(s => (s.Latitude - cLat) * (s.Latitude - cLat) + (s.Longitude - cLon) * (s.Longitude - cLon));
+				foreach (var item in list)
+				{
+					Debug.WriteLine("LatLon: " + item.Latitude + ", " + item.Longitude);
+				}
+
 				feedList.ItemsSource = list;
 				listOfItems = list;
 			}
