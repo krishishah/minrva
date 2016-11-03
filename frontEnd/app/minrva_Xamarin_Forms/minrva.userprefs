@@ -1,13 +1,14 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Feed.xaml.cs">
     <Files>
-      <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="170" Column="17" />
-      <File FileName="minrva/Tables/Request.cs" Line="71" Column="19" />
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="45" Column="17" />
+      <File FileName="minrva/AppPages/FeedMapPage.xaml.cs" Line="30" Column="102" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="132" Column="31" />
+      <File FileName="iOS/AppDelegate.cs" Line="14" Column="98" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B9D00A3C-265B-47F0-813D-E693E601846D" />
+  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.87FEEF8E-9FC2-4ACD-B113-53736C27E77E" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

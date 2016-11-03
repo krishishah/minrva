@@ -24,5 +24,6 @@
         		</DataTemplate>
       		</ListView.ItemTemplate>
     	</ListView>
+		<Button Text="Map" Clicked="gotoFeedMapPage" />
 	</StackLayout>
 </ContentPage>
