@@ -6,8 +6,9 @@ namespace minrva
 
 		Boardgames requestedItem;
 		User recipient;
+		bool amIBorrower;
 
-		public ChatDetails(Boardgames requestedItem, User recipient)
+		public ChatDetails(Boardgames requestedItem, User recipient, bool amIBorrower)
 		{
 			this.requestedItem = requestedItem;
 			this.recipient = recipient;
@@ -23,6 +24,12 @@ namespace minrva
 		{
 			get { return recipient; }
 			set { recipient = value; }
+		}
+
+		public bool AmIBorrower
+		{
+			get { return amIBorrower; }
+			set { amIBorrower = value; }
 		}
 	}
 }

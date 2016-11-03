@@ -6,15 +6,21 @@
 		</Button>
 		<Label Text="{Binding Username}" HorizontalOptions="Center">
 		</Label>
-		<ListView x:Name="acceptedList">
+		<ActivityIndicator Grid.RowSpan="2"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           IsVisible="False"
+           IsEnabled="True"
+           x:Name="syncIndicator"/>
+		<ListView x:Name="messageList" IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
   		<ListView.ItemTemplate>
     		<DataTemplate>
-      			<TextCell Text="{Binding RequestedItem.Name}"/>					 	
+      			<TextCell Text="{Binding Text}"/>					 	
     		</DataTemplate>
   		</ListView.ItemTemplate>
     	</ListView>
 		<Editor Focused="Handle_Focused" x:Name="newMessage" Text="Enter Message" TextColor="Gray" HeightRequest="100" />
-		<Button Text="Send Message" Command="{Binding SendMessageCommand}">
+		<Button Text="Send Message" Clicked="SendMessageCommand">
 		</Button>
 	</StackLayout>
 		

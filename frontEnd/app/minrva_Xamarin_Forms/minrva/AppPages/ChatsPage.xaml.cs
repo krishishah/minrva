@@ -26,7 +26,8 @@ namespace minrva
 			var chatDetails = e.SelectedItem as ChatDetails;
 			Boardgames requestedItem = chatDetails.RequestedItem;
 			User recipient = chatDetails.Recipient;
-			MessagePage messagePage = new MessagePage(recipient.FirstName, requestedItem.Id);
+
+			MessagePage messagePage = new MessagePage(recipient, requestedItem.Id);
 			await Navigation.PushModalAsync(messagePage, false);
 		}
 
@@ -59,6 +60,12 @@ namespace minrva
 			await RefreshItems(true, true);
 		}
 
+		// Data methods
+		async Task AddItem(Chat item)
+		{
+			await tableManager.SaveChatAsync(item);
+		}
+
 		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
 		{
 			using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
@@ -84,7 +91,7 @@ namespace minrva
 
 					foreach (ChatDetails c in acceptedMsgs)
 					{
-						if (String.Equals(borrowingUser.Id, c.Recipient.Id))
+						if ((String.Equals(lendingUser.Id, c.Recipient.Id)) || (String.Equals(borrowingUser.Id, c.Recipient.Id)))
 						{
 							seen = true;
 							Debug.WriteLine("Borrowing user if: {0}", borrowingUser.FirstName);
@@ -93,7 +100,7 @@ namespace minrva
 
 					if (!seen)
 					{
-						acceptedMsgs.Add(new ChatDetails(requestedItem, borrowingUser));
+						acceptedMsgs.Add(new ChatDetails(requestedItem, borrowingUser, false));
 					}
 
 					seen = false;
@@ -118,14 +125,30 @@ namespace minrva
 
 					if (!seen)
 					{
-						acceptedMsgs.Add(new ChatDetails(requestedItem, lendingUser));
+						acceptedMsgs.Add(new ChatDetails(requestedItem, lendingUser, true));
 					}
 
 					seen = false;
 				}
 
+				foreach (ChatDetails x in acceptedMsgs)
+				{
+
+					if (x.AmIBorrower)
+					{
+						var chat = new Chat { Lender = x.Recipient.UserId, Borrower = sid };
+						await AddItem(chat);
+					}
+					else
+					{
+						var chat = new Chat { Lender = sid, Borrower = x.Recipient.UserId };
+						await AddItem(chat);
+					}
+				}
+
 				acceptedList.ItemsSource = acceptedMsgs;
-				//acceptedList.ItemsSource = chats.Where(r => (String.Equals(r.Lender, sid)) || (String.Equals(r.Borrower, sid));
+				//acceptedList.ItemsSource = chats.Where(r => (String.Equals(r.Lender, sid)) || (String.Equals(r.Borrower, sid)));
+
 			}
 		}
 

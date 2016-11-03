@@ -35,8 +35,6 @@ namespace minrva
 			set { chatId = value; }
 		}
 
-	
-
 		[JsonProperty(PropertyName = "sender")]
 		public string Sender
 		{
@@ -44,15 +42,12 @@ namespace minrva
 			set { sender = value; }
 		}
 
-
-
 		[JsonProperty(PropertyName = "receiver")]
 		public string Receiver
 		{
 			get { return receiver; }
 			set { receiver = value; }
 		}
-
 
 		[JsonProperty(PropertyName = "text")]
 		public string Text
