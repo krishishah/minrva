@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.FeedMapPage" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
 	<ContentPage.Content>
-		<StackLayout VerticalOptions="StartAndExpand" Padding="10,20,10,10">			
+		<StackLayout VerticalOptions="FillAndExpand" Padding="10,20,10,10">			
 			<maps:Map x:Name="MyMap" HeightRequest="200" VerticalOptions="FillAndExpand" IsShowingUser="true" HasZoomEnabled="true" MapType="Street" />
 			<Button Text="Back" Clicked="gotoFeedPage" />
 		</StackLayout>

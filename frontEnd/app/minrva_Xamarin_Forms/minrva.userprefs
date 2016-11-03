@@ -1,8 +1,8 @@
-﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
+﻿<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/FeedMapPage.xaml.cs">
     <Files>
-      <File FileName="minrva/AppPages/FeedMapPage.xaml.cs" Line="21" Column="1" />
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="107" Column="77" />
+      <File FileName="minrva/AppPages/FeedMapPage.xaml.cs" Line="34" Column="7" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="24" Column="41" />
       <File FileName="minrva/AppPages/UserAuth/LoginPage.xaml.cs" Line="33" Column="60" />
       <File FileName="minrva/AppPages/MainTabContainer.xaml.cs" Line="12" Column="1" />
       <File FileName="iOS/Main.cs" Line="18" Column="1" />
