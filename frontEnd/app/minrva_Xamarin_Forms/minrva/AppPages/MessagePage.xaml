@@ -14,8 +14,6 @@
   		</ListView.ItemTemplate>
     	</ListView>
 		<Editor Focused="Handle_Focused" x:Name="newMessage" Text="Enter Message" TextColor="Gray" HeightRequest="100" />
-<!--		<Entry Text="{Binding Message}" Placeholder="Message">-->
-<!--		</Entry>-->
 		<Button Text="Send Message" Command="{Binding SendMessageCommand}">
 		</Button>
 	</StackLayout>

@@ -65,20 +65,67 @@ namespace minrva
 			{
 				string sid = await App.Authenticator.GetUserId();
 				var reqs = await tableManager.GetRequestAsync(syncItems);
+				var chats = await tableManager.GetChatAsync(syncItems);
 				var games = await tableManager.GetBoardgamesAsync(syncItems);
 				var users = await tableManager.GetUserAsync(syncItems);
 				//var lenderItemRequests = reqs.Where(r => (String.Equals(r.Lender, sid)) && (r.Accepted == false));
-				var borrowItemRequests = reqs.Where(r => (String.Equals(r.Borrower, sid)) && (String.Equals(r.Accepted,"True")));
-				List<ChatDetails> acceptedMsgs = new List<ChatDetails>();
+				var itemLendRequests = reqs.Where(r => (String.Equals(r.Lender,sid)) && (String.Equals(r.Accepted,"True")));
+				var itemBorrowRequests = reqs.Where(r => (String.Equals(r.Borrower, sid)) && (String.Equals(r.Accepted, "True")));
 
-				foreach (Request r in borrowItemRequests)
+				List<ChatDetails> acceptedMsgs = new List<ChatDetails>();
+				bool seen = false;
+
+				foreach (Request r in itemLendRequests)
 				{
+					User borrowingUser = users.Where(user => String.Equals(r.Borrower, user.UserId)).ElementAt(0);
 					User lendingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
-					acceptedMsgs.Add(new ChatDetails(requestedItem, lendingUser));
+
+
+					foreach (ChatDetails c in acceptedMsgs)
+					{
+						if (String.Equals(borrowingUser.Id, c.Recipient.Id))
+						{
+							seen = true;
+							Debug.WriteLine("Borrowing user if: {0}", borrowingUser.FirstName);
+						}
+					}
+
+					if (!seen)
+					{
+						acceptedMsgs.Add(new ChatDetails(requestedItem, borrowingUser));
+					}
+
+					seen = false;
 				}
 
-				acceptedList.ItemsSource = acceptedMsgs;
+
+				foreach (Request r in itemBorrowRequests)
+				{
+					User borrowingUser = users.Where(user => String.Equals(r.Borrower, user.UserId)).ElementAt(0);
+					User lendingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
+					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
+
+
+					foreach (ChatDetails c in acceptedMsgs)
+					{
+						if ((String.Equals(lendingUser.Id, c.Recipient.Id)) || (String.Equals(borrowingUser.Id, c.Recipient.Id)))
+						{
+							seen = true;
+							Debug.WriteLine("Lending user if: {0}", lendingUser.FirstName);
+						}
+					}
+
+					if (!seen)
+					{
+						acceptedMsgs.Add(new ChatDetails(requestedItem, lendingUser));
+					}
+
+					seen = false;
+				}
+
+				acceptedList.ItemsSource = reqs.Where(r => (String.Equals(r.Lender, sid)) && (String.Equals(r.Accepted, "True")));
+				//acceptedList.ItemsSource = chats.Where(r => (String.Equals(r.Lender, sid)) || (String.Equals(r.Borrower, sid));
 			}
 		}
 
