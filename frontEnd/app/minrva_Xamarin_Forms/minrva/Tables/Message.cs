@@ -1,5 +1,6 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
 using Newtonsoft.Json;
+using Xamarin.Forms;
 
 namespace minrva
 {
@@ -13,6 +14,7 @@ namespace minrva
 		string receiver;
 
 		string text;
+		public LayoutOptions Alignment { get; set; }
 
 		[JsonProperty(PropertyName = "id")]
 		public string Id

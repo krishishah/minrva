@@ -16,8 +16,12 @@
 		<ListView x:Name="messageList" IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
   		<ListView.ItemTemplate>
     		<DataTemplate>
-      			<TextCell Text="{Binding Text}"/>					 	
-    		</DataTemplate>
+				<ViewCell x:Name="viewCell">
+					<StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="{Binding Alignment}" Padding="0,10,10,0">
+      				<Label Text="{Binding Text}"/>
+      				</StackLayout>
+				</ViewCell>
+			</DataTemplate>
   		</ListView.ItemTemplate>
     	</ListView>
 		<Editor Focused="Handle_Focused" x:Name="newMessage" Text="Enter Message" TextColor="Gray" HeightRequest="100" />

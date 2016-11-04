@@ -100,8 +100,23 @@ namespace minrva
 			using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
 			{
 				var message = await manager.GetMessageAsync(syncItems);
-			
-				messageList.ItemsSource = message.Where(m => (String.Equals(m.Sender, sid)) && String.Equals(m.Receiver, Receiver.UserId));
+
+				var msgs = message.Where(m => (String.Equals(m.Sender, sid) && String.Equals(m.Receiver, Receiver.UserId))
+				                                || (String.Equals(m.Receiver, sid) && String.Equals(m.Sender, Receiver.UserId)));
+				foreach (Message m in msgs)
+				{
+					if (String.Equals(m.Sender, sid))
+					{
+						m.Alignment = LayoutOptions.EndAndExpand;
+					}
+					else 
+					{
+						m.Alignment = LayoutOptions.StartAndExpand;
+					}
+				}
+				messageList.ItemsSource = msgs;
+
+
 			}
 		}
 

@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/MessagePage.xaml.cs">
     <Files>
-      <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="31" Column="25" />
+      <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="110" Column="47" />
       <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="60" Column="6" />
       <File FileName="minrva/AppPages/Feed.xaml.cs" Line="20" Column="33" />
     </Files>
