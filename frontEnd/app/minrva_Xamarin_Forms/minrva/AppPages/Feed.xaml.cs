@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using System.Linq;
+using Plugin.Geolocator;
+using Xamarin.Forms.Maps;
+using System.Diagnostics;
 
 namespace minrva
 {
@@ -13,11 +16,17 @@ namespace minrva
 		TableManager manager;
 		// Track whether the user has authenticated. 
 		bool authenticated = false;
+		double cLat;
+		double cLon;
+		Plugin.Geolocator.Abstractions.IGeolocator locator;
+		Position position;
+		IEnumerable<Boardgames> listOfItems;
 
 		public Feed()
 		{
 			InitializeComponent();
 			manager = TableManager.DefaultManager;
+			locator = CrossGeolocator.Current;
 			RefreshItems(false, syncItems: false);
 		}
 
@@ -32,7 +41,7 @@ namespace minrva
 
 			// Refresh items only when authenticated.
 			if (authenticated == true)
-			{
+			{				
 				// Set syncItems to true in order to synchronize the data 
 				// on startup when running in offline mode.
 				await RefreshItems(true, syncItems: false);
@@ -85,6 +94,7 @@ namespace minrva
 		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh
 		public async void OnRefresh(object sender, EventArgs e)
 		{
+			
 			var list = (ListView)sender;
 			Exception error = null;
 			try
@@ -113,27 +123,40 @@ namespace minrva
 
 		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
 		{
+
 			if (selectCategory.IsVisible)
 			{
 				using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
 				{
+					var position = await locator.GetPositionAsync(timeoutMilliseconds: 10000);
+					cLat = position.Latitude;
+					cLon = position.Longitude;
+					this.position = new Position(cLat, cLon);
 					string sid = await App.Authenticator.GetUserId();
 					var available = await manager.GetBoardgamesAsync(syncItems);
+					IEnumerable<Boardgames> list = Enumerable.Empty<Boardgames>();
 					if (selectCategory.SelectedIndex == -1)
 					{
-						feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed));
+						list = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed));
 					}
 					else {
 						string category = selectCategory.Items[selectCategory.SelectedIndex];
 						if (string.Equals(category, "All"))
 						{
-							feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed));
+							list = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed));
 						}
 						else
 						{
-							feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed) && (String.Equals(game.Category, category)));
+							list = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed) && (String.Equals(game.Category, category)));
 						}
 					}
+					list = list.OrderBy(s => (s.Latitude - cLat) * (s.Latitude - cLat) + (s.Longitude - cLon) * (s.Longitude - cLon));
+					foreach (var item in list)
+					{
+						Debug.WriteLine("LatLon: " + item.Latitude + ", " + item.Longitude);
+					}
+					feedList.ItemsSource = list;
+					listOfItems = list;
 				}
 			}
 		}
@@ -152,6 +175,11 @@ namespace minrva
 		{
 			selectCategory.IsVisible = false;
 			feedList.ItemsSource = null;
+		}
+
+		async void gotoFeedMapPage(object sender, EventArgs e)
+		{
+			App.Current.MainPage = new FeedMapPage(position: position, list_of_items: listOfItems);
 		}
 
 		private class ActivityIndicatorScope : IDisposable
@@ -190,5 +218,6 @@ namespace minrva
 				}
 			}
 		}
+
 	}
 }

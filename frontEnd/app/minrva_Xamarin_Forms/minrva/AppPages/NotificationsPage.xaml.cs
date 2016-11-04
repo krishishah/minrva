@@ -94,66 +94,71 @@ namespace minrva
 
 				List<RequestMessage> requestsMsgs = new List<RequestMessage>();
 
+				string requestType = "Lend Request";
+				string requestStatus = "Pending";
 
 				foreach (Request r in lenderPendingRequests)
 				{
 					User borrowingUser = users.Where(user => String.Equals(r.Borrower, user.UserId)).ElementAt(0);
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
+					Debug.WriteLine("Date pending: {0}", r.UpdatedAt);
 					//lenderPendingMsgs.Add(new RequestMessage(requestedItem, borrowingUser, "Lend Request", "Pending", r.UpdatedAt, r));
-					string requestType = "Lend Request";
-					string requestStatus = "Pending";
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", borrowingUser.FirstName, requestStatus);
 					requestsMsgs.Add(new RequestMessage(requestedItem, borrowingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
 
 				}
+
+				requestStatus = "Accepted";
 
 				foreach (Request r in lenderAcceptedRequests)
 				{
-					User borrowingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
+					User borrowingUser = users.Where(user => String.Equals(r.Borrower, user.UserId)).ElementAt(0);
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
 					//lenderAcceptedMsgs.Add(new RequestMessage(requestedItem, borrowingUser, "Lend Request", "True", r.UpdatedAt, r));
-					string requestType = "Lend Request";
-					string requestStatus = "Accepted";
+					Debug.WriteLine("Date accepted: {0}", r.UpdatedAt);
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", borrowingUser.FirstName, requestStatus);
 					requestsMsgs.Add(new RequestMessage(requestedItem, borrowingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
 
 				}
+
+				requestType = "Borrow Request";
 
 				foreach (Request r in borrowAcceptedRequests)
 				{
 					User lendingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
 					//borrowerAcceptedMsgs.Add(new RequestMessage(requestedItem, lendingUser, "Borrow Request", "True", r.UpdatedAt, r));
-					string requestType = "Borrow Request";
-					string requestStatus = "Accepted";
+					Debug.WriteLine("Date accepted: {0}", r.UpdatedAt);
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", lendingUser.FirstName, requestStatus);
 					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
 
 				}
+
+				requestStatus = "Pending";
 
 				foreach (Request r in borrowPendingRequests)
 				{
 					User lendingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
 					//borrowerPendingMsgs.Add(new RequestMessage(requestedItem, lendingUser, "Borrow Request", "Pending", r.UpdatedAt, r));
-					string requestType = "Borrow Request";
-					string requestStatus = "Pending";
+					Debug.WriteLine("Date pending: {0}", r.UpdatedAt);
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", lendingUser.FirstName, requestStatus);
 					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
 
 				}
 
+				requestStatus = "Rejected";
+
 				foreach (Request r in borrowRejectedRequests)
 				{
 					User lendingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
 					//borrowerRejectedMsgs.Add(new RequestMessage(requestedItem, lendingUser, "Borrow Request", "False", r.UpdatedAt, r));
-					string requestType = "Borrow Request";
-					string requestStatus = "Rejected";
+					Debug.WriteLine("Date: {0}", r.UpdatedAt);
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", lendingUser.FirstName, requestStatus);
 					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));

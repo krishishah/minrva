@@ -67,8 +67,8 @@ namespace minrva
 		[JsonProperty(PropertyName = "updatedAt")]
 		public string UpdatedAt
 		{
-			get { return accepted; }
-			set { accepted = value; }
+			get { return updatedAt; }
+			set { updatedAt = value; }
 		}
 
 	}
