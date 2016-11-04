@@ -23,7 +23,7 @@ namespace minrva
 			Username = name.FirstName;
 			Receiver = name;
 			BindingContext = this;
-			RefreshItems(true, syncItems: false);
+			RefreshItems(false, syncItems: false);
 		}
 
 		public void Authenticate()
@@ -40,7 +40,7 @@ namespace minrva
 			{
 				// Set syncItems to true in order to synchronize the data 
 				// on startup when running in offline mode.
-				await RefreshItems(true, syncItems: false);
+				await RefreshItems(false, syncItems: false);
 
 			}
 		}
@@ -107,13 +107,18 @@ namespace minrva
 
 		public async void SendMessageCommand(object sender, EventArgs e)
 		{
-			string sid = await App.Authenticator.GetUserId();
-			var chat = await manager.GetChatAsync();
-			var chatId = chat.Where(c => ((String.Equals(c.Lender, sid)) && String.Equals(c.Borrower, Receiver.UserId)) ||
-			                           ((String.Equals(c.Borrower, sid)) && String.Equals(c.Lender, Receiver.UserId))).ElementAt(0);
-			var message = new Message {Sender = sid, Receiver = Receiver.UserId, Text = newMessage.Text, ChatId = chatId.Id};
-			await AddItem(message);
-			await RefreshItems(false, false);
+			if (!Equals(newMessage.Text, descriptionPlaceholder))
+			{
+				string sid = await App.Authenticator.GetUserId();
+				var chat = await manager.GetChatAsync();
+				var chatId = chat.Where(c => ((String.Equals(c.Lender, sid)) && String.Equals(c.Borrower, Receiver.UserId)) ||
+									   ((String.Equals(c.Borrower, sid)) && String.Equals(c.Lender, Receiver.UserId))).ElementAt(0);
+				var message = new Message { Sender = sid, Receiver = Receiver.UserId, Text = newMessage.Text, ChatId = chatId.Id };
+				await AddItem(message);
+				await RefreshItems(false, syncItems: false);
+				newMessage.Text = descriptionPlaceholder;
+				newMessage.TextColor = Color.Gray;
+			}
 		}
 
 		private class ActivityIndicatorScope : IDisposable

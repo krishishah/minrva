@@ -18,7 +18,7 @@ namespace minrva
 		{
 			InitializeComponent();
 			manager = TableManager.DefaultManager;
-			RefreshItems(true, syncItems: false);
+			RefreshItems(false, syncItems: false);
 		}
 
 		public void Authenticate()
