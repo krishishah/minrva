@@ -14,6 +14,7 @@ namespace minrva
 		string receiver;
 
 		string text;
+		[JsonIgnore]
 		public LayoutOptions Alignment { get; set; }
 
 		[JsonProperty(PropertyName = "id")]
