@@ -18,7 +18,7 @@ namespace minrva
 		{
 			InitializeComponent();
 			manager = TableManager.DefaultManager;
-			RefreshItems(true, syncItems: false);
+			RefreshItems(false, syncItems: false);
 		}
 
 		public void Authenticate()
@@ -37,6 +37,20 @@ namespace minrva
 				// on startup when running in offline mode.
 				await RefreshItems(true, syncItems: false);
 
+			}
+		}
+
+		public async void OnSearch(object sender, EventArgs e)
+		{
+			var boardGamesTable = await manager.GetBoardgamesAsync();
+			string sid = await App.Authenticator.GetUserId();
+			var results = boardGamesTable.Where(b => (!String.Equals(b.Owner, sid)) && (String.Equals(b.Name, searchBar.Text, StringComparison.CurrentCultureIgnoreCase)) && b.Borrowed == false);
+			if (results.Count() > 0)
+			{
+				feedList.ItemsSource = results;
+			}
+			else {
+				await DisplayAlert("No results found", searchBar.Text + " is currently not available", "Cancel");
 			}
 		}
 
@@ -99,12 +113,45 @@ namespace minrva
 
 		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
 		{
-			using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
+			if (selectCategory.IsVisible)
 			{
-				string sid = await App.Authenticator.GetUserId();
-				var available = await manager.GetBoardgamesAsync(syncItems);
-				feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (game.Borrowed == false));
+				using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
+				{
+					string sid = await App.Authenticator.GetUserId();
+					var available = await manager.GetBoardgamesAsync(syncItems);
+					if (selectCategory.SelectedIndex == -1)
+					{
+						feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed));
+					}
+					else {
+						string category = selectCategory.Items[selectCategory.SelectedIndex];
+						if (string.Equals(category, "All"))
+						{
+							feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed));
+						}
+						else
+						{
+							feedList.ItemsSource = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed) && (String.Equals(game.Category, category)));
+						}
+					}
+				}
 			}
+		}
+
+
+		public async void CancelPressed(object sender, EventArgs e)
+		{
+			if (searchBar.Text == null)
+			{
+				selectCategory.IsVisible = true;
+				await RefreshItems(false, syncItems: false);
+			}
+		}
+
+		public async void Searching(object sender, EventArgs e)
+		{
+			selectCategory.IsVisible = false;
+			feedList.ItemsSource = null;
 		}
 
 		private class ActivityIndicatorScope : IDisposable

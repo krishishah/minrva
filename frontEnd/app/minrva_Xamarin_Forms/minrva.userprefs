@@ -1,8 +1,12 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/AppDelegate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/Tables/Message.cs">
     <Files>
       <File FileName="minrvaUITests/Tests.cs" Line="29" Column="16" />
       <File FileName="iOS/AppDelegate.cs" Line="14" Column="26" />
+      <File FileName="minrva/AppPages/ChatsPage.xaml.cs" Line="71" Column="65" />
+      <File FileName="iOS/Main.cs" Line="19" Column="1" />
+      <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="132" Column="28" />
+      <File FileName="minrva/Tables/Message.cs" Line="10" Column="20" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">

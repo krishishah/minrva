@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,11 +10,11 @@ using Xamarin.Forms;
 
 namespace minrva
 {
-	public partial class MessagesPage : ContentPage
+	public partial class ChatsPage : ContentPage
 	{
 		TableManager tableManager;
 
-		public MessagesPage()
+		public ChatsPage()
 		{
 			InitializeComponent();
 			tableManager = TableManager.DefaultManager;
@@ -20,19 +23,12 @@ namespace minrva
 
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
-			var reqMsg = e.SelectedItem as RequestMessage;
-			Request req = reqMsg.Request;
-			Boardgames requestedItem = reqMsg.RequestedItem;
-			var alert = await DisplayAlert("Borrowing request", "Would you like to lend " + requestedItem.Name + " to " + reqMsg.Borrower.FirstName + " " + reqMsg.Borrower.LastName + " from " + req.StartDate + " to " + req.EndDate, "Yes", "No");
-			if (alert)
-			{
-				req.Accepted = true;
-				await tableManager.SaveRequestAsync(req);
-				requestedItem.Borrowed = true;
-				await tableManager.SaveBoardgamesAsync(requestedItem);
-				await DisplayAlert("Success", "You have confirmed the loan. You can now contact " + reqMsg.Borrower.FirstName + " " + reqMsg.Borrower.LastName + " at " + reqMsg.Borrower.Email + " to confirm when and where to complete the transaction.", "Ok");
-				await RefreshItems(true, syncItems: false);
-			}
+			var chatDetails = e.SelectedItem as ChatDetails;
+			Boardgames requestedItem = chatDetails.RequestedItem;
+			User recipient = chatDetails.Recipient;
+
+			MessagePage messagePage = new MessagePage(recipient, requestedItem.Id);
+			await Navigation.PushModalAsync(messagePage, false);
 		}
 
 		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh
@@ -64,33 +60,95 @@ namespace minrva
 			await RefreshItems(true, true);
 		}
 
+		// Data methods
+		async Task AddItem(Chat item)
+		{
+			await tableManager.SaveChatAsync(item);
+		}
+
 		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
 		{
 			using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
 			{
 				string sid = await App.Authenticator.GetUserId();
 				var reqs = await tableManager.GetRequestAsync(syncItems);
+				var chats = await tableManager.GetChatAsync(syncItems);
 				var games = await tableManager.GetBoardgamesAsync(syncItems);
 				var users = await tableManager.GetUserAsync(syncItems);
-				var lenderItemRequests = reqs.Where(r => (String.Equals(r.Lender, sid)) && (r.Accepted == false));
-				var borrowItemRequests = reqs.Where(r => (String.Equals(r.Borrower, sid)) && (r.Accepted == true));
-				List<RequestMessage> reqMsgs = new List<RequestMessage>();
-				List<RequestMessage> acceptedMsgs = new List<RequestMessage>();
-				foreach (Request r in lenderItemRequests)
+				//var lenderItemRequests = reqs.Where(r => (String.Equals(r.Lender, sid)) && (r.Accepted == false));
+				var itemLendRequests = reqs.Where(r => (String.Equals(r.Lender,sid)) && (String.Equals(r.Accepted,"True")));
+				var itemBorrowRequests = reqs.Where(r => (String.Equals(r.Borrower, sid)) && (String.Equals(r.Accepted, "True")));
+
+				List<ChatDetails> acceptedMsgs = new List<ChatDetails>();
+				bool seen = false;
+
+				foreach (Request r in itemLendRequests)
 				{
 					User borrowingUser = users.Where(user => String.Equals(r.Borrower, user.UserId)).ElementAt(0);
-					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
-					reqMsgs.Add(new RequestMessage(requestedItem, borrowingUser, r));
-				}
-
-				foreach (Request r in borrowItemRequests)
-				{
 					User lendingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
-					acceptedMsgs.Add(new RequestMessage(requestedItem, lendingUser, r));
+
+
+					foreach (ChatDetails c in acceptedMsgs)
+					{
+						if ((String.Equals(lendingUser.Id, c.Recipient.Id)) || (String.Equals(borrowingUser.Id, c.Recipient.Id)))
+						{
+							seen = true;
+							Debug.WriteLine("Borrowing user if: {0}", borrowingUser.FirstName);
+						}
+					}
+
+					if (!seen)
+					{
+						acceptedMsgs.Add(new ChatDetails(requestedItem, borrowingUser, false));
+					}
+
+					seen = false;
 				}
-				requestsList.ItemsSource = reqMsgs;
+
+
+				foreach (Request r in itemBorrowRequests)
+				{
+					User borrowingUser = users.Where(user => String.Equals(r.Borrower, user.UserId)).ElementAt(0);
+					User lendingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
+					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
+
+
+					foreach (ChatDetails c in acceptedMsgs)
+					{
+						if ((String.Equals(lendingUser.Id, c.Recipient.Id)) || (String.Equals(borrowingUser.Id, c.Recipient.Id)))
+						{
+							seen = true;
+							Debug.WriteLine("Lending user if: {0}", lendingUser.FirstName);
+						}
+					}
+
+					if (!seen)
+					{
+						acceptedMsgs.Add(new ChatDetails(requestedItem, lendingUser, true));
+					}
+
+					seen = false;
+				}
+
+				foreach (ChatDetails x in acceptedMsgs)
+				{
+
+					if (x.AmIBorrower)
+					{
+						var chat = new Chat { Lender = x.Recipient.UserId, Borrower = sid };
+						await AddItem(chat);
+					}
+					else
+					{
+						var chat = new Chat { Lender = sid, Borrower = x.Recipient.UserId };
+						await AddItem(chat);
+					}
+				}
+
 				acceptedList.ItemsSource = acceptedMsgs;
+				//acceptedList.ItemsSource = chats.Where(r => (String.Equals(r.Lender, sid)) || (String.Equals(r.Borrower, sid)));
+
 			}
 		}
 
