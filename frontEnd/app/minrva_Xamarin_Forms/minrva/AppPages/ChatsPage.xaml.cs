@@ -61,10 +61,10 @@ namespace minrva
 		}
 
 		// Data methods
-		async Task AddItem(Chat item)
-		{
-			await tableManager.SaveChatAsync(item);
-		}
+		//async Task AddItem(Chat item)
+		//{
+		//	await tableManager.SaveChatAsync(item);
+		//}
 
 		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
 		{
@@ -131,21 +131,20 @@ namespace minrva
 					seen = false;
 				}
 
-				foreach (ChatDetails x in acceptedMsgs)
-				{
+				//foreach (ChatDetails x in acceptedMsgs)
+				//{
 
-					if (x.AmIBorrower)
-					{
-						var chat = new Chat { Lender = x.Recipient.UserId, Borrower = sid };
-						await AddItem(chat);
-					}
-					else
-					{
-						var chat = new Chat { Lender = sid, Borrower = x.Recipient.UserId };
-						await AddItem(chat);
-					}
-				}
-
+				//	if (x.AmIBorrower)
+				//	{
+				//		var chat = new Chat { Lender = x.Recipient.UserId, Borrower = sid };
+				//		await AddItem(chat);
+				//	}
+				//	else
+				//	{
+				//		var chat = new Chat { Lender = sid, Borrower = x.Recipient.UserId };
+				//		await AddItem(chat);
+				//	}
+				//}
 				acceptedList.ItemsSource = acceptedMsgs;
 				//acceptedList.ItemsSource = chats.Where(r => (String.Equals(r.Lender, sid)) || (String.Equals(r.Borrower, sid)));
 

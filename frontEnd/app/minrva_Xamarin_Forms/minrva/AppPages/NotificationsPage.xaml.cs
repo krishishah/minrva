@@ -11,11 +11,19 @@ namespace minrva
 	{
 		TableManager tableManager;
 
+
 		public NotificationsPage()
 		{
 			InitializeComponent();
 			tableManager = TableManager.DefaultManager;
 			RefreshItems(true, syncItems: false);
+		}
+
+
+
+		async Task AddItem(Chat item)
+		{
+			await tableManager.SaveChatAsync(item);
 		}
 
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
@@ -38,10 +46,15 @@ namespace minrva
 				await tableManager.SaveBoardgamesAsync(requestedItem);
 				await DisplayAlert("Success", "You have confirmed the loan. You can now contact " + reqMsg.Borrower.FirstName + " " + reqMsg.Borrower.LastName + " at " + reqMsg.Borrower.Email + " to confirm when and where to complete the transaction.", "Ok");
 				await RefreshItems(true, syncItems: false);
+				string sid = await App.Authenticator.GetUserId();
+
 				//add code to create new chat in backend
+				var chat = new Chat { Lender = sid, Borrower = reqMsg.Borrower.UserId };
+				await AddItem(chat);
 
 			}
 		}
+
 
 		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh
 		public async void OnRefresh(object sender, EventArgs e)
