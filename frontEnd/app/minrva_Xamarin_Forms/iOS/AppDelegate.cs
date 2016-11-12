@@ -31,8 +31,9 @@ namespace minrva.iOS
 			UITabBar.Appearance.SelectedImageTintColor = UIColor.Red;
 
 			#if ENABLE_TEST_CLOUD
-			Xamarin.Calabash.Start();
+
 			#endif
+			Xamarin.Calabash.Start();
 
 			return base.FinishedLaunching (app, options);
 		}
