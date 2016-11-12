@@ -104,7 +104,8 @@ Global
 		{34B9099E-4B00-4707-BFDE-0B95997F8893}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
 		{34B9099E-4B00-4707-BFDE-0B95997F8893}.Release|x64.ActiveCfg = Release|Any CPU
 		{34B9099E-4B00-4707-BFDE-0B95997F8893}.Release|x86.ActiveCfg = Release|Any CPU
-		{34B9099E-4B00-4707-BFDE-0B95997F8893}.iOS Release|iPhone.ActiveCfg = iOS Release|iPhone
+		{34B9099E-4B00-4707-BFDE-0B95997F8893}.iOS Release|iPhone.ActiveCfg = Debug|Any CPU
+		{34B9099E-4B00-4707-BFDE-0B95997F8893}.iOS Release|iPhone.Build.0 = Debug|Any CPU
 		{FC9509E4-F284-4FD5-9D8A-2D0BBBFB9B06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FC9509E4-F284-4FD5-9D8A-2D0BBBFB9B06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC9509E4-F284-4FD5-9D8A-2D0BBBFB9B06}.Debug|ARM.ActiveCfg = Debug|Any CPU
