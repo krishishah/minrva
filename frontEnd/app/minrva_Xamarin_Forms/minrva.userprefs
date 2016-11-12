@@ -1,13 +1,35 @@
-﻿<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Feed.xaml.cs">
+﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/AppDelegate.cs">
     <Files>
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="18" Column="30" />
+      <File FileName="minrva/AppPages/ChatsPage.xaml.cs" Line="71" Column="65" />
+      <File FileName="iOS/Main.cs" Line="19" Column="1" />
+      <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="132" Column="28" />
+      <File FileName="minrva/Tables/Message.cs" Line="54" Column="3" />
+      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="60" Column="23" />
+      <File FileName="minrvaUITests/Tests.cs" Line="22" Column="4" />
+      <File FileName="../../../../../../Library/Frameworks/Xamarin.iOS.framework/Versions/10.2.0.4/lib/mono/2.1/Xamarin.iOS.Common.targets" Line="1" Column="1" />
+      <File FileName="iOS/Info.plist" />
+      <File FileName="minrvaUITests/packages.config" Line="1" Column="1" />
+      <File FileName="iOS/packages.config" Line="12" Column="12" />
+      <File FileName="iOS/Entitlements.plist" />
+      <File FileName="iOS/AppDelegate.cs" Line="23" Column="4" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="minrva" expanded="True">
+            <Node name="minrvaUITests" expanded="True" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B9D00A3C-265B-47F0-813D-E693E601846D" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.minrvaUITests PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

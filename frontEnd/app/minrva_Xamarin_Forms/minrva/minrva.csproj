@@ -62,7 +62,7 @@
     <Compile Include="AppPages\Feed.xaml.cs">
       <DependentUpon>Feed.xaml</DependentUpon>
     </Compile>
-    <Compile  Include="AppPages\InsertItemPage.xaml.cs">
+    <Compile Include="AppPages\InsertItemPage.xaml.cs">
       <DependentUpon>InsertItemPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppPages\MainTabContainer.xaml.cs">
