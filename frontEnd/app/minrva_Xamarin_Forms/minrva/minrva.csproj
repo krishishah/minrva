@@ -62,7 +62,7 @@
     <Compile Include="AppPages\Feed.xaml.cs">
       <DependentUpon>Feed.xaml</DependentUpon>
     </Compile>
-    <Compile  Include="AppPages\InsertItemPage.xaml.cs">
+    <Compile Include="AppPages\InsertItemPage.xaml.cs">
       <DependentUpon>InsertItemPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppPages\MainTabContainer.xaml.cs">
@@ -96,6 +96,9 @@
     <Compile Include="Tables\ChatDetails.cs" />
     <Compile Include="AppPages\FeedMapPage.xaml.cs">
       <DependentUpon>FeedMapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\ProfileViewPage.xaml.cs">
+      <DependentUpon>ProfileViewPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -174,6 +177,9 @@
     </EmbeddedResource>
     
     <EmbeddedResource Include="AppPages\FeedMapPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppPages\ProfileViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

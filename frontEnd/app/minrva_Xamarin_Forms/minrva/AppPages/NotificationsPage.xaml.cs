@@ -19,13 +19,6 @@ namespace minrva
 			RefreshItems(true, syncItems: false);
 		}
 
-
-
-		async Task AddItem(Chat item)
-		{
-			await tableManager.SaveChatAsync(item);
-		}
-
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var reqMsg = e.SelectedItem as RequestMessage;
@@ -35,22 +28,14 @@ namespace minrva
 
 			if (reqMsg.AcceptStatus.Equals("Pending") && reqMsg.RequestType.Equals("Lend Request"))
 			{
-				alert = await DisplayAlert("Borrowing request", "Would you like to lend " + requestedItem.Name + " to " + reqMsg.Borrower.FirstName + " " + reqMsg.Borrower.LastName + " from " + req.StartDate + " to " + req.EndDate, "Yes", "No");
+				alert = await DisplayAlert("Borrowing request", reqMsg.Borrower.FirstName + " " + reqMsg.Borrower.LastName + " has requested to borrow " + requestedItem.Name + " from " + req.StartDate + " to " + req.EndDate, "View Profile", "Cancel");
 			}
 			    
 			if (alert)
 			{
-				req.Accepted = "True";
-				await tableManager.SaveRequestAsync(req);
-				requestedItem.Borrowed = true;
-				await tableManager.SaveBoardgamesAsync(requestedItem);
-				await DisplayAlert("Success", "You have confirmed the loan. You can now contact " + reqMsg.Borrower.FirstName + " " + reqMsg.Borrower.LastName + " at " + reqMsg.Borrower.Email + " to confirm when and where to complete the transaction.", "Ok");
-				await RefreshItems(true, syncItems: false);
-				string sid = await App.Authenticator.GetUserId();
+				await Navigation.PushModalAsync(new ProfileViewPage(reqMsg.Borrower, requestedItem, reqMsg.Request));
+				await RefreshItems(false, syncItems: false);
 
-				//add code to create new chat in backend
-				var chat = new Chat { Lender = sid, Borrower = reqMsg.Borrower.UserId };
-				await AddItem(chat);
 
 			}
 		}
