@@ -1,20 +1,8 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/AppDelegate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/ProfileViewPage.xaml.cs">
     <Files>
-      <File FileName="minrvaUITests/Tests.cs" Line="29" Column="16" />
-      <File FileName="iOS/AppDelegate.cs" Line="14" Column="26" />
+      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="58" Column="32" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="minrva" expanded="True">
-            <Node name="minrvaUITests" expanded="True">
-              <Node name="Test Apps" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -14,16 +14,29 @@ namespace minrva
 		TableManager tableManager;
 		string owner;
 		string id;
+		int lend_duration;
 		public BorrowItemPage(Boardgames game)
 		{
 			InitializeComponent();
 			tableManager = TableManager.DefaultManager;
 			gameName.Text = game.Name;
 			gameDescription.Text = game.Description;
-			gameLendDuration.Text = "Available for " + game.Lend_duration + " days.";
+			lend_duration = game.Lend_duration;
+			gameLendDuration.Text = "Available for " + lend_duration + " days.";
+			startDate.MinimumDate = DateTime.Today.AddDays(1);
+			endDate.Date = startDate.Date.AddDays(lend_duration);
+			endDate.MinimumDate = startDate.Date.AddDays(1);
+			endDate.MaximumDate = endDate.Date;
 
 			this.owner = game.Owner;
 			this.id = game.Id;
+		}
+
+		async void startDateChanged(object sender, EventArgs e)
+		{
+			endDate.MaximumDate = startDate.Date.AddDays(lend_duration);
+			endDate.Date = startDate.Date.AddDays(lend_duration);
+			endDate.MinimumDate = startDate.Date.AddDays(1);
 		}
 
 		async Task AddItem(Request item)
@@ -40,7 +53,7 @@ namespace minrva
 				string borrower = await App.Authenticator.GetUserId();
 				string startDateString = String.Format("{0:dd/MM/yyyy}", startDate.Date);
 				string endDateString = String.Format("{0:dd/MM/yyyy}", endDate.Date);
-				var request = new Request { Borrower = borrower, Lender = owner, ItemId = id, StartDate = startDateString, EndDate = endDateString, Accepted = false };
+				var request = new Request { Borrower = borrower, Lender = owner, ItemId = id, StartDate = startDateString, EndDate = endDateString, Accepted = "Pending" };
 				await AddItem(request);
 				string msg = "Request sent to " + lender.FirstName + " " + lender.LastName + " to borrow " + gameName.Text + " from " + startDateString + " to "
 																			+ endDateString;

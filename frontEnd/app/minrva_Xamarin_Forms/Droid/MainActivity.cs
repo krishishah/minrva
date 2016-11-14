@@ -17,7 +17,7 @@ namespace minrva.Droid
 		MainLauncher = true,
 		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
 		Theme = "@android:style/Theme.Material.Light")]
-	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
+	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
 	{
 		protected override void OnCreate(Bundle bundle)
 		{
