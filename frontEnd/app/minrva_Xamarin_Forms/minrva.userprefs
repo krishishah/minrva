@@ -1,12 +1,11 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/NotificationsPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrvaUITests/Tests.cs">
     <Files>
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="1" Column="1" />
-      <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="121" Column="4" />
-      <File FileName="minrva/AppPages/ChatsPage.xaml.cs" Line="152" Column="50" />
-      <File FileName="minrva/AppPages/BorrowItemPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="57" Column="5" />
-      <File FileName="iOS/Main.cs" Line="19" Column="1" />
+      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="9" Column="37" />
+      <File FileName="minrva/App.cs" Line="24" Column="3" />
+      <File FileName="packages/Plugin.Permissions.1.2.1/readme.txt" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="78" Column="5" />
+      <File FileName="minrvaUITests/Tests.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
