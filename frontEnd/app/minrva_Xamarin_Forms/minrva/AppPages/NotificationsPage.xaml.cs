@@ -35,8 +35,6 @@ namespace minrva
 			{
 				await Navigation.PushModalAsync(new ProfileViewPage(reqMsg.Borrower, requestedItem, reqMsg.Request));
 				await RefreshItems(false, syncItems: false);
-
-
 			}
 		}
 
@@ -83,12 +81,6 @@ namespace minrva
 				var borrowPendingRequests = reqs.Where(r => (String.Equals(r.Borrower, sid)) && (r.Accepted.Equals("Pending")));
 				var borrowRejectedRequests = reqs.Where(r => (String.Equals(r.Borrower, sid)) && (r.Accepted.Equals("False")));
 				var borrowAcceptedRequests = reqs.Where(r => (String.Equals(r.Borrower, sid)) && (r.Accepted.Equals("True")));
-
-				//List<RequestMessage> lenderPendingMsgs = new List<RequestMessage>();
-				//List<RequestMessage> lenderAcceptedMsgs = new List<RequestMessage>();
-				//List<RequestMessage> borrowerAcceptedMsgs = new List<RequestMessage>();
-				//List<RequestMessage> borrowerPendingMsgs = new List<RequestMessage>();
-				//List<RequestMessage> borrowerRejectedMsgs = new List<RequestMessage>();
 
 				List<RequestMessage> requestsMsgs = new List<RequestMessage>();
 

@@ -69,13 +69,18 @@ namespace minrva
 				Request req = requests.Where(r => string.Equals(r.Lender, this.sid)).ElementAt(0);
 				var users = await tableManager.GetUserAsync();
 				User borrower = users.Where(u => string.Equals(u.UserId, req.Borrower)).ElementAt(0);
-				borrowMsg = String.Format("You have lent this game to {0} {1} from {2} to {3}", borrower.FirstName, borrower.LastName, req.StartDate, req.EndDate);
+				var alert = await DisplayAlert("Item information", String.Format("You have lent this game to {0} {1} from {2} to {3}", borrower.FirstName, borrower.LastName, req.StartDate, req.EndDate), "Mark As Returned", "Cancel");
+				if (alert)
+				{
+					Navigation.PushModalAsync(new LeaveReviewPage(borrower, game));
+				}
 			}
 			else
 			{
 				borrowMsg = String.Format("This game is still available for users to borrow in {0} for {1} days\n", game.Location, game.Lend_duration);
+				await DisplayAlert("Item information", borrowMsg, "Ok");
 			}
-			await DisplayAlert("Item information", borrowMsg, "Ok");
+
 		}
 
 		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh

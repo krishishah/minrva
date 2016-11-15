@@ -36,6 +36,7 @@ namespace minrva
 		IMobileServiceTable<Request> requestTable;
 		IMobileServiceTable<Message> messageTable;
 		IMobileServiceTable<Chat> chatTable;
+		IMobileServiceTable<Ratings> ratingsTable;
 
 
 #endif
@@ -60,6 +61,7 @@ namespace minrva
 			this.requestTable = client.GetTable<Request>();
 			this.messageTable = client.GetTable<Message>();
 			this.chatTable = client.GetTable<Chat>();
+			this.ratingsTable = client.GetTable<Ratings>();
 #endif
 		}
 
@@ -83,6 +85,32 @@ namespace minrva
 		public bool IsOfflineEnabled
 		{
 			get { return userTable is Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable<User>; }
+		}
+
+		public async Task<ObservableCollection<Ratings>> GetRatingsAsync(bool syncItems = false)
+		{
+			try
+			{
+#if OFFLINE_SYNC_ENABLED
+                if (syncItems)
+                {
+                    await this.SyncAsync();
+                }
+#endif
+				IEnumerable<Ratings> items = await ratingsTable
+					.ToEnumerableAsync();
+
+				return new ObservableCollection<Ratings>(items);
+			}
+			catch (MobileServiceInvalidOperationException msioe)
+			{
+				Debug.WriteLine(@"Invalid sync operation: {0}", msioe.Message);
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(@"Sync error: {0}", e.Message);
+			}
+			return null;
 		}
 
 		public async Task<ObservableCollection<Chat>> GetChatAsync(bool syncItems = false)
@@ -214,6 +242,19 @@ namespace minrva
 			}
 			return null;
 		}
+
+		public async Task SaveRatingsAsync(Ratings item)
+		{
+			if (item.Id == null)
+			{
+				await ratingsTable.InsertAsync(item);
+			}
+			else
+			{
+				await ratingsTable.UpdateAsync(item);
+			}
+		}
+
 		public async Task SaveUserAsync(User item)
 		{
 			if (item.Id == null)

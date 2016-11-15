@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
+using Syncfusion.SfRating.XForms;
 
 namespace minrva
 {
@@ -14,7 +15,13 @@ namespace minrva
 		public InsertItemPage()
 		{
 			InitializeComponent();
-
+			rating.ItemCount = 5;
+			rating.Value = 3;
+			rating.Precision = Precision.Half;
+			SfRatingSettings ratingSettings = new SfRatingSettings();
+			ratingSettings.RatedFill = Color.FromHex("#fbd10a");
+			ratingSettings.UnRatedFill = Color.FromHex("#cdcccb");
+			rating.RatingSettings = ratingSettings;
 			manager = TableManager.DefaultManager;
 			geocoder = new Geocoder();
 			newItemName.Keyboard = Keyboard.Create(KeyboardFlags.All);

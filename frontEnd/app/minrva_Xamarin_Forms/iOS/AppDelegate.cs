@@ -7,6 +7,7 @@ using UIKit;
 using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using Syncfusion.SfRating.XForms.iOS;
              
 namespace minrva.iOS
 {
@@ -22,6 +23,8 @@ namespace minrva.iOS
 			global::Xamarin.Forms.Forms.Init ();
 
 			Xamarin.FormsMaps.Init();
+
+			new SfRatingRenderer();
 
 			App.Init(this);
 			//App.Init((IAuthenticate)this);

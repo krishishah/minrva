@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.LeaveReviewPage"
+		xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms">
+	<StackLayout Spacing="20" Padding="10,40,10,10">      		
+		<Label x:Name="experienceTitle"/>
+		<Label x:Name="feedbackDescription"/>
+		<rating:SfRating x:Name="rating" />
+		<Entry Keyboard="Numeric" Placeholder="Enter Rating" x:Name="newItemLendDuration"/>	
+		<Editor Focused="Handle_Focused" x:Name="review" Text="Leave a review for the user you lent an item to" TextColor="Gray" HeightRequest="100" />
+		<Button x:Name="buttonsPanel" Text="Add Item"
+                  MinimumHeightRequest="30"
+                  Clicked="OnAdd" />		
+    </StackLayout>
+</ContentPage>

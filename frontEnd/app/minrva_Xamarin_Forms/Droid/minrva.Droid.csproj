@@ -136,6 +136,9 @@
     <Reference Include="Plugin.Geolocator">
       <HintPath>..\packages\Xam.Plugin.Geolocator.3.0.4\lib\MonoAndroid10\Plugin.Geolocator.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.SfRating.Android">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfRating.Android.14.3.0.52\lib\MonoAndroid10\Syncfusion.SfRating.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\minrva\minrva.csproj">

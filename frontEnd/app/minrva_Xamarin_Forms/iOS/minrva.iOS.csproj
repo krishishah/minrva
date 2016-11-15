@@ -86,7 +86,6 @@
     <MtouchUseSGen>true</MtouchUseSGen>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchLink>None</MtouchLink>
-    <AssemblyName>minrva.iOS</AssemblyName>
     <BuildIpa>true</BuildIpa>
     <IpaIncludeArtwork>false</IpaIncludeArtwork>
     <IpaPackageDir>$(OutputPath)</IpaPackageDir>
@@ -139,6 +138,15 @@
     </Reference>
     <Reference Include="Plugin.Geolocator">
       <HintPath>..\packages\Xam.Plugin.Geolocator.3.0.4\lib\Xamarin.iOS10\Plugin.Geolocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfRating.iOS">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfRating.14.3.0.52\lib\Xamarin.iOS10\Syncfusion.SfRating.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfRating.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfRating.14.3.0.52\lib\Xamarin.iOS10\Syncfusion.SfRating.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfRating.XForms.iOS">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfRating.14.3.0.52\lib\Xamarin.iOS10\Syncfusion.SfRating.XForms.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
