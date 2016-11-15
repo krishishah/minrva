@@ -2,32 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				x:Class="minrva.InsertItemPage"
-<<<<<<< HEAD
-				Title="Azure Boardgames">  
-    <ActivityIndicator Grid.RowSpan="2"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       IsVisible="False"
-                       IsEnabled="True"
-                       x:Name="syncIndicator"/>
-    <StackLayout Spacing="20" Padding="10,40,10,10">      		
-		<!--<Label Text="Enter Category" />-->
-		<Picker x:Name="newItemCategory" Title="Enter Category">
-			<Picker.Items>
-            	<x:String>Board Game</x:String> 
-            	<x:String>Book</x:String>
-				<x:String>DVD</x:String>
-        	</Picker.Items>
-		</Picker>
-        <Entry Placeholder="Enter Name" x:Name="newItemName"/>
-		<Editor Focused="Handle_Focused" x:Name="newItemDescription" Text="Enter Description" TextColor="Gray" HeightRequest="100" />
-        <Entry Keyboard="Numeric" Placeholder="Enter Number of Days Willing to Lend" x:Name="newItemLendDuration"/>		
-        <Entry Placeholder="Enter Location" x:Name="newItemLocation"/>
-		<Button x:Name="buttonsPanel" Text="Add Item"
-                  MinimumHeightRequest="30"
-                  Clicked="OnAdd" />		
-    </StackLayout>  
-=======
 				Title="Azure Boardgames" >
 	<ScrollView>
 	    <ActivityIndicator Grid.RowSpan="2"
@@ -56,5 +30,4 @@
 	                  Clicked="OnAdd" />	
 	    </StackLayout>
 	</ScrollView>
->>>>>>> ef44adc12af9e3c211bcc88762efb2b7cfbe844b
 </ContentPage>
