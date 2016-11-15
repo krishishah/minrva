@@ -13,7 +13,7 @@
 			<ListView.ItemTemplate>
 				<DataTemplate>
         		<ViewCell>
-					<StackLayout>
+					<StackLayout Padding="0,20,0,20">
 						<rating:SfRating Value="{Binding Rating}" ReadOnly="true" Precision="Half" ItemSize="15"/>
 						<Label Text="{Binding Review}"/>
 						<Label Text="{Binding Reviewer}" FontSize="Small" TextColor="Gray"/>
