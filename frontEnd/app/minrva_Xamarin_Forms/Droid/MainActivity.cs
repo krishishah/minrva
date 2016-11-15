@@ -9,6 +9,7 @@ using Android.OS;
 using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
 using Android.Webkit;
+using Plugin.Permissions;
 
 namespace minrva.Droid
 {
@@ -116,6 +117,11 @@ namespace minrva.Droid
 			}
 
 			return success;
+		}
+
+		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+		{
+			PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 		}
 	}
 }

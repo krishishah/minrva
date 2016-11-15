@@ -9,7 +9,7 @@ namespace minrva
 		string id;
 		string createdAt;
 		string chatId;
-
+		 
 		string sender;
 		string receiver;
 

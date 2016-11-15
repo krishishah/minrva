@@ -1,14 +1,27 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/ProfileViewPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Profile.xaml.cs">
     <Files>
-      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="58" Column="32" />
+      <File FileName="minrvaUITests/Tests.cs" Line="35" Column="17" />
+      <File FileName="minrvaUITests/packages.config" Line="1" Column="1" />
+      <File FileName="iOS/packages.config" Line="1" Column="1" />
+      <File FileName="minrva/Storage/Configuration.cs" Line="1" Column="1" />
+      <File FileName="packages/Xam.Plugin.Media.2.6.1/readme.txt" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/InsertItemPage.xaml" Line="20" Column="1" />
+      <File FileName="minrva/AppPages/MessagePage.xaml" Line="4" Column="3" />
+      <File FileName="iOS/Main.cs" Line="19" Column="1" />
+      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="75" Column="21" />
+      <File FileName="minrva/AppPages/Profile.xaml" Line="5" Column="59" />
+      <File FileName="minrva/AppPages/Profile.xaml.cs" Line="31" Column="28" />
+      <File FileName="minrva/Tables/TableManager.cs" Line="67" Column="4" />
+      <File FileName="minrva/Storage/ImageManager.cs" Line="53" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.6E3AF544-60A6-4E04-A970-175A18AD3689" />
+  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B9D00A3C-265B-47F0-813D-E693E601846D" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.minrvaUITests PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

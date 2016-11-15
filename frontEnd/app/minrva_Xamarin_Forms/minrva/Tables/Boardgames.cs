@@ -16,6 +16,7 @@ namespace minrva
 		double latitude;
 		double longitude;
 		string category;
+		string createdAt;
 
 		[JsonProperty(PropertyName = "id")]
 		public string Id
@@ -85,6 +86,13 @@ namespace minrva
 		{
 			get { return category; }
 			set { category = value; }
+		}
+
+		[JsonProperty(PropertyName = "createdAt")]
+		public string CreatedAt
+		{
+			get { return createdAt; }
+			set { createdAt = value; }
 		}
 
 		[Version]

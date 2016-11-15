@@ -73,6 +73,9 @@ namespace minrva
 				BorrowItemPage borrowPage = new BorrowItemPage(game);
 				await Navigation.PushModalAsync(borrowPage, false);
 			}
+			else {
+				await RefreshItems(false, syncItems: false);
+			}
 		}
 
 		public async void ShowCategory(object sender, EventArgs e)
