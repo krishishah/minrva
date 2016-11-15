@@ -51,6 +51,11 @@ namespace minrva
 			}
 		}
 
+		public async void ViewReviews(object sender, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new ReviewsPage(profOwner.UserId, false));
+		}
+
 		private async void displayProfilePicture()
 		{
 			var imageBytes = await ImageManager.GetProfilePicture(profOwner.UserId);
