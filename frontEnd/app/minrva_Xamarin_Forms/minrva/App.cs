@@ -5,7 +5,7 @@ using Xamarin.Forms;
 using System.Threading.Tasks;
 
 namespace minrva
-{
+{ 
 
 	public class App : Application
 	{
