@@ -5,6 +5,9 @@
 	<StackLayout Padding="10,10,10,10">
 		<Button Text="Back" Clicked="BackButtonCommand" HorizontalOptions="Start"/>
 		<Label x:Name="pageTitle"/>
+		<Label Text="Overall Rating"/>
+		<rating:SfRating x:Name="overallRating" ReadOnly="true" Precision="Half" ItemSize="20"/>
+		<Label Text="All Reviews"/>
 		<ListView x:Name="allReviews"
 				IsPullToRefreshEnabled="true" Refreshing="OnRefresh" HasUnevenRows="true">
 			<ListView.ItemTemplate>

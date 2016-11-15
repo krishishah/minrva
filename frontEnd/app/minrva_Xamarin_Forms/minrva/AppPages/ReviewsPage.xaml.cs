@@ -16,11 +16,11 @@ namespace minrva
 			InitializeComponent();
 			reviewedEntityID = reviewedID;
 			manager = TableManager.DefaultManager;
-			updateTitle(isItem);
+			updateDetails(isItem);
 			RefreshItems(false, syncItems: false);
 		}
 
-		async void updateTitle(bool isItem)
+		async void updateDetails(bool isItem)
 		{
 			string name;
 			if (isItem)
@@ -35,6 +35,7 @@ namespace minrva
 				name = String.Format("{0} {1}", user.FirstName, user.LastName);
 			}
 			pageTitle.Text = "Reviews for " + name;
+			overallRating.Value = await getOverallRating();
 		}
 
 		public async void OnRefresh(object sender, EventArgs e)
@@ -81,6 +82,13 @@ namespace minrva
 		public async void BackButtonCommand(object sender, EventArgs e)
 		{
 			await Navigation.PopModalAsync();
+		}
+
+		async Task<double> getOverallRating()
+		{
+			var ratingsTable = await manager.GetRatingsAsync();
+			var ratings = ratingsTable.Where(r => String.Equals(reviewedEntityID, r.RatedID)).Select(rating => rating.Rating);
+			return ratings.Average();
 		}
 	}
 }
