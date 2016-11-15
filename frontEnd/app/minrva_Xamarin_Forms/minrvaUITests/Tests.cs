@@ -47,7 +47,6 @@ namespace minrvaUITests
 		[Test]
 		public void NewTest()
 		{
-			var table = new AzureTableStorageProvider();
 
 			app.Tap(x => x.Marked("Sign-in"));
 			app.Screenshot("Tapped on view with class: UIButton marked: Sign-in");

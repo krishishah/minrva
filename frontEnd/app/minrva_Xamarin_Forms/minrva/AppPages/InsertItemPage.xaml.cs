@@ -2,7 +2,11 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Forms.Maps; 
+using Xamarin.Forms.Maps;
+using Plugin.Media;
+using System.IO;
+using System.Linq;
+using Plugin.Media.Abstractions;
 
 namespace minrva
 {
@@ -11,6 +15,9 @@ namespace minrva
 		TableManager manager;
 		Geocoder geocoder;
 		string descriptionPlaceholder = "Enter Description";
+		MediaFile itemImageFile = null;
+
+
 		public InsertItemPage()
 		{
 			InitializeComponent();
@@ -54,8 +61,25 @@ namespace minrva
 				{
 					var boardgames = new Boardgames { Name = newItemName.Text, Description = newItemDescription.Text, Lend_duration = Int32.Parse(newItemLendDuration.Text), Location = location, Latitude = latitude, Longitude = longitude, Owner = sid, Borrowed = false, Category = newItemCategory.Items[newItemCategory.SelectedIndex] };
 					await AddItem(boardgames);
+
+					//Add item photo to storage account
+					if (itemImageFile != null)
+					{
+						var boardGamesTable = await manager.GetBoardgamesAsync();
+						var itemId = boardGamesTable.Where(b => (String.Equals(b.Owner, sid)))
+																	 .OrderByDescending(b => b.CreatedAt)
+						                                             .Select(b => b.Id)
+						                                             .ElementAt(0);
+						//var itemId = itemsOwnedByCurrentUser[0];
+						var itemName = await ImageManager.GenerateItemPhotoName(itemId);
+						await ImageManager.UploadImage(itemImageFile.GetStream(), itemName);
+						itemImageFile.Dispose();
+						itemImageFile = null;
+					}
+
 					await DisplayAlert("Success", "Your item has been added", "Ok");
 
+					// Empty all fields after item has been successfully added
 					newItemName.Text = string.Empty;
 					newItemDescription.Text = descriptionPlaceholder;
 					newItemDescription.TextColor = Color.Gray;
@@ -63,6 +87,7 @@ namespace minrva
 					newItemLocation.Text = string.Empty;
 					newItemCategory.SelectedIndex = -1;
 					newItemName.Unfocus();
+					itemImage.Source = null;
 				}
 				else
 				{
@@ -88,6 +113,25 @@ namespace minrva
 			enumerator.MoveNext();
 			var position = enumerator.Current;
 			return position.Longitude;
+		}
+
+		public async void OnUpload(object sender, EventArgs e)
+		{
+			if (!CrossMedia.Current.IsPickPhotoSupported)
+			{
+				await DisplayAlert("Photos Not Supported!", "Permission not granted to photo gallery", "OK");
+				return;
+			}
+			itemImageFile = await CrossMedia.Current.PickPhotoAsync();
+
+			if (itemImageFile == null)
+				return;
+
+
+			itemImage.Source = ImageSource.FromStream(() =>
+			{
+				return itemImageFile.GetStream();
+			});
 		}
 
 	}
