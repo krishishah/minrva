@@ -139,6 +139,7 @@
     <Reference Include="Plugin.Geolocator">
       <HintPath>..\packages\Xam.Plugin.Geolocator.3.0.4\lib\Xamarin.iOS10\Plugin.Geolocator.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="Syncfusion.SfRating.iOS">
       <HintPath>..\packages\Syncfusion.Xamarin.SfRating.14.3.0.52\lib\Xamarin.iOS10\Syncfusion.SfRating.iOS.dll</HintPath>
     </Reference>
@@ -147,6 +148,31 @@
     </Reference>
     <Reference Include="Syncfusion.SfRating.XForms.iOS">
       <HintPath>..\packages\Syncfusion.Xamarin.SfRating.14.3.0.52\lib\Xamarin.iOS10\Syncfusion.SfRating.XForms.iOS.dll</HintPath>
+=======
+    <Reference Include="Microsoft.Data.Edm">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.4\lib\portable-net45+wp8+win8+wpa\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Spatial">
+      <HintPath>..\packages\System.Spatial.5.6.4\lib\portable-net45+wp8+win8+wpa\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.4\lib\portable-net45+wp8+win8+wpa\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.4\lib\portable-net45+wp8+win8+wpa\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage">
+      <HintPath>..\packages\WindowsAzure.Storage.7.2.1\lib\netstandard1.3\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Plugin.Media.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Media.2.6.1\lib\Xamarin.iOS10\Plugin.Media.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media">
+      <HintPath>..\packages\Xam.Plugin.Media.2.6.1\lib\Xamarin.iOS10\Plugin.Media.dll</HintPath>
+>>>>>>> ef44adc12af9e3c211bcc88762efb2b7cfbe844b
     </Reference>
   </ItemGroup>
   <ItemGroup>
