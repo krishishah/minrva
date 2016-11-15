@@ -1,17 +1,15 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/Storage/ImageManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/InsertItemPage.xaml.cs">
     <Files>
-      <File FileName="minrva/AppPages/ChatsPage.xaml.cs" Line="71" Column="65" />
-      <File FileName="iOS/Main.cs" Line="19" Column="1" />
-      <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="132" Column="28" />
-      <File FileName="minrva/Tables/Message.cs" Line="54" Column="3" />
-      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="60" Column="23" />
       <File FileName="minrvaUITests/Tests.cs" Line="35" Column="17" />
-      <File FileName="../../../../../../Library/Frameworks/Xamarin.iOS.framework/Versions/10.2.0.4/lib/mono/2.1/Xamarin.iOS.Common.targets" Line="1" Column="1" />
       <File FileName="minrvaUITests/packages.config" Line="1" Column="1" />
       <File FileName="iOS/packages.config" Line="1" Column="1" />
-      <File FileName="minrva/Storage/ImageManager.cs" Line="127" Column="36" />
-      <File FileName="minrva/Storage/Configuration.cs" Line="15" Column="1" />
+      <File FileName="minrva/Storage/Configuration.cs" Line="1" Column="1" />
+      <File FileName="packages/Xam.Plugin.Media.2.6.1/readme.txt" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/InsertItemPage.xaml" Line="9" Column="8" />
+      <File FileName="minrva/AppPages/MessagePage.xaml" Line="4" Column="3" />
+      <File FileName="iOS/Main.cs" Line="19" Column="1" />
+      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="72" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />

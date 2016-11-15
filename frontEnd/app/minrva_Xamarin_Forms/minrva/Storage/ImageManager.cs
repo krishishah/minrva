@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System.Collections.Generic;
+using Plugin.Media;
 
 namespace minrva
 {

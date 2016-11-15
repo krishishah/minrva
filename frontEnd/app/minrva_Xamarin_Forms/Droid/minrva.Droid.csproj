@@ -175,6 +175,7 @@
   <ItemGroup>
     <Folder Include="Resources\layout\" />
     <Folder Include="Resources\values\" />
+    <Folder Include="Resources\xml\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
@@ -186,6 +187,7 @@
     <AndroidResource Include="Resources\drawable-xhdpi\minrva_icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\minrva_icon.png" />
     <AndroidResource Include="Resources\drawable\minrva_icon.png" />
+    <AndroidResource Include="Resources\xml\file_paths.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

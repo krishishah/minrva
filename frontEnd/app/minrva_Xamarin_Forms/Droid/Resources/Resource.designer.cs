@@ -63,6 +63,22 @@ namespace minrva.Droid
 			{
 			}
 		}
+		
+		public partial class Xml
+		{
+			
+			// aapt resource value: 0x7f030000
+			public const int file_paths = 2130903040;
+			
+			static Xml()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Xml()
+			{
+			}
+		}
 	}
 }
 #pragma warning restore 1591
