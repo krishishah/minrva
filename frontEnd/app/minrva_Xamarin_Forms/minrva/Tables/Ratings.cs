@@ -8,7 +8,7 @@ namespace minrva
 	{
 		string id;
 		bool isItem;
-		float rating;
+		double rating;
 		string review;
 		string ratedID;
 		string reviewerID;
@@ -28,7 +28,7 @@ namespace minrva
 		}
 
 		[JsonProperty(PropertyName = "rating")]
-		public float Rating
+		public double Rating
 		{
 			get { return rating; }
 			set { rating = value; }

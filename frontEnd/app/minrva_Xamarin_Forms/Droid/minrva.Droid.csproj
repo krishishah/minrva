@@ -137,7 +137,13 @@
       <HintPath>..\packages\Xam.Plugin.Geolocator.3.0.4\lib\MonoAndroid10\Plugin.Geolocator.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfRating.Android">
-      <HintPath>..\packages\Syncfusion.Xamarin.SfRating.Android.14.3.0.52\lib\MonoAndroid10\Syncfusion.SfRating.Android.dll</HintPath>
+      <HintPath>..\packages\Syncfusion.Xamarin.SfRating.14.3.0.52\lib\MonoAndroid10\Syncfusion.SfRating.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfRating.XForms.Android">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfRating.14.3.0.52\lib\MonoAndroid10\Syncfusion.SfRating.XForms.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfRating.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfRating.14.3.0.52\lib\MonoAndroid10\Syncfusion.SfRating.XForms.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

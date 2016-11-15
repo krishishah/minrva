@@ -1,14 +1,13 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/AppDelegate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/LeaveReviewPage.xaml.cs">
     <Files>
-      <File FileName="minrva/AppPages/LeaveReviewPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="24" Column="43" />
-      <File FileName="iOS/AppDelegate.cs" Line="22" Column="40" />
+      <File FileName="minrva/AppPages/LeaveReviewPage.xaml.cs" Line="15" Column="71" />
+      <File FileName="minrva/Tables/Ratings.cs" Line="31" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.04667EFC-AAC0-4097-AE49-ECAFF7F1F673" />
+  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.6E3AF544-60A6-4E04-A970-175A18AD3689" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

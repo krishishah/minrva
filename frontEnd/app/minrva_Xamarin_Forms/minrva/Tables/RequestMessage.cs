@@ -5,7 +5,7 @@ namespace minrva
 	{
 
 		Boardgames requestedItem;
-		User borrower;
+		User otherUser;
 		string requestType; // "Lend Request" or "Borrow Request"
 		string acceptStatus; // "True", "False" or "Pending"
 		string updatedAt;
@@ -17,7 +17,7 @@ namespace minrva
 		                      string updatedAt, string notificationView, string notificationViewDetail, Request req)
 		{
 			requestedItem = item;
-			borrower = borrowingUser;
+			otherUser = borrowingUser;
 			this.requestType = requestType;
 			this.acceptStatus = acceptStatus;
 			this.updatedAt = updatedAt;
@@ -26,10 +26,10 @@ namespace minrva
 			request = req;
 		}
 
-		public User Borrower
+		public User OtherUser
 		{
-			get { return borrower; }
-			set { borrower = value; }
+			get { return otherUser; }
+			set { otherUser = value; }
 		}
 
 		public Boardgames RequestedItem

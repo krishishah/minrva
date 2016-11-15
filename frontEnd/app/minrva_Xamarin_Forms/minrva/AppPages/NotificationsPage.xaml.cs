@@ -28,12 +28,20 @@ namespace minrva
 
 			if (reqMsg.AcceptStatus.Equals("Pending") && reqMsg.RequestType.Equals("Lend Request"))
 			{
-				alert = await DisplayAlert("Borrowing request", reqMsg.Borrower.FirstName + " " + reqMsg.Borrower.LastName + " has requested to borrow " + requestedItem.Name + " from " + req.StartDate + " to " + req.EndDate, "View Profile", "Cancel");
+				alert = await DisplayAlert("Borrowing request", reqMsg.OtherUser.FirstName + " " + reqMsg.OtherUser.LastName + " has requested to borrow " + requestedItem.Name + " from " + req.StartDate + " to " + req.EndDate, "View Profile", "Cancel");
+			}
+			else if (reqMsg.AcceptStatus.Equals("Returned") && reqMsg.RequestType.Equals("Borrow Request"))
+			{
+				await Navigation.PushModalAsync(new LeaveReviewPage(reqMsg.OtherUser, requestedItem, true));
+				requestedItem.Borrowed = false;
+				await tableManager.SaveBoardgamesAsync(requestedItem);
+				await tableManager.DeleteRequestAsync(req);
+				await RefreshItems(false, syncItems: false);
 			}
 			    
 			if (alert)
 			{
-				await Navigation.PushModalAsync(new ProfileViewPage(reqMsg.Borrower, requestedItem, reqMsg.Request));
+					await Navigation.PushModalAsync(new ProfileViewPage(reqMsg.OtherUser, requestedItem, reqMsg.Request));
 				await RefreshItems(false, syncItems: false);
 			}
 		}
@@ -81,6 +89,7 @@ namespace minrva
 				var borrowPendingRequests = reqs.Where(r => (String.Equals(r.Borrower, sid)) && (r.Accepted.Equals("Pending")));
 				var borrowRejectedRequests = reqs.Where(r => (String.Equals(r.Borrower, sid)) && (r.Accepted.Equals("False")));
 				var borrowAcceptedRequests = reqs.Where(r => (String.Equals(r.Borrower, sid)) && (r.Accepted.Equals("True")));
+				var borrowReturnedRequests = reqs.Where(r => (String.Equals(r.Borrower, sid)) && (r.Accepted.Equals("Returned")));
 
 				List<RequestMessage> requestsMsgs = new List<RequestMessage>();
 
@@ -153,6 +162,17 @@ namespace minrva
 					string notifViewDetail = String.Format("{0} - {1}", lendingUser.FirstName, requestStatus);
 					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
 
+				}
+
+				requestStatus = "Returned";
+
+				foreach (Request r in borrowReturnedRequests)
+				{
+					User lendingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
+					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
+					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
+					string notifViewDetail = String.Format("{0} - {1}", lendingUser.FirstName, requestStatus);
+					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
 				}
 
 				requestsMsgs.Sort((y, x) => x.UpdatedAt.CompareTo(y.UpdatedAt));

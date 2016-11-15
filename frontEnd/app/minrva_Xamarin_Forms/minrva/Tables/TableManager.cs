@@ -302,6 +302,7 @@ namespace minrva
 				await boardgamesTable.UpdateAsync(item);
 			}
 		}
+
 		public async Task SaveRequestAsync(Request item)
 		{
 			if (item.Id == null)
@@ -312,6 +313,36 @@ namespace minrva
 			{
 				await requestTable.UpdateAsync(item);
 			}
+		}
+
+		public async Task DeleteRatingsAsync(Ratings item)
+		{
+			await ratingsTable.DeleteAsync(item);
+		}
+
+		public async Task DeleteUserAsync(User item)
+		{
+			await userTable.DeleteAsync(item);
+		}
+
+		public async Task DeleteMessageAsync(Message item)
+		{
+			await messageTable.DeleteAsync(item);
+		}
+
+		public async Task DeleteChatAsync(Chat item)
+		{
+			await chatTable.DeleteAsync(item);
+		}
+
+		public async Task DeleteBoardgamesAsync(Boardgames item)
+		{
+			await boardgamesTable.DeleteAsync(item);
+		}
+
+		public async Task DeleteRequestAsync(Request item)
+		{
+			await requestTable.DeleteAsync(item);
 		}
 
 #if OFFLINE_SYNC_ENABLED

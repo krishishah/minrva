@@ -66,13 +66,15 @@ namespace minrva
 			if (game.Borrowed)
 			{
 				var requests = await tableManager.GetRequestAsync();
-				Request req = requests.Where(r => string.Equals(r.Lender, this.sid)).ElementAt(0);
+				Request req = requests.Where(r => string.Equals(r.Lender, this.sid) && string.Equals(r.ItemId, game.Id)).ElementAt(0);
 				var users = await tableManager.GetUserAsync();
 				User borrower = users.Where(u => string.Equals(u.UserId, req.Borrower)).ElementAt(0);
 				var alert = await DisplayAlert("Item information", String.Format("You have lent this game to {0} {1} from {2} to {3}", borrower.FirstName, borrower.LastName, req.StartDate, req.EndDate), "Mark As Returned", "Cancel");
 				if (alert)
 				{
-					Navigation.PushModalAsync(new LeaveReviewPage(borrower, game));
+					await Navigation.PushModalAsync(new LeaveReviewPage(borrower, game, false));
+					req.Accepted = "Returned";
+					await tableManager.SaveRequestAsync(req);
 				}
 			}
 			else

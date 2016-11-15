@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				x:Class="minrva.InsertItemPage"
-				Title="Azure Boardgames" 
-		xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms">  
+				Title="Azure Boardgames">  
     <ActivityIndicator Grid.RowSpan="2"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
@@ -18,8 +17,6 @@
             	<x:String>Book</x:String>
         	</Picker.Items>
 		</Picker>
-		<Label Text="Rating"/>
-		<rating:SfRating x:Name="rating" IsVisible="true"/>
         <Entry Placeholder="Enter Name" x:Name="newItemName"/>
 		<Editor Focused="Handle_Focused" x:Name="newItemDescription" Text="Enter Description" TextColor="Gray" HeightRequest="100" />
         <Entry Keyboard="Numeric" Placeholder="Enter Number of Days Willing to Lend" x:Name="newItemLendDuration"/>		
