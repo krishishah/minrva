@@ -1,15 +1,17 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrvaUITests/Tests.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/AppDelegate.cs">
     <Files>
-      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="9" Column="37" />
-      <File FileName="minrva/App.cs" Line="24" Column="3" />
-      <File FileName="packages/Plugin.Permissions.1.2.1/readme.txt" Line="1" Column="1" />
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="78" Column="5" />
-      <File FileName="minrvaUITests/Tests.cs" Line="1" Column="1" />
+      <File FileName="minrvaUITests/Tests.cs" Line="52" Column="4" />
+      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/ChatsPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="1" Column="1" />
+      <File FileName="minrva/Tables/TableManager.cs" Line="1" Column="1" />
+      <File FileName="minrva/App.cs" Line="1" Column="1" />
+      <File FileName="iOS/AppDelegate.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.3E63DB6D-E618-4EAB-BB98-DABBF21F51F5" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
