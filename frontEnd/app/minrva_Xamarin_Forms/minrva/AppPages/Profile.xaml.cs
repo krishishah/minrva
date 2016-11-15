@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 using System.Linq;
 using Xamarin.Forms;
 using Syncfusion.SfRating.XForms;
+using System.IO;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 
 namespace minrva
 {
@@ -12,6 +15,7 @@ namespace minrva
 
 		TableManager tableManager;
 		string sid;
+		MediaFile profilePictureFile = null;
 
 		public Profile()
 		{
@@ -22,10 +26,11 @@ namespace minrva
 
 		private async void displayDetails()
 		{
+			this.sid = await App.Authenticator.GetUserId();
 			await displayUserName();
 			await displayLendBorrowCount();
-			this.sid = await App.Authenticator.GetUserId();
 			userRating.Value = await getUserRating();
+			await displayProfilePicture();
 			await RefreshItems(true, syncItems: false);
 		}
 
@@ -33,25 +38,45 @@ namespace minrva
 		{
 			var ratingsTable = await tableManager.GetRatingsAsync();
 			var ratings = ratingsTable.Where(r => String.Equals(sid, r.RatedID)).Select(rating => rating.Rating);
-			return ratings.Average();
+			if (ratings.Count() > 0)
+			{
+				return ratings.Average();
+			}
+			else
+			{
+				return 0;
+			}
 		}
 
 		async Task displayUserName()
 		{
 			var usersTable = await tableManager.GetUserAsync();
-			string sid = await App.Authenticator.GetUserId();
 			var user = usersTable.Where(u => String.Equals(sid, u.UserId)).ElementAt(0);
 			Name.Text = String.Format("{0} {1}", user.FirstName, user.LastName);
 		}
 
 		async Task displayLendBorrowCount()
 		{
-			string sid = await App.Authenticator.GetUserId();
 			var requestTable = await tableManager.GetRequestAsync();
 			var itemsTable = await tableManager.GetBoardgamesAsync();
 			int lendCount = itemsTable.Where(item => String.Equals(sid, item.Owner)).Count();
 			int borrowCount = requestTable.Where(user => String.Equals(sid, user.Borrower)).Count();
 			LendBorrow.Text = String.Format("L:{0} | B:{1}", lendCount, borrowCount);
+		}
+
+		async Task displayProfilePicture()
+		{
+			var imageBytes = await ImageManager.GetProfilePicture(sid);
+
+			if (imageBytes == null)
+			{
+				ProfilePicture.Source = "minrva_icon.png";
+			}
+			else 
+			{
+				ProfilePicture.Source = ImageSource.FromStream(() =>
+											new MemoryStream(imageBytes));
+			}
 		}
 
 
@@ -71,6 +96,25 @@ namespace minrva
 		public async void ViewReviews(object sender, EventArgs e)
 		{
 			await Navigation.PushModalAsync(new ReviewsPage(sid, false));
+		}
+
+		async void Clicked_Upload(object sender, EventArgs e)
+		{
+			if (!CrossMedia.Current.IsPickPhotoSupported)
+			{
+				await DisplayAlert("Photos Not Supported!", "Permission not granted to photo gallery", "OK");
+				return;
+			}
+			profilePictureFile = await CrossMedia.Current.PickPhotoAsync();
+
+			if (profilePictureFile == null)
+				return;
+
+			await ImageManager.UploadProfilePicture(profilePictureFile.GetStream(), sid);
+			profilePictureFile.Dispose();
+			profilePictureFile = null;
+
+			await displayProfilePicture();
 		}
 
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)

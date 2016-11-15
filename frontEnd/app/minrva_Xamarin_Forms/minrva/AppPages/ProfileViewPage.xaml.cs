@@ -5,6 +5,7 @@ using System.Linq;
 using Xamarin.Forms;
 using System.Diagnostics;
 using Syncfusion.SfRating.XForms;
+using System.IO;
 
 namespace minrva
 {
@@ -24,6 +25,7 @@ namespace minrva
 			this.reqItem = reqItem;
 			this.req = req;
 			displayDetails();
+			displayProfilePicture();
 		}
 
 		private async void displayDetails()
@@ -37,10 +39,31 @@ namespace minrva
 
 		async Task<double> getUserRating()
 		{
-			string sid = await App.Authenticator.GetUserId();
 			var ratingsTable = await tableManager.GetRatingsAsync();
-			var ratings = ratingsTable.Where(r => String.Equals(sid, r.RatedID)).Select(rating => rating.Rating);
-			return ratings.Average();
+			var ratings = ratingsTable.Where(r => String.Equals(profOwner.UserId, r.RatedID)).Select(rating => rating.Rating);
+			if (ratings.Count() > 0)
+			{
+				return ratings.Average();
+			}
+			else
+			{
+				return 0;
+			}
+		}
+
+		private async void displayProfilePicture()
+		{
+			var imageBytes = await ImageManager.GetProfilePicture(profOwner.UserId);
+
+			if (imageBytes == null)
+			{
+				ProfilePicture.Source = "minrva_icon.png";
+			}
+			else
+			{
+				ProfilePicture.Source = ImageSource.FromStream(() =>
+											new MemoryStream(imageBytes));
+			}
 		}
 
 		async Task displayLendBorrowCount()

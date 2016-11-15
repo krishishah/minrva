@@ -88,7 +88,14 @@ namespace minrva
 		{
 			var ratingsTable = await manager.GetRatingsAsync();
 			var ratings = ratingsTable.Where(r => String.Equals(reviewedEntityID, r.RatedID)).Select(rating => rating.Rating);
-			return ratings.Average();
+			if (ratings.Count() > 0)
+			{
+				return ratings.Average();
+			}
+			else
+			{
+				return 0;
+			}
 		}
 	}
 }
