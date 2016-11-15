@@ -5,7 +5,7 @@
       <File FileName="minrva/Tables/Ratings.cs" Line="31" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.453219f8" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.6E3AF544-60A6-4E04-A970-175A18AD3689" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.LeaveReviewPage"
 		xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms">
+	<ScrollView>
 	<StackLayout Spacing="20" Padding="10,40,10,10">      		
 		<Label x:Name="userExperienceTitle"/>
 		<rating:SfRating x:Name="userRating" Precision="Half"/>
@@ -14,4 +15,5 @@
                   MinimumHeightRequest="30"
                   Clicked="OnSend" />		
     </StackLayout>
+	</ScrollView>
 </ContentPage>

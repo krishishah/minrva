@@ -49,7 +49,7 @@ namespace minrva
 
 		void Handle_Focused_Item(object sender, FocusEventArgs e)
 		{
-			if (Equals(userReview.Text, "Leave a review for this item"))
+			if (Equals(itemReview.Text, "Leave a review for this item"))
 			{
 				itemReview.Text = string.Empty;
 				itemReview.TextColor = Color.Black;
@@ -86,7 +86,7 @@ namespace minrva
 				else
 				{
 					String sid = await App.Authenticator.GetUserId();
-					Ratings usersRating = new Ratings { IsItem = false, Rating = userRating.Value, Review = userReview.Text, RatedID = item.Id, ReviewerID = sid };
+					Ratings usersRating = new Ratings { IsItem = false, Rating = userRating.Value, Review = userReview.Text, RatedID = otherUser.UserId, ReviewerID = sid };
 					await manager.SaveRatingsAsync(usersRating);
 					await DisplayAlert("Success", "Your rating has been recorded!", "Ok");
 					await Navigation.PopModalAsync();
