@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using Xamarin.Forms;
 using System.Diagnostics;
+using System.IO;
 
 namespace minrva
 {
@@ -23,6 +24,7 @@ namespace minrva
 			this.reqItem = reqItem;
 			this.req = req;
 			displayDetails();
+			displayProfilePicture();
 		}
 
 		private async void displayDetails()
@@ -31,6 +33,21 @@ namespace minrva
 			Name.Text = String.Format("{0} {1}", profOwner.FirstName, profOwner.LastName);
 			BorrowReq.Text = String.Format("{0} {1} has requested to borrow {2} from {3} to {4}", profOwner.FirstName, profOwner.LastName, reqItem.Name, req.StartDate, req.EndDate);
 			await RefreshItems(false, syncItems: false);
+		}
+
+		private async void displayProfilePicture()
+		{
+			var imageBytes = await ImageManager.GetProfilePicture(profOwner.UserId);
+
+			if (imageBytes == null)
+			{
+				ProfilePicture.Source = "minrva_icon.png";
+			}
+			else
+			{
+				ProfilePicture.Source = ImageSource.FromStream(() =>
+											new MemoryStream(imageBytes));
+			}
 		}
 
 		async Task displayLendBorrowCount()

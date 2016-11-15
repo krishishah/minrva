@@ -34,6 +34,18 @@ namespace minrva
 			return container;
 		}
 
+		private static CloudBlobContainer GetProfilePictureContainer()
+		{
+			// Parses the connection string for the Windows Azure Storage Account
+			var account = CloudStorageAccount.Parse(Configuration.StorageConnectionString);
+			var client = account.CreateCloudBlobClient();
+
+			// Gets a reference to the images container
+			var container = client.GetContainerReference("profilepictures");
+
+			return container;
+		}
+
 		/// <summary>
 		/// Uploads a new image to a blob container.
 		/// </summary>
@@ -47,6 +59,20 @@ namespace minrva
 			await container.CreateIfNotExistsAsync();
 
 			// Uploads the image the blob storage
+			var imageBlob = container.GetBlockBlobReference(name);
+			await imageBlob.UploadFromStreamAsync(image);
+
+			return name;
+		}
+
+		public static async Task<string> UploadProfilePicture(Stream image, string name)
+		{
+			var container = GetProfilePictureContainer();
+
+			// Creates the container if it does not exist
+			await container.CreateIfNotExistsAsync();
+
+			//Uploads the image to blob storage
 			var imageBlob = container.GetBlockBlobReference(name);
 			await imageBlob.UploadFromStreamAsync(image);
 
@@ -93,6 +119,29 @@ namespace minrva
 
 			//Gets the block blob representing the image
 			var blob = container.GetBlobReference(name);
+
+			if (await blob.ExistsAsync())
+			{
+				// Gets the block blob length to initialize the array in memory
+				await blob.FetchAttributesAsync();
+
+				byte[] blobBytes = new byte[blob.Properties.Length];
+
+				// Downloads the block blob and stores the content in an array in memory
+				await blob.DownloadToByteArrayAsync(blobBytes, 0);
+
+				return blobBytes;
+			}
+
+			return null;
+		}
+
+		public static async Task<byte[]> GetProfilePicture(string sid)
+		{
+			var container = GetProfilePictureContainer();
+
+			//Gets the block blob representing the image
+			var blob = container.GetBlobReference(sid);
 
 			if (await blob.ExistsAsync())
 			{
