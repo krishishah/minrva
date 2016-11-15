@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/LeaveReviewPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Profile.xaml.cs">
     <Files>
-      <File FileName="minrva/AppPages/LeaveReviewPage.xaml.cs" Line="15" Column="71" />
-      <File FileName="minrva/Tables/Ratings.cs" Line="31" Column="23" />
+      <File FileName="minrva/AppPages/ReviewsPage.xaml.cs" Line="76" Column="97" />
+      <File FileName="minrva/AppPages/Profile.xaml.cs" Line="72" Column="4" />
+      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="40" Column="53" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.453219f8" />

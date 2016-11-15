@@ -15,6 +15,7 @@
 			<Picker.Items>
             	<x:String>Board Game</x:String> 
             	<x:String>Book</x:String>
+				<x:String>DVD</x:String>
         	</Picker.Items>
 		</Picker>
         <Entry Placeholder="Enter Name" x:Name="newItemName"/>

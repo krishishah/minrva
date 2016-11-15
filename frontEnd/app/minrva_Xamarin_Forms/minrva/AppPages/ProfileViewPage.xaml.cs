@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using Xamarin.Forms;
 using System.Diagnostics;
+using Syncfusion.SfRating.XForms;
 
 namespace minrva
 {
@@ -30,7 +31,16 @@ namespace minrva
 			await displayLendBorrowCount();
 			Name.Text = String.Format("{0} {1}", profOwner.FirstName, profOwner.LastName);
 			BorrowReq.Text = String.Format("{0} {1} has requested to borrow {2} from {3} to {4}", profOwner.FirstName, profOwner.LastName, reqItem.Name, req.StartDate, req.EndDate);
+			userRating.Value = await getUserRating();
 			await RefreshItems(false, syncItems: false);
+		}
+
+		async Task<double> getUserRating()
+		{
+			string sid = await App.Authenticator.GetUserId();
+			var ratingsTable = await tableManager.GetRatingsAsync();
+			var ratings = ratingsTable.Where(r => String.Equals(sid, r.RatedID)).Select(rating => rating.Rating);
+			return ratings.Average();
 		}
 
 		async Task displayLendBorrowCount()

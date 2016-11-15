@@ -13,6 +13,8 @@ namespace minrva
 		string ratedID;
 		string reviewerID;
 
+		string reviewer;
+
 		[JsonProperty(PropertyName = "id")]
 		public string Id
 		{
@@ -53,6 +55,13 @@ namespace minrva
 		{
 			get { return reviewerID; }
 			set { reviewerID = value; }
+		}
+
+		[JsonIgnore]
+		public string Reviewer
+		{
+			get { return reviewer; }
+			set { reviewer = value; }
 		}
 
 	}

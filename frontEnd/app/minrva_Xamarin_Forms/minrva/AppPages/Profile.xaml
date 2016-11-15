@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage Padding="10,20,10,10" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.Profile">	
+<ContentPage Padding="10,20,10,10" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.Profile"
+		xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms">	
 	<ContentPage.Content>
 		<Grid>			
 			<Image VerticalOptions="Start" Source="minrva_icon.png" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="1" />
 			<Label x:Name="Name" Grid.Row="0" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="2"/>
 			<Label Text="Rating" FontSize="Small" Grid.Row="1" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="1"/>
-			<Label Text="ooooo" FontSize="Small" Grid.Row="1" Grid.Column="2" Grid.RowSpan="1" Grid.ColumnSpan="1"/>
+			<rating:SfRating x:Name="userRating" ItemSize="15" Precision="Half" ReadOnly="true" Grid.Row="1" Grid.Column="2" Grid.RowSpan="1" Grid.ColumnSpan="1"/>
 			<Label Text="Stats" FontSize="Small" Grid.Row="2" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="1"/>
 			<Label x:Name="LendBorrow" FontSize="Small" Grid.Row="2" Grid.Column="2" Grid.RowSpan="1" Grid.ColumnSpan="1"/>
-			<ListView Grid.Row="3" Grid.Column="0" Grid.RowSpan="10" Grid.ColumnSpan="3" x:Name="myItems"
+			<Button Text="View Reviews" x:Name="viewReviews" Clicked="ViewReviews" Grid.Row="3" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="2"/>
+			<ListView Grid.Row="4" Grid.Column="0" Grid.RowSpan="10" Grid.ColumnSpan="3" x:Name="myItems"
 				ItemSelected="OnSelected"
 				IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
 			<ListView.ItemTemplate>
@@ -17,7 +19,7 @@
         		</DataTemplate>
       		</ListView.ItemTemplate>
 			</ListView>
-			<Button Text="Logout" Clicked="Clicked_Logout" Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="3" />
+			<Button Text="Logout" Clicked="Clicked_Logout" Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="3" />
 		</Grid>
 	</ContentPage.Content>
 </ContentPage>

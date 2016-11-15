@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using Xamarin.Forms;
+using Syncfusion.SfRating.XForms;
 
 namespace minrva
 {
@@ -24,7 +25,15 @@ namespace minrva
 			await displayUserName();
 			await displayLendBorrowCount();
 			this.sid = await App.Authenticator.GetUserId();
+			userRating.Value = await getUserRating();
 			await RefreshItems(true, syncItems: false);
+		}
+
+		async Task<double> getUserRating()
+		{
+			var ratingsTable = await tableManager.GetRatingsAsync();
+			var ratings = ratingsTable.Where(r => String.Equals(sid, r.RatedID)).Select(rating => rating.Rating);
+			return ratings.Average();
 		}
 
 		async Task displayUserName()
@@ -57,6 +66,11 @@ namespace minrva
 				App.Current.MainPage = new LoginPage();
 			else
 				await DisplayAlert("Logout Error", "You have failed to log out.", "OK");
+		}
+
+		public async void ViewReviews(object sender, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new ReviewsPage(sid, false));
 		}
 
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
