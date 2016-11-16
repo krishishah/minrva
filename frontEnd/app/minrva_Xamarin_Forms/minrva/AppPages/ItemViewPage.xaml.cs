@@ -117,7 +117,6 @@ namespace minrva
 		public async void BorrowItem(object sender, EventArgs e)
 		{
 			await Navigation.PushModalAsync(new BorrowItemPage(item));
-			await Navigation.PopModalAsync();
 		}
 	}
 }

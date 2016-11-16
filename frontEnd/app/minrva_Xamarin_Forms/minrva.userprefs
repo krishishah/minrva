@@ -1,15 +1,12 @@
-<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/AppDelegate.cs">
+﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/ItemViewPage.xaml.cs">
     <Files>
-      <File FileName="minrvaUITests/Tests.cs" Line="7" Column="30" />
-      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="26" Column="49" />
-      <File FileName="minrva/AppPages/ChatsPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="22" Column="42" />
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="1" Column="1" />
-      <File FileName="minrva/Tables/TableManager.cs" Line="29" Column="18" />
-      <File FileName="minrva/App.cs" Line="1" Column="1" />
-      <File FileName="iOS/AppDelegate.cs" Line="1" Column="1" />
-      <File FileName="iOS/Entitlements.plist" />
+      <File FileName="minrvaUITests/Tests.cs" Line="128" Column="79" />
+      <File FileName="minrva/Tables/RequestMessage.cs" Line="16" Column="7" />
+      <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="99" Column="28" />
+      <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="45" Column="39" />
+      <File FileName="minrva/AppPages/BorrowItemPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/ItemViewPage.xaml.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />

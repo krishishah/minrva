@@ -24,7 +24,10 @@ namespace minrva
 			Receiver = name;
 			BindingContext = this;
 			RefreshItems(false, syncItems: false);
+			//refreshOnTimer();
 		}
+
+
 
 		public void Authenticate()
 		{
