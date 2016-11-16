@@ -66,16 +66,9 @@ namespace minrva
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var game = e.SelectedItem as Boardgames;
-			var message = game.Description + "\n\nThis game is available in " + game.Location + " for " + game.Lend_duration + " days\n";
-			bool alert = await DisplayAlert(game.Name, message, "Borrow", "Cancel");
-			if (alert)
-			{
-				BorrowItemPage borrowPage = new BorrowItemPage(game);
-				await Navigation.PushModalAsync(borrowPage, false);
-			}
-			else {
-				await RefreshItems(false, syncItems: false);
-			}
+			var userTable = await manager.GetUserAsync();
+			await Navigation.PushModalAsync(new ItemViewPage(game, userTable.Where(u=>string.Equals(u.UserId, game.Owner)).ElementAt(0)));
+			await RefreshItems(false, syncItems: false);
 		}
 
 		public async void ShowCategory(object sender, EventArgs e)

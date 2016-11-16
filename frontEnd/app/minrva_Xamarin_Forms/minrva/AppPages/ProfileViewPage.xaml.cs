@@ -16,14 +16,19 @@ namespace minrva
 		User profOwner;
 		Boardgames reqItem;
 		Request req;
+		bool borrowing;
 
-		public ProfileViewPage(User profOwner, Boardgames reqItem, Request req)
+		public ProfileViewPage(User profOwner, Boardgames reqItem, Request req, bool borrowing)
 		{
 			InitializeComponent();
 			tableManager = TableManager.DefaultManager;
 			this.profOwner = profOwner;
 			this.reqItem = reqItem;
-			this.req = req;
+			this.borrowing = borrowing;
+			if (!borrowing)
+			{
+				this.req = req;
+			}
 			displayDetails();
 			displayProfilePicture();
 		}
@@ -32,7 +37,16 @@ namespace minrva
 		{
 			await displayLendBorrowCount();
 			Name.Text = String.Format("{0} {1}", profOwner.FirstName, profOwner.LastName);
-			BorrowReq.Text = String.Format("{0} {1} has requested to borrow {2} from {3} to {4}", profOwner.FirstName, profOwner.LastName, reqItem.Name, req.StartDate, req.EndDate);
+			if (!this.borrowing)
+			{
+				BorrowReq.Text = String.Format("{0} {1} has requested to borrow {2} from {3} to {4}", profOwner.FirstName, profOwner.LastName, reqItem.Name, req.StartDate, req.EndDate);
+			}
+			else 
+			{
+				BorrowReq.IsVisible = false;
+				YesButton.IsVisible = false;
+				NoButton.IsVisible = false;
+			}
 			userRating.Value = await getUserRating();
 			await RefreshItems(false, syncItems: false);
 		}
@@ -84,13 +98,9 @@ namespace minrva
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var game = e.SelectedItem as Boardgames;
-			var message = game.Description + "\n\nThis game is available in " + game.Location + " for " + game.Lend_duration + " days\n";
-			bool alert = await DisplayAlert(game.Name, message, "Borrow", "Cancel");
-			if (alert)
-			{
-				BorrowItemPage borrowPage = new BorrowItemPage(game);
-				await Navigation.PushModalAsync(borrowPage, false);
-			}
+			var userTable = await tableManager.GetUserAsync();
+			await Navigation.PushModalAsync(new ItemViewPage(game, userTable.Where(u => string.Equals(u.UserId, game.Owner)).ElementAt(0)));
+			await RefreshItems(false, syncItems: false);
 		}
 
 		async Task AddItem(Chat item)
@@ -111,6 +121,11 @@ namespace minrva
 		}
 
 		public async void RejectRequest(object sender, EventArgs e)
+		{
+			await Navigation.PopModalAsync();
+		}
+
+		public async void BackButtonCommand(object sender, EventArgs e)
 		{
 			await Navigation.PopModalAsync();
 		}

@@ -41,7 +41,7 @@ namespace minrva
 			    
 			if (alert)
 			{
-					await Navigation.PushModalAsync(new ProfileViewPage(reqMsg.OtherUser, requestedItem, reqMsg.Request));
+				await Navigation.PushModalAsync(new ProfileViewPage(reqMsg.OtherUser, requestedItem, reqMsg.Request, false));
 				await RefreshItems(false, syncItems: false);
 			}
 		}
