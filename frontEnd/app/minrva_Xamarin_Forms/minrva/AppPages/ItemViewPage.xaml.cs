@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -25,7 +26,20 @@ namespace minrva
 			Category.Text = item.Category;
 			Location.Text = item.Location;
 			Duration.Text = String.Format("Available for {0} days", item.Lend_duration);
+			displayItemImage();
 			displayRatings();
+		}
+
+		async void displayItemImage()
+		{
+			var imageBytes = await ImageManager.GetImage(item.Id + "_0");
+
+			if (imageBytes != null)
+			{
+				ItemImage.Source = ImageSource.FromStream(() =>
+											new MemoryStream(imageBytes));
+				ItemImage.HeightRequest = 200;
+			}
 		}
 
 		async void displayRatings()

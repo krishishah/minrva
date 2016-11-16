@@ -4,6 +4,7 @@
 	<ScrollView>
 	<StackLayout Padding="10,10,10,10">
 		<Button Text="Back" Clicked="BackButtonCommand" HorizontalOptions="Start"/>
+		<Image x:Name="ItemImage" HorizontalOptions="Center"/>
 		<Label x:Name="ProductName"/>
 		<Label x:Name="Category" FontAttributes="Italic" FontSize="Small"/>
 		<Label x:Name="Description"/>
