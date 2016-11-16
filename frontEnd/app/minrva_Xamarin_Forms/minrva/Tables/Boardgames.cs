@@ -17,6 +17,14 @@ namespace minrva
 		double longitude;
 		string category;
 		string createdAt;
+		double distance;
+
+		[JsonProperty(PropertyName = "distance")]
+		public double Distance
+		{
+			get { return distance; }
+			set { distance = value; }
+		}
 
 		[JsonProperty(PropertyName = "id")]
 		public string Id

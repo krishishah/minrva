@@ -21,11 +21,11 @@
       		<ListView.ItemTemplate>
         		<DataTemplate>
 					<ViewCell>
-						<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+						<StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
 							<Label Text="{Binding Name}" FontSize="Large" HorizontalTextAlignment="Center"/>
 							<Image Source="minrva_icon.png" />
 							<Label Text="{Binding Location}" FontSize="Small" HorizontalTextAlignment="Center"/>
-							<Label Text="3.2 miles" FontSize="Small" HorizontalTextAlignment="Center" />
+							<Label Text="{Binding Distance, StringFormat='{0:F1} miles'}" FontSize="Small" HorizontalTextAlignment="Center" />
 						</StackLayout>
 					</ViewCell>         			
         		</DataTemplate>

@@ -1,9 +1,11 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/Tables/BoardgamesView.cs">
     <Files>
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="47" Column="33" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="169" Column="30" />
+      <File FileName="minrva/Tables/Boardgames.cs" Line="22" Column="23" />
       <File FileName="iOS/Main.cs" Line="19" Column="1" />
-      <File FileName="minrva/AppPages/ReviewsPage.xaml" Line="1" Column="1" />
+      <File FileName="minrva/Tables/RequestMessage.cs" Line="1" Column="1" />
+      <File FileName="minrva/Tables/BoardgamesView.cs" Line="7" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
