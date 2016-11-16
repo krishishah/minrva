@@ -26,6 +26,7 @@ namespace minrva
 	public partial class TableManager
 	{
 		static TableManager defaultInstance = new TableManager();
+
 		MobileServiceClient client;
 
 #if OFFLINE_SYNC_ENABLED
@@ -76,6 +77,9 @@ namespace minrva
 				defaultInstance = value;
 			}
 		}
+
+
+
 
 		public MobileServiceClient CurrentClient
 		{
