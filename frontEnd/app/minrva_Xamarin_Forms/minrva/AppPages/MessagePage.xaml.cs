@@ -23,7 +23,24 @@ namespace minrva
 			Username = name.FirstName;
 			Receiver = name;
 			BindingContext = this;
-			RefreshItems(false, syncItems: false);
+			//RefreshItems(false, syncItems: false);
+			refreshOnTimer();
+		}
+
+		private void refreshOnTimer()
+		{
+			Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+			{
+				Task.Factory.StartNew(async () =>
+				{
+					await RefreshItems(false, syncItems: false);
+					Device.BeginInvokeOnMainThread(() =>
+					{
+						refreshOnTimer();
+					});
+				});
+				return true;
+			});
 		}
 
 		public void Authenticate()
