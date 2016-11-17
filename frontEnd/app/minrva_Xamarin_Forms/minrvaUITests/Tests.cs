@@ -117,39 +117,29 @@ namespace minrvaUITests
 		[Test]
 		public void CheckIfErrorAppearsWhenFieldInAddItemIsNotCompleted()
 		{
-			app.Tap(x => x.Marked("Sign-in"));
-			app.Screenshot("Tapped on view with class: UIButton marked: Sign-in");
+			app.Tap(x => x.Text("Sign-in"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Sign-in");
 			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
 			app.Screenshot("Tapped on view with class: UIWebView");
 			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "otheraccount9898@hotmail.co.uk");
 			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
 			app.Screenshot("Tapped on view with class: UIWebView");
 			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
-			app.Tap(x => x.Marked("Done"));
-			app.Screenshot("Tapped on view with class: UIToolbarTextButton marked: Done");
 			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
 			app.Screenshot("Tapped on view with class: UIWebView");
 			app.Tap(x => x.Marked("OK"));
 			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: OK");
-			app.Tap(x => x.Id("Plus-50@2x.png"));
-			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+			app.Tap(x => x.Marked("Add"));
+			app.Screenshot("Tapped on view with class: UITabBarButton marked: Add");
 			app.Tap(x => x.Marked("Enter Category"));
 			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Category");
-			app.Tap(x => x.Marked("Book"));
-			app.Screenshot("Tapped on view with class: UILabel marked: Book");
-			app.Tap(x => x.Marked("Done"));
-			app.Screenshot("Tapped on view with class: UIToolbarTextButton marked: Done");
-			app.Tap(x => x.Marked("Enter Name"));
-			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Name");
-			app.Tap(x => x.Marked("Enter Number of Days Willing to Lend"));
-			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Number of Days Willing to Lend");
-			app.Tap(x => x.Text("Enter Description"));
-			app.Screenshot("Tapped on view with class: UITextView");
+			app.Tap(x => x.Marked("Board Game"));
+			app.Screenshot("Tapped on view with class: UILabel marked: Board Game");
 			app.Tap(x => x.Marked("Done"));
 			app.Screenshot("Tapped on view with class: UIToolbarTextButton marked: Done");
 			app.Tap(x => x.Marked("Enter Number of Days Willing to Lend"));
 			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Number of Days Willing to Lend");
-			app.EnterText(x => x.Class("UITextField").Index(2), "6");
+			app.EnterText(x => x.Class("UITextField").Index(2), "9");
 			app.Tap(x => x.Marked("Enter Location"));
 			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Location");
 			app.EnterText(x => x.Class("UITextField").Index(3), "London");
@@ -160,23 +150,7 @@ namespace minrvaUITests
 			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Ok");
 		}
 
-
-		[Test]
-		public void CheckLoggingInWithUnregisteredUserThrowsError()
-		{
-			app.Tap(x => x.Marked("Sign-in"));
-			app.Screenshot("Tapped on view with class: UIButton marked: Sign-in");
-			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
-			app.Screenshot("Tapped on view with class: UIWebView");
-			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "otheracccount9898@hotmail.co.uk");
-			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
-			app.Screenshot("Tapped on view with class: UIWebView");
-			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
-			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
-			app.Screenshot("Tapped on view with class: UIWebView");
-			app.Tap(x => x.Marked("Done"));
-			app.Screenshot("Tapped on view with class: UIToolbarTextButton marked: Done");
-		}
+	
 
 
 		[Test]
