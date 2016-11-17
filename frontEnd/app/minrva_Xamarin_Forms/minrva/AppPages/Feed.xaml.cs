@@ -126,7 +126,7 @@ namespace minrva
 					}
 					catch (Exception e)
 					{
-						await DisplayAlert("Error", e.ToString(), "OK");
+						Debug.WriteLine(String.Format("Error: {0}", e.ToString()));
 					}
 
 					cLat = position.Latitude;
