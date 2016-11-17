@@ -122,6 +122,8 @@ namespace minrva
 
 		public async void RejectRequest(object sender, EventArgs e)
 		{
+			req.Accepted = "False";
+			await tableManager.SaveRequestAsync(req);
 			await Navigation.PopModalAsync();
 		}
 
