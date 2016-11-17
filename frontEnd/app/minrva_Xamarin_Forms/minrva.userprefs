@@ -1,7 +1,10 @@
-﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
+<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Profile.xaml.cs">
     <Files>
       <File FileName="minrva/AppPages/Profile.xaml.cs" Line="14" Column="3" />
+      <File FileName="minrvaUITests/Tests.cs" Line="153" Column="2" />
+      <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="64" Column="15" />
+      <File FileName="minrva/AppPages/Profile.xaml.cs" Line="188" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.06ae9ac1f0e96674" />

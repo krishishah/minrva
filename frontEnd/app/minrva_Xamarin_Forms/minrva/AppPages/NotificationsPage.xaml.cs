@@ -19,10 +19,18 @@ namespace minrva
 			RefreshItems(true, syncItems: false);
 		}
 
+		protected override async void OnAppearing()
+		{
+			base.OnAppearing();
+			await RefreshItems(true, syncItems: false);
+		}
+
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var reqMsg = e.SelectedItem as RequestMessage;
 			var alert = false;
+			var alert2 = false;
+			var alert3 = false;
 			Request req = reqMsg.Request;
 			Boardgames requestedItem = reqMsg.RequestedItem;
 
@@ -38,10 +46,30 @@ namespace minrva
 				await tableManager.DeleteRequestAsync(req);
 				await RefreshItems(false, syncItems: false);
 			}
+			else if (reqMsg.AcceptStatus.Equals("Accepted") && reqMsg.RequestType.Equals("Lend Request"))
+			{
+				alert2 = await DisplayAlert("Undo","Undo accepted lend request?", "Yes", "No");
+			}
+			else if (reqMsg.AcceptStatus.Equals("Pending") && reqMsg.RequestType.Equals("Borrow Request"))
+			{
+				alert3 = await DisplayAlert("Undo", "Undo pending borrow request?", "Yes", "No");
+			}
 			    
 			if (alert)
 			{
 				await Navigation.PushModalAsync(new ProfileViewPage(reqMsg.OtherUser, requestedItem, reqMsg.Request, false));
+				await RefreshItems(false, syncItems: false);
+			}
+
+			if (alert2)
+			{
+				await tableManager.DeleteRequestAsync(req);
+				await RefreshItems(false, syncItems: false);
+			}
+
+			if (alert3)
+			{
+				await tableManager.DeleteRequestAsync(req);
 				await RefreshItems(false, syncItems: false);
 			}
 		}
@@ -103,7 +131,6 @@ namespace minrva
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", borrowingUser.FirstName, requestStatus);
 					requestsMsgs.Add(new RequestMessage(requestedItem, borrowingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
-
 				}
 
 				requestStatus = "Accepted";
@@ -117,7 +144,6 @@ namespace minrva
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", borrowingUser.FirstName, requestStatus);
 					requestsMsgs.Add(new RequestMessage(requestedItem, borrowingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
-
 				}
 
 				requestType = "Borrow Request";
@@ -131,7 +157,6 @@ namespace minrva
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", lendingUser.FirstName, requestStatus);
 					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
-
 				}
 
 				requestStatus = "Pending";
@@ -145,7 +170,6 @@ namespace minrva
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", lendingUser.FirstName, requestStatus);
 					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
-
 				}
 
 				requestStatus = "Rejected";
@@ -159,7 +183,6 @@ namespace minrva
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", lendingUser.FirstName, requestStatus);
 					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
-
 				}
 
 				requestStatus = "Returned";
