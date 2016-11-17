@@ -138,8 +138,13 @@ namespace minrva
 			else
 			{
 				borrowMsg = String.Format("This game is still available for users to borrow in {0} for {1} days\n", game.Location, game.Lend_duration);
-				await DisplayAlert("Item information", borrowMsg, "Ok");
+				var alert = await DisplayAlert("Item information", borrowMsg, "Delete", "Ok");
+				if (alert)
+				{
+					await tableManager.DeleteBoardgamesAsync(game);
+				}
 			}
+			await RefreshItems(false, syncItems: false);
 
 		}
 
