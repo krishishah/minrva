@@ -1,16 +1,19 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/ItemViewPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Feed.xaml">
     <Files>
-      <File FileName="minrvaUITests/Tests.cs" Line="128" Column="79" />
-      <File FileName="minrva/Tables/RequestMessage.cs" Line="16" Column="7" />
-      <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="99" Column="28" />
-      <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="45" Column="39" />
-      <File FileName="minrva/AppPages/BorrowItemPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="minrva/AppPages/ItemViewPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/Profile.xaml.cs" Line="19" Column="3" />
+      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="iOS/Main.cs" Line="21" Column="3" />
+      <File FileName="minrva/AppPages/ReviewsPage.xaml.cs" Line="97" Column="14" />
+      <File FileName="minrva/AppPages/ProfileViewPage.xaml" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/ReviewsPage.xaml" Line="16" Column="36" />
+      <File FileName="Droid/packages.config" Line="15" Column="1" />
+      <File FileName="minrva/Tables/Boardgames.cs" Line="40" Column="4" />
+      <File FileName="minrva/AppPages/Feed.xaml" Line="11" Column="8" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
-  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.3E63DB6D-E618-4EAB-BB98-DABBF21F51F5" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B9D00A3C-265B-47F0-813D-E693E601846D" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
