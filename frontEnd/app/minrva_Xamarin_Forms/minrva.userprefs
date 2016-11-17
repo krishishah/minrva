@@ -1,15 +1,15 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Feed.xaml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/FeedMapPage.xaml.cs">
     <Files>
-      <File FileName="minrva/AppPages/Profile.xaml.cs" Line="19" Column="3" />
-      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="iOS/Main.cs" Line="21" Column="3" />
-      <File FileName="minrva/AppPages/ReviewsPage.xaml.cs" Line="97" Column="14" />
-      <File FileName="minrva/AppPages/ProfileViewPage.xaml" Line="1" Column="1" />
-      <File FileName="minrva/AppPages/ReviewsPage.xaml" Line="16" Column="36" />
+      <File FileName="minrva/AppPages/Profile.xaml.cs" Line="73" Column="7" />
+      <File FileName="iOS/Main.cs" Line="19" Column="45" />
       <File FileName="Droid/packages.config" Line="15" Column="1" />
-      <File FileName="minrva/Tables/Boardgames.cs" Line="40" Column="4" />
       <File FileName="minrva/AppPages/Feed.xaml" Line="11" Column="8" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="225" Column="85" />
+      <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="99" Column="24" />
+      <File FileName="minrva/AppPages/UserAuth/LoginPage.xaml.cs" Line="28" Column="34" />
+      <File FileName="minrva/AppPages/ItemViewPage.xaml.cs" Line="32" Column="3" />
+      <File FileName="minrva/AppPages/FeedMapPage.xaml.cs" Line="16" Column="63" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
