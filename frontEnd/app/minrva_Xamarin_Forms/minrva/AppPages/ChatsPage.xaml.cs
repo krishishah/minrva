@@ -24,7 +24,7 @@ namespace minrva
 		protected override async void OnAppearing()
 		{
 			base.OnAppearing();
-			await RefreshItems(true, syncItems: false);
+			await RefreshItems(false, syncItems: false);
 		}
 
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
