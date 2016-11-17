@@ -120,10 +120,11 @@ namespace minrva
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var game = e.SelectedItem as Boardgames;
+			var requests = await tableManager.GetRequestAsync();
+
 			string borrowMsg = "";
 			if (game.Borrowed)
 			{
-				var requests = await tableManager.GetRequestAsync();
 				Request req = requests.Where(r => string.Equals(r.Lender, this.sid) && string.Equals(r.ItemId, game.Id)).ElementAt(0);
 				var users = await tableManager.GetUserAsync();
 				User borrower = users.Where(u => string.Equals(u.UserId, req.Borrower)).ElementAt(0);
@@ -138,10 +139,20 @@ namespace minrva
 			else
 			{
 				borrowMsg = String.Format("This game is still available for users to borrow in {0} for {1} days\n", game.Location, game.Lend_duration);
-				var alert = await DisplayAlert("Item information", borrowMsg, "Delete", "Ok");
-				if (alert)
+				List<Request> pendingReqs = requests.Where(r => string.Equals(r.ItemId, game.Id) && string.Equals(r.Accepted, "Pending")).ToList();
+
+				if (pendingReqs.Count == 0)
 				{
-					await tableManager.DeleteBoardgamesAsync(game);
+					var alert = await DisplayAlert("Item information", borrowMsg, "Delete", "OK");
+
+					if (alert)
+					{
+						await tableManager.DeleteBoardgamesAsync(game);
+					}
+				}
+				else
+				{ 
+					await DisplayAlert("Item information", borrowMsg, "OK"); 
 				}
 			}
 			await RefreshItems(false, syncItems: false);
