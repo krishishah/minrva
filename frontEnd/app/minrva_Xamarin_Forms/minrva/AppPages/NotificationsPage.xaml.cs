@@ -100,8 +100,6 @@ namespace minrva
 				{
 					User borrowingUser = users.Where(user => String.Equals(r.Borrower, user.UserId)).ElementAt(0);
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
-					Debug.WriteLine("Date pending: {0}", r.UpdatedAt);
-					//lenderPendingMsgs.Add(new RequestMessage(requestedItem, borrowingUser, "Lend Request", "Pending", r.UpdatedAt, r));
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", borrowingUser.FirstName, requestStatus);
 					requestsMsgs.Add(new RequestMessage(requestedItem, borrowingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));

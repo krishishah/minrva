@@ -24,12 +24,15 @@ namespace minrva
 			Receiver = name;
 			BindingContext = this;
 			RefreshItems(false, syncItems: false);
+			//refreshOnTimer();
 		}
+
 
 		public void Authenticate()
 		{
 			authenticated = true;
 		}
+
 
 		protected override async void OnAppearing()
 		{
@@ -41,14 +44,15 @@ namespace minrva
 				// Set syncItems to true in order to synchronize the data 
 				// on startup when running in offline mode.
 				await RefreshItems(false, syncItems: false);
-
 			}
 		}
+
 
 		public async void BackButtonCommand(object sender, EventArgs e)
 		{
 			await Navigation.PopModalAsync();
 		}
+
 
 		public async void OnRefresh(object sender, EventArgs e)
 		{
@@ -87,10 +91,12 @@ namespace minrva
 			}
 		}
 
+
 		async Task AddItem(Message item)
 		{
 			await manager.SaveMessageAsync(item);
 		}
+
 
 		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
 		{
