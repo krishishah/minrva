@@ -117,9 +117,18 @@ namespace minrva
 
 			if (selectCategory.IsVisible)
 			{
+				var position = new Plugin.Geolocator.Abstractions.Position();
 				using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
 				{
-					var position = await locator.GetPositionAsync(timeoutMilliseconds: 10000);
+					try
+					{
+						position = await locator.GetPositionAsync(timeoutMilliseconds: 10000);
+					}
+					catch (Exception e)
+					{
+						await DisplayAlert("Error", e.ToString(), "OK");
+					}
+
 					cLat = position.Latitude;
 					cLon = position.Longitude;
 					this.position = new Position(cLat, cLon);
@@ -214,7 +223,13 @@ namespace minrva
 
 		async void gotoFeedMapPage(object sender, EventArgs e)
 		{
-			App.Current.MainPage = new FeedMapPage(position: position, list_of_items: listOfItems);
+			if (listOfItems == null || position == null)
+			{
+				await DisplayAlert("Alert", "List of Items not yet loaded", "OK");
+			}
+			else {
+				Application.Current.MainPage = new FeedMapPage(position: position, list_of_items: listOfItems);
+			}
 		}
 
 		private class ActivityIndicatorScope : IDisposable
