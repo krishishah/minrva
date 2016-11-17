@@ -1,8 +1,8 @@
-﻿<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Feed.xaml.cs">
+﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Feed.xaml">
     <Files>
-      <File FileName="minrva/AppPages/MessagePage.xaml" Line="17" Column="23" />
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="216" Column="4" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="174" Column="44" />
+      <File FileName="minrva/AppPages/Feed.xaml" Line="26" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.06ae9ac1f0e96674" />
