@@ -69,12 +69,42 @@ namespace minrvaUITests
 		//	app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Okay");
 		//}
 
-
 		[Test]
-		public void CheckIfItemIsAddedAndAppearsOnUserProfile()
+		public void CheckIfBorrowRequestIsSuccessful()
 		{
 			app.Tap(x => x.Marked("Sign-in"));
 			app.Screenshot("Tapped on view with class: UIButton marked: Sign-in");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "otheraccount9898@hotmail.co.uk");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+			app.Tap(x => x.Marked("Done"));
+			app.Screenshot("Tapped on view with class: UIToolbarTextButton marked: Done");
+			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.Tap(x => x.Marked("OK"));
+			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: OK");
+			app.Tap(x => x.Id("minrva_icon.png"));
+			app.Screenshot("Tapped on view with class: UIImageView");
+			app.ScrollDown();
+			app.Screenshot("Swiped up");
+			app.Tap(x => x.Text("Borrow Item"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Borrow Item");
+			app.Tap(x => x.Text("Send borrow request"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Send borrow request");
+			app.Tap(x => x.Marked("Okay"));
+			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Okay");
+		}
+
+
+
+		[Test]
+		public void CheckIfItemAddedByUserIsShownOnProfile()
+		{
+			app.Tap(x => x.Text("Sign-in"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Sign-in");
 			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
 			app.Screenshot("Tapped on view with class: UIWebView");
 			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "otheraccount9898@hotmail.co.uk");
@@ -93,53 +123,10 @@ namespace minrvaUITests
 			app.Screenshot("Tapped on view with class: UIToolbarTextButton marked: Done");
 			app.Tap(x => x.Marked("Enter Name"));
 			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Name");
-			app.EnterText(x => x.Class("UITextField").Index(1), "Lord of the Rings");
+			app.EnterText(x => x.Class("UITextField").Index(1), "Trivial Pursuit");
 			app.Tap(x => x.Marked("Enter Number of Days Willing to Lend"));
 			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Number of Days Willing to Lend");
-			app.EnterText(x => x.Class("UITextField").Index(2), "8");
-			app.Tap(x => x.Marked("Enter Location"));
-			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Location");
-			app.EnterText(x => x.Class("UITextField").Index(3), "Leeds");
-			app.PressEnter();
-			app.Tap(x => x.Text("Add Item"));
-			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Add Item");
-			app.Tap(x => x.Marked("Ok"));
-			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Ok");
-			app.Tap(x => x.Id("Gender Neutral User-50@2x.png"));
-			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
-			app.Tap(x => x.Class("UITableViewCellContentView"));
-			app.Screenshot("Tapped on view with class: UITableViewCellContentView");
-			app.Tap(x => x.Marked("Ok"));
-			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Ok");
-		}
-
-
-		[Test]
-		public void CheckIfErrorAppearsWhenFieldInAddItemIsNotCompleted()
-		{
-			app.Tap(x => x.Text("Sign-in"));
-			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Sign-in");
-			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
-			app.Screenshot("Tapped on view with class: UIWebView");
-			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "otheraccount9898@hotmail.co.uk");
-			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
-			app.Screenshot("Tapped on view with class: UIWebView");
-			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
-			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
-			app.Screenshot("Tapped on view with class: UIWebView");
-			app.Tap(x => x.Marked("OK"));
-			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: OK");
-			app.Tap(x => x.Marked("Add"));
-			app.Screenshot("Tapped on view with class: UITabBarButton marked: Add");
-			app.Tap(x => x.Marked("Enter Category"));
-			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Category");
-			app.Tap(x => x.Marked("Board Game"));
-			app.Screenshot("Tapped on view with class: UILabel marked: Board Game");
-			app.Tap(x => x.Marked("Done"));
-			app.Screenshot("Tapped on view with class: UIToolbarTextButton marked: Done");
-			app.Tap(x => x.Marked("Enter Number of Days Willing to Lend"));
-			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Number of Days Willing to Lend");
-			app.EnterText(x => x.Class("UITextField").Index(2), "9");
+			app.EnterText(x => x.Class("UITextField").Index(2), "5");
 			app.Tap(x => x.Marked("Enter Location"));
 			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Location");
 			app.EnterText(x => x.Class("UITextField").Index(3), "London");
@@ -148,9 +135,16 @@ namespace minrvaUITests
 			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Add Item");
 			app.Tap(x => x.Marked("Ok"));
 			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Ok");
+			app.Tap(x => x.Id("Gender Neutral User-50@2x.png"));
+			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+			app.Tap(x => x.Class("UITableViewCellContentView").Index(5));
+			app.Screenshot("Tapped on view with class: UITableViewCellContentView");
+			app.Tap(x => x.Marked("Delete"));
+			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Delete");
 		}
 
-	
+
+
 
 
 		[Test]
