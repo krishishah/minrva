@@ -1,13 +1,12 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/ChatsPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/ReviewsPage.xaml">
     <Files>
-      <File FileName="minrvaUITests/Tests.cs" Line="153" Column="2" />
-      <File FileName="minrva/Tables/RequestMessage.cs" Line="16" Column="7" />
-      <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="99" Column="28" />
-      <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="45" Column="39" />
-      <File FileName="minrva/AppPages/BorrowItemPage.xaml.cs" Line="61" Column="5" />
-      <File FileName="minrva/AppPages/ItemViewPage.xaml.cs" Line="119" Column="62" />
-      <File FileName="minrva/AppPages/ChatsPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/MessagePage.xaml" Line="17" Column="23" />
+      <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/Feed.xaml" Line="12" Column="38" />
+      <File FileName="iOS/Main.cs" Line="19" Column="1" />
+      <File FileName="minrva/AppPages/ItemViewPage.xaml" Line="31" Column="16" />
+      <File FileName="minrva/AppPages/ReviewsPage.xaml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
@@ -26,8 +25,8 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
-  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.3E63DB6D-E618-4EAB-BB98-DABBF21F51F5" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.87FEEF8E-9FC2-4ACD-B113-53736C27E77E" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

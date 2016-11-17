@@ -1,33 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.MessagePage">
 	<ContentPage.Content>
-		<ScrollView>
 		<StackLayout Orientation="Vertical" Padding="5, 20, 5, 0">
-		<Button Text="Back" Clicked="BackButtonCommand" HorizontalOptions="Start">
-		</Button>
-		<Label Text="{Binding Username}" HorizontalOptions="Center">
-		</Label>
-		<ActivityIndicator Grid.RowSpan="2"
-           HorizontalOptions="Center"
-           VerticalOptions="Center"
-           IsVisible="False"
-           IsEnabled="True"
-           x:Name="syncIndicator"/>
-		<ListView x:Name="messageList" IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
-  		<ListView.ItemTemplate>
-    		<DataTemplate>
-				<ViewCell x:Name="viewCell">
-					<StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="{Binding Alignment}" Padding="0,10,10,0">
-      				<Label Text="{Binding Text}"/>
-      				</StackLayout>
-				</ViewCell>
-			</DataTemplate>
-  		</ListView.ItemTemplate>
-    	</ListView>
-		<Editor Focused="Handle_Focused" x:Name="newMessage" Text="Enter Message" TextColor="Gray" HeightRequest="100" />
-		<Button Text="Send Message" Clicked="SendMessageCommand">
-		</Button>
+			<Button Text="Back" Clicked="BackButtonCommand" HorizontalOptions="Start">
+			</Button>
+			<Label Text="{Binding Username}" HorizontalOptions="Center">
+			</Label>
+<!--			<ScrollView>-->
+				<ActivityIndicator Grid.RowSpan="2" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="False" IsEnabled="True" x:Name="syncIndicator" />
+				<ListView x:Name="messageList" IsPullToRefreshEnabled="true" Refreshing="OnRefresh" HasUnevenRows="true">
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell x:Name="viewCell">
+								<StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="{Binding Alignment}" Padding="0,10,10,0">
+									<Label Text="{Binding Text}" />
+								</StackLayout>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+<!--			</ScrollView>-->
+			<Editor Focused="Handle_Focused" x:Name="newMessage" Text="Enter Message" TextColor="Gray" HeightRequest="100" />
+			<Button Text="Send Message" Clicked="SendMessageCommand">
+			</Button>
 		</StackLayout>
-		</ScrollView>
 	</ContentPage.Content>
 </ContentPage>

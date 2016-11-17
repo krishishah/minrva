@@ -7,6 +7,7 @@ using System.Linq;
 using Plugin.Geolocator;
 using Xamarin.Forms.Maps;
 using System.Diagnostics;
+using System.IO;
 
 namespace minrva
 {
@@ -38,15 +39,7 @@ namespace minrva
 		protected override async void OnAppearing()
 		{
 			base.OnAppearing();
-
-			// Refresh items only when authenticated.
-			if (authenticated == true)
-			{				
-				// Set syncItems to true in order to synchronize the data 
-				// on startup when running in offline mode.
-				await RefreshItems(true, syncItems: false);
-
-			}
+			await RefreshItems(false, syncItems: false);
 		}
 
 		public async void OnSearch(object sender, EventArgs e)
@@ -65,9 +58,11 @@ namespace minrva
 
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
-			var game = e.SelectedItem as Boardgames;
+			var item = e.SelectedItem as BoardgamesViewModel;
 			var userTable = await manager.GetUserAsync();
-			await Navigation.PushModalAsync(new ItemViewPage(game, userTable.Where(u=>string.Equals(u.UserId, game.Owner)).ElementAt(0)));
+			var itemTable = await manager.GetBoardgamesAsync();
+			var itemObj = itemTable.Where(x => String.Equals(x.Id, item.Id)).ElementAt(0);
+			await Navigation.PushModalAsync(new ItemViewPage(itemObj, userTable.Where(u=>string.Equals(u.UserId, item.Owner)).ElementAt(0)));
 			await RefreshItems(false, syncItems: false);
 		}
 
@@ -146,15 +141,59 @@ namespace minrva
 							list = available.Where(game => (!String.Equals(game.Owner, sid)) && (!game.Borrowed) && (String.Equals(game.Category, category)));
 						}
 					}
-					list = list.OrderBy(s => (s.Latitude - cLat) * (s.Latitude - cLat) + (s.Longitude - cLon) * (s.Longitude - cLon));
-					foreach (var item in list)
+
+					List<BoardgamesViewModel> feedViewList = new List<BoardgamesViewModel>();
+
+					foreach (Boardgames x in list)
 					{
-						Debug.WriteLine("LatLon: " + item.Latitude + ", " + item.Longitude);
+						BoardgamesViewModel listElement = new BoardgamesViewModel();
+
+						listElement.Id = x.Id;
+						listElement.Name = x.Name;
+						listElement.Description = x.Description;
+						listElement.Owner = x.Owner;
+						listElement.Location = x.Location;
+						listElement.Category = x.Category;
+
+						//Temporary hack to load item image as we currently only allow 1 image per item to be downloaded
+						byte[] itemImageBytes = await ImageManager.GetImage(String.Format("{0}_0",x.Id));
+						listElement.ImageSource = "minrva_icon.png";
+
+						if (itemImageBytes != null)
+							listElement.ImageSource = ImageSource.FromStream(() => new MemoryStream(itemImageBytes));
+
+						listElement.Distance = calculateDistance(cLat, cLon, x.Latitude, x.Longitude);
+
+						feedViewList.Add(listElement);
 					}
-					feedList.ItemsSource = list;
+
+					feedViewList.Sort((x, y) => x.Distance.CompareTo(y.Distance));
+
+					feedList.ItemsSource = feedViewList;
 					listOfItems = list;
 				}
 			}
+		}
+
+		private double calculateDistance(double lat1, double lon1, double lat2, double lon2)
+		{
+			double theta = lon1 - lon2;
+			double dist = Math.Sin(deg2rad(lat1)) * Math.Sin(deg2rad(lat2)) + Math.Cos(deg2rad(lat1)) * Math.Cos(deg2rad(lat2)) * Math.Cos(deg2rad(theta));
+			dist = Math.Acos(dist);
+			dist = rad2deg(dist);
+			dist = dist * 60 * 1.1515;
+			dist = dist * 0.8684;
+			return (dist);
+		}
+
+		private double deg2rad(double deg)
+		{
+			return (deg * Math.PI / 180.0);
+		}
+
+		private double rad2deg(double rad)
+		{
+			return (rad / Math.PI * 180.0);
 		}
 
 

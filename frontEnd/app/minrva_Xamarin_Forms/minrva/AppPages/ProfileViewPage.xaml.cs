@@ -97,9 +97,9 @@ namespace minrva
 
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
-			var game = e.SelectedItem as Boardgames;
+			var item = e.SelectedItem as Boardgames;
 			var userTable = await tableManager.GetUserAsync();
-			await Navigation.PushModalAsync(new ItemViewPage(game, userTable.Where(u => string.Equals(u.UserId, game.Owner)).ElementAt(0)));
+			await Navigation.PushModalAsync(new ItemViewPage(item, userTable.Where(u => string.Equals(u.UserId, item.Owner)).ElementAt(0)));
 			await RefreshItems(false, syncItems: false);
 		}
 
