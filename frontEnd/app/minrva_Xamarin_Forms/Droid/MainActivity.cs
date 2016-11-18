@@ -13,8 +13,8 @@ using Plugin.Permissions;
 
 namespace minrva.Droid
 {
-	[Activity(Label = "minrva.Droid",
-		Icon = "@drawable/icon",
+	[Activity(Label = "Minrva",
+		Icon = "@drawable/minrva_icon",
 		MainLauncher = true,
 		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
 		Theme = "@android:style/Theme.Material.Light")]
