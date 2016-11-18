@@ -166,7 +166,7 @@ namespace minrva
 
 						//Temporary hack to load item image as we currently only allow 1 image per item to be downloaded
 						byte[] itemImageBytes = await ImageManager.GetImage(String.Format("{0}_0",x.Id));
-						listElement.ImageSource = "minrva_icon.png";
+						listElement.ImageSource = ImageSource.FromFile("minrva_icon.png");
 
 						if (itemImageBytes != null)
 							listElement.ImageSource = ImageSource.FromStream(() => new MemoryStream(itemImageBytes));
