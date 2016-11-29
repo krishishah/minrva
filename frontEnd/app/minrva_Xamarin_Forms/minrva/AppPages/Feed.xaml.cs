@@ -8,6 +8,7 @@ using Plugin.Geolocator;
 using Xamarin.Forms.Maps;
 using System.Diagnostics;
 using System.IO;
+using System.Diagnostics.Contracts;
 
 namespace minrva
 {
@@ -45,12 +46,25 @@ namespace minrva
 		public async void OnSearch(object sender, EventArgs e)
 		{
 			var boardGamesTable = await manager.GetBoardgamesAsync();
+			var userTable = await manager.GetUserAsync();
+
 			string sid = await App.Authenticator.GetUserId();
-			var results = boardGamesTable.Where(b => (!String.Equals(b.Owner, sid)) && (String.Equals(b.Name, searchBar.Text, StringComparison.CurrentCultureIgnoreCase)) && b.Borrowed == false);
-			if (results.Count() > 0)
+			var itemResults = boardGamesTable.Where(b => (!String.Equals(b.Owner, sid)) && (String.Equals(b.Name, searchBar.Text, StringComparison.CurrentCultureIgnoreCase)) && b.Borrowed == false);
+			var userResults = userTable.Where(b => String.Equals(b.FirstName, searchBar.Text, StringComparison.CurrentCultureIgnoreCase) || 
+			                                       String.Equals(String.Format("{0} {1}", b.FirstName, b.LastName), searchBar.Text, StringComparison.CurrentCultureIgnoreCase) ||
+			                                       String.Equals(b.LastName, searchBar.Text, StringComparison.CurrentCultureIgnoreCase));
+
+
+			if (itemResults.Count() > 0)
 			{
-				feedList.ItemsSource = results;
+				feedList.ItemsSource = await createBoardGameFeedView(itemResults);
 			}
+
+			else if (userResults.Count() > 0)
+			{
+				feedList.ItemsSource = await createUserFeedView(userResults);
+			} 
+
 			else {
 				await DisplayAlert("No results found", searchBar.Text + " is currently not available", "Cancel");
 			}
@@ -58,11 +72,22 @@ namespace minrva
 
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
-			var item = e.SelectedItem as BoardgamesViewModel;
-			var userTable = await manager.GetUserAsync();
 			var itemTable = await manager.GetBoardgamesAsync();
-			var itemObj = itemTable.Where(x => String.Equals(x.Id, item.Id)).ElementAt(0);
-			await Navigation.PushModalAsync(new ItemViewPage(itemObj, userTable.Where(u=>string.Equals(u.UserId, item.Owner)).ElementAt(0)));
+			var userTable = await manager.GetUserAsync();
+
+			if (e.SelectedItem is BoardgamesViewModel)
+			{
+				var item = e.SelectedItem as BoardgamesViewModel;
+				var itemObj = itemTable.Where(x => String.Equals(x.Id, item.Id)).ElementAt(0);
+				await Navigation.PushModalAsync(new ItemViewPage(itemObj, userTable.Where(u => string.Equals(u.UserId, item.Owner)).ElementAt(0)));
+			}
+			else
+			{ 
+				var item = e.SelectedItem as UserFeedViewModel;
+				User owner = userTable.Where(x => String.Equals(item.Id, x.Id)).ElementAt(0);
+				await Navigation.PushModalAsync(new ProfileViewPage(owner, null, null, true));
+			}
+
 			await RefreshItems(false, syncItems: false);
 		}
 
@@ -114,6 +139,7 @@ namespace minrva
 
 		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
 		{
+			Contract.Ensures(Contract.Result<Task>() != null);
 
 			if (selectCategory.IsVisible)
 			{
@@ -151,39 +177,71 @@ namespace minrva
 						}
 					}
 
-					List<BoardgamesViewModel> feedViewList = new List<BoardgamesViewModel>();
-
-					foreach (Boardgames x in list)
-					{
-						BoardgamesViewModel listElement = new BoardgamesViewModel();
-
-						listElement.Id = x.Id;
-						listElement.Name = x.Name;
-						listElement.Description = x.Description;
-						listElement.Owner = x.Owner;
-						listElement.Location = x.Location;
-						listElement.Category = x.Category;
-
-						//Temporary hack to load item image as we currently only allow 1 image per item to be downloaded
-						byte[] itemImageBytes = await ImageManager.GetImage(String.Format("{0}_0",x.Id));
-						//listElement.ImageSource = ImageSource.FromFile("minrva_icon.png");
-						listElement.ImageSource = "minrva_icon.png";
-
-						if (itemImageBytes != null)
-							listElement.ImageSource = ImageSource.FromStream(() => new MemoryStream(itemImageBytes));
-
-						listElement.Distance = calculateDistance(cLat, cLon, x.Latitude, x.Longitude);
-
-						feedViewList.Add(listElement);
-					}
-
-					feedViewList.Sort((x, y) => x.Distance.CompareTo(y.Distance));
-
-					feedList.ItemsSource = feedViewList;
+					feedList.ItemsSource = await createBoardGameFeedView(list);
 					listOfItems = list;
 				}
 			}
 		}
+
+		private async Task<List<UserFeedViewModel>> createUserFeedView(IEnumerable<User> list)
+		{
+
+			List<UserFeedViewModel> feedViewList = new List<UserFeedViewModel>();
+
+			foreach (User x in list)
+			{
+				UserFeedViewModel listElement = new UserFeedViewModel();
+
+				listElement.Id = x.Id;
+				listElement.Name = String.Format("{0} {1}", x.FirstName, x.LastName);
+
+				byte[] itemImageBytes = await ImageManager.GetImage(String.Format("{0}", x.Id));
+				listElement.ImageSource = "minrva_icon.png";
+
+				if (itemImageBytes != null)
+					listElement.ImageSource = ImageSource.FromStream(() => new MemoryStream(itemImageBytes));
+
+				feedViewList.Add(listElement);
+
+			}
+
+			return feedViewList;
+			
+		}
+
+
+		private async Task<List<BoardgamesViewModel>> createBoardGameFeedView(IEnumerable<Boardgames> list)
+		{
+
+			List<BoardgamesViewModel> feedViewList = new List<BoardgamesViewModel>();
+
+			foreach (Boardgames x in list)
+			{
+				BoardgamesViewModel listElement = new BoardgamesViewModel();
+
+				listElement.Id = x.Id;
+				listElement.Name = x.Name;
+				listElement.Description = x.Description;
+				listElement.Owner = x.Owner;
+				listElement.Location = x.Location;
+				listElement.Category = x.Category;
+
+				byte[] itemImageBytes = await ImageManager.GetImage(String.Format("{0}_0", x.Id));
+				listElement.ImageSource = "minrva_icon.png";
+
+				if (itemImageBytes != null)
+					listElement.ImageSource = ImageSource.FromStream(() => new MemoryStream(itemImageBytes));
+
+				listElement.Distance = calculateDistance(cLat, cLon, x.Latitude, x.Longitude);
+
+				feedViewList.Add(listElement);
+			}
+
+			feedViewList.Sort((x, y) => x.Distance.CompareTo(y.Distance));
+
+			return feedViewList;
+		}
+				
 
 		private double calculateDistance(double lat1, double lon1, double lat2, double lon2)
 		{

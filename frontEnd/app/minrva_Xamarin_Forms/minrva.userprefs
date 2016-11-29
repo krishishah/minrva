@@ -1,23 +1,24 @@
-﻿<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/ItemViewPage.xaml">
+﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Feed.xaml.cs">
     <Files>
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="172" Column="34" />
-      <File FileName="minrva/AppPages/Feed.xaml" Line="26" Column="38" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="80" Column="1" />
+      <File FileName="minrva/AppPages/Feed.xaml" Line="26" Column="1" />
       <File FileName="minrva/AppPages/Profile.xaml.cs" Line="1" Column="1" />
       <File FileName="minrva/AppPages/Profile.xaml" Line="1" Column="1" />
       <File FileName="minrva/AppPages/ProfileViewPage.xaml" Line="1" Column="1" />
       <File FileName="Droid/Resources/Resource.designer.cs" Line="1" Column="1" />
       <File FileName="minrva/AppPages/UserAuth/LoginPage.xaml.cs" Line="1" Column="1" />
       <File FileName="minrva/AppPages/UserAuth/LoginPage.xaml" Line="1" Column="1" />
-      <File FileName="iOS/AppDelegate.cs" Line="1" Column="1" />
-      <File FileName="Droid/Resources/AboutResources.txt" Line="28" Column="9" />
-      <File FileName="minrva/AppPages/FeedMapPage.xaml.cs" Line="32" Column="8" />
-      <File FileName="Droid/Properties/AndroidManifest.xml" Line="13" Column="32" />
-      <File FileName="minrva/AppPages/ItemViewPage.xaml" Line="26" Column="22" />
+      <File FileName="minrva/Models/Tables/User.cs" Line="19" Column="6" />
+      <File FileName="minrva/Models/Views/UserFeedViewModel.cs" Line="14" Column="4" />
+      <File FileName="minrva/Models/Views/BoardgamesViewModel.cs" Line="2" Column="1" />
+      <File FileName="minrva/AppPages/ItemViewPage.xaml.cs" Line="113" Column="82" />
+      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="23" Column="26" />
+      <File FileName="iOS/Main.cs" Line="19" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_ARMv7a" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B9D00A3C-265B-47F0-813D-E693E601846D" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>

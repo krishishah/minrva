@@ -19,10 +19,6 @@ namespace minrva
 		ImageSource imageSource;
 		double distance;
 
-		//public BoardgamesViewModel(string id, string name, string location, ImageSource itemImageSource, double distance,
-		//                          string owner, int lend_duration, bool borrowed, double latitude, double longitude,
-		//                           string category, string createdAt, ImageSource)
-
 		public string Id
 		{
 			get { return id; }
