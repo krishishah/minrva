@@ -171,6 +171,7 @@ namespace minrva
 		protected override void OnAppearing()
 		{
 			displayDetails();
+
 		}
 
 		public async void ClickVouch(object sender, EventArgs e)
@@ -180,6 +181,38 @@ namespace minrva
 			vouch.Vouchee = profOwner.UserId;
 			Debug.WriteLine(vouch.Voucher + vouch.Vouchee);
 			await tableManager.SaveVouchAsync(vouch);
+		}
+
+		public async Task<List<Vouch>> createTrustNetwork()
+		{
+			string sid = await App.Authenticator.GetUserId();
+			var vouchTable = await tableManager.GetVouchAsync();
+
+			var currentUserVouchList = vouchTable.Where(owner => String.Equals(sid, owner.Voucher));
+
+			List<Vouch> vouchNetwork = new List<Vouch>();
+
+			foreach (Vouch v in currentUserVouchList)
+			{
+				var nestedVouchList = vouchTable.Where(owner => String.Equals(v.Id, owner.Voucher));
+
+				if (String.Equals(v.Vouchee, profOwner.Id))
+				{
+					vouchNetwork.Add(v);
+				} 
+
+				else
+				{
+					foreach (Vouch z in nestedVouchList)
+					{
+						if (String.Equals(z.Vouchee, profOwner.Id))
+						{
+							vouchNetwork.Add(z);
+						}
+					}
+				}
+			}
+			return vouchNetwork;
 		}
 
 

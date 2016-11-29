@@ -16,8 +16,6 @@ namespace minrva
 	{
 
 		TableManager manager;
-		// Track whether the user has authenticated. 
-		bool authenticated = false;
 		double cLat;
 		double cLon;
 		Plugin.Geolocator.Abstractions.IGeolocator locator;
