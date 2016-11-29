@@ -1,19 +1,8 @@
 ﻿<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/ItemViewPage.xaml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/Tables/User.cs">
     <Files>
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="172" Column="34" />
-      <File FileName="minrva/AppPages/Feed.xaml" Line="26" Column="38" />
-      <File FileName="minrva/AppPages/Profile.xaml.cs" Line="1" Column="1" />
-      <File FileName="minrva/AppPages/Profile.xaml" Line="1" Column="1" />
-      <File FileName="minrva/AppPages/ProfileViewPage.xaml" Line="1" Column="1" />
-      <File FileName="Droid/Resources/Resource.designer.cs" Line="1" Column="1" />
-      <File FileName="minrva/AppPages/UserAuth/LoginPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="minrva/AppPages/UserAuth/LoginPage.xaml" Line="1" Column="1" />
-      <File FileName="iOS/AppDelegate.cs" Line="1" Column="1" />
-      <File FileName="Droid/Resources/AboutResources.txt" Line="28" Column="9" />
-      <File FileName="minrva/AppPages/FeedMapPage.xaml.cs" Line="32" Column="8" />
-      <File FileName="Droid/Properties/AndroidManifest.xml" Line="13" Column="32" />
-      <File FileName="minrva/AppPages/ItemViewPage.xaml" Line="26" Column="22" />
+      <File FileName="minrva/Tables/Vouch.cs" Line="1" Column="1" />
+      <File FileName="minrva/Tables/User.cs" Line="2" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_ARMv7a" />
