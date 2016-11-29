@@ -22,6 +22,7 @@ namespace minrva
 		{
 			InitializeComponent();
 			tableManager = TableManager.DefaultManager;
+			//vouchButton.Text = "Unvouch";
 			this.profOwner = profOwner;
 			this.reqItem = reqItem;
 			this.borrowing = borrowing;
@@ -171,6 +172,17 @@ namespace minrva
 		{
 			displayDetails();
 		}
+
+		public async void ClickVouch(object sender, EventArgs e)
+		{
+			var vouch = new Vouch();
+			vouch.Voucher = await App.Authenticator.GetUserId();
+			vouch.Vouchee = profOwner.UserId;
+			Debug.WriteLine(vouch.Voucher + vouch.Vouchee);
+			await tableManager.SaveVouchAsync(vouch);
+		}
+
+
 	}
 
 }

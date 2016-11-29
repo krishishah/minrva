@@ -38,6 +38,7 @@ namespace minrva
 		IMobileServiceTable<Message> messageTable;
 		IMobileServiceTable<Chat> chatTable;
 		IMobileServiceTable<Ratings> ratingsTable;
+		IMobileServiceTable<Vouch> vouchTable;
 
 
 #endif
@@ -63,6 +64,7 @@ namespace minrva
 			this.messageTable = client.GetTable<Message>();
 			this.chatTable = client.GetTable<Chat>();
 			this.ratingsTable = client.GetTable<Ratings>();
+			this.vouchTable = client.GetTable<Vouch>();
 #endif
 		}
 
@@ -157,6 +159,32 @@ namespace minrva
 					.ToEnumerableAsync();
 
 				return new ObservableCollection<User>(items);
+			}
+			catch (MobileServiceInvalidOperationException msioe)
+			{
+				Debug.WriteLine(@"Invalid sync operation: {0}", msioe.Message);
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(@"Sync error: {0}", e.Message);
+			}
+			return null;
+		}
+
+		public async Task<ObservableCollection<Vouch>> GetVouchAsync(bool syncItems = false)
+		{
+			try
+			{
+#if OFFLINE_SYNC_ENABLED
+                if (syncItems)
+                {
+                    await this.SyncAsync();
+                }
+#endif
+				IEnumerable<Vouch> items = await vouchTable
+					.ToEnumerableAsync();
+
+				return new ObservableCollection<Vouch>(items);
 			}
 			catch (MobileServiceInvalidOperationException msioe)
 			{
@@ -295,6 +323,18 @@ namespace minrva
 			}
 		}
 
+		public async Task SaveVouchAsync(Vouch item)
+		{
+			if (item.Id == null)
+			{
+				await vouchTable.InsertAsync(item);
+			}
+			else
+			{
+				await vouchTable.UpdateAsync(item);
+			}
+		}
+
 		public async Task SaveBoardgamesAsync(Boardgames item)
 		{
 			if (item.Id == null)
@@ -342,6 +382,11 @@ namespace minrva
 		public async Task DeleteBoardgamesAsync(Boardgames item)
 		{
 			await boardgamesTable.DeleteAsync(item);
+		}
+
+		public async Task DeleteVouchAsync(Vouch item)
+		{
+			await vouchTable.DeleteAsync(item);
 		}
 
 		public async Task DeleteRequestAsync(Request item)
