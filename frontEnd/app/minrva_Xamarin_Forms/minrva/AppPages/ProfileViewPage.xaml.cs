@@ -36,6 +36,8 @@ namespace minrva
 
 		private async void displayDetails()
 		{
+			await trustNetworkToString(await createTrustNetwork());
+
 			await displayLendBorrowCount();
 			Name.Text = String.Format("{0} {1}", profOwner.FirstName, profOwner.LastName);
 			if (!this.borrowing)
@@ -171,7 +173,6 @@ namespace minrva
 		protected override void OnAppearing()
 		{
 			displayDetails();
-
 		}
 
 		public async void ClickVouch(object sender, EventArgs e)
@@ -194,10 +195,12 @@ namespace minrva
 
 			foreach (Vouch v in currentUserVouchList)
 			{
-				var nestedVouchList = vouchTable.Where(owner => String.Equals(v.Id, owner.Voucher));
+				var nestedVouchList = vouchTable.Where(vouch => String.Equals(v.Vouchee, vouch.Voucher));
+				Debug.WriteLine("V.VOUCHEE  {0}   PROF OWNER INI {1}   USER ID {2}", v.Vouchee, profOwner.Id, profOwner.UserId);
 
-				if (String.Equals(v.Vouchee, profOwner.Id))
+				if (String.Equals(v.Vouchee, profOwner.UserId))
 				{
+					Debug.WriteLine("GOT YOU MATE");
 					vouchNetwork.Add(v);
 				} 
 
@@ -205,7 +208,7 @@ namespace minrva
 				{
 					foreach (Vouch z in nestedVouchList)
 					{
-						if (String.Equals(z.Vouchee, profOwner.Id))
+						if (String.Equals(z.Vouchee, profOwner.UserId))
 						{
 							vouchNetwork.Add(z);
 						}
@@ -225,12 +228,12 @@ namespace minrva
 			{
 				if (String.Equals(v.Voucher, sid))
 				{
-					message.Insert(0, "You");
+					message = "You" + message;
 				}
 				else
 				{
 					User user = userTable.Where(u => String.Equals(u.Id, v.Voucher)).ElementAt(0);
-					message.Insert(message.Length - 1, String.Format(", {0}", user.FirstName));
+					message += String.Format(", {0}", user.FirstName);
 				}
 			}
 
@@ -239,8 +242,10 @@ namespace minrva
 				message.Remove(0, 2);
 			}
 
-			User ownerName = userTable.Where(u => String.Equals(u.Id, profOwner.Id)).ElementAt(0);
-			message.Insert(message.Length - 1, String.Format("have vouched for {0}", ownerName));
+			User owner = userTable.Where(u => String.Equals(u.UserId, profOwner.UserId)).ElementAt(0);
+			message += String.Format(" have vouched for {0}", owner.FirstName);
+
+			Debug.WriteLine("MESSAGE: {0}", message);
 
 			return message;
 

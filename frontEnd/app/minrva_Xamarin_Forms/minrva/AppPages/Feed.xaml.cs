@@ -16,6 +16,7 @@ namespace minrva
 	{
 
 		TableManager manager;
+		bool authenticated = false;
 		double cLat;
 		double cLon;
 		Plugin.Geolocator.Abstractions.IGeolocator locator;
@@ -38,6 +39,7 @@ namespace minrva
 		protected override async void OnAppearing()
 		{
 			base.OnAppearing();
+
 			await RefreshItems(false, syncItems: false);
 		}
 

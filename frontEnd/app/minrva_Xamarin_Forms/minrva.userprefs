@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/ProfileViewPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/Main.cs">
     <Files>
       <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="17" Column="44" />
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="307" Column="6" />
-      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="194" Column="24" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="42" Column="4" />
+      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="249" Column="4" />
       <File FileName="minrva/AppPages/ProfileViewPage.xaml" Line="11" Column="23" />
-      <File FileName="minrva/Models/TableManager.cs" Line="37" Column="12" />
+      <File FileName="minrva/Models/TableManager.cs" Line="1" Column="1" />
+      <File FileName="iOS/Main.cs" Line="19" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_ARMv7a" />
