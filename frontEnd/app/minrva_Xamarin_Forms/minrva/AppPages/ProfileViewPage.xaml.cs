@@ -234,6 +234,11 @@ namespace minrva
 				}
 			}
 
+			if (message.StartsWith(", "))
+			{
+				message.Remove(0, 2);
+			}
+
 			User ownerName = userTable.Where(u => String.Equals(u.Id, profOwner.Id)).ElementAt(0);
 			message.Insert(message.Length - 1, String.Format("have vouched for {0}", ownerName));
 
