@@ -215,6 +215,10 @@ namespace minrva
 			return vouchNetwork;
 		}
 
+		public string trustNetworkToString(List<Vouch> trustNetwork)
+		{
+			var userTable = tableManager.GetUserAsync();
+		}
 
 	}
 
