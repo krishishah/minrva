@@ -215,10 +215,32 @@ namespace minrva
 			return vouchNetwork;
 		}
 
-		public string trustNetworkToString(List<Vouch> trustNetwork)
+		public async Task<string> trustNetworkToString(List<Vouch> trustNetwork)
 		{
-			var userTable = tableManager.GetUserAsync();
+			var userTable = await tableManager.GetUserAsync();
+			string message = "";
+			string sid = await App.Authenticator.GetUserId();
+
+			foreach (Vouch v in trustNetwork)
+			{
+				if (String.Equals(v.Voucher, sid))
+				{
+					message.Insert(0, "You");
+				}
+				else
+				{
+					User user = userTable.Where(u => String.Equals(u.Id, v.Voucher)).ElementAt(0);
+					message.Insert(message.Length - 1, String.Format(", {0}", user.FirstName));
+				}
+			}
+
+			User ownerName = userTable.Where(u => String.Equals(u.Id, profOwner.Id)).ElementAt(0);
+			message.Insert(message.Length - 1, String.Format("have vouched for {0}", ownerName));
+
+			return message;
+
 		}
+
 
 	}
 
