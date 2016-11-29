@@ -3,11 +3,19 @@
 namespace minrva
 {
 	public class Vouch
-	{		
+	{
+		string id;
 		string voucher;
 		string vouchee;
 		string createdAt;
 		string updatedAt;
+
+		[JsonProperty(PropertyName = "id")]
+		public string Id
+		{
+			get { return id; }
+			set { id = value; }
+		}
 
 		[JsonProperty(PropertyName = "voucher")]
 		public string Voucher

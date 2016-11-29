@@ -1,8 +1,13 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/ProfileViewPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/Tables/Boardgames.cs">
     <Files>
-      <File FileName="minrva/Tables/Vouch.cs" Line="39" Column="3" />
-      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="19" Column="14" />
+      <File FileName="minrva/Tables/Vouch.cs" Line="11" Column="19" />
+      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="183" Column="4" />
+      <File FileName="minrva/Tables/TableManager.cs" Line="329" Column="1" />
+      <File FileName="minrva/AppPages/Feed.xaml" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="62" Column="19" />
+      <File FileName="iOS/Main.cs" Line="24" Column="1" />
+      <File FileName="minrva/Tables/Boardgames.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_ARMv7a" />
