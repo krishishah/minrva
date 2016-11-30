@@ -235,6 +235,7 @@ namespace minrva
 			string message = "";
 			string sid = await App.Authenticator.GetUserId();
 			User owner = userTable.Where(u => String.Equals(u.UserId, profOwner.UserId)).ElementAt(0);
+			int trustCounter = 0;
 
 			if (trustNetwork.Count == 0)
 			{
@@ -249,16 +250,23 @@ namespace minrva
 				}
 				else
 				{
-					User user = userTable.Where(u => String.Equals(u.Id, v.Voucher)).ElementAt(0);
-					message += String.Format(", {0}", user.FirstName);
+					if (trustNetwork.IndexOf(v) < 1)
+					{
+						User user = userTable.Where(u => String.Equals(u.Id, v.Voucher)).ElementAt(0);
+						message += String.Format(", {0}", user.FirstName);
+					}
+					else
+					{
+						trustCounter++;
+					}
 				}
 			}
 
-			if (message.StartsWith(", "))
-			{
-				message.Remove(0, 2);
-			}
+			if (trustCounter >= 1)
+				message += String.Format("and {0} others in your network", trustCounter);
 
+			if (message.StartsWith(", "))
+				message.Remove(0, 2);
 
 			message += String.Format(" have vouched for {0}", owner.FirstName);
 
