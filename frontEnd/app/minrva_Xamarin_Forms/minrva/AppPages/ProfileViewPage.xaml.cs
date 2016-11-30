@@ -236,7 +236,10 @@ namespace minrva
 			string sid = await App.Authenticator.GetUserId();
 			User owner = userTable.Where(u => String.Equals(u.UserId, profOwner.UserId)).ElementAt(0);
 
-
+			if (trustNetwork.Count == 0)
+			{
+				return String.Format("{0} is not in your Trust Network", owner.FirstName);
+			}
 
 			foreach (Vouch v in trustNetwork)
 			{
