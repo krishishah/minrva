@@ -36,9 +36,11 @@ namespace minrva
 
 		private async void displayDetails()
 		{
-			await trustNetworkToString(await createTrustNetwork());
+
+			VouchMessage.Text = await trustNetworkToString(await createTrustNetwork());
 
 			await displayLendBorrowCount();
+
 			Name.Text = String.Format("{0} {1}", profOwner.FirstName, profOwner.LastName);
 			if (!this.borrowing)
 			{
@@ -97,6 +99,7 @@ namespace minrva
 			int borrowCount = requestTable.Where(user => String.Equals(sid, user.Borrower)).Count();
 			LendBorrow.Text = String.Format("L:{0} | B:{1}", lendCount, borrowCount);
 		}
+
 
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
@@ -193,7 +196,7 @@ namespace minrva
 			if (!alreadyVouched)
 				await tableManager.SaveVouchAsync(vouch);
 			else
-				await DisplayAlert("Alert", String.Format("You have already vouched for {0}", owner.FirstName), "OK");
+				await DisplayAlert("Alert", String.Format("You have already vouched for {0}!", owner.FirstName), "OK");
 
 		}
 
@@ -270,7 +273,7 @@ namespace minrva
 
 			message += String.Format(" have vouched for {0}", owner.FirstName);
 
-			Debug.WriteLine("MESSAGE: {0}", message);
+			Debug.WriteLine("VOUCH MESSAGE: {0}", message);
 
 			return message;
 
