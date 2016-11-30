@@ -31,6 +31,7 @@ namespace minrva
 			await displayLendBorrowCount();
 			userRating.Value = await getUserRating();
 			await displayProfilePicture();
+			await displayGem();
 			await RefreshItems(true, syncItems: false);
 		}
 
@@ -79,6 +80,48 @@ namespace minrva
 			}
 		}
 
+		async Task displayGem()
+		{
+			var ratingsTable = await tableManager.GetRatingsAsync();
+			var itemsTable = await tableManager.GetBoardgamesAsync();
+			int lendCount = itemsTable.Where(item => String.Equals(sid, item.Owner)).Count();
+			var ratings = ratingsTable.Where(r => String.Equals(sid, r.RatedID)).Select(rating => rating.Rating);
+
+			double avgRatings;
+
+
+			if (ratings.Count() > 0)
+			{
+				avgRatings = ratings.Average();
+			}
+			else
+			{
+				avgRatings = 0;
+			}
+
+
+			if (lendCount > 0 && lendCount < 3)
+			{
+				Gem.Source = "Gem3.png";
+			}
+			else if (lendCount >= 3 && lendCount < 10 && avgRatings >= 3)
+			{
+				Gem.Source = "Gem5.png";
+			}
+			else if (lendCount >= 10 && lendCount < 25 && avgRatings >= 4)
+			{
+				Gem.Source = "Gem9.png";
+			}
+			else if (lendCount >= 25 && avgRatings >= 4.5)
+			{
+				Gem.Source = "Gem8.png";
+			}
+			else
+			{
+				Gem.Source = "Rock.png";
+			}
+
+		}
 
 		async void Clicked_Logout(object sender, EventArgs e)
 		{

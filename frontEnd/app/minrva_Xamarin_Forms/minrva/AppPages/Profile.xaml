@@ -5,6 +5,7 @@
 		<Grid>			
 			<Image VerticalOptions="Start" x:Name="ProfilePicture" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="1" />
 			<Label x:Name="Name" Grid.Row="0" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="2"/>
+			<Image VerticalOptions="Start" x:Name="Gem" Grid.Row="0" Grid.Column="2" Grid.RowSpan="1" Grid.ColumnSpan="1" />
 			<Button Text="Update" Clicked="Clicked_Upload" Grid.Row="3" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1" />
 			<Label Text="Rating" FontSize="Small" Grid.Row="1" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="1"/>
 			<rating:SfRating x:Name="userRating" ItemSize="15" Precision="Half" ReadOnly="true" Grid.Row="1" Grid.Column="2" Grid.RowSpan="1" Grid.ColumnSpan="1"/>
