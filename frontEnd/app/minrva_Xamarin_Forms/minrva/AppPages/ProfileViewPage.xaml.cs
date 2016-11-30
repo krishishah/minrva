@@ -180,8 +180,21 @@ namespace minrva
 			var vouch = new Vouch();
 			vouch.Voucher = await App.Authenticator.GetUserId();
 			vouch.Vouchee = profOwner.UserId;
-			Debug.WriteLine(vouch.Voucher + vouch.Vouchee);
-			await tableManager.SaveVouchAsync(vouch);
+
+			var vouchTable = await tableManager.GetVouchAsync();
+			var userTable = await tableManager.GetUserAsync();
+
+			User owner = userTable.Where(u => String.Equals(u.UserId, profOwner.UserId)).ElementAt(0);
+
+
+			bool alreadyVouched = vouchTable.Where(entry => String.Equals(vouch.Vouchee, entry.Vouchee)
+			                                       && String.Equals(vouch.Voucher, entry.Voucher)).Count() > 0;
+
+			if (!alreadyVouched)
+				await tableManager.SaveVouchAsync(vouch);
+			else
+				await DisplayAlert("Alert", String.Format("You have already vouched for {0}", owner.FirstName), "OK");
+
 		}
 
 		public async Task<List<Vouch>> createTrustNetwork()
@@ -196,11 +209,9 @@ namespace minrva
 			foreach (Vouch v in currentUserVouchList)
 			{
 				var nestedVouchList = vouchTable.Where(vouch => String.Equals(v.Vouchee, vouch.Voucher));
-				Debug.WriteLine("V.VOUCHEE  {0}   PROF OWNER INI {1}   USER ID {2}", v.Vouchee, profOwner.Id, profOwner.UserId);
 
 				if (String.Equals(v.Vouchee, profOwner.UserId))
 				{
-					Debug.WriteLine("GOT YOU MATE");
 					vouchNetwork.Add(v);
 				} 
 
@@ -223,6 +234,9 @@ namespace minrva
 			var userTable = await tableManager.GetUserAsync();
 			string message = "";
 			string sid = await App.Authenticator.GetUserId();
+			User owner = userTable.Where(u => String.Equals(u.UserId, profOwner.UserId)).ElementAt(0);
+
+
 
 			foreach (Vouch v in trustNetwork)
 			{
@@ -242,7 +256,7 @@ namespace minrva
 				message.Remove(0, 2);
 			}
 
-			User owner = userTable.Where(u => String.Equals(u.UserId, profOwner.UserId)).ElementAt(0);
+
 			message += String.Format(" have vouched for {0}", owner.FirstName);
 
 			Debug.WriteLine("MESSAGE: {0}", message);
