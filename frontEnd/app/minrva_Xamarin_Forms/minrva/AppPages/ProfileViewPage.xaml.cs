@@ -194,9 +194,14 @@ namespace minrva
 			                                       && String.Equals(vouch.Voucher, entry.Voucher)).Count() > 0;
 
 			if (!alreadyVouched)
+			{
 				await tableManager.SaveVouchAsync(vouch);
+				await DisplayAlert("Success", String.Format("You have now vouched for {0}!", owner.FirstName), "OK");
+			}
 			else
+			{
 				await DisplayAlert("Alert", String.Format("You have already vouched for {0}!", owner.FirstName), "OK");
+			}
 
 		}
 
@@ -265,15 +270,15 @@ namespace minrva
 				}
 			}
 
-			if (trustCounter >= 1)
-				message += String.Format("and {0} others in your network", trustCounter);
-
 			if (message.StartsWith(", "))
 				message.Remove(0, 2);
 
-			message += String.Format(" have vouched for {0}", owner.FirstName);
+			if (trustCounter == 1)
+				message += String.Format(" and {0} other person in your network", trustCounter);
+			else if (trustCounter > 1)
+				message += String.Format(" and {0} others in your network", trustCounter);
 
-			Debug.WriteLine("VOUCH MESSAGE: {0}", message);
+			message += String.Format(" have vouched for {0}", owner.FirstName);
 
 			return message;
 
