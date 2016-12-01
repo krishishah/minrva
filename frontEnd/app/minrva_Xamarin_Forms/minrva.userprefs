@@ -6,13 +6,18 @@
       <File FileName="minrva/AppPages/TrustNetworkViewPage.xaml.cs" Line="12" Column="3" />
       <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="23" Column="1" />
       <File FileName="minrva/AppPages/NotificationsPage.xaml" Line="16" Column="55" />
-      <File FileName="minrva/AppPages/Feed.xaml" Line="19" Column="30" />
       <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="1" Column="1" />
       <File FileName="minrva/AppPages/RankTablePage.xaml.cs" Line="1" Column="1" />
       <File FileName="minrva/AppPages/Feed.xaml.cs" Line="88" Column="40" />
       <File FileName="minrva/AppPages/ProfileViewPage.xaml" Line="23" Column="81" />
       <File FileName="iOS/Main.cs" Line="17" Column="31" />
       <File FileName="minrva/AppPages/ItemViewPage.xaml.cs" Line="113" Column="1" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="42" Column="1" />
+      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="241" Column="4" />
+      <File FileName="minrva/AppPages/ProfileViewPage.xaml" Line="19" Column="28" />
+      <File FileName="minrva/Models/TableManager.cs" Line="1" Column="1" />
+      <File FileName="iOS/Main.cs" Line="19" Column="1" />
+      <File FileName="minrva/Models/Tables/Vouch.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

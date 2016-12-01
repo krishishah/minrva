@@ -38,6 +38,7 @@ namespace minrva
 		private async void displayDetails()
 		{
 
+			displayVouchDetails();
 			await displayLendBorrowCount();
 
 			Name.Text = String.Format("{0} {1}", profOwner.FirstName, profOwner.LastName);
@@ -195,6 +196,7 @@ namespace minrva
 			try
 			{
 				await RefreshItems(false, true);
+
 			}
 			catch (Exception ex)
 			{
@@ -218,8 +220,9 @@ namespace minrva
 
 		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
 		{
-			VouchMessage.Text = await trustNetworkToString(await createTrustNetwork());
+			displayVouchDetails();
 			VouchMessage.GestureRecognizers.Add(new TapGestureRecognizer((view) => SeeVouchers()));
+
 			var items = await tableManager.GetBoardgamesAsync(syncItems);
 			usersItems.ItemsSource = items.Where(game => (String.Equals(game.Owner, profOwner.UserId) && !game.Borrowed));
 		}
@@ -227,6 +230,7 @@ namespace minrva
 		protected override void OnAppearing()
 		{
 			displayDetails();
+
 		}
 
 		public async void ClickVouch(object sender, EventArgs e)
@@ -247,12 +251,18 @@ namespace minrva
 			if (!alreadyVouched)
 			{
 				await tableManager.SaveVouchAsync(vouch);
+				vouchButton.Text = "Unvouch";
 				await DisplayAlert("Success", String.Format("You have now vouched for {0}!", owner.FirstName), "OK");
 			}
 			else
 			{
-				await DisplayAlert("Alert", String.Format("You have already vouched for {0}!", owner.FirstName), "OK");
+				var vouched = vouchTable.Where(entry => String.Equals(vouch.Vouchee, entry.Vouchee)
+				                                  && String.Equals(vouch.Voucher, entry.Voucher)).ElementAt(0);
+				await tableManager.DeleteVouchAsync(vouched);
+				vouchButton.Text = "Vouch";
+				await DisplayAlert("Success", String.Format("You have now Unvouched {0}!", owner.FirstName), "OK");
 			}
+			displayVouchDetails();
 
 		}
 
@@ -286,6 +296,24 @@ namespace minrva
 				}
 			}
 			return vouchNetwork;
+		}
+
+		private async void displayVouchDetails()
+		{
+			VouchMessage.Text = await trustNetworkToString(await createTrustNetwork());
+			var vouch = new Vouch();
+			vouch.Voucher = await App.Authenticator.GetUserId();
+			vouch.Vouchee = profOwner.UserId;
+			var vouchTable = await tableManager.GetVouchAsync();
+			bool alreadyVouched = vouchTable.Where(entry => String.Equals(vouch.Vouchee, entry.Vouchee)
+												   && String.Equals(vouch.Voucher, entry.Voucher)).Count() > 0;
+			if (alreadyVouched)
+			{
+				vouchButton.Text = "Unvouch";
+			}
+			else {
+				vouchButton.Text = "Vouch";
+			}
 		}
 
 		public async Task<string> trustNetworkToString(List<Vouch> trustNetwork)
