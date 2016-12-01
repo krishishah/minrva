@@ -207,6 +207,7 @@
     <BundleResource Include="Resources\Gem9.png" />
     <BundleResource Include="Resources\Rock.png" />
     <BundleResource Include="Resources\minrva_icon.png" />
+    <BundleResource Include="Resources\Gem6.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

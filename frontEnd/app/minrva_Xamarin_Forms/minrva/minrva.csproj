@@ -67,9 +67,6 @@
     <Compile Include="AppPages\ChatsPage.xaml.cs">
       <DependentUpon>ChatsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppPages\Profile.xaml.cs">
-      <DependentUpon>Profile.xaml</DependentUpon>
-    </Compile>
     <Compile Include="AppPages\UserAuth\Constants.cs" />
     <Compile Include="AppPages\UserAuth\EmailValidatorBehavior.cs" />
     <Compile Include="AppPages\UserAuth\LoginPage.xaml.cs">
@@ -92,6 +89,9 @@
     </Compile>
     <Compile Include="AppPages\ProfileViewPage.xaml.cs">
       <DependentUpon>ProfileViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Profile.xaml.cs">
+      <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppPages\LeaveReviewPage.xaml.cs">
       <DependentUpon>LeaveReviewPage.xaml</DependentUpon>
@@ -226,7 +226,7 @@
     <EmbeddedResource Include="AppPages\ItemViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppPages\TrustNetworkViewPage.xaml"/>
+    <EmbeddedResource Include="AppPages\TrustNetworkViewPage.xaml" />
     <EmbeddedResource Include="AppPages\RankTablePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

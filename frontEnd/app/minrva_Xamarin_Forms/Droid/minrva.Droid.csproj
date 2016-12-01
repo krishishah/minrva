@@ -238,6 +238,10 @@
     <AndroidResource Include="Resources\drawable-hdpi\Rock.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Rock.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Rock.png" />
+    <AndroidResource Include="Resources\drawable\Gem6.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Gem6.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Gem6.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Gem6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
