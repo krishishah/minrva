@@ -28,49 +28,53 @@ namespace minrva
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var reqMsg = e.SelectedItem as RequestMessage;
-			var alert = false;
-			var alert2 = false;
-			var alert3 = false;
-			Request req = reqMsg.Request;
-			Boardgames requestedItem = reqMsg.RequestedItem;
+			if (String.Equals("Vouch", reqMsg.RequestType))
+			{
 
-			if (reqMsg.AcceptStatus.Equals("Pending") && reqMsg.RequestType.Equals("Lend Request"))
-			{
-				alert = await DisplayAlert("Borrowing request", reqMsg.OtherUser.FirstName + " " + reqMsg.OtherUser.LastName + " has requested to borrow " + requestedItem.Name + " from " + req.StartDate + " to " + req.EndDate, "View Profile", "Cancel");
-			}
-			else if (reqMsg.AcceptStatus.Equals("Returned") && reqMsg.RequestType.Equals("Borrow Request"))
-			{
-				await Navigation.PushModalAsync(new LeaveReviewPage(reqMsg.OtherUser, requestedItem, true));
-				requestedItem.Borrowed = false;
-				await tableManager.SaveBoardgamesAsync(requestedItem);
-				await tableManager.DeleteRequestAsync(req);
-				await RefreshItems(false, syncItems: false);
-			}
-			else if (reqMsg.AcceptStatus.Equals("Accepted") && reqMsg.RequestType.Equals("Lend Request"))
-			{
-				alert2 = await DisplayAlert("Undo","Undo accepted lend request?", "Yes", "No");
-			}
-			else if (reqMsg.AcceptStatus.Equals("Pending") && reqMsg.RequestType.Equals("Borrow Request"))
-			{
-				alert3 = await DisplayAlert("Undo", "Undo pending borrow request?", "Yes", "No");
-			}
-			    
-			if (alert)
-			{
-				await Navigation.PushModalAsync(new ProfileViewPage(reqMsg.OtherUser, requestedItem, reqMsg.Request, false));
-				await RefreshItems(false, syncItems: false);
-			}
+				var alert = false;
+				var alert2 = false;
+				var alert3 = false;
+				Request req = reqMsg.Request;
+				Boardgames requestedItem = reqMsg.RequestedItem;
 
-			if (alert2)
-			{
-				await tableManager.DeleteRequestAsync(req);
-				await RefreshItems(false, syncItems: false);
-			}
+				if (reqMsg.AcceptStatus.Equals("Pending") && reqMsg.RequestType.Equals("Lend Request"))
+				{
+					alert = await DisplayAlert("Borrowing request", reqMsg.OtherUser.FirstName + " " + reqMsg.OtherUser.LastName + " has requested to borrow " + requestedItem.Name + " from " + req.StartDate + " to " + req.EndDate, "View Profile", "Cancel");
+				}
+				else if (reqMsg.AcceptStatus.Equals("Returned") && reqMsg.RequestType.Equals("Borrow Request"))
+				{
+					await Navigation.PushModalAsync(new LeaveReviewPage(reqMsg.OtherUser, requestedItem, true));
+					requestedItem.Borrowed = false;
+					await tableManager.SaveBoardgamesAsync(requestedItem);
+					await tableManager.DeleteRequestAsync(req);
+					await RefreshItems(false, syncItems: false);
+				}
+				else if (reqMsg.AcceptStatus.Equals("Accepted") && reqMsg.RequestType.Equals("Lend Request"))
+				{
+					alert2 = await DisplayAlert("Undo", "Undo accepted lend request?", "Yes", "No");
+				}
+				else if (reqMsg.AcceptStatus.Equals("Pending") && reqMsg.RequestType.Equals("Borrow Request"))
+				{
+					alert3 = await DisplayAlert("Undo", "Undo pending borrow request?", "Yes", "No");
+				}
 
-			if (alert3)
-			{
-				await tableManager.DeleteRequestAsync(req);
-				await RefreshItems(false, syncItems: false);
+				if (alert)
+				{
+					await Navigation.PushModalAsync(new ProfileViewPage(reqMsg.OtherUser, requestedItem, reqMsg.Request, false));
+					await RefreshItems(false, syncItems: false);
+				}
+
+				if (alert2)
+				{
+					await tableManager.DeleteRequestAsync(req);
+					await RefreshItems(false, syncItems: false);
+				}
+
+				if (alert3)
+				{
+					await tableManager.DeleteRequestAsync(req);
+					await RefreshItems(false, syncItems: false);
+				}
 			}
 		}
 
@@ -112,6 +116,8 @@ namespace minrva
 				var reqs = await tableManager.GetRequestAsync(syncItems);
 				var games = await tableManager.GetBoardgamesAsync(syncItems);
 				var users = await tableManager.GetUserAsync(syncItems);
+				var vouches = await tableManager.GetVouchAsync(syncItems);
+				var myVouches = vouches.Where(v => (String.Equals(sid, v.Vouchee)));
 				var lenderPendingRequests = reqs.Where(r => (String.Equals(r.Lender, sid)) && (r.Accepted.Equals("Pending")));
 				var lenderAcceptedRequests = reqs.Where(r => (String.Equals(r.Lender, sid)) && (r.Accepted.Equals("True"))); 
 				var borrowPendingRequests = reqs.Where(r => (String.Equals(r.Borrower, sid)) && (r.Accepted.Equals("Pending")));
@@ -190,6 +196,14 @@ namespace minrva
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", lendingUser.FirstName, requestStatus);
 					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
+				}
+
+				foreach (Vouch v in myVouches)
+				{
+					User voucher = users.Where(user => String.Equals(user.UserId, v.Voucher)).ElementAt(0);
+					string notifView = String.Format("Vouch Alert: {0} {1}", voucher.FirstName, voucher.LastName);
+					string notifViewDetail = String.Format("{0} has vouched for you", voucher.FirstName);
+					requestsMsgs.Add(new RequestMessage(null, voucher, "Vouch", "Vouch Alert", v.UpdatedAt, notifView, notifViewDetail, null));
 				}
 
 				requestsMsgs.Sort((y, x) => x.UpdatedAt.CompareTo(y.UpdatedAt));

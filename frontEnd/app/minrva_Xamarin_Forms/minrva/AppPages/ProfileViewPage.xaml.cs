@@ -246,6 +246,11 @@ namespace minrva
 			if (!alreadyVouched)
 			{
 				await tableManager.SaveVouchAsync(vouch);
+
+
+
+
+
 				await DisplayAlert("Success", String.Format("You have now vouched for {0}!", owner.FirstName), "OK");
 			}
 			else

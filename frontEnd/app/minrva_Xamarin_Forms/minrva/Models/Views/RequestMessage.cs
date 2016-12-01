@@ -13,11 +13,11 @@ namespace minrva
 		string notificationViewDetail;
 		Request request;
 
-		public RequestMessage(Boardgames item, User borrowingUser, string requestType, string acceptStatus,
+		public RequestMessage(Boardgames item, User notifier, string requestType, string acceptStatus,
 		                      string updatedAt, string notificationView, string notificationViewDetail, Request req)
 		{
 			requestedItem = item;
-			otherUser = borrowingUser;
+			otherUser = notifier;
 			this.requestType = requestType;
 			this.acceptStatus = acceptStatus;
 			this.updatedAt = updatedAt;
