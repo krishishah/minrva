@@ -1,52 +1,59 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage Padding="10,20,10,10" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms" x:Class="minrva.RankTablePage">
-	<ContentPage.Content>
-		<Grid>
-			<Grid.RowDefinitions>
-    			<RowDefinition Height="20" />
-    			<RowDefinition Height="20" />
-				<RowDefinition Height="20" />
-    			<RowDefinition Height="20" />
-				<RowDefinition Height="20" />
-  			</Grid.RowDefinitions>
+	<ScrollView>
+	<Grid>
 
-			<Button Text="Back" Clicked="BackButtonCommand" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" />
 
-			<ListView x:Name="rankTableList"
-				IsPullToRefreshEnabled="false" HasUnevenRows="true">
-      		<ListView.ItemTemplate>
-        		<DataTemplate>
-					<ViewCell>
-						<StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
-							<Label Text="Rockie" FontSize="Large" HorizontalTextAlignment="Center"/>
-							<Image Source="Rock.png" HeightRequest="100" />
-							<Label Text="Default" FontSize="Small" HorizontalTextAlignment="Center" />
-						</StackLayout>
-						<StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
-							<Label Text="Dunkno Bass On A Rudeboi Ting On A Chun" FontSize="Large" HorizontalTextAlignment="Center"/>
-							<Image Source="Gem3.png" HeightRequest="100" />
-							<Label Text="Lend count between 0 and 3" FontSize="Small" HorizontalTextAlignment="Center"/>
-						</StackLayout>
-						<StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
-							<Label Text="Man Like Lend" FontSize="Large" HorizontalTextAlignment="Center"/>
-							<Image Source="Gem5.png" HeightRequest="100" />
-							<Label Text="Lend count between 3 and 10 and average rating more than 3" FontSize="Small" HorizontalTextAlignment="Center"/>
-						</StackLayout>
-						<StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
-							<Label Text="Lend Lend Lend" FontSize="Large" HorizontalTextAlignment="Center"/>
-							<Image Source="Gem9.png" HeightRequest="100" />
-							<Label Text="Lend count between 10 and 25 and average rating more than 4" FontSize="Small" HorizontalTextAlignment="Center"/>
-						</StackLayout>
-						<StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
-							<Label Text="Big Lender" FontSize="Large" HorizontalTextAlignment="Center"/>
-							<Image Source="Gem8.png" HeightRequest="100" />
-							<Label Text="Lend count more than 25 and average rating more than 4.5" FontSize="Small" HorizontalTextAlignment="Center"/>
-						</StackLayout>
-					</ViewCell>         			
+
+<!--		<ListView x:Name="rankTableList"
+			IsPullToRefreshEnabled="false" HasUnevenRows="true">
+  		<ListView.ItemTemplate>
+    		<DataTemplate>
+				<ViewCell>--><Grid.RowDefinitions>
+				    			<RowDefinition Height="20" />
+				    			<RowDefinition Height="20" />
+								<RowDefinition Height="20" />
+				    			<RowDefinition Height="20" />
+								<RowDefinition Height="20" />
+								<RowDefinition Height="20" />
+				    			<RowDefinition Height="20" />
+								<RowDefinition Height="20" />
+				    			<RowDefinition Height="20" />
+								<RowDefinition Height="20" />
+				  			</Grid.RowDefinitions>
+
+							<Button Text="Back" Clicked="BackButtonCommand" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1"/>
+			
+<!--						<StackLayout HorizontalOptions="Center" VerticalOptions="Center" >-->
+							<Label Text="Rockie" FontSize="Large" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="3" Grid.RowSpan="1" Grid.ColumnSpan="3"/>
+							<Image Source="Rock.png" HeightRequest="50" Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="3" />
+							<Label Text="Default" FontSize="Small" Grid.Row="2" Grid.Column="3" Grid.RowSpan="1" Grid.ColumnSpan="6"/>
+<!--						</StackLayout>-->
+<!--						<StackLayout HorizontalOptions="Center" VerticalOptions="Center" >-->
+							<Label Text="Dunkno" FontSize="Large" HorizontalTextAlignment="Center" Grid.Row="5" Grid.Column="3" Grid.RowSpan="1" Grid.ColumnSpan="3"/>
+							<Image Source="Gem3.png" HeightRequest="50" Grid.Row="5" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
+							<Label Text="Lend count between 0 and 3" FontSize="Small" Grid.Row="6" Grid.Column="3" Grid.RowSpan="1" Grid.ColumnSpan="6"/>
+<!--						</StackLayout>-->
+<!--						<StackLayout HorizontalOptions="Center" VerticalOptions="Center" >-->
+							<Label Text="Man Like" FontSize="Large" HorizontalTextAlignment="Center" Grid.Row="9" Grid.Column="3" Grid.RowSpan="1" Grid.ColumnSpan="3"/>
+							<Image Source="Gem5.png" HeightRequest="50" Grid.Row="9" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
+							<Label Text="Lend count between 3 and 10 and average rating more than 3" FontSize="Small" Grid.Row="10" Grid.Column="3" Grid.RowSpan="1" Grid.ColumnSpan="6"/>
+<!--						</StackLayout>-->
+<!--						<StackLayout HorizontalOptions="Center" VerticalOptions="Center" >-->
+<!--							<Label Text="Lend Lend Lend" FontSize="Large" HorizontalTextAlignment="Center" Grid.Row="5" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="3"/>-->
+<!--							<Image Source="Gem9.png" HeightRequest="50" Grid.Row="5" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1"/>-->
+<!--							<Label Text="Lend count between 10 and 25 and average rating more than 4" FontSize="Small" Grid.Row="6" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="4"/>-->
+<!--						</StackLayout>-->
+<!--						<StackLayout HorizontalOptions="Center" VerticalOptions="Center" >-->
+<!--							<Label Text="Big Lender" FontSize="Large" HorizontalTextAlignment="Center" Grid.Row="6" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="3"/>-->
+<!--							<Image Source="Gem8.png" HeightRequest="50" Grid.Row="6" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1"/>-->
+<!--							<Label Text="Lend count more than 25 and average rating more than 4.5" FontSize="Small" Grid.Row="7" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="4"/>-->
+<!--						</StackLayout>-->
+<!--					</ViewCell>         			
         		</DataTemplate>
       		</ListView.ItemTemplate>
-    	</ListView>
+    	</ListView>-->
 			
-		</Grid>
-	</ContentPage.Content>
+	</Grid>
+	</ScrollView>
 </ContentPage>
