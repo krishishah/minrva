@@ -111,28 +111,28 @@ namespace minrva
 
 			if (lendCount > 0 && lendCount < 3)
 			{
-				rank = "Dunkno Bass On A Rudeboi Ting On A Chun";
+				rank = "Amber";
 				Gem.Source = "Gem3.png";
 			}
 			else if (lendCount >= 3 && lendCount < 10 && avgRatings >= 3)
 			{
-				rank = "Man Like Lend";
+				rank = "Emerald";
 				Gem.Source = "Gem5.png";
 			}
 			else if (lendCount >= 10 && lendCount < 25 && avgRatings >= 4)
 			{
-				rank = "Lend Lend Lend";
+				rank = "Amethyst";
 				Gem.Source = "Gem9.png";
 			}
 			else if (lendCount >= 25 && avgRatings >= 4.5)
 			{
-				rank = "Big Lender";
+				rank = "Diamond";
 				Gem.Source = "Gem8.png";
 			}
 			else
 			{
-				rank = "Rockie";
-				Gem.Source = "Rock.png";
+				rank = "Topaz";
+				Gem.Source = "Gem6.png";
 			}
 
 			Rank.Text = String.Format("Rank:  {0}", rank);
