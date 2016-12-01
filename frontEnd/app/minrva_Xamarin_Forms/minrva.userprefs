@@ -1,5 +1,5 @@
-﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/RankTablePage.xaml">
+﻿<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/ProfileViewPage.xaml.cs">
     <Files>
       <File FileName="minrva/AppPages/RankTablePage.xaml" Line="13" Column="34" />
       <File FileName="minrva/AppPages/Profile.xaml" Line="18" Column="58" />
@@ -7,13 +7,22 @@
       <File FileName="minrva/AppPages/Feed.xaml.cs" Line="1" Column="1" />
       <File FileName="minrva/AppPages/Feed.xaml" Line="1" Column="1" />
       <File FileName="iOS/Main.cs" Line="19" Column="1" />
+      <File FileName="minrva/Models/Tables/Vouch.cs" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/TrustNetworkViewPage.xaml" Line="23" Column="33" />
+      <File FileName="minrva/AppPages/NotificationsPage.xaml" Line="16" Column="55" />
+      <File FileName="minrva/AppPages/TrustNetworkViewPage.xaml.cs" Line="13" Column="4" />
+      <File FileName="minrva/AppPages/Feed.xaml" Line="32" Column="33" />
+      <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="minrva/Models/Views/RequestMessage.cs" Line="22" Column="22" />
+      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.0597BD82-D8ED-4E5C-A435-A1CAA654556D" />
+  <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_ARMv7a" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/Krishi/Minrva/frontEnd/app/minrva_Xamarin_Forms/minrva/AppPages/FeedMapPage.xaml.cs" line="27" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

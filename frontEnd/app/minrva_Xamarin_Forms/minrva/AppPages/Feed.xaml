@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.Feed">
 	<StackLayout Padding="10,30,10,10">
-		<SearchBar x:Name="searchBar" SearchButtonPressed="OnSearch" Placeholder="Search items" Unfocused="CancelPressed" Focused="Searching"/>
+		<SearchBar x:Name="searchBar" SearchButtonPressed="OnSearch" Placeholder="Search" Unfocused="CancelPressed" Focused="Searching"/>
 		<Picker Title="Choose category" x:Name="selectCategory" SelectedIndexChanged="ShowCategory" IsVisible="{Binding notSearching}">
 			<Picker.Items>
 				<x:String>All</x:String> 
