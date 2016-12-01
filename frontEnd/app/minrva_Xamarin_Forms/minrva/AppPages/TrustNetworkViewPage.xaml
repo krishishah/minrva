@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.TrustNetworkViewPage">
+	<StackLayout Padding="20,20,20,20">
+		<Label Text="Trust Network" HorizontalOptions="Center"/>
+		<ActivityIndicator Grid.RowSpan="2"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       IsVisible="False"
+                       IsEnabled="True"
+                       x:Name="syncIndicator"/>
+		<ListView x:Name="trustNetworkList"
+				ItemSelected="OnSelected"
+				IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
+      		<ListView.ItemTemplate>
+        		<DataTemplate>
+					<ViewCell>
+						<StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
+							<Label Text="{Binding Name}" FontSize="Large" HorizontalTextAlignment="Center"/>
+							<Image Source="{Binding ImageSource}" HeightRequest="100" />
+						</StackLayout>
+					</ViewCell>         			
+        		</DataTemplate>
+      		</ListView.ItemTemplate>
+    	</ListView>
+	</StackLayout>
+</ContentPage>	
