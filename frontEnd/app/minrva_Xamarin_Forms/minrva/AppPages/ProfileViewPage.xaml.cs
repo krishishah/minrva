@@ -37,8 +37,6 @@ namespace minrva
 		private async void displayDetails()
 		{
 
-			VouchMessage.Text = await trustNetworkToString(await createTrustNetwork());
-
 			await displayLendBorrowCount();
 
 			Name.Text = String.Format("{0} {1}", profOwner.FirstName, profOwner.LastName);
@@ -169,6 +167,7 @@ namespace minrva
 
 		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
 		{
+			VouchMessage.Text = await trustNetworkToString(await createTrustNetwork());
 			var items = await tableManager.GetBoardgamesAsync(syncItems);
 			usersItems.ItemsSource = items.Where(game => (String.Equals(game.Owner, profOwner.UserId) && !game.Borrowed));
 		}
