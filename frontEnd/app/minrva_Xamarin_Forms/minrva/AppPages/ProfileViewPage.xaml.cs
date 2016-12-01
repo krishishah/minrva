@@ -32,6 +32,7 @@ namespace minrva
 			}
 			displayDetails();
 			displayProfilePicture();
+			displayGemAndRank();
 		}
 
 		private async void displayDetails()
@@ -86,6 +87,56 @@ namespace minrva
 				ProfilePicture.Source = ImageSource.FromStream(() =>
 											new MemoryStream(imageBytes));
 			}
+		}
+
+		async Task displayGemAndRank()
+		{
+			var ratingsTable = await tableManager.GetRatingsAsync();
+			var itemsTable = await tableManager.GetBoardgamesAsync();
+			int lendCount = itemsTable.Where(item => String.Equals(profOwner.UserId, item.Owner)).Count();
+			var ratings = ratingsTable.Where(r => String.Equals(profOwner.UserId, r.RatedID)).Select(rating => rating.Rating);
+
+			double avgRatings;
+			string rank;
+
+			if (ratings.Count() > 0)
+			{
+				avgRatings = ratings.Average();
+			}
+			else
+			{
+				avgRatings = 0;
+			}
+
+
+			if (lendCount > 0 && lendCount < 3)
+			{
+				rank = "Dunkno Bass On A Rudeboi Ting On A Chun";
+				Gem.Source = "Gem3.png";
+			}
+			else if (lendCount >= 3 && lendCount < 10 && avgRatings >= 3)
+			{
+				rank = "Man Like Lend";
+				Gem.Source = "Gem5.png";
+			}
+			else if (lendCount >= 10 && lendCount < 25 && avgRatings >= 4)
+			{
+				rank = "Lend Lend Lend";
+				Gem.Source = "Gem9.png";
+			}
+			else if (lendCount >= 25 && avgRatings >= 4.5)
+			{
+				rank = "Big Lender";
+				Gem.Source = "Gem8.png";
+			}
+			else
+			{
+				rank = "Rockie";
+				Gem.Source = "Rock.png";
+			}
+
+			Rank.Text = String.Format("Rank:  {0}", rank);
+
 		}
 
 		async Task displayLendBorrowCount()

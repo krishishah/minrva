@@ -11,35 +11,11 @@
       <File FileName="minrva/AppPages/Feed.xaml" Line="32" Column="33" />
       <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="1" Column="1" />
       <File FileName="minrva/Models/Views/RequestMessage.cs" Line="22" Column="22" />
-      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="56" Column="20" />
+      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="minrva" expanded="True">
-            <Node name="minrva" expanded="True">
-              <Node name="AppPages" expanded="True">
-                <Node name="ItemViewPage.xaml" expanded="True" />
-                <Node name="MessagePage.xaml" expanded="True" />
-                <Node name="NotificationsPage.xaml" expanded="True" />
-                <Node name="Profile.xaml" expanded="True" />
-                <Node name="ProfileViewPage.xaml" expanded="True">
-                  <Node name="ProfileViewPage.xaml.cs" selected="True" />
-                </Node>
-                <Node name="TrustNetworkViewPage.xaml" expanded="True" />
-              </Node>
-              <Node name="Models" expanded="True">
-                <Node name="Views" expanded="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_ARMv7a" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B9D00A3C-265B-47F0-813D-E693E601846D" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/Krishi/Minrva/frontEnd/app/minrva_Xamarin_Forms/minrva/AppPages/FeedMapPage.xaml.cs" line="27" column="1" />

@@ -200,9 +200,13 @@
     <BundleResource Include="Resources\Plus-50%402x.png" />
     <BundleResource Include="Resources\gender_neutral_user.png" />
     <BundleResource Include="Resources\Notifications-50%402x.png" />
-    <BundleResource Include="Resources\minrva_icon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </BundleResource>
+    <BundleResource Include="Resources\Gem1.png" />
+    <BundleResource Include="Resources\Gem3.png" />
+    <BundleResource Include="Resources\Gem5.png" />
+    <BundleResource Include="Resources\Gem8.png" />
+    <BundleResource Include="Resources\Gem9.png" />
+    <BundleResource Include="Resources\Rock.png" />
+    <BundleResource Include="Resources\minrva_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
