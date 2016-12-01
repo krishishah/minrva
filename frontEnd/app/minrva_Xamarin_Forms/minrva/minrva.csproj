@@ -67,9 +67,6 @@
     <Compile Include="AppPages\ChatsPage.xaml.cs">
       <DependentUpon>ChatsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppPages\Profile.xaml.cs">
-      <DependentUpon>Profile.xaml</DependentUpon>
-    </Compile>
     <Compile Include="AppPages\UserAuth\Constants.cs" />
     <Compile Include="AppPages\UserAuth\EmailValidatorBehavior.cs" />
     <Compile Include="AppPages\UserAuth\LoginPage.xaml.cs">
