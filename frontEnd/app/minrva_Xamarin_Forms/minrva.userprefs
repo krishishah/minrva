@@ -1,5 +1,5 @@
-﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Feed.xaml">
+﻿<Properties StartupConfiguration="{FC9509E4-F284-4FD5-9D8A-2D0BBBFB9B06}|Unit Tests">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/Models/Tables/Vouch.cs">
     <Files>
       <File FileName="minrva/Models/Tables/Vouch.cs" Line="11" Column="20" />
       <File FileName="minrva/AppPages/TrustNetworkViewPage.xaml" Line="11" Column="26" />
@@ -12,39 +12,8 @@
       <File FileName="minrva/AppPages/ProfileViewPage.xaml" Line="23" Column="81" />
       <File FileName="iOS/Main.cs" Line="17" Column="31" />
       <File FileName="minrva/AppPages/ItemViewPage.xaml.cs" Line="113" Column="1" />
-      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="42" Column="1" />
-      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="241" Column="4" />
-      <File FileName="minrva/AppPages/ProfileViewPage.xaml" Line="19" Column="28" />
       <File FileName="minrva/Models/TableManager.cs" Line="1" Column="1" />
-      <File FileName="iOS/Main.cs" Line="19" Column="1" />
-      <File FileName="minrva/Models/Tables/Vouch.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="minrva" expanded="True">
-            <Node name="minrva" expanded="True">
-              <Node name="AppPages" expanded="True">
-                <Node name="ChatsPage.xaml" expanded="True" />
-                <Node name="Feed.xaml" expanded="True" />
-                <Node name="InsertItemPage.xaml" expanded="True" />
-                <Node name="ItemViewPage.xaml" expanded="True">
-                  <Node name="ItemViewPage.xaml.cs" selected="True" />
-                </Node>
-                <Node name="ProfileViewPage.xaml" expanded="True" />
-                <Node name="RankTablePage.xaml" expanded="True" />
-                <Node name="TrustNetworkViewPage.xaml" expanded="True" />
-              </Node>
-              <Node name="Models" expanded="True">
-                <Node name="Tables" expanded="True" />
-                <Node name="Views" expanded="True" />
-              </Node>
-            </Node>
-            <Node name="minrva.iOS" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_ARMv7a" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="iOS Release|iPhoneSimulator" />
@@ -55,4 +24,5 @@
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.minrvaUITests PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

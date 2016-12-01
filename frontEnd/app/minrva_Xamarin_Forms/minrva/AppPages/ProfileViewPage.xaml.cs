@@ -339,7 +339,7 @@ namespace minrva
 				{
 					if (trustNetwork.IndexOf(v) < 1)
 					{
-						User user = userTable.Where(u => String.Equals(u.Id, v.Voucher)).ElementAt(0);
+						User user = userTable.Where(u => String.Equals(u.UserId, v.Voucher)).ElementAt(0);
 						message += String.Format(", {0}", user.FirstName);
 					}
 					else
@@ -349,17 +349,21 @@ namespace minrva
 				}
 			}
 
+			Debug.WriteLine(message);
+
 			if (message.StartsWith(", "))
-				message.Remove(0, 2);
+				message = message.Remove(0, 2);
 
 			if (trustCounter == 1)
 				message += String.Format(" and {0} other person in your network", trustCounter);
 			else if (trustCounter > 1)
 				message += String.Format(" and {0} others in your network", trustCounter);
-
-			message += String.Format(" have vouched for {0}", owner.FirstName);
-
-			return message;
+			else if (!message.StartsWith("You"))
+				return message += String.Format(" has vouched for {0}", owner.FirstName);
+			else if (message.StartsWith("You, "))
+				message = "You and" + message.Remove(0, 4);
+			
+			return message += String.Format(" have vouched for {0}", owner.FirstName);
 
 		}
 
