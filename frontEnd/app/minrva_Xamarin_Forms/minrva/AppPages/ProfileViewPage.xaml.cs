@@ -210,6 +210,7 @@ namespace minrva
 				vouchButton.Text = "Vouch";
 				await DisplayAlert("Success", String.Format("You have now Unvouched {0}!", owner.FirstName), "OK");
 			}
+			displayVouchDetails();
 
 		}
 
@@ -247,7 +248,7 @@ namespace minrva
 
 		private async void displayVouchDetails()
 		{
-
+			VouchMessage.Text = await trustNetworkToString(await createTrustNetwork());
 			var vouch = new Vouch();
 			vouch.Voucher = await App.Authenticator.GetUserId();
 			vouch.Vouchee = profOwner.UserId;
