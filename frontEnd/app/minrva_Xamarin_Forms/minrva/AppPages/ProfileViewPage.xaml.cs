@@ -219,6 +219,7 @@ namespace minrva
 		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
 		{
 			VouchMessage.Text = await trustNetworkToString(await createTrustNetwork());
+			VouchMessage.GestureRecognizers.Add(new TapGestureRecognizer((view) => SeeVouchers()));
 			var items = await tableManager.GetBoardgamesAsync(syncItems);
 			usersItems.ItemsSource = items.Where(game => (String.Equals(game.Owner, profOwner.UserId) && !game.Borrowed));
 		}
@@ -332,6 +333,12 @@ namespace minrva
 
 			return message;
 
+		}
+
+		public async void SeeVouchers()
+		{
+			await Navigation.PushModalAsync(new TrustNetworkViewPage(profOwner));
+			
 		}
 
 

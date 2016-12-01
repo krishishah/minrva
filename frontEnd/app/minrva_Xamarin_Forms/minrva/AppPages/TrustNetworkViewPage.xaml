@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.TrustNetworkViewPage">
 	<StackLayout Padding="20,20,20,20">
+		<Button Text="Back" Clicked="BackButtonCommand" HorizontalOptions="Start"/>
 		<Label Text="Trust Network" HorizontalOptions="Center"/>
 		<ActivityIndicator Grid.RowSpan="2"
                        HorizontalOptions="Center"
@@ -9,8 +10,7 @@
                        IsEnabled="True"
                        x:Name="syncIndicator"/>
 		<ListView x:Name="trustNetworkList"
-				ItemSelected="OnSelected"
-				IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
+				ItemSelected="OnSelected" HasUnevenRows="true">
       		<ListView.ItemTemplate>
         		<DataTemplate>
 					<ViewCell>
