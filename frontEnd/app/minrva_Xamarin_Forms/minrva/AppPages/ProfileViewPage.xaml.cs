@@ -139,6 +139,11 @@ namespace minrva
 
 		}
 
+		async void Clicked_RankTable(object sender, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new RankTablePage());
+		}
+
 		async Task displayLendBorrowCount()
 		{
 			string sid = profOwner.UserId;

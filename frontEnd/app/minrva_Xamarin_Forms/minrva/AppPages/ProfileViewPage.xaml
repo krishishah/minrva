@@ -21,7 +21,8 @@
 		<Label x:Name="LendBorrow" FontSize="Small" Grid.Row="4" Grid.Column="2" Grid.RowSpan="1" Grid.ColumnSpan="1" />
 		
 		<Button Text="Vouch" Grid.Row="5" Grid.Column="0" Clicked="ClickVouch" x:Name="vouchButton" />
-		<Button Text="View Reviews" x:Name="viewReviews" Clicked="ViewReviews" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" />
+		<Button Text="Rank Table" Grid.Row="5" Grid.Column="1" Clicked="Clicked_RankTable"  Grid.ColumnSpan="1" />
+		<Button Text="View Reviews" x:Name="viewReviews" Clicked="ViewReviews" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="1" />
 		<Label x:Name="VouchMessage" FontSize="Small" XAlign="Center" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2" />
 
 		<ListView Grid.Row="7" Grid.Column="0" Grid.RowSpan="5" Grid.ColumnSpan="3" x:Name="usersItems" ItemSelected="OnSelected" IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
