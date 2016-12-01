@@ -1,11 +1,5 @@
-﻿<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Profile.xaml.cs">
-    <Files>
-      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="131" Column="5" />
-      <File FileName="minrva/AppPages/Profile.xaml.cs" Line="115" Column="28" />
-      <File FileName="iOS/Main.cs" Line="19" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.0597BD82-D8ED-4E5C-A435-A1CAA654556D" />
