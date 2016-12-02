@@ -72,7 +72,7 @@ namespace minrva
 
 		async void ClickedBack(object sender, EventArgs e)
 		{
-			await Navigation.PushModalAsync(new MainTabContainer());
+			await Navigation.PushModalAsync(new MainTabContainer()); 
 		}
 	}
 }
