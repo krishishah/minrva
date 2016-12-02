@@ -30,13 +30,14 @@
 			<ListView Grid.Row="8" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="3" x:Name="myItems"
 				ItemSelected="OnSelected"
 				IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
-			<ListView.ItemTemplate>
-        		<DataTemplate>
-          			<TextCell Text="{Binding Name}" Detail="{Binding Category}"/>
-        		</DataTemplate>
-      		</ListView.ItemTemplate>
+				<ListView.ItemTemplate>
+	        		<DataTemplate>
+	          			<TextCell Text="{Binding Name}" Detail="{Binding Category}"/>
+	        		</DataTemplate>
+	      		</ListView.ItemTemplate>	
 			</ListView>
-			<Button Text="Logout" Clicked="Clicked_Logout" Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="3" />
+			<Button Text="Logout" Clicked="Clicked_Logout" Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="1" />
+			<Button Text="Vouched You" Clicked="ClickedVoucheeList" Grid.Row="14" Grid.Column="2" Grid.ColumnSpan="1" />
 		</Grid>
 	</ContentPage.Content>
 </ContentPage>

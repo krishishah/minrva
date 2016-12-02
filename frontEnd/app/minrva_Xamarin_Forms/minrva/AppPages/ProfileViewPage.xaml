@@ -41,8 +41,8 @@
 				</DataTemplate>
 			</ListView.ItemTemplate>
 		</ListView>
-		<Label Grid.Row="17" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3" x:Name="BorrowReq" />
-		<Button Grid.Row="19" Grid.Column="0" Text="Accept" Clicked="AcceptRequest" x:Name="YesButton" />
-		<Button Grid.Row="19" Grid.Column="2" Text="Reject" Clicked="RejectRequest" x:Name="NoButton" />
+		<Label Grid.Row="16" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3" x:Name="BorrowReq" />
+		<Button Grid.Row="18" Grid.Column="0" Text="Accept" Clicked="AcceptRequest" x:Name="YesButton" />
+		<Button Grid.Row="18" Grid.Column="2" Text="Reject" Clicked="RejectRequest" x:Name="NoButton" />
 	</Grid>
 </ContentPage>

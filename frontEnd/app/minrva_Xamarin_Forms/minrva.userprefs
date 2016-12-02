@@ -1,18 +1,18 @@
-﻿<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/ProfileViewPage.xaml">
+﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/VoucheesList.xaml.cs">
     <Files>
       <File FileName="minrva/Models/Tables/Vouch.cs" Line="1" Column="1" />
       <File FileName="minrva/AppPages/TrustNetworkViewPage.xaml" Line="1" Column="1" />
       <File FileName="minrva/AppPages/TrustNetworkViewPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="minrva/AppPages/NotificationsPage.xaml" Line="16" Column="55" />
+      <File FileName="minrva/AppPages/NotificationsPage.xaml" Line="1" Column="1" />
       <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="1" Column="1" />
       <File FileName="minrva/AppPages/RankTablePage.xaml.cs" Line="1" Column="1" />
-      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="211" Column="5" />
-      <File FileName="minrva/AppPages/Profile.xaml" Line="7" Column="1" />
+      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/Profile.xaml" Line="44" Column="1" />
       <File FileName="iOS/Main.cs" Line="19" Column="1" />
-      <File FileName="minrva/AppPages/ItemViewPage.xaml.cs" Line="113" Column="55" />
+      <File FileName="minrva/AppPages/ItemViewPage.xaml.cs" Line="1" Column="1" />
       <File FileName="minrva/Models/TableManager.cs" Line="1" Column="1" />
-      <File FileName="minrva/AppPages/ProfileViewPage.xaml" Line="34" Column="19" />
+      <File FileName="minrva/AppPages/VoucheesList.xaml.cs" Line="27" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -24,8 +24,14 @@
                 <Node name="ItemViewPage.xaml" expanded="True" />
                 <Node name="NotificationsPage.xaml" expanded="True" />
                 <Node name="Profile.xaml" expanded="True" />
-                <Node name="ProfileViewPage.xaml" expanded="True" selected="True" />
+                <Node name="ProfileViewPage.xaml" expanded="True" />
+                <Node name="RankTablePage.xaml" expanded="True" />
+                <Node name="TrustNetworkViewPage.xaml" expanded="True" />
+                <Node name="VoucheesList.xaml" expanded="True">
+                  <Node name="VoucheesList.xaml.cs" selected="True" />
+                </Node>
               </Node>
+              <Node name="Models" expanded="True" />
             </Node>
             <Node name="minrva.iOS" expanded="True" />
           </Node>
@@ -33,8 +39,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_ARMv7a" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" />
   <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B9D00A3C-265B-47F0-813D-E693E601846D" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
@@ -42,5 +47,4 @@
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.minrvaUITests PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>
