@@ -16,15 +16,5 @@ namespace minrva
 		{
 			await Navigation.PopModalAsync();
 		}
-
-		//public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
-		//{
-
-		//}
-
-		//public async void OnRefresh(object sender, EventArgs e)
-		//{
-
-		//}
 	}
 }

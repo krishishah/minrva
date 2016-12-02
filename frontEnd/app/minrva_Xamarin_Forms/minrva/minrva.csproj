@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -118,6 +117,9 @@
     <Compile Include="AppPages\TrustNetworkViewPage.xaml.cs">
       <DependentUpon>TrustNetworkViewPage.xaml</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AppPages\RankTablePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <Compile Include="AppPages\RankTablePage.xaml.cs">
       <DependentUpon>RankTablePage.xaml</DependentUpon>
     </Compile>
@@ -208,12 +210,10 @@
     <EmbeddedResource Include="AppPages\UserAuth\RegisterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-
     <EmbeddedResource Include="AppPages\MessagePage.xaml" />
     <EmbeddedResource Include="AppPages\NotificationsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    
     <EmbeddedResource Include="AppPages\FeedMapPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -230,9 +230,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="AppPages\TrustNetworkViewPage.xaml" />
-    <EmbeddedResource Include="AppPages\RankTablePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="AppPages\VoucheesList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

@@ -14,8 +14,6 @@
 			<RowDefinition Height="15" />
 			<RowDefinition Height="15" />
 			<RowDefinition Height="15" />
-
-
   		</Grid.RowDefinitions>
 		
 		<Button Text="Back" Clicked="BackButtonCommand" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" />
@@ -41,6 +39,7 @@
 				</DataTemplate>
 			</ListView.ItemTemplate>
 		</ListView>
+		
 		<Label Grid.Row="16" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3" x:Name="BorrowReq" />
 		<Button Grid.Row="18" Grid.Column="0" Text="Accept" Clicked="AcceptRequest" x:Name="YesButton" />
 		<Button Grid.Row="18" Grid.Column="2" Text="Reject" Clicked="RejectRequest" x:Name="NoButton" />
