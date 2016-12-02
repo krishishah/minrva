@@ -1,24 +1,21 @@
-﻿<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/ProfileViewPage.xaml.cs">
+﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Profile.xaml.cs">
     <Files>
-      <File FileName="minrva/AppPages/InsertItemPage.xaml.cs" Line="17" Column="44" />
-      <File FileName="minrva/Models/TableManager.cs" Line="1" Column="1" />
-      <File FileName="iOS/Main.cs" Line="19" Column="1" />
-      <File FileName="minrva/Models/Tables/Vouch.cs" Line="1" Column="1" />
-      <File FileName="minrva/AppPages/TrustNetworkViewPage.xaml" Line="23" Column="33" />
-      <File FileName="minrva/AppPages/NotificationsPage.xaml" Line="16" Column="55" />
-      <File FileName="minrva/AppPages/TrustNetworkViewPage.xaml.cs" Line="13" Column="4" />
-      <File FileName="minrva/AppPages/Feed.xaml" Line="32" Column="33" />
-      <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="minrva/Models/Views/RequestMessage.cs" Line="22" Column="22" />
-      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="15" Column="28" />
+      <File FileName="minrva/AppPages/VoucheesList.xaml" Line="5" Column="33" />
+      <File FileName="minrva/AppPages/VoucheesList.xaml.cs" Line="46" Column="114" />
+      <File FileName="minrva/AppPages/ProfileViewPage.xaml" Line="12" Column="10" />
+      <File FileName="iOS/Main.cs" Line="16" Column="69" />
+      <File FileName="minrva/AppPages/Profile.xaml" Line="38" Column="112" />
+      <File FileName="minrva/AppPages/Profile.xaml.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_ARMv7a" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.87FEEF8E-9FC2-4ACD-B113-53736C27E77E" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/Krishi/Minrva/frontEnd/app/minrva_Xamarin_Forms/minrva/AppPages/FeedMapPage.xaml.cs" line="27" column="1" />
+      <Breakpoint enabled="false" file="/Users/Krishi/Minrva/frontEnd/app/minrva_Xamarin_Forms/minrva/AppPages/FeedMapPage.xaml.cs" line="27" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

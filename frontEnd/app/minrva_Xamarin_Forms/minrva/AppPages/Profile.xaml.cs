@@ -172,6 +172,11 @@ namespace minrva
 			await displayProfilePicture();
 		}
 
+		async void ClickedVoucheeList(object sender, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new VoucheesList());
+		}
+
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var game = e.SelectedItem as Boardgames;
