@@ -28,7 +28,7 @@ namespace minrva
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var reqMsg = e.SelectedItem as RequestMessage;
-			if (String.Equals("Vouch", reqMsg.RequestType))
+			if (!String.Equals("Vouch", reqMsg.RequestType))
 			{
 
 				var alert = false;

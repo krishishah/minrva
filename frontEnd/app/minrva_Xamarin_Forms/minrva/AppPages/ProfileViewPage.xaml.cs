@@ -33,6 +33,7 @@ namespace minrva
 			displayDetails();
 			displayProfilePicture();
 			displayGemAndRank();
+			VouchMessage.GestureRecognizers.Add(new TapGestureRecognizer((view) => SeeVouchers()));
 		}
 
 		private async void displayDetails()
@@ -226,7 +227,6 @@ namespace minrva
 		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
 		{
 			displayVouchDetails();
-			VouchMessage.GestureRecognizers.Add(new TapGestureRecognizer((view) => SeeVouchers()));
 
 			var items = await tableManager.GetBoardgamesAsync(syncItems);
 			usersItems.ItemsSource = items.Where(game => (String.Equals(game.Owner, profOwner.UserId) && !game.Borrowed));
