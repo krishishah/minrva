@@ -1,36 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.Feed">
-	<StackLayout Padding="10,30,10,10" BackgroundColor="#e2e1e0">
-		<SearchBar x:Name="searchBar" SearchButtonPressed="OnSearch" Placeholder="Search" Unfocused="CancelPressed" Focused="Searching" BackgroundColor="White"/>
-		<Picker Title="Choose category" x:Name="selectCategory" SelectedIndexChanged="ShowCategory" IsVisible="{Binding notSearching}">
-			<Picker.Items>
-				<x:String>All</x:String> 
-            	<x:String>Board Game</x:String> 
-            	<x:String>Book</x:String>
-        	</Picker.Items>
-		</Picker>
-		<ActivityIndicator Grid.RowSpan="2"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       IsVisible="False"
-                       IsEnabled="True"
-                       x:Name="syncIndicator"/>
-		<ListView x:Name="feedList"
-				ItemSelected="OnSelected"
-				IsPullToRefreshEnabled="true" Refreshing="OnRefresh" HasUnevenRows="true" SeparatorVisibility="None" BackgroundColor="#e2e1e0">
-      		<ListView.ItemTemplate>
-        		<DataTemplate>
+	<StackLayout Padding="0,20,0,10" BackgroundColor="#E0E0E0">
+		<StackLayout BackgroundColor="#E0E0E0">
+			<SearchBar x:Name="searchBar" SearchButtonPressed="OnSearch" Placeholder="Search" Unfocused="CancelPressed" Focused="Searching" BackgroundColor="#E0E0E0" />
+			<StackLayout Padding="8,0,8,0">
+				<Picker Title="Choose category" x:Name="selectCategory" SelectedIndexChanged="ShowCategory" IsVisible="{Binding notSearching}">
+					<Picker.Items>
+						<x:String>All</x:String>
+						<x:String>Board Game</x:String>
+						<x:String>Book</x:String>
+					</Picker.Items>
+				</Picker>
+			</StackLayout>
+		</StackLayout>
+		<ActivityIndicator Grid.RowSpan="2" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="False" IsEnabled="True" x:Name="syncIndicator" />
+		<ListView x:Name="feedList" ItemSelected="OnSelected" IsPullToRefreshEnabled="true" Refreshing="OnRefresh" HasUnevenRows="true" SeparatorVisibility="None" BackgroundColor="#EEEEEE">
+			<ListView.ItemTemplate>
+				<DataTemplate>
 					<ViewCell>
-						<StackLayout HorizontalOptions="Fill" VerticalOptions="Center" BackgroundColor="White" Padding="0,10,0,20" Margin="0,10,0,10" >
-							<Label Text="{Binding Name}" FontSize="Large" HorizontalTextAlignment="Center"/>
+						<StackLayout BackgroundColor="White" HorizontalOptions="Fill" VerticalOptions="Center" Padding="0,0,0,20" Margin="10,10,10,10">
+							<Label Text="{Binding Name}" FontSize="Large" HorizontalTextAlignment="Center" BackgroundColor="#81C784" TextColor="Black" />
 							<Image Source="{Binding ImageSource}" HeightRequest="100" />
-							<Label Text="{Binding Location}" FontSize="Small" HorizontalTextAlignment="Center"/>
-							<Label Text="{Binding Distance, StringFormat='{0:F1} miles'}" FontSize="Small" HorizontalTextAlignment="Center" />
+							<StackLayout BackgroundColor="#FAFAFA">
+								<Label Text="{Binding Location}" FontSize="Small" HorizontalTextAlignment="Center" />
+								<Label Text="{Binding Distance, StringFormat='{0:F1} miles'}" FontSize="Small" HorizontalTextAlignment="Center" />
+							</StackLayout>
 						</StackLayout>
-					</ViewCell>         			
-        		</DataTemplate>
-      		</ListView.ItemTemplate>
-    	</ListView>
-		<Button Text="Map" Clicked="gotoFeedMapPage" />
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+			<Button Text="Map" Clicked="gotoFeedMapPage" TextColor="White" BackgroundColor="Transparent" BorderColor="White" BorderWidth="1" />		
 	</StackLayout>
 </ContentPage>
