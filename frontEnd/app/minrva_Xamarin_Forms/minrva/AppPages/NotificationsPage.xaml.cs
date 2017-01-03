@@ -129,6 +129,7 @@ namespace minrva
 
 				string requestType = "Lend Request";
 				string requestStatus = "Pending";
+				string col = "Green";
 
 				foreach (Request r in lenderPendingRequests)
 				{
@@ -136,7 +137,7 @@ namespace minrva
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", borrowingUser.FirstName, requestStatus);
-					requestsMsgs.Add(new RequestMessage(requestedItem, borrowingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
+					requestsMsgs.Add(new RequestMessage(requestedItem, borrowingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, col, r));
 				}
 
 				requestStatus = "Accepted";
@@ -148,10 +149,11 @@ namespace minrva
 					Debug.WriteLine("Date accepted: {0}", r.UpdatedAt);
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", borrowingUser.FirstName, requestStatus);
-					requestsMsgs.Add(new RequestMessage(requestedItem, borrowingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
+					requestsMsgs.Add(new RequestMessage(requestedItem, borrowingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, col, r));
 				}
 
 				requestType = "Borrow Request";
+				col = "Red";
 
 				foreach (Request r in borrowAcceptedRequests)
 				{
@@ -160,7 +162,7 @@ namespace minrva
 					Debug.WriteLine("Date accepted: {0}", r.UpdatedAt);
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", lendingUser.FirstName, requestStatus);
-					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
+					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, col, r));
 				}
 
 				requestStatus = "Pending";
@@ -172,7 +174,7 @@ namespace minrva
 					Debug.WriteLine("Date pending: {0}", r.UpdatedAt);
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", lendingUser.FirstName, requestStatus);
-					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
+					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, col, r));
 				}
 
 				requestStatus = "Rejected";
@@ -184,7 +186,7 @@ namespace minrva
 					Debug.WriteLine("Date: {0}", r.UpdatedAt);
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", lendingUser.FirstName, requestStatus);
-					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
+					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, col, r));
 				}
 
 				requestStatus = "Returned";
@@ -195,16 +197,19 @@ namespace minrva
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
 					string notifViewDetail = String.Format("{0} - {1}", lendingUser.FirstName, requestStatus);
-					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, r));
+					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, col, r));
 				}
 
+				col = "Blue";
+					
 				foreach (Vouch v in myVouches)
 				{
 					User voucher = users.Where(user => String.Equals(user.UserId, v.Voucher)).ElementAt(0);
 					string notifView = String.Format("Vouch Alert: {0} {1}", voucher.FirstName, voucher.LastName);
 					string notifViewDetail = String.Format("{0} has vouched for you", voucher.FirstName);
-					requestsMsgs.Add(new RequestMessage(null, voucher, "Vouch", "Vouch Alert", v.UpdatedAt, notifView, notifViewDetail, null));
+					requestsMsgs.Add(new RequestMessage(null, voucher, "Vouch", "Vouch Alert", v.UpdatedAt, notifView, notifViewDetail, col, null));
 				}
+
 
 				requestsMsgs.Sort((y, x) => x.UpdatedAt.CompareTo(y.UpdatedAt));
 

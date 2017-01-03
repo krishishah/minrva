@@ -15,9 +15,9 @@
         		<DataTemplate>
 					<ViewCell>
 						<StackLayout BackgroundColor="White" HorizontalOptions="Fill" VerticalOptions="Center" Padding="0,0,0,20" Margin="10,10,10,10">
-							<Label Text="{Binding NotificationView}" HorizontalTextAlignment="Center" BackgroundColor="#b35050" TextColor="White"/>
+							<Label Text="{Binding NotificationView}" HorizontalTextAlignment="Center" BackgroundColor="{Binding NotificationColour}" TextColor="White"/>
 							<StackLayout BackgroundColor="#FAFAFA">
-								<Label Text="{Binding NotificationViewDetail}" HorizontalTextAlignment="Center" FontSize="Small" TextColor="Gray"/>
+								<Label Text="{Binding NotificationViewDetail}" HorizontalTextAlignment="Center" FontSize="Small"/>
 							</StackLayout>
 <!--          			<TextCell Text="{Binding NotificationView}" Detail="{Binding NotificationViewDetail}"/>-->
 						</StackLayout>
