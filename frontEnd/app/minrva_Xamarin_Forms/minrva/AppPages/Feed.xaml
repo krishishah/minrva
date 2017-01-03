@@ -19,7 +19,7 @@
 				<DataTemplate>
 					<ViewCell>
 						<StackLayout BackgroundColor="White" HorizontalOptions="Fill" VerticalOptions="Center" Padding="0,0,0,20" Margin="10,10,10,10">
-							<Label Text="{Binding Name}" FontSize="Large" HorizontalTextAlignment="Center" BackgroundColor="#81C784" TextColor="Black" />
+							<Label Text="{Binding Name}" FontSize="Large" HorizontalTextAlignment="Center" BackgroundColor="#b35050" TextColor="White" />
 							<Image Source="{Binding ImageSource}" HeightRequest="100" />
 							<StackLayout BackgroundColor="#FAFAFA">
 								<Label Text="{Binding Location}" FontSize="Small" HorizontalTextAlignment="Center" />
@@ -30,6 +30,6 @@
 				</DataTemplate>
 			</ListView.ItemTemplate>
 		</ListView>
-			<Button Text="Map" Clicked="gotoFeedMapPage" TextColor="White" BackgroundColor="Transparent" BorderColor="White" BorderWidth="1" />		
+			<Button Text="Map" Clicked="gotoFeedMapPage" TextColor="Black" BackgroundColor="Transparent" BorderColor="White" BorderWidth="1" />		
 	</StackLayout>
 </ContentPage>
