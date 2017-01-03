@@ -131,7 +131,7 @@ namespace minrva
 
 				string requestType = "Lend Request";
 				string requestStatus = "Pending";
-				string col = "Green";
+				string col = "#00cc00";
 				seenUnseenCol = "#E0E0E0";
 
 				foreach (Request r in lenderPendingRequests)
@@ -157,7 +157,7 @@ namespace minrva
 				}
 
 				requestType = "Borrow Request";
-				col = "Red";
+				col = "#b35050";
 				seenUnseenCol = "White";
 
 				foreach (Request r in borrowAcceptedRequests)
@@ -208,7 +208,7 @@ namespace minrva
 					requestsMsgs.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, col, seenUnseenCol, r));
 				}
 
-				col = "Blue";
+				col = "#6666ff";
 				seenUnseenCol = "White";
 					
 				foreach (Vouch v in myVouches)
