@@ -10,7 +10,7 @@
 	                       IsVisible="False"
 	                       IsEnabled="True"
 	                       x:Name="syncIndicator"/>
-	    <StackLayout Spacing="20" Padding="10,40,10,10">      		
+	    <StackLayout Spacing="20" Padding="10,40,10,10" BackgroundColor="#EEEEEE">      		
 			<!--<Label Text="Enter Category" />-->
 			<Picker x:Name="newItemCategory" Title="Enter Category">
 				<Picker.Items>

@@ -1,13 +1,10 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/Models/Views/RequestMessage.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/InsertItemPage.xaml">
     <Files>
-      <File FileName="minrva/AppPages/Feed.xaml" Line="22" Column="130" />
-      <File FileName="minrva/AppPages/NotificationsPage.xaml" Line="11" Column="32" />
-      <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="207" Column="6" />
-      <File FileName="minrva/AppPages/MessagePage.xaml" Line="19" Column="22" />
-      <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="30" Column="3" />
-      <File FileName="iOS/Main.cs" Line="22" Column="2" />
-      <File FileName="minrva/Models/Views/RequestMessage.cs" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/Feed.xaml" Line="21" Column="132" />
+      <File FileName="minrva/AppPages/NotificationsPage.xaml" Line="3" Column="61" />
+      <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="174" Column="22" />
+      <File FileName="minrva/AppPages/InsertItemPage.xaml" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
