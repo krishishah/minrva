@@ -106,10 +106,14 @@ namespace minrva
 					if (String.Equals(m.Sender, sid))
 					{
 						m.Alignment = LayoutOptions.EndAndExpand;
+						m.MessageBoxColour = "#b35050";
+						m.TextColour = "White";
 					}
 					else 
 					{
 						m.Alignment = LayoutOptions.StartAndExpand;
+						m.MessageBoxColour = "White";
+						m.TextColour = "Black";
 					}
 				}
 				messageList.ItemsSource = msgs;
@@ -129,6 +133,10 @@ namespace minrva
 				var message = new Message { Sender = sid, Receiver = Receiver.UserId, Text = newMessage.Text, ChatId = chatId.Id };
 				await AddItem(message);
 				await RefreshItems(false, syncItems: false);
+
+				var last = messageList.ItemsSource.Cast<object>().LastOrDefault();
+				messageList.ScrollTo(last, ScrollToPosition.MakeVisible, true);
+
 				newMessage.Text = descriptionPlaceholder;
 				newMessage.TextColor = Color.Gray;
 			}

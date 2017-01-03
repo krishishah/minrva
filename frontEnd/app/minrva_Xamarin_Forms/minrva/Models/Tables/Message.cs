@@ -16,6 +16,8 @@ namespace minrva
 		string text;
 		[JsonIgnore]
 		public LayoutOptions Alignment { get; set; }
+		public string MessageBoxColour { get; set; }
+		public string TextColour { get; set; }
 
 		[JsonProperty(PropertyName = "id")]
 		public string Id

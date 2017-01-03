@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.MessagePage">
 	<ContentPage.Content>
-		<StackLayout Orientation="Vertical" Padding="5, 20, 5, 0">
+		<StackLayout Orientation="Vertical" Padding="5, 20, 5, 0" BackgroundColor="#EEEEEE">
 			<Button Text="Back" Clicked="BackButtonCommand" HorizontalOptions="Start">
 			</Button>
 			<Label Text="{Binding Username}" HorizontalOptions="Center">
 			</Label>
-<!--			<ScrollView>-->
 				<ActivityIndicator Grid.RowSpan="2" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="False" IsEnabled="True" x:Name="syncIndicator" />
-				<ListView x:Name="messageList" IsPullToRefreshEnabled="true" Refreshing="OnRefresh" HasUnevenRows="true">
+				<ListView x:Name="messageList" IsPullToRefreshEnabled="true" Refreshing="OnRefresh" HasUnevenRows="true" SeparatorVisibility="None" BackgroundColor="#EEEEEE">
 					<ListView.ItemTemplate>
 						<DataTemplate>
 							<ViewCell x:Name="viewCell">
-								<StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="{Binding Alignment}" Padding="0,10,10,0">
-									<Label Text="{Binding Text}" />
+								<StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="{Binding Alignment}" Padding="0,0,0,10" Margin="0,0,0,0">
+									<Label Text="{Binding Text}" BackgroundColor="{Binding MessageBoxColour}" TextColor="{Binding TextColour}"/>
 								</StackLayout>
 							</ViewCell>
 						</DataTemplate>
 					</ListView.ItemTemplate>
 				</ListView>
-<!--			</ScrollView>-->
 			<Editor Focused="Handle_Focused" x:Name="newMessage" Text="Enter Message" TextColor="Gray" HeightRequest="100" />
 			<Button Text="Send Message" Clicked="SendMessageCommand">
 			</Button>
