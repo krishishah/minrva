@@ -12,10 +12,11 @@ namespace minrva
 		string notificationView;
 		string notificationViewDetail;
 		string notificationColour;
+		string seenUnseenColour;
 		Request request;
 
 		public RequestMessage(Boardgames item, User notifier, string requestType, string acceptStatus,
-		                      string updatedAt, string notificationView, string notificationViewDetail, string notificationColour, Request req)
+		                      string updatedAt, string notificationView, string notificationViewDetail, string notificationColour, string seenUnseenColour, Request req)
 		{
 			requestedItem = item;
 			otherUser = notifier;
@@ -25,6 +26,7 @@ namespace minrva
 			this.notificationView = notificationView;
 			this.notificationViewDetail = notificationViewDetail;
 			this.notificationColour = notificationColour;
+			this.seenUnseenColour = seenUnseenColour;
 			request = req;
 		}
 
@@ -80,6 +82,12 @@ namespace minrva
 		{
 			get { return notificationColour; }
 			set { notificationColour = value; }
+		}
+
+		public string SeenUnseenColour
+		{
+			get { return seenUnseenColour; }
+			set { seenUnseenColour = value; }
 		}
 	}
 }
