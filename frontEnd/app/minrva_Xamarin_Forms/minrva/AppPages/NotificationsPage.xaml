@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.NotificationsPage">
-	<StackLayout Padding="20,20,20,20">
+	<StackLayout Padding="20,20,20,20" BackgroundColor="#E0E0E0">
 		<Label Text="Notifications" HorizontalOptions="Center"/>
 		<ActivityIndicator Grid.RowSpan="2"
                        HorizontalOptions="Center"
@@ -10,10 +10,18 @@
                        x:Name="syncIndicator"/>
 		<ListView x:Name="notifsList"
 				ItemSelected="OnSelected"
-				IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
+				IsPullToRefreshEnabled="true" Refreshing="OnRefresh" HasUnevenRows="true" SeparatorVisibility="None" BackgroundColor="#EEEEEE">
       		<ListView.ItemTemplate>
         		<DataTemplate>
-          			<TextCell Text="{Binding NotificationView}" Detail="{Binding NotificationViewDetail}"/>
+					<ViewCell>
+						<StackLayout BackgroundColor="White" HorizontalOptions="Fill" VerticalOptions="Center" Padding="0,0,0,20" Margin="10,10,10,10">
+							<Label Text="{Binding NotificationView}" HorizontalTextAlignment="Center" BackgroundColor="#b35050" TextColor="White"/>
+							<StackLayout BackgroundColor="#FAFAFA">
+								<Label Text="{Binding NotificationViewDetail}" HorizontalTextAlignment="Center" FontSize="Small" TextColor="Gray"/>
+							</StackLayout>
+<!--          			<TextCell Text="{Binding NotificationView}" Detail="{Binding NotificationViewDetail}"/>-->
+						</StackLayout>
+					</ViewCell>
         		</DataTemplate>
       		</ListView.ItemTemplate>
     	</ListView>
