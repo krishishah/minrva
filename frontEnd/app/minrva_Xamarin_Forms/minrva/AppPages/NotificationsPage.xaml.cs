@@ -215,7 +215,7 @@ namespace minrva
 				{
 					User voucher = users.Where(user => String.Equals(user.UserId, v.Voucher)).ElementAt(0);
 					string notifView = String.Format("Vouch Alert: {0} {1}", voucher.FirstName, voucher.LastName);
-					string notifViewDetail = String.Format("{0} has vouched for you", voucher.FirstName);
+					string notifViewDetail = String.Format("{0} has vouched for you!", voucher.FirstName);
 					requestsMsgs.Add(new RequestMessage(null, voucher, "Vouch", "Vouch Alert", v.UpdatedAt, notifView, notifViewDetail, col, seenUnseenCol, null));
 				}
 

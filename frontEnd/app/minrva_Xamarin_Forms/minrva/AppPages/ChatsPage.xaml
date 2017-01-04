@@ -14,7 +14,7 @@
         		<DataTemplate>
 					<ViewCell>
 						<StackLayout BackgroundColor="White" HorizontalOptions="Fill" VerticalOptions="Center" Padding="0,0,0,50" Margin="0,10,10,0">
-							<Label Text="{Binding Recipient.FirstName}" HorizontalTextAlignment="Center" BackgroundColor="#b35050" TextColor="White"/>
+							<Label Text="{Binding Recipient.FullName}" HorizontalTextAlignment="Center" BackgroundColor="#b35050" TextColor="White"/>
 							<Label Text="{Binding RequestedItem.Name}" HorizontalTextAlignment="Center" BackgroundColor="White" FontSize="Small"/>
 						</StackLayout>
 					</ViewCell>

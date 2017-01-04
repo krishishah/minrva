@@ -10,6 +10,7 @@ namespace minrva
 		string userId;
 		string firstName;
 		string lastName;
+		string fullName;
 		string email;
 
 		//public UserInformation(string id, string fName, string lName, string emailAddr)
@@ -45,6 +46,13 @@ namespace minrva
 		{
 			get { return lastName; }
 			set { lastName = value; }
+		}
+
+		[JsonProperty(PropertyName = "fullName")]
+		public string FullName
+		{
+			get { return firstName + " " + lastName; }
+			set { fullName = value; }
 		}
 
 		[JsonProperty(PropertyName = "email")]
