@@ -1,9 +1,9 @@
-﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/MessagePage.xaml.cs">
+﻿<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Droid/MainActivity.cs">
     <Files>
       <File FileName="minrva/AppPages/VoucheesList.xaml" Line="1" Column="1" />
       <File FileName="minrva/AppPages/ReviewsPage.xaml" Line="13" Column="106" />
-      <File FileName="minrva/AppPages/VoucheesList.xaml.cs" Line="72" Column="42" />
+      <File FileName="minrva/AppPages/VoucheesList.xaml.cs" Line="78" Column="4" />
       <File FileName="minrva/AppPages/ReviewsPage.xaml.cs" Line="20" Column="42" />
       <File FileName="minrva/Models/Tables/Ratings.cs" Line="15" Column="3" />
       <File FileName="minrva/Models/Tables/Vouch.cs" Line="31" Column="28" />
@@ -12,10 +12,16 @@
       <File FileName="minrva/AppPages/NotificationsPage.xaml" Line="1" Column="1" />
       <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="10" Column="39" />
       <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="46" Column="37" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/Feed.xaml" Line="12" Column="31" />
+      <File FileName="minrva/App.cs" Line="1" Column="1" />
+      <File FileName="iOS/AppDelegate.cs" Line="77" Column="4" />
+      <File FileName="Droid/MainApplication.cs" Line="1" Column="1" />
+      <File FileName="Droid/MainActivity.cs" Line="76" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.E33BDF4B-938A-4928-86B2-3455670D895C" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>

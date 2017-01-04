@@ -73,7 +73,7 @@ namespace minrva.Droid
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.SetMessage(message);
 			builder.SetTitle("Sign-in result");
-			builder.Create().Show();
+			//builder.Create().Show();
 
 			return success;
 		}

@@ -73,7 +73,7 @@ namespace minrva.iOS
 
 			// Display the success or failure message.
 			UIAlertView avAlert = new UIAlertView("Sign-in result", message, null, "OK", null);
-			avAlert.Show();
+			//avAlert.Show();
 
 			return success;
 		}
