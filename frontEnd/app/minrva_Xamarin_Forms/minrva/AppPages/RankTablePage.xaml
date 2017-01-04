@@ -25,7 +25,7 @@
 				<RowDefinition Height="30" />
 			</Grid.RowDefinitions>
 
-			<Button Text="Back" Clicked="BackButtonCommand" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" />
+			<Button Text="Back" Clicked="BackButtonCommand" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="2"/>
 			
 			<Label Text="Topaz" FontSize="Large" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="3" Grid.RowSpan="1" Grid.ColumnSpan="6"/>
 			<Image Source="Gem6.png" HeightRequest="50" Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="3" />
