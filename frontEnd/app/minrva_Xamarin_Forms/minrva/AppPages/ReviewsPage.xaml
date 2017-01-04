@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.ReviewsPage"
 		xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms">
-	<StackLayout Padding="10,10,10,10">
+	<StackLayout Padding="10,10,10,10" BackgroundColor="#EEEEEE">
 		<Button Text="Back" Clicked="BackButtonCommand" HorizontalOptions="Start"/>
 		<Label x:Name="pageTitle"/>
 		<Label Text="Overall Rating"/>
 		<rating:SfRating x:Name="overallRating" ReadOnly="true" Precision="Half" ItemSize="20"/>
 		<Label Text="All Reviews"/>
 		<ListView x:Name="allReviews"
-				IsPullToRefreshEnabled="true" Refreshing="OnRefresh" HasUnevenRows="true">
+				IsPullToRefreshEnabled="true" Refreshing="OnRefresh" HasUnevenRows="true" SeparatorVisibility="None" BackgroundColor="#EEEEEE">
 			<ListView.ItemTemplate>
 				<DataTemplate>
         		<ViewCell>
-					<StackLayout Padding="0,20,0,20">
-						<rating:SfRating Value="{Binding Rating}" ReadOnly="true" Precision="Half" ItemSize="15"/>
-						<Label Text="{Binding Review}"/>
-						<Label Text="{Binding Reviewer}" FontSize="Small" TextColor="Gray"/>
+					<StackLayout BackgroundColor="White" HorizontalOptions="Fill" VerticalOptions="Center" Padding="0,0,0,20" Margin="0,10,0,0">
+						<Label Text="{Binding Reviewer}" HorizontalTextAlignment="Center" BackgroundColor="#b35050" TextColor="White"/>
+						<Label Text="{Binding Review}" BackgroundColor="White"/>
+						<rating:SfRating Value="{Binding Rating}" ReadOnly="true" Precision="Half" ItemSize="15" HorizontalOptions="Center"/>
 					</StackLayout>
         		</ViewCell>
 				</DataTemplate>

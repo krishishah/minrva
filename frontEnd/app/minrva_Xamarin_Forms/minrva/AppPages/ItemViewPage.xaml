@@ -19,13 +19,13 @@
 					IsPullToRefreshEnabled="true" Refreshing="OnRefresh" HasUnevenRows="true" SeparatorVisibility="None" BackgroundColor="#EEEEEE">
 				<ListView.ItemTemplate>
 					<DataTemplate>
-	        		<ViewCell>
-						<StackLayout BackgroundColor="White" HorizontalOptions="Fill" VerticalOptions="Center" Padding="0,0,0,20" Margin="0,10,0,0">
-							<Label Text="{Binding Reviewer}" HorizontalTextAlignment="Center" BackgroundColor="#b35050" TextColor="White"/>
-							<Label Text="{Binding Review}" HorizontalTextAlignment="Center" BackgroundColor="White"/>
-							<rating:SfRating Value="{Binding Rating}" ReadOnly="true" Precision="Half" ItemSize="15" HorizontalOptions="Center"/>
-						</StackLayout>
-	        		</ViewCell>
+		        		<ViewCell>
+							<StackLayout BackgroundColor="White" HorizontalOptions="Fill" VerticalOptions="Center" Padding="0,0,0,20" Margin="0,10,0,0">
+								<Label Text="{Binding Reviewer}" HorizontalTextAlignment="Center" BackgroundColor="#b35050" TextColor="White"/>
+								<Label Text="{Binding Review}" BackgroundColor="White"/>
+								<rating:SfRating Value="{Binding Rating}" ReadOnly="true" Precision="Half" ItemSize="15" HorizontalOptions="Center"/>
+							</StackLayout>
+		        		</ViewCell>
 					</DataTemplate>
 	      		</ListView.ItemTemplate>
 			</ListView>
