@@ -15,6 +15,7 @@ namespace minrva
 		{
 			InitializeComponent();
 			tableManager = TableManager.DefaultManager;
+			RefreshItems(false, syncItems: false);
 		}
 
 		public async void OnRefresh(object sender, EventArgs e)
@@ -59,15 +60,16 @@ namespace minrva
 			var userTable = await tableManager.GetUserAsync();
 			var currentUserVouchList = vouchTable.Where(owner => String.Equals(sid, owner.Vouchee));
 
-			List<User> vouchNetwork = new List<User>();
+			//List<User> vouchNetwork = new List<User>();
 
 			foreach (Vouch v in currentUserVouchList)
 			{
 				User vouchee = userTable.Where(u => String.Equals(u.UserId, v.Voucher)).ElementAt(0);
-				vouchNetwork.Add(vouchee);
+				v.Vouchee = String.Format("{0} {1}", vouchee.FirstName, vouchee.LastName);
+				//vouchNetwork.Add(vouchee);
 			}
 
-			voucheeList.ItemsSource = vouchNetwork;
+			voucheeList.ItemsSource = currentUserVouchList;
 		}
 
 		async void ClickedBack(object sender, EventArgs e)
