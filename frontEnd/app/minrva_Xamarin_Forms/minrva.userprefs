@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/Main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/NotificationsPage.xaml.cs">
     <Files>
-      <File FileName="minrva/AppPages/NotificationsPage.xaml" Line="13" Column="131" />
-      <File FileName="minrva/AppPages/ChatsPage.xaml" Line="23" Column="17" />
-      <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/NotificationsPage.xaml" Line="12" Column="30" />
+      <File FileName="minrva/AppPages/ChatsPage.xaml" Line="18" Column="83" />
+      <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="199" Column="32" />
       <File FileName="minrva/AppPages/VoucheesList.xaml.cs" Line="1" Column="1" />
       <File FileName="minrva/AppPages/VoucheesList.xaml" Line="17" Column="34" />
       <File FileName="minrva/Models/Tables/User.cs" Line="54" Column="34" />
