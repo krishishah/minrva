@@ -9,6 +9,7 @@
 						<x:String>All</x:String>
 						<x:String>Board Game</x:String>
 						<x:String>Book</x:String>
+						<x:String>DVD</x:String>
 					</Picker.Items>
 				</Picker>
 			</StackLayout>
