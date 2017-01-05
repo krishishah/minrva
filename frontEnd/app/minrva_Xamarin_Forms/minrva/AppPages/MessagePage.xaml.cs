@@ -46,6 +46,10 @@ namespace minrva
 			await Navigation.PopModalAsync();
 		}
 
+		async void ItemsLentBorrowedPage(object sender, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new ItemsLentBorrowed());
+		}
 
 		public async void OnRefresh(object sender, EventArgs e)
 		{
