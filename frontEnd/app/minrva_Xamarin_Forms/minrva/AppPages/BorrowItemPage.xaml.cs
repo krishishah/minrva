@@ -15,6 +15,7 @@ namespace minrva
 		string owner;
 		string id;
 		int lend_duration;
+
 		public BorrowItemPage(Boardgames game)
 		{
 			InitializeComponent();
@@ -30,6 +31,11 @@ namespace minrva
 
 			this.owner = game.Owner;
 			this.id = game.Id;
+		}
+
+		async void BackButtonCommand(object sender, EventArgs e)
+		{
+			await Navigation.PopModalAsync();
 		}
 
 		async void startDateChanged(object sender, EventArgs e)
