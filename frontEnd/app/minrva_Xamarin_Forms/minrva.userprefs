@@ -1,16 +1,19 @@
-﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/MessagePage.xaml">
+﻿<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/RankTablePage.xaml">
     <Files>
       <File FileName="minrva/AppPages/NotificationsPage.xaml.cs" Line="163" Column="1" />
-      <File FileName="minrva/AppPages/NotificationsPage.xaml" Line="18" Column="46" />
-      <File FileName="minrva/AppPages/ItemsLentBorrowed.xaml.cs" Line="98" Column="1" />
-      <File FileName="minrva/AppPages/ItemsLentBorrowed.xaml" Line="37" Column="7" />
-      <File FileName="minrva/AppPages/MessagePage.xaml" Line="8" Column="4" />
+      <File FileName="minrva/AppPages/NotificationsPage.xaml" Line="3" Column="23" />
+      <File FileName="minrva/AppPages/ItemsLentBorrowed.xaml.cs" Line="99" Column="48" />
+      <File FileName="minrva/AppPages/ItemsLentBorrowed.xaml" Line="34" Column="20" />
+      <File FileName="minrva/AppPages/ChatsPage.xaml" Line="24" Column="17" />
+      <File FileName="minrva/AppPages/MessagePage.xaml" Line="4" Column="3" />
+      <File FileName="minrva/AppPages/Profile.xaml" Line="44" Column="15" />
+      <File FileName="minrva/AppPages/RankTablePage.xaml" Line="15" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="iOS Release|iPhoneSimulator" />
-  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.782A603A-413B-46F6-A0FB-6577EE2BACF0" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint enabled="false" file="/Users/Krishi/Minrva/frontEnd/app/minrva_Xamarin_Forms/minrva/AppPages/FeedMapPage.xaml.cs" line="27" column="1" />
