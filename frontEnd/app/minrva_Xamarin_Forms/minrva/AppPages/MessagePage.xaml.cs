@@ -24,6 +24,7 @@ namespace minrva
 			Receiver = name;
 			BindingContext = this;
 			RefreshItems(false, syncItems: false);
+
 			//refreshOnTimer();
 		}
 
@@ -120,9 +121,11 @@ namespace minrva
 						m.TextColour = "Black";
 					}
 				}
+
 				messageList.ItemsSource = msgs;
 
-
+				var last = messageList.ItemsSource.Cast<object>().LastOrDefault();
+				messageList.ScrollTo(last, ScrollToPosition.MakeVisible, false);
 			}
 		}
 
