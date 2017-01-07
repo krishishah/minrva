@@ -5,7 +5,7 @@
 			
 			<Button Text="Back" Clicked="ClickedBack" HorizontalOptions="Start"/>
 
-			<Label Text="Borrowing" HorizontalOptions="Center"/>
+			<Label Text="Borrowing" HorizontalOptions="Center" FontSize="Large"/>
 			
 			<ListView x:Name="borrowList" IsPullToRefreshEnabled="true" Refreshing="OnRefresh" SeparatorVisibility="None" BackgroundColor="#EEEEEE">
 	      		<ListView.ItemTemplate>
@@ -19,7 +19,7 @@
 	      		</ListView.ItemTemplate>
     		</ListView>
 			
-    		<Label Text="Lending" HorizontalOptions="Center"/>
+    		<Label Text="Lending" HorizontalOptions="Center" FontSize="Large"/>
 			
 			<ListView x:Name="lendList" IsPullToRefreshEnabled="true" Refreshing="OnRefresh" SeparatorVisibility="None" BackgroundColor="#EEEEEE">
 	      		<ListView.ItemTemplate>
