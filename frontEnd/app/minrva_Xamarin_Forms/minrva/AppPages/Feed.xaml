@@ -16,7 +16,7 @@
 		</StackLayout>
 		<ActivityIndicator Grid.RowSpan="2" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="False" IsEnabled="True" x:Name="syncIndicator" />
 		
-		<ListView x:Name="feedList" ItemSelected="OnSelected" IsPullToRefreshEnabled="true" Refreshing="OnRefresh" HasUnevenRows="true" SeparatorVisibility="None" BackgroundColor="#EEEEEE">
+		<ListView x:Name="feedList" ItemSelected="OnSelected" IsPullToRefreshEnabled="true" Refreshing="OnRefresh" HasUnevenRows="true" SeparatorVisibility="None" BackgroundColor="#EEEEEE" CachingStrategy="RecycleElement">
 			<ListView.ItemTemplate>
 				<DataTemplate>
 					<ViewCell>
