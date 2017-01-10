@@ -124,8 +124,8 @@ namespace minrva
 
 				messageList.ItemsSource = msgs;
 
-				var last = messageList.ItemsSource.Cast<object>().LastOrDefault();
-				messageList.ScrollTo(last, ScrollToPosition.MakeVisible, false);
+				//var last = messageList.ItemsSource.Cast<object>().LastOrDefault();
+				//smessageList.ScrollTo(last, ScrollToPosition.MakeVisible, false);
 			}
 		}
 
