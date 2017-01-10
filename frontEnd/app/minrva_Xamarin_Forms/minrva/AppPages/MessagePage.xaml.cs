@@ -24,6 +24,7 @@ namespace minrva
 			Receiver = name;
 			BindingContext = this;
 			RefreshItems(false, syncItems: false);
+
 			//refreshOnTimer();
 		}
 
@@ -46,6 +47,10 @@ namespace minrva
 			await Navigation.PopModalAsync();
 		}
 
+		async void ItemsLentBorrowedPage(object sender, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new ItemsLentBorrowed());
+		}
 
 		public async void OnRefresh(object sender, EventArgs e)
 		{
@@ -116,9 +121,11 @@ namespace minrva
 						m.TextColour = "Black";
 					}
 				}
+
 				messageList.ItemsSource = msgs;
 
-
+				var last = messageList.ItemsSource.Cast<object>().LastOrDefault();
+				messageList.ScrollTo(last, ScrollToPosition.MakeVisible, false);
 			}
 		}
 
