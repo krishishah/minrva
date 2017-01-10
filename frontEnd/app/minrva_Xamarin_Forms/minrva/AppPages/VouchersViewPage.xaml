@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.TrustNetworkViewPage">
-	<StackLayout Padding="20,20,20,20">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.VouchersViewPage">
+	<StackLayout Padding="20,20,20,20" BackgroundColor="#EEEEEE">
 		<Button Text="Back" Clicked="BackButtonCommand" HorizontalOptions="Start"/>
-		<Label Text="Trust Network" HorizontalOptions="Center"/>
+		<Label x:Name="title" Text="{Binding Text}" HorizontalOptions="Center"/>
 		<ActivityIndicator Grid.RowSpan="2"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
@@ -10,12 +10,12 @@
                        IsEnabled="True"
                        x:Name="syncIndicator"/>
 		<ListView x:Name="trustNetworkList"
-				ItemSelected="OnSelected" HasUnevenRows="true">
+				ItemSelected="OnSelected" HasUnevenRows="true" SeparatorVisibility="None" BackgroundColor="#EEEEEE">
       		<ListView.ItemTemplate>
         		<DataTemplate>
 					<ViewCell>
-						<StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
-							<Label Text="{Binding Name}" FontSize="Large" HorizontalTextAlignment="Center"/>
+						<StackLayout BackgroundColor="White" HorizontalOptions="Fill" VerticalOptions="Center" Padding="0,0,0,25" Margin="10,10,10,10">
+							<Label Text="{Binding Name}" FontSize="Large" HorizontalTextAlignment="Center" BackgroundColor="#b35050" TextColor="White"/>
 							<Image Source="{Binding ImageSource}" HeightRequest="100" />
 						</StackLayout>
 					</ViewCell>         			

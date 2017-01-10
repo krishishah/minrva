@@ -115,8 +115,8 @@
     <Compile Include="Models\Views\RequestMessage.cs" />
     <Compile Include="Models\Views\UserFeedViewModel.cs" />
     <Compile Include="Models\Tables\Vouch.cs" />
-    <Compile Include="AppPages\TrustNetworkViewPage.xaml.cs">
-      <DependentUpon>TrustNetworkViewPage.xaml</DependentUpon>
+    <Compile Include="AppPages\VouchersViewPage.xaml.cs">
+      <DependentUpon>VouchersViewPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppPages\RankTablePage.xaml.cs">
       <DependentUpon>RankTablePage.xaml</DependentUpon>
@@ -126,6 +126,12 @@
     </Compile>
     <Compile Include="AppPages\ItemsLentBorrowed.xaml.cs">
       <DependentUpon>ItemsLentBorrowed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\TrustNetwork\FirstLayerPage.xaml.cs">
+      <DependentUpon>FirstLayerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\TrustNetwork\SecondLayerPage.xaml.cs">
+      <DependentUpon>SecondLayerPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -232,7 +238,7 @@
     <EmbeddedResource Include="AppPages\ItemViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppPages\TrustNetworkViewPage.xaml" />
+    <EmbeddedResource Include="AppPages\VouchersViewPage.xaml" />
     <EmbeddedResource Include="AppPages\RankTablePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -240,6 +246,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="AppPages\ItemsLentBorrowed.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppPages\TrustNetwork\FirstLayerPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppPages\TrustNetwork\SecondLayerPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -250,6 +262,7 @@
     <Folder Include="Storage\" />
     <Folder Include="Models\Tables\" />
     <Folder Include="Models\Views\" />
+    <Folder Include="AppPages\TrustNetwork\" />
   </ItemGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

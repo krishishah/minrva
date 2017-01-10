@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage Padding="10,20,10,10" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.Profile"
 		xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms" BackgroundColor="#EEEEEE">	
-<!--		<StackLayout Padding="20,20,20,20" BackgroundColor="#EEEEEE">-->
 	<ContentPage.Content>
 		<Grid>
 			<Grid.RowDefinitions>
@@ -44,8 +43,8 @@
 			</ListView>
 			
 			<Button Text="Logout" Clicked="Clicked_Logout" Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="1" />
+			<Button Text="Trust Network" Clicked="ClickedTrustNetwork" Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="1" />
 			<Button Text="Vouches" Clicked="ClickedVoucheeList" Grid.Row="14" Grid.Column="2" Grid.ColumnSpan="1" />
 		</Grid>
 	</ContentPage.Content>
-<!--		</StackLayout>-->
 </ContentPage>

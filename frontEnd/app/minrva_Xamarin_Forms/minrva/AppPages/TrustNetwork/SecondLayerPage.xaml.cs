@@ -7,72 +7,44 @@ using Xamarin.Forms;
 
 namespace minrva
 {
-	public partial class VoucheesList : ContentPage
+	public partial class SecondLayerPage : ContentPage
 	{
-
 		TableManager tableManager;
+		User curVouchee;
 
-		public VoucheesList()
+		public SecondLayerPage(User curVouchee)
 		{
 			InitializeComponent();
 			tableManager = TableManager.DefaultManager;
-			RefreshItems(true, syncItems: false);
-		}
-
-		public async void OnRefresh(object sender, EventArgs e)
-		{
-			var list = (ListView)sender;
-			Exception error = null;
-			try
-			{
-				await RefreshItems(false, true);
-			}
-			catch (Exception ex)
-			{
-				error = ex;
-			}
-			finally
-			{
-				list.EndRefresh();
-			}
-
-			if (error != null)
-			{
-				await DisplayAlert("Refresh Error", "Couldn't refresh data (" + error.Message + ")", "OK");
-			}
-		}
-
-		protected override void OnAppearing()
-		{
-			DisplayList();
+			this.curVouchee = curVouchee;
+			title.Text = "Trust Network Second Layer:\n" + curVouchee.FirstName + "'s Vouchees";
+			displayTrustNetwork();
 
 		}
 
-		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
+		private async void displayTrustNetwork()
 		{
-			DisplayList();
-			//await DisplayAlert("Size", vouchNetwork.Count().ToString(), "OK");
+			vouchees.ItemsSource = await createUserListView(await createTrustNetwork());
 		}
 
-		private async void DisplayList()
+
+		public async Task<List<User>> createTrustNetwork()
 		{
-			var sid = await App.Authenticator.GetUserId();
+			string sid = curVouchee.UserId;
 			var vouchTable = await tableManager.GetVouchAsync();
 			var userTable = await tableManager.GetUserAsync();
-			var currentUserVouchList = vouchTable.Where(owner => String.Equals(sid, owner.Vouchee));
 
-			List<User> vouchNetwork = new List<User>();
+			var currentUserVouchList = vouchTable.Where(owner => String.Equals(sid, owner.Voucher));
+
+			List<User> vouchList = new List<User>();
 
 			foreach (Vouch v in currentUserVouchList)
 			{
-				User voucher = userTable.Where(u => String.Equals(u.UserId, v.Voucher)).ElementAt(0);
-				//v.Vouchee = String.Format("{0} {1}", vouchee.FirstName, vouchee.LastName);
-				vouchNetwork.Add(voucher);
+				User vouchee = userTable.Where(u => String.Equals(u.UserId, v.Vouchee)).ElementAt(0);
+				vouchList.Add(vouchee);
 			}
 
-
-
-			voucheeList.ItemsSource = await createUserListView(vouchNetwork);
+			return vouchList;
 		}
 
 		private async Task<List<UserFeedViewModel>> createUserListView(IEnumerable<User> list)
@@ -101,17 +73,17 @@ namespace minrva
 
 		}
 
-		async void ClickedBack(object sender, EventArgs e)
-		{
-			await Navigation.PopModalAsync();
-		}
-
 		private async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var item = e.SelectedItem as UserFeedViewModel;
 			var userTable = await tableManager.GetUserAsync();
 			User owner = userTable.Where(x => String.Equals(item.Id, x.Id)).ElementAt(0);
 			await Navigation.PushModalAsync(new ProfileViewPage(owner, null, null, true));
+		}
+
+		public async void BackButtonCommand(object sender, EventArgs e)
+		{
+			await Navigation.PopModalAsync();
 		}
 	}
 }

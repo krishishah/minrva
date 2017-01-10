@@ -1,12 +1,14 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/ChatsPage.xaml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Profile.xaml">
     <Files>
       <File FileName="minrva/AppPages/NotificationsPage.xaml" Line="3" Column="63" />
       <File FileName="minrva/AppPages/InsertItemPage.xaml" Line="9" Column="25" />
-      <File FileName="minrva/AppPages/ChatsPage.xaml" Line="19" Column="30" />
-      <File FileName="minrva/AppPages/ChatsPage.xaml.cs" Line="114" Column="8" />
-      <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="148" Column="27" />
-      <File FileName="minrva/Models/Views/ChatDetails.cs" Line="17" Column="16" />
+      <File FileName="minrva/AppPages/ChatsPage.xaml" Line="19" Column="41" />
+      <File FileName="minrva/AppPages/ChatsPage.xaml.cs" Line="139" Column="88" />
+      <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="26" Column="42" />
+      <File FileName="minrva/Models/Views/ChatDetails.cs" Line="18" Column="4" />
+      <File FileName="minrva/AppPages/ReviewsPage.xaml" Line="25" Column="17" />
+      <File FileName="minrva/AppPages/Profile.xaml" Line="48" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />

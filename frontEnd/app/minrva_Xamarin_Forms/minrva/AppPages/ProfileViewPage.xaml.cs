@@ -151,7 +151,7 @@ namespace minrva
 			string sid = profOwner.UserId;
 			var requestTable = await tableManager.GetRequestAsync();
 			var itemsTable = await tableManager.GetBoardgamesAsync();
-			int lendCount = itemsTable.Where(item => String.Equals(sid, item.Owner)).Count();
+			int lendCount = requestTable.Where(user => String.Equals(sid, user.Lender) && String.Equals(user.Accepted,"Returned")).Count();
 			int borrowCount = requestTable.Where(user => String.Equals(sid, user.Borrower)).Count();
 			LendBorrow.Text = String.Format("L:{0} | B:{1}", lendCount, borrowCount);
 		}
@@ -374,7 +374,7 @@ namespace minrva
 
 		public async void SeeVouchers()
 		{
-			await Navigation.PushModalAsync(new TrustNetworkViewPage(profOwner));
+			await Navigation.PushModalAsync(new VouchersViewPage(profOwner));
 			
 		}
 
