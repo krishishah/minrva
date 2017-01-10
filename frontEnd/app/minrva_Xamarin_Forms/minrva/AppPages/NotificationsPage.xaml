@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.NotificationsPage">
-	<StackLayout Padding="10,20,10,10" BackgroundColor="#EEEEEE">
+	<StackLayout Padding="10,20,10,10" BackgroundColor="#EEEEEE">		
 		<Label Text="Notifications" HorizontalOptions="Center"/>
+		
 		<ActivityIndicator Grid.RowSpan="2"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
                        IsVisible="False"
                        IsEnabled="True"
                        x:Name="syncIndicator"/>
+		
 		<ListView x:Name="notifsList"
 				ItemSelected="OnSelected"
 				IsPullToRefreshEnabled="true" Refreshing="OnRefresh" HasUnevenRows="true" SeparatorVisibility="None" BackgroundColor="#EEEEEE">
@@ -22,5 +24,6 @@
         		</DataTemplate>
       		</ListView.ItemTemplate>
     	</ListView>
+		
 	</StackLayout>
 </ContentPage>

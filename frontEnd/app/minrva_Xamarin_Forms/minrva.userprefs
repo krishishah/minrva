@@ -1,16 +1,16 @@
-﻿<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/MessagePage.xaml.cs">
+﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/ChatsPage.xaml">
     <Files>
-      <File FileName="minrva/AppPages/ChatsPage.xaml" Line="19" Column="1" />
-      <File FileName="minrva/AppPages/ItemsLentBorrowed.xaml" Line="14" Column="133" />
-      <File FileName="minrva/AppPages/ChatsPage.xaml.cs" Line="91" Column="44" />
-      <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="96" Column="3" />
-      <File FileName="minrva/AppPages/MessagePage.xaml" Line="33" Column="11" />
-      <File FileName="minrva/Models/Tables/Message.cs" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/NotificationsPage.xaml" Line="3" Column="63" />
+      <File FileName="minrva/AppPages/InsertItemPage.xaml" Line="9" Column="25" />
+      <File FileName="minrva/AppPages/ChatsPage.xaml" Line="19" Column="30" />
+      <File FileName="minrva/AppPages/ChatsPage.xaml.cs" Line="114" Column="8" />
+      <File FileName="minrva/AppPages/MessagePage.xaml.cs" Line="148" Column="27" />
+      <File FileName="minrva/Models/Views/ChatDetails.cs" Line="17" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" />
   <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.782A603A-413B-46F6-A0FB-6577EE2BACF0" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>

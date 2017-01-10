@@ -16,7 +16,7 @@ namespace minrva
 		{
 			InitializeComponent();
 			tableManager = TableManager.DefaultManager;
-			RefreshItems(false, syncItems: false);
+			RefreshItems(true, syncItems: false);
 		}
 
 		protected override async void OnAppearing()
@@ -132,7 +132,7 @@ namespace minrva
 				string requestType = "Lend Request";
 				string requestStatus = "Pending";
 				string col = "#00cc00";
-				seenUnseenCol = "#E0E0E0";
+				seenUnseenCol = "#bfbfbf";
 
 				foreach (Request r in lenderPendingRequests)
 				{
@@ -152,7 +152,7 @@ namespace minrva
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
 					Debug.WriteLine("Date accepted: {0}", r.UpdatedAt);
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
-					string notifViewDetail = String.Format("You have Accepted {0}'s request", borrowingUser.FirstName);
+					string notifViewDetail = String.Format("You have accepted {0}'s request", borrowingUser.FirstName);
 					requestsMsgs.Add(new RequestMessage(requestedItem, borrowingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, col, seenUnseenCol, r));
 				}
 
@@ -197,7 +197,7 @@ namespace minrva
 				}
 
 				requestStatus = "Returned";
-				seenUnseenCol = "#E0E0E0";
+				seenUnseenCol = "#bfbfbf";
 
 				foreach (Request r in borrowReturnedRequests)
 				{

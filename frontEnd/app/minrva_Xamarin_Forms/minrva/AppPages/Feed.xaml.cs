@@ -28,7 +28,7 @@ namespace minrva
 			InitializeComponent();
 			manager = TableManager.DefaultManager;
 			locator = CrossGeolocator.Current;
-			RefreshItems(false, syncItems: false);
+			RefreshItems(true, syncItems: false);
 		}
 
 		public void Authenticate()
@@ -287,7 +287,7 @@ namespace minrva
 				await DisplayAlert("Alert", "List of Items not yet loaded", "OK");
 			}
 			else {
-				Application.Current.MainPage = new FeedMapPage(position: position, list_of_items: listOfItems);
+				await Navigation.PushModalAsync(new FeedMapPage(position: position, list_of_items: listOfItems));
 			}
 		}
 

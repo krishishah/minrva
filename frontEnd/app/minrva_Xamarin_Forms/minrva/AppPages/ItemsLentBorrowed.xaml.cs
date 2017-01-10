@@ -21,7 +21,7 @@ namespace minrva
 
 			InitializeComponent();
 			tableManager = TableManager.DefaultManager;
-			RefreshItems(false, syncItems: false);
+			RefreshItems(true, syncItems: false);
 		}
 
 		async void ClickedBack(object sender, EventArgs e)

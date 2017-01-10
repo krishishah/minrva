@@ -4,14 +4,9 @@
 				x:Class="minrva.InsertItemPage"
 				Title="Azure Boardgames" >
 	<ScrollView>
-	    <ActivityIndicator Grid.RowSpan="2"
-	                       HorizontalOptions="Center"
-	                       VerticalOptions="Center"
-	                       IsVisible="False"
-	                       IsEnabled="True"
-	                       x:Name="syncIndicator"/>
+		
 	    <StackLayout Spacing="20" Padding="10,40,10,10" BackgroundColor="#EEEEEE">      		
-			<!--<Label Text="Enter Category" />-->
+			<Label Text="Add Item" HorizontalOptions="Center"/>
 			<Picker x:Name="newItemCategory" Title="Enter Category">
 				<Picker.Items>
 	            	<x:String>Board Game</x:String> 
@@ -24,7 +19,8 @@
 	        <Entry Keyboard="Numeric" Placeholder="Enter Number of Days Willing to Lend" x:Name="newItemLendDuration"/>		
 	        <Entry Placeholder="Enter Location" x:Name="newItemLocation"/>
 	        <Image x:Name="itemImage"/>
-	        <Button x:Name="UploadPhoto" Text="Upload Photo" MinimumHeightRequest="30" Clicked="OnUpload" />	
+	        <Button x:Name="UploadPhoto" Text="Upload Photo" MinimumHeightRequest="30" Clicked="OnUpload" />
+			<ActivityIndicator HorizontalOptions="Center" VerticalOptions="Center" x:Name="syncIndicator" IsVisible="false" IsEnabled="true"/>
 			<Button x:Name="buttonsPanel" Text="Add Item"
 	                  MinimumHeightRequest="30"
 	                  Clicked="OnAdd" />	

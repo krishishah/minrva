@@ -17,7 +17,7 @@ namespace minrva
 			reviewedEntityID = reviewedID;
 			manager = TableManager.DefaultManager;
 			updateDetails(isItem);
-			RefreshItems(false, syncItems: false);
+			RefreshItems(true, syncItems: false);
 		}
 
 		async void updateDetails(bool isItem)

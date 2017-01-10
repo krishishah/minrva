@@ -5,7 +5,7 @@
 	<ContentPage.Content>
 		<Grid>
 			<Grid.RowDefinitions>
-    			<RowDefinition Height="20" />
+    			<RowDefinition Height="30" />
     			<RowDefinition Height="20" />
 				<RowDefinition Height="20" />
     			<RowDefinition Height="20" />
@@ -44,7 +44,7 @@
 			</ListView>
 			
 			<Button Text="Logout" Clicked="Clicked_Logout" Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="1" />
-			<Button Text="Vouched You" Clicked="ClickedVoucheeList" Grid.Row="14" Grid.Column="2" Grid.ColumnSpan="1" />
+			<Button Text="Vouches" Clicked="ClickedVoucheeList" Grid.Row="14" Grid.Column="2" Grid.ColumnSpan="1" />
 		</Grid>
 	</ContentPage.Content>
 <!--		</StackLayout>-->

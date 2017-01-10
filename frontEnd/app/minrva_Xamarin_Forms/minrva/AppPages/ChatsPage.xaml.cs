@@ -18,7 +18,7 @@ namespace minrva
 		{
 			InitializeComponent();
 			tableManager = TableManager.DefaultManager;
-			RefreshItems(false, syncItems: false);
+			RefreshItems(true, syncItems: false);
 		}
 
 		protected override async void OnAppearing()
@@ -30,10 +30,10 @@ namespace minrva
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var chatDetails = e.SelectedItem as ChatDetails;
-			Boardgames requestedItem = chatDetails.RequestedItem;
+			//Boardgames requestedItem = chatDetails.RequestedItem;
 			User recipient = chatDetails.Recipient;
 
-			MessagePage messagePage = new MessagePage(recipient, requestedItem.Id);
+			MessagePage messagePage = new MessagePage(recipient);
 			await Navigation.PushModalAsync(messagePage, false);
 		}
 
@@ -66,12 +66,6 @@ namespace minrva
 			await RefreshItems(true, true);
 		}
 
-		// Data methods
-		//async Task AddItem(Chat item)
-		//{
-		//	await tableManager.SaveChatAsync(item);
-		//}
-
 		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
 		{
 			using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
@@ -81,7 +75,7 @@ namespace minrva
 				var chats = await tableManager.GetChatAsync(syncItems);
 				var games = await tableManager.GetBoardgamesAsync(syncItems);
 				var users = await tableManager.GetUserAsync(syncItems);
-				//var lenderItemRequests = reqs.Where(r => (String.Equals(r.Lender, sid)) && (r.Accepted == false));
+				var message = await tableManager.GetMessageAsync(syncItems);
 				var itemLendRequests = reqs.Where(r => (String.Equals(r.Lender,sid)) && (String.Equals(r.Accepted,"True")));
 				var itemBorrowRequests = reqs.Where(r => (String.Equals(r.Borrower, sid)) && (String.Equals(r.Accepted, "True")));
 
@@ -106,7 +100,17 @@ namespace minrva
 
 					if (!seen)
 					{
-						acceptedMsgs.Add(new ChatDetails(requestedItem, borrowingUser, false));
+						var msgs = message.Where(m => (String.Equals(m.Sender, sid) && String.Equals(m.Receiver, borrowingUser.UserId))
+												|| (String.Equals(m.Receiver, sid) && String.Equals(m.Sender, lendingUser.UserId)));
+
+						var lastMessage = " ";
+
+						if (msgs.Count() > 0)
+						{
+							lastMessage = msgs.Last().Text;
+						}
+						
+						acceptedMsgs.Add(new ChatDetails(lastMessage, borrowingUser, false));
 					}
 
 					seen = false;
@@ -131,26 +135,24 @@ namespace minrva
 
 					if (!seen)
 					{
-						acceptedMsgs.Add(new ChatDetails(requestedItem, lendingUser, true));
+						var msgs = message.Where(m => (String.Equals(m.Sender, sid) && String.Equals(m.Receiver, lendingUser.UserId))
+												|| (String.Equals(m.Receiver, sid) && String.Equals(m.Sender, borrowingUser.UserId)));
+
+						var lastMessage = " ";
+
+						if (msgs.Count() > 0)
+						{
+							lastMessage = msgs.Last().Text;
+						}
+
+						acceptedMsgs.Add(new ChatDetails(lastMessage, lendingUser, false));
 					}
 
 					seen = false;
 				}
 
-				//foreach (ChatDetails x in acceptedMsgs)
-				//{
 
-				//	if (x.AmIBorrower)
-				//	{
-				//		var chat = new Chat { Lender = x.Recipient.UserId, Borrower = sid };
-				//		await AddItem(chat);
-				//	}
-				//	else
-				//	{
-				//		var chat = new Chat { Lender = sid, Borrower = x.Recipient.UserId };
-				//		await AddItem(chat);
-				//	}
-				//}
+
 				acceptedList.ItemsSource = acceptedMsgs;
 				//acceptedList.ItemsSource = chats.Where(r => (String.Equals(r.Lender, sid)) || (String.Equals(r.Borrower, sid)));
 

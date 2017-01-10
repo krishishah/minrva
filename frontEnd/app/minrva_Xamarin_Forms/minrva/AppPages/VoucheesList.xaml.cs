@@ -15,7 +15,7 @@ namespace minrva
 		{
 			InitializeComponent();
 			tableManager = TableManager.DefaultManager;
-			RefreshItems(false, syncItems: false);
+			RefreshItems(true, syncItems: false);
 		}
 
 		public async void OnRefresh(object sender, EventArgs e)

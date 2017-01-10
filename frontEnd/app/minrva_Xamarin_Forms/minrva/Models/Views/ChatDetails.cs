@@ -4,20 +4,20 @@ namespace minrva
 	public class ChatDetails
 	{
 
-		Boardgames requestedItem;
+		String lastMessage;
 		User recipient;
 		bool amIBorrower;
 
-		public ChatDetails(Boardgames requestedItem, User recipient, bool amIBorrower)
+		public ChatDetails(String lastMessage, User recipient, bool amIBorrower)
 		{
-			this.requestedItem = requestedItem;
+			this.lastMessage = lastMessage;
 			this.recipient = recipient;
 		}
 
-		public Boardgames RequestedItem
+		public String LastMessage
 		{
-			get { return requestedItem; }
-			set { requestedItem = value; }
+			get { return lastMessage; }
+			set { lastMessage = value; }
 		}
 
 		public User Recipient

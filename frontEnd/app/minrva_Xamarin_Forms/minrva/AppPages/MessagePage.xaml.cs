@@ -16,16 +16,14 @@ namespace minrva
 		bool authenticated = false;
 
 
-		public MessagePage(User name, String itemId)
+		public MessagePage(User user)
 		{
 			InitializeComponent();
 			manager = TableManager.DefaultManager;
-			Username = name.FirstName;
-			Receiver = name;
+			Username = user.FirstName;
+			Receiver = user;
 			BindingContext = this;
 			RefreshItems(false, syncItems: false);
-
-			//refreshOnTimer();
 		}
 
 
@@ -124,8 +122,11 @@ namespace minrva
 
 				messageList.ItemsSource = msgs;
 
-				//var last = messageList.ItemsSource.Cast<object>().LastOrDefault();
-				//smessageList.ScrollTo(last, ScrollToPosition.MakeVisible, false);
+				if (msgs.Count() > 0)
+				{
+					var last = messageList.ItemsSource.Cast<object>().LastOrDefault();
+					messageList.ScrollTo(last, ScrollToPosition.MakeVisible, false);
+				}
 			}
 		}
 
@@ -133,6 +134,7 @@ namespace minrva
 		{
 			if (!Equals(newMessage.Text, descriptionPlaceholder))
 			{
+				SendMessageButton.IsEnabled = false;
 				string sid = await App.Authenticator.GetUserId();
 				var chat = await manager.GetChatAsync();
 				var chatId = chat.Where(c => ((String.Equals(c.Lender, sid)) && String.Equals(c.Borrower, Receiver.UserId)) ||
@@ -146,6 +148,7 @@ namespace minrva
 
 				newMessage.Text = descriptionPlaceholder;
 				newMessage.TextColor = Color.Gray;
+				SendMessageButton.IsEnabled = true;
 			}
 		}
 

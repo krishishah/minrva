@@ -45,6 +45,10 @@ namespace minrva
 
 		public async void OnAdd(object sender, EventArgs e)
 		{
+			
+			//loader.IsRunning = true;
+			//loader.IsVisible = true;
+
 			string sid = await App.Authenticator.GetUserId();
 
 			if (string.IsNullOrEmpty(newItemName.Text)|| newItemCategory.SelectedIndex.Equals(-1) || string.IsNullOrEmpty(newItemDescription.Text) || string.IsNullOrEmpty(newItemLendDuration.Text) || string.IsNullOrEmpty(newItemLocation.Text))
@@ -52,30 +56,39 @@ namespace minrva
 				await DisplayAlert("Error", "All fields must be completed", "Ok");
 			}
 			else {
+				
 				var location = newItemLocation.Text;
 				var latitude = await getLatitudeFromLocation(location);
 				var longitude = await getLongitudeFromLocation(location);
 				int duration;
 				if (int.TryParse(newItemLendDuration.Text, out duration) && duration > 0)
 				{
-					var boardgames = new Boardgames { Name = newItemName.Text, Description = newItemDescription.Text, Lend_duration = Int32.Parse(newItemLendDuration.Text), Location = location, Latitude = latitude, Longitude = longitude, Owner = sid, Borrowed = false, Category = newItemCategory.Items[newItemCategory.SelectedIndex] };
-					await AddItem(boardgames);
-
-					//Add item photo to storage account
-					if (itemImageFile != null)
+					buttonsPanel.IsVisible = false;
+					using (var scope = new ActivityIndicatorScope(syncIndicator, true))
 					{
-						var boardGamesTable = await manager.GetBoardgamesAsync();
-						var itemId = boardGamesTable.Where(b => (String.Equals(b.Owner, sid)))
-																	 .OrderByDescending(b => b.CreatedAt)
-						                                             .Select(b => b.Id)
-						                                             .ElementAt(0);
-						//var itemId = itemsOwnedByCurrentUser[0];
-						var itemName = await ImageManager.GenerateItemPhotoName(itemId);
-						await ImageManager.UploadImage(itemImageFile.GetStream(), itemName);
-						itemImageFile.Dispose();
-						itemImageFile = null;
-					}
+						var boardgames = new Boardgames { Name = newItemName.Text, Description = newItemDescription.Text, Lend_duration = Int32.Parse(newItemLendDuration.Text), Location = location, Latitude = latitude, Longitude = longitude, Owner = sid, Borrowed = false, Category = newItemCategory.Items[newItemCategory.SelectedIndex] };
+						await AddItem(boardgames);
 
+						//Add item photo to storage account
+						if (itemImageFile != null)
+						{
+							var boardGamesTable = await manager.GetBoardgamesAsync();
+							var itemId = boardGamesTable.Where(b => (String.Equals(b.Owner, sid)))
+																		 .OrderByDescending(b => b.CreatedAt)
+																		 .Select(b => b.Id)
+																		 .ElementAt(0);
+							//var itemId = itemsOwnedByCurrentUser[0];
+							var itemName = await ImageManager.GenerateItemPhotoName(itemId);
+							await ImageManager.UploadImage(itemImageFile.GetStream(), itemName);
+							itemImageFile.Dispose();
+							itemImageFile = null;
+						}
+
+						//loader.IsRunning = false;
+						//loader.IsVisible = false;
+
+					}
+					buttonsPanel.IsVisible = true;
 					await DisplayAlert("Success", "Your item has been added", "Ok");
 
 					// Empty all fields after item has been successfully added
@@ -90,7 +103,7 @@ namespace minrva
 				}
 				else
 				{
-					await DisplayAlert("Error", "Number of days must be a whole number", "Ok");
+					await DisplayAlert("Error", "Number of days must be a positive whole number", "Ok");
 				}
 
 			}
@@ -131,6 +144,43 @@ namespace minrva
 			{
 				return itemImageFile.GetStream();
 			});
+		}
+
+		private class ActivityIndicatorScope : IDisposable
+		{
+			private bool showIndicator;
+			private ActivityIndicator indicator;
+			private Task indicatorDelay;
+
+			public ActivityIndicatorScope(ActivityIndicator indicator, bool showIndicator)
+			{
+				this.indicator = indicator;
+				this.showIndicator = showIndicator;
+
+				if (showIndicator)
+				{
+					indicatorDelay = Task.Delay(2000);
+					SetIndicatorActivity(true);
+				}
+				else
+				{
+					indicatorDelay = Task.FromResult(0);
+				}
+			}
+
+			private void SetIndicatorActivity(bool isActive)
+			{
+				this.indicator.IsVisible = isActive;
+				this.indicator.IsRunning = isActive;
+			}
+
+			public void Dispose()
+			{
+				if (showIndicator)
+				{
+					indicatorDelay.ContinueWith(t => SetIndicatorActivity(false), TaskScheduler.FromCurrentSynchronizationContext());
+				}
+			}
 		}
 
 	}

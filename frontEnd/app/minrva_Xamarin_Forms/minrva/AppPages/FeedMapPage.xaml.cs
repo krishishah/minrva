@@ -46,7 +46,7 @@ namespace minrva
 
 		void gotoFeedPage(object sender, EventArgs e)
 		{
-			App.Current.MainPage = new MainTabContainer();
+			Navigation.PopModalAsync();
 		}
 
 	}

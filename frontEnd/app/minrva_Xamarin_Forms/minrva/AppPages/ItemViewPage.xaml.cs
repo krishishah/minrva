@@ -95,12 +95,16 @@ namespace minrva
 			var reviews = await manager.GetRatingsAsync();
 			var entityReviews = reviews.Where(r => string.Equals(r.RatedID, item.Id));
 			var usersTable = await manager.GetUserAsync();
+
 			foreach (Ratings rating in entityReviews)
 			{
 				User reviewingUser = usersTable.Where(u => string.Equals(rating.ReviewerID, u.UserId)).ElementAt(0);
 				rating.Reviewer = String.Format("{0} {1}", reviewingUser.FirstName, reviewingUser.LastName);
 			}
+
+			var size = entityReviews.Count();
 			allReviews.ItemsSource = entityReviews;
+			allReviews.HeightRequest = size * 140;
 		}
 
 		public async void BackButtonCommand(object sender, EventArgs e)
