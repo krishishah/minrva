@@ -374,7 +374,7 @@ namespace minrva
 
 		public async void SeeVouchers()
 		{
-			await Navigation.PushModalAsync(new TrustNetworkViewPage(profOwner));
+			await Navigation.PushModalAsync(new VouchersViewPage(profOwner));
 			
 		}
 

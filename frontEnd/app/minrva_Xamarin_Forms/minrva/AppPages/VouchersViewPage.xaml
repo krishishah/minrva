@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.TrustNetworkPage">
-	<!--<StackLayout Padding="20,20,20,20" BackgroundColor="#EEEEEE">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="minrva.VouchersViewPage">
+	<StackLayout Padding="20,20,20,20" BackgroundColor="#EEEEEE">
 		<Button Text="Back" Clicked="BackButtonCommand" HorizontalOptions="Start"/>
-		<Label Text="Trust Network" HorizontalOptions="Center"/>
+		<Label x:Name="title" Text="{Binding Text}" HorizontalOptions="Center"/>
 		<ActivityIndicator Grid.RowSpan="2"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
                        IsVisible="False"
                        IsEnabled="True"
                        x:Name="syncIndicator"/>
-		<ListView x:Name="trustNetwork"
+		<ListView x:Name="trustNetworkList"
 				ItemSelected="OnSelected" HasUnevenRows="true" SeparatorVisibility="None" BackgroundColor="#EEEEEE">
       		<ListView.ItemTemplate>
         		<DataTemplate>
@@ -22,5 +22,5 @@
         		</DataTemplate>
       		</ListView.ItemTemplate>
     	</ListView>
-	</StackLayout>-->
+	</StackLayout>
 </ContentPage>	

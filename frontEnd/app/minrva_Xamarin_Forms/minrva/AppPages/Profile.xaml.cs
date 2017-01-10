@@ -143,10 +143,10 @@ namespace minrva
 				await DisplayAlert("Logout Error", "You have failed to log out.", "OK");
 		}
 
-		//async void ClickedTrustNetwork(object sender, EventArgs e)
-		//{
-		//	await Navigation.PushModalAsync(new TrustNetworkPage());
-		//}
+		async void ClickedTrustNetwork(object sender, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new FirstLayerPage());
+		}
 
 		async void Clicked_RankTable(object sender, EventArgs e)
 		{

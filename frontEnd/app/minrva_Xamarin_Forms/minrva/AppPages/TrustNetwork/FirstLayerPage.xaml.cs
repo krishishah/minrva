@@ -1,31 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Linq;
-using Xamarin.Forms;
 using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace minrva
 {
-	public partial class TrustNetworkViewPage : ContentPage
+	public partial class FirstLayerPage : ContentPage
 	{
-
 		TableManager tableManager;
-		User profOwner;
 
-		public TrustNetworkViewPage(User profOwner)
+		public FirstLayerPage()
 		{
 			InitializeComponent();
 			tableManager = TableManager.DefaultManager;
-			this.profOwner = profOwner;
-			title.Text = "Vouched for " + profOwner.FirstName;
+			title.Text = "Trust Network First Layer: \n Your Vouchees";
 			displayTrustNetwork();
 
 		}
 
 		private async void displayTrustNetwork()
 		{
-			trustNetworkList.ItemsSource = await createUserListView(await createTrustNetwork());
+			vouchees.ItemsSource = await createUserListView(await createTrustNetwork());
 		}
 
 
@@ -37,32 +34,15 @@ namespace minrva
 
 			var currentUserVouchList = vouchTable.Where(owner => String.Equals(sid, owner.Voucher));
 
-			List<User> vouchNetwork = new List<User>();
+			List<User> vouchList = new List<User>();
 
 			foreach (Vouch v in currentUserVouchList)
 			{
-				var nestedVouchList = vouchTable.Where(vouch => String.Equals(v.Vouchee, vouch.Voucher));
-
-
-				if (String.Equals(v.Vouchee, profOwner.UserId))
-				{
-					User voucher = userTable.Where(u => String.Equals(u.UserId, v.Voucher)).ElementAt(0);
-					vouchNetwork.Add(voucher);
-				}
-
-				else
-				{
-					foreach (Vouch z in nestedVouchList)
-					{
-						if (String.Equals(z.Vouchee, profOwner.UserId))
-						{
-							User voucher = userTable.Where(u => String.Equals(u.UserId, z.Voucher)).ElementAt(0);
-							vouchNetwork.Add(voucher);
-						}
-					}
-				}
+				User vouchee = userTable.Where(u => String.Equals(u.UserId, v.Vouchee)).ElementAt(0);
+				vouchList.Add(vouchee);
 			}
-			return vouchNetwork;
+
+			return vouchList;
 		}
 
 		private async Task<List<UserFeedViewModel>> createUserListView(IEnumerable<User> list)
@@ -96,7 +76,7 @@ namespace minrva
 			var item = e.SelectedItem as UserFeedViewModel;
 			var userTable = await tableManager.GetUserAsync();
 			User owner = userTable.Where(x => String.Equals(item.Id, x.Id)).ElementAt(0);
-			await Navigation.PushModalAsync(new ProfileViewPage(owner, null, null, true));
+			await Navigation.PushModalAsync(new SecondLayerPage(owner));
 		}
 
 		public async void BackButtonCommand(object sender, EventArgs e)
