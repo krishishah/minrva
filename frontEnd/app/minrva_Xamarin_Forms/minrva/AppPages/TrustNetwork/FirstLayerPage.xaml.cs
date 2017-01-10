@@ -76,7 +76,11 @@ namespace minrva
 			var item = e.SelectedItem as UserFeedViewModel;
 			var userTable = await tableManager.GetUserAsync();
 			User owner = userTable.Where(x => String.Equals(item.Id, x.Id)).ElementAt(0);
-			await Navigation.PushModalAsync(new SecondLayerPage(owner));
+			var vouchTable = await tableManager.GetVouchAsync();
+			if (vouchTable.Count(vouch => String.Equals(vouch.Voucher, owner.UserId)) > 0)
+				await Navigation.PushModalAsync(new SecondLayerPage(owner));
+			else
+				await Navigation.PushModalAsync(new ProfileViewPage(owner, null, null, true));
 		}
 
 		public async void BackButtonCommand(object sender, EventArgs e)
