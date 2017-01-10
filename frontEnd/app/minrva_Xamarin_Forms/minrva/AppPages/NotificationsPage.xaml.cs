@@ -152,7 +152,7 @@ namespace minrva
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
 					Debug.WriteLine("Date accepted: {0}", r.UpdatedAt);
 					string notifView = String.Format("{0}: {1}", requestType, requestedItem.Name);
-					string notifViewDetail = String.Format("You have Accepted {0}'s request", borrowingUser.FirstName);
+					string notifViewDetail = String.Format("You have accepted {0}'s request", borrowingUser.FirstName);
 					requestsMsgs.Add(new RequestMessage(requestedItem, borrowingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, col, seenUnseenCol, r));
 				}
 

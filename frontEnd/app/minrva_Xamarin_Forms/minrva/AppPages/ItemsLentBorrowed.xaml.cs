@@ -10,10 +10,15 @@ namespace minrva
 	public partial class ItemsLentBorrowed : ContentPage
 	{
 		TableManager tableManager;
+		public String Username { get; set; }
+		public User Receiver;
 
 
-		public ItemsLentBorrowed()
+		public ItemsLentBorrowed(User name)
 		{
+			Username = name.FirstName;
+			Receiver = name;
+
 			InitializeComponent();
 			tableManager = TableManager.DefaultManager;
 			RefreshItems(false, syncItems: false);
@@ -85,7 +90,11 @@ namespace minrva
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
 					string notifView = String.Format("{0}", requestedItem.Name);
 					string notifViewDetail = String.Format(" ");
-					lends.Add(new RequestMessage(requestedItem, borrowingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, col, seenUnseenCol, r));
+
+					if (borrowingUser.UserId == Receiver.UserId)
+					{
+						lends.Add(new RequestMessage(requestedItem, borrowingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, col, seenUnseenCol, r));
+					}
 				}
 
 				requestType = "Borrow Request";
@@ -97,7 +106,11 @@ namespace minrva
 					Boardgames requestedItem = games.Where(game => String.Equals(r.ItemId, game.Id)).ElementAt(0);
 					string notifView = String.Format("{0}",requestedItem.Name);
 					string notifViewDetail = String.Format(" ");
-					borrows.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, col, seenUnseenCol, r));
+
+					if (lendingUser.UserId == Receiver.UserId)
+					{
+						borrows.Add(new RequestMessage(requestedItem, lendingUser, requestType, requestStatus, r.UpdatedAt, notifView, notifViewDetail, col, seenUnseenCol, r));
+					}
 				}
 
 				borrowList.ItemsSource = borrows;

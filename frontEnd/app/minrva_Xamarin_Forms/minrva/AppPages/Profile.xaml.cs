@@ -60,8 +60,8 @@ namespace minrva
 		{
 			var requestTable = await tableManager.GetRequestAsync();
 			var itemsTable = await tableManager.GetBoardgamesAsync();
-			int lendCount = itemsTable.Where(item => String.Equals(sid, item.Owner)).Count();
-			int borrowCount = requestTable.Where(user => String.Equals(sid, user.Borrower)).Count();
+			int lendCount = requestTable.Count(req => String.Equals(sid, req.Lender) && String.Equals(req.Accepted, "Returned"));
+			int borrowCount = requestTable.Count(user => String.Equals(sid, user.Borrower));
 			LendBorrow.Text = String.Format("L:{0} | B:{1}", lendCount, borrowCount);
 		}
 

@@ -49,7 +49,7 @@ namespace minrva
 
 		async void ItemsLentBorrowedPage(object sender, EventArgs e)
 		{
-			await Navigation.PushModalAsync(new ItemsLentBorrowed());
+			await Navigation.PushModalAsync(new ItemsLentBorrowed(Receiver));
 		}
 
 		public async void OnRefresh(object sender, EventArgs e)
@@ -124,8 +124,8 @@ namespace minrva
 
 				messageList.ItemsSource = msgs;
 
-				var last = messageList.ItemsSource.Cast<object>().LastOrDefault();
-				messageList.ScrollTo(last, ScrollToPosition.MakeVisible, false);
+				//var last = messageList.ItemsSource.Cast<object>().LastOrDefault();
+				//smessageList.ScrollTo(last, ScrollToPosition.MakeVisible, false);
 			}
 		}
 
