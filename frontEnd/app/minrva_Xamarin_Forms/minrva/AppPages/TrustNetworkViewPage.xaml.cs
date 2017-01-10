@@ -18,19 +18,16 @@ namespace minrva
 			InitializeComponent();
 			tableManager = TableManager.DefaultManager;
 			this.profOwner = profOwner;
+			title.Text = "Vouched for " + profOwner.FirstName;
 			displayTrustNetwork();
 
 		}
 
 		private async void displayTrustNetwork()
 		{
-			trustNetworkList.ItemsSource = await createUserFeedView(await createTrustNetwork());
+			trustNetworkList.ItemsSource = await createUserListView(await createTrustNetwork());
 		}
 
-		//public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
-		//{
-		//	await Navigation.PushModalAsync(new ProfileViewPage(owner, item, new Request(), true));
-		//}
 
 		public async Task<List<User>> createTrustNetwork()
 		{
@@ -45,6 +42,7 @@ namespace minrva
 			foreach (Vouch v in currentUserVouchList)
 			{
 				var nestedVouchList = vouchTable.Where(vouch => String.Equals(v.Vouchee, vouch.Voucher));
+
 
 				if (String.Equals(v.Vouchee, profOwner.UserId))
 				{
@@ -67,7 +65,7 @@ namespace minrva
 			return vouchNetwork;
 		}
 
-		private async Task<List<UserFeedViewModel>> createUserFeedView(IEnumerable<User> list)
+		private async Task<List<UserFeedViewModel>> createUserListView(IEnumerable<User> list)
 		{
 
 			List<UserFeedViewModel> feedViewList = new List<UserFeedViewModel>();
@@ -79,7 +77,7 @@ namespace minrva
 				listElement.Id = x.Id;
 				listElement.Name = String.Format("{0} {1}", x.FirstName, x.LastName);
 
-				byte[] itemImageBytes = await ImageManager.GetImage(String.Format("{0}", x.Id));
+				byte[] itemImageBytes = await ImageManager.GetProfilePicture(x.UserId);
 				listElement.ImageSource = "minrva_icon.png";
 
 				if (itemImageBytes != null)

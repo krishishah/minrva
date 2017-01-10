@@ -44,6 +44,7 @@
 			</ListView>
 			
 			<Button Text="Logout" Clicked="Clicked_Logout" Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="1" />
+<!--			<Button Text="Trust Network" Clicked="ClickedTrustNetwork" Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="1" />-->
 			<Button Text="Vouched You" Clicked="ClickedVoucheeList" Grid.Row="14" Grid.Column="2" Grid.ColumnSpan="1" />
 		</Grid>
 	</ContentPage.Content>

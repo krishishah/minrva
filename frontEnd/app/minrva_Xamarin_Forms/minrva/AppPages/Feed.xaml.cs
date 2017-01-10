@@ -195,7 +195,7 @@ namespace minrva
 				listElement.Id = x.Id;
 				listElement.Name = String.Format("{0} {1}", x.FirstName, x.LastName);
 
-				byte[] itemImageBytes = await ImageManager.GetImage(String.Format("{0}", x.Id));
+				byte[] itemImageBytes = await ImageManager.GetProfilePicture(x.UserId);
 				listElement.ImageSource = "minrva_icon.png";
 
 				if (itemImageBytes != null)

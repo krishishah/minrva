@@ -1,20 +1,47 @@
-﻿<Properties StartupConfiguration="{34B9099E-4B00-4707-BFDE-0B95997F8893}|Default">
-  <MonoDevelop.Ide.Workbench>
+﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/TrustNetworkPage.xaml">
     <Files>
-      <File FileName="minrva/AppPages/Feed.xaml" Line="24" Column="29" />
-      <File FileName="minrva/App.cs" Line="1" Column="1" />
-      <File FileName="iOS/AppDelegate.cs" Line="77" Column="4" />
-      <File FileName="Droid/MainApplication.cs" Line="1" Column="1" />
-      <File FileName="Droid/MainActivity.cs" Line="58" Column="12" />
-      <File FileName="minrva/AppPages/ChatsPage.xaml.cs" Line="107" Column="16" />
-      <File FileName="minrva/AppPages/ItemsLentBorrowed.xaml.cs" Line="84" Column="28" />
-      <File FileName="minrva/AppPages/Profile.xaml.cs" Line="63" Column="34" />
-      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="156" Column="64" />
+      <File FileName="minrva/AppPages/Feed.xaml.cs" Line="202" Column="1" />
+      <File FileName="minrva/AppPages/ProfileViewPage.xaml.cs" Line="81" Column="57" />
+      <File FileName="minrva/AppPages/VoucheesList.xaml.cs" Line="115" Column="4" />
+      <File FileName="minrva/AppPages/TrustNetworkViewPage.xaml.cs" Line="21" Column="30" />
+      <File FileName="minrva/AppPages/Feed.xaml" Line="24" Column="130" />
+      <File FileName="minrva/AppPages/VoucheesList.xaml" Line="4" Column="63" />
+      <File FileName="minrva/AppPages/TrustNetworkViewPage.xaml" Line="2" Column="56" />
+      <File FileName="minrva/AppPages/ProfileViewPage.xaml" Line="1" Column="1" />
+      <File FileName="minrva/AppPages/Profile.xaml" Line="47" Column="8" />
+      <File FileName="minrva/AppPages/Profile.xaml.cs" Line="147" Column="6" />
+      <File FileName="minrva/AppPages/TrustNetworkPage.xaml" Line="2" Column="143" />
+      <File FileName="minrva/AppPages/TrustNetworkPage.xaml.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="minrva" expanded="True">
+            <Node name="minrva" expanded="True">
+              <Node name="AppPages" expanded="True">
+                <Node name="Feed.xaml" expanded="True" />
+                <Node name="ItemsLentBorrowed.xaml" expanded="True" />
+                <Node name="NotificationsPage.xaml" expanded="True" />
+                <Node name="Profile.xaml" expanded="True" />
+                <Node name="ProfileViewPage.xaml" expanded="True" />
+                <Node name="TrustNetworkPage.xaml" expanded="True" selected="True" />
+                <Node name="TrustNetworkViewPage.xaml" expanded="True" />
+                <Node name="VoucheesList.xaml" expanded="True" />
+              </Node>
+              <Node name="Models" expanded="True">
+                <Node name="Tables" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="minrva.iOS" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_ARMv7a" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="iOS Release|iPhoneSimulator" />
+  <MonoDevelop.Ide.ItemProperties.minrva.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7BFB2561-A7CA-4F1F-B07E-6195AB99FF49" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint enabled="false" file="/Users/Krishi/Minrva/frontEnd/app/minrva_Xamarin_Forms/minrva/AppPages/FeedMapPage.xaml.cs" line="27" column="1" />
