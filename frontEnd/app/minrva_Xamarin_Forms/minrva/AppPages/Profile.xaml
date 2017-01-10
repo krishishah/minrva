@@ -27,7 +27,7 @@
 			<Button Text="Rank Table" Clicked="Clicked_RankTable" Grid.Row="6" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="1" />
 			<Button Text="Reviews" x:Name="viewReviews" Clicked="ViewReviews" Grid.RowSpan="2" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="1"/>
 			
-			<ListView Grid.Row="8" Grid.Column="0" Grid.RowSpan="6" Grid.ColumnSpan="3" x:Name="myItems"
+			<ListView Grid.Row="8" Grid.Column="0" Grid.RowSpan="5" Grid.ColumnSpan="3" x:Name="myItems"
 				ItemSelected="OnSelected"
 				IsPullToRefreshEnabled="true" Refreshing="OnRefresh" HasUnevenRows="true" SeparatorVisibility="None" BackgroundColor="#EEEEEE">
 				<ListView.ItemTemplate>
@@ -40,11 +40,11 @@
 						</ViewCell>
 	        		</DataTemplate>
 	      		</ListView.ItemTemplate>	
-			</ListView>
+			</ListView>	
 			
-			<Button Text="Logout" Clicked="Clicked_Logout" Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="1" />
-			<Button Text="Trust Network" Clicked="ClickedTrustNetwork" Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="1" />
-			<Button Text="Vouches" Clicked="ClickedVoucheeList" Grid.Row="14" Grid.Column="2" Grid.ColumnSpan="1" />
+			<Button Text="Trust Network" Clicked="ClickedTrustNetwork" HorizontalOptions="Start" Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="2" />
+			<Button Text="Vouches" Clicked="ClickedVoucheeList" Grid.Row="13" Grid.Column="2" Grid.ColumnSpan="1" />
+			<Button Text="Logout" Clicked="Clicked_Logout" Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="3" />
 		</Grid>
 	</ContentPage.Content>
 </ContentPage>
