@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{5FA0219F-B063-4D07-800B-CC38BDB5B916}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/Feed.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="minrva/AppPages/MainTabContainer.xaml">
     <Files>
       <File FileName="minrva/AppPages/NotificationsPage.xaml" Line="3" Column="63" />
       <File FileName="minrva/AppPages/InsertItemPage.xaml" Line="9" Column="25" />
@@ -13,6 +13,8 @@
       <File FileName="minrva/AppPages/Profile.xaml.cs" Line="133" Column="9" />
       <File FileName="minrva/AppPages/Profile.xaml" Line="12" Column="34" />
       <File FileName="minrva/AppPages/Feed.xaml.cs" Line="46" Column="28" />
+      <File FileName="minrva/AppPages/ProfileViewPage.xaml" Line="33" Column="17" />
+      <File FileName="minrva/AppPages/MainTabContainer.xaml" Line="7" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.minrva.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />

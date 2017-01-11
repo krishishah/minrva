@@ -30,7 +30,7 @@
 		
 		<Button Text="Vouch" Grid.Row="7" Grid.RowSpan="2" Grid.Column="0" Clicked="ClickVouch" x:Name="vouchButton" />
 		<Button Text="Rank Table" Grid.Row="7" Grid.RowSpan="2" Grid.Column="1" Clicked="Clicked_RankTable"  Grid.ColumnSpan="1" />
-		<Button Text="View Reviews" x:Name="viewReviews" Clicked="ViewReviews" Grid.Row="7" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="1" />
+		<Button Text="Reviews" x:Name="viewReviews" Clicked="ViewReviews" Grid.Row="7" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="1" />
 		<Label x:Name="VouchMessage" FontSize="Small" XAlign="Center" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2" />
 
 		<ListView Grid.Row="11" Grid.RowSpan="5" Grid.Column="0" Grid.ColumnSpan="3" x:Name="usersItems" 

@@ -4,7 +4,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:mypages="clr-namespace:minrva;assembly=minrva" x:Name="tabs">
 	<TabbedPage.Children>
-		<mypages:Feed Title="Available" Icon="Activity Feed-50@2x.png" />
+		<mypages:Feed Title="Feed" Icon="Activity Feed-50@2x.png" />
 		<mypages:NotificationsPage Title="Notifications" Icon="Notifications-50@2x.png" />
 		<mypages:InsertItemPage Title="Add" Icon="Plus-50@2x.png" />
 		<mypages:ChatsPage Title="Chat" Icon="Speech Bubble-50@2x.png" />
