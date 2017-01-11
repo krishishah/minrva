@@ -101,7 +101,7 @@ namespace minrva
 					if (!seen)
 					{
 						var msgs = message.Where(m => (String.Equals(m.Sender, sid) && String.Equals(m.Receiver, borrowingUser.UserId))
-												|| (String.Equals(m.Receiver, sid) && String.Equals(m.Sender, lendingUser.UserId)));
+												|| (String.Equals(m.Receiver, sid) && String.Equals(m.Sender, borrowingUser.UserId)));
 
 						var lastMessage = " ";
 
@@ -136,7 +136,7 @@ namespace minrva
 					if (!seen)
 					{
 						var msgs = message.Where(m => (String.Equals(m.Sender, sid) && String.Equals(m.Receiver, lendingUser.UserId))
-												|| (String.Equals(m.Receiver, sid) && String.Equals(m.Sender, borrowingUser.UserId)));
+												|| (String.Equals(m.Receiver, sid) && String.Equals(m.Sender, lendingUser.UserId)));
 
 						var lastMessage = " ";
 
