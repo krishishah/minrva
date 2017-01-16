@@ -169,7 +169,120 @@ namespace minrvaUITests
 			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Okay");
 		}
 
+		[Test]
+		public void UserRequestsToBorrowItemAfterViewingLendersProfileThenChangesMindAndDeletesRequestFromNotificationsPage()
+		{
+			app.Tap(x => x.Text("Sign-in"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Sign-in");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "minrvatester2@gmail.com");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.Tap(x => x.Class("UIImageView").Index(22));
+			app.Screenshot("Tapped on view with class: UIImageView");
+			app.ScrollDownTo("Borrow Item");
+			app.Screenshot("Scrolled to [AppView: Class=[Class: Name=UIButtonLabel], Id=, Text=Borrow Item, Marked=Borrow Item, Css=, XPath=, IndexInTree=-1, Rect=[Rectangle: Left=118.5, Top=527, CenterX=160, CenterY=536, Width=83, Height=18, Bottom=545, Right=201.5]]");
+			app.Tap(x => x.Text("Borrow Item"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Borrow Item");
+			app.Tap(x => x.Text("Send borrow request"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Send borrow request");
+			app.Tap(x => x.Marked("Okay"));
+			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Okay");
+			app.ScrollUpTo("Back");
+			app.Screenshot("Scrolled to [AppView: Class=[Class: Name=UIButtonLabel], Id=, Text=Back, Marked=Back, Css=, XPath=, IndexInTree=-1, Rect=[Rectangle: Left=10, Top=23, CenterX=27, CenterY=32, Width=34, Height=18, Bottom=41, Right=44]]");
+			app.Tap(x => x.Text("Back"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Back");
+			app.Tap(x => x.Id("Notifications-50@2x.png"));
+			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+			app.Tap(x => x.Marked("Borrow Request: Finding Nemo"));
+			app.Screenshot("Tapped on view with class: UILabel marked: Borrow Request: Finding Nemo");
+			app.Tap(x => x.Marked("Yes"));
+			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Yes");
+		}
 
+		[Test]
+		public void UserCanSearchAndRequestToBorrowItemFromFeedByCategory()
+		{
+			app.Tap(x => x.Text("Sign-in"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Sign-in");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "minrvatester2@gmail.com");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.Tap(x => x.Marked("Choose category"));
+			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Choose category");
+			app.Tap(x => x.Marked("Done"));
+			app.Screenshot("Tapped on view with class: UIToolbarTextButton marked: Done");
+			app.Tap(x => x.Class("UIImageView").Index(22));
+			app.Screenshot("Tapped on view with class: UIImageView");
+			app.ScrollDownTo("Borrow Item");
+			app.Screenshot("Scrolled to [AppView: Class=[Class: Name=UIButtonLabel], Id=, Text=Borrow Item, Marked=Borrow Item, Css=, XPath=, IndexInTree=-1, Rect=[Rectangle: Left=118.5, Top=527, CenterX=160, CenterY=536, Width=83, Height=18, Bottom=545, Right=201.5]]");
+			app.Tap(x => x.Text("Borrow Item"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Borrow Item");
+			app.Tap(x => x.Text("Send borrow request"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Send borrow request");
+			app.Tap(x => x.Marked("Okay"));
+			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Okay");
+		}
+
+		[Test]
+		public void UserCanRequestToBorrowItemFromFeedBySearchingForAnItem()
+		{
+			app.Tap(x => x.Text("Sign-in"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Sign-in");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "minrvatester2@gmail.com");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.Tap(x => x.Text("Search"));
+			app.Screenshot("Tapped on view with class: UISearchBarTextFieldLabel marked: Search");
+			app.EnterText(x => x.Marked("Search"), "Finding Nemo");
+			app.Tap(x => x.Class("UIImageView").Index(23));
+			app.Screenshot("Tapped on view with class: UIImageView");
+			app.ScrollDownTo("Borrow Item");
+			app.Screenshot("Scrolled to [AppView: Class=[Class: Name=UIButtonLabel], Id=, Text=Borrow Item, Marked=Borrow Item, Css=, XPath=, IndexInTree=-1, Rect=[Rectangle: Left=118.5, Top=527, CenterX=160, CenterY=536, Width=83, Height=18, Bottom=545, Right=201.5]]");
+			app.Tap(x => x.Text("Borrow Item"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Borrow Item");
+			app.Tap(x => x.Text("Send borrow request"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Send borrow request");
+			app.Tap(x => x.Marked("Okay"));
+			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Okay");
+		}
+
+		[Test]
+		public void UserCanUpdateProfilePicture()
+		{
+			app.Tap(x => x.Text("Sign-in"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Sign-in");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "minrvatester2@gmail.com");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.Tap(x => x.Id("Gender Neutral User-50@2x.png"));
+			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+			app.Tap(x => x.Text("Update"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Update");
+			app.Tap(x => x.Marked("5"));
+			app.Screenshot("Tapped on view with class: UILabel marked: 5");
+			app.Tap(x => x.Class("PUPhotoView"));
+			app.Screenshot("Tapped on view with class: PUPhotoView");
+		}
 
 	}
 }
