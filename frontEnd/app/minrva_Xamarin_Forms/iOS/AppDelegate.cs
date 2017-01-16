@@ -98,7 +98,7 @@ namespace minrva.iOS
 
 					await TableManager.DefaultManager.CurrentClient.LogoutAsync();
 					var logoutAlert = new UIAlertView("Authentication", "You are now logged out " + user.UserId, null, "OK", null);
-					logoutAlert.Show();
+					//logoutAlert.Show();
 				}
 				user = null;
 				success = true;
