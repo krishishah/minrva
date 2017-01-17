@@ -284,5 +284,408 @@ namespace minrvaUITests
 			app.Screenshot("Tapped on view with class: PUPhotoView");
 		}
 
+		[Test]
+		public void LenderAddsAnItemAndUserRequestsToBorrowThisItemAfterViewingTheirProfile()
+		{
+			app.Tap(x => x.Marked("Sign-in"));
+			app.Screenshot("Tapped on view with class: UIButton marked: Sign-in");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "minrvatester2@gmail.com");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.Tap(x => x.Id("Plus-50@2x.png"));
+			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+			app.Tap(x => x.Marked("Enter Category"));
+			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Category");
+			app.Tap(x => x.Marked("DVD"));
+			app.Screenshot("Tapped on view with class: UILabel marked: DVD");
+			app.Tap(x => x.Marked("Done"));
+			app.Screenshot("Tapped on view with class: UIToolbarTextButton marked: Done");
+			app.Tap(x => x.Marked("Enter Name"));
+			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Name");
+			app.EnterText(x => x.Class("UITextField").Index(1), "Despicable Me");
+			app.Tap(x => x.Text("Enter Description"));
+			app.Screenshot("Tapped on view with class: UITextView");
+			app.Tap(x => x.Text("Minions"));
+			app.Screenshot("Tapped on view with class: UITextView");
+			app.Tap(x => x.Marked("Done"));
+			app.Screenshot("Tapped on view with class: UIToolbarTextButton marked: Done");
+			app.Tap(x => x.Marked("Enter Number of Days Willing to Lend"));
+			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Number of Days Willing to Lend");
+			app.EnterText(x => x.Class("UITextField").Index(2), "21");
+			app.Tap(x => x.Class("Xamarin_Forms_Platform_iOS_Platform_DefaultRenderer"));
+			app.Screenshot("Tapped on view with class: Xamarin_Forms_Platform_iOS_Platform_DefaultRenderer");
+			app.Tap(x => x.Marked("Enter Location"));
+			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Location");
+			app.EnterText(x => x.Class("UITextField").Index(3), "Bristol");
+			app.Tap(x => x.Class("Xamarin_Forms_Platform_iOS_Platform_DefaultRenderer"));
+			app.Screenshot("Tapped on view with class: Xamarin_Forms_Platform_iOS_Platform_DefaultRenderer");
+			app.Tap(x => x.Class("UIButtonLabel").Text("Add Item").Marked("Add Item"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Add Item");
+			app.Tap(x => x.Marked("Ok"));
+			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Ok");
+			app.Tap(x => x.Id("Gender Neutral User-50@2x.png"));
+			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+			app.ScrollUp();
+			app.Screenshot("Swipped down");
+			app.Tap(x => x.Text("Logout"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Logout");
+			app.TouchAndHold(x => x.Marked("Sign-in"));
+			app.Screenshot("Long press on view with class: UIButton marked: Sign-in");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "otheraccount9898@hotmail.co.uk");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.Tap(x => x.Id("minrva_icon.png"));
+			app.Screenshot("Tapped on view with class: UIImageView");
+			app.Tap(x => x.Text("View Profile"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: View Profile");
+			app.Tap(x => x.Text("Back"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Back");
+			app.Tap(x => x.Text("Borrow Item"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Borrow Item");
+			app.Tap(x => x.Text("Send borrow request"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Send borrow request");
+			app.Tap(x => x.Marked("Okay"));
+			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Okay");
+		}
+
+		[Test]
+		public void LenderReceivesBorrowRequestNotificationAndAcceptsBorrower()
+		{
+			app.Tap(x => x.Marked("Sign-in"));
+			app.Screenshot("Tapped on view with class: UIButton marked: Sign-in");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "minrvatester2@gmail.com");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.Tap(x => x.Id("Notifications-50@2x.png"));
+			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+			app.Tap(x => x.Marked("Minrva wants to borrow your item"));
+			app.Screenshot("Tapped on view with class: UILabel marked: Minrva wants to borrow your item");
+			app.Tap(x => x.Marked("View Profile"));
+			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: View Profile");
+			app.Tap(x => x.Text("Accept"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Accept");
+		}
+
+		[Test]
+		public void BorrowerStartsChatWithLenderAfterSeeingRequestWasAcceptedAndLenderRespondsToThisChat()
+		{
+			app.Tap(x => x.Marked("Sign-in"));
+			app.Screenshot("Tapped on view with class: UIButton marked: Sign-in");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "otheraccount9898@hotmail.co.uk");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.Tap(x => x.Id("Speech Bubble-50@2x.png"));
+			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+			app.Tap(x => x.Class("Xamarin_Forms_Platform_iOS_Platform_DefaultRenderer").Index(1));
+			app.Screenshot("Tapped on view with class: Xamarin_Forms_Platform_iOS_Platform_DefaultRenderer");
+			app.Tap(x => x.Text("Enter Message"));
+			app.Screenshot("Tapped on view with class: UITextView");
+			app.Tap(x => x.Marked("Done"));
+			app.Screenshot("Tapped on view with class: UIToolbarTextButton marked: Done");
+			app.Tap(x => x.Text("Send Message"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Send Message");
+			app.Tap(x => x.Text("Items"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Items");
+			app.Tap(x => x.Text("Back"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Back");
+			app.Tap(x => x.Text("Back"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Back");
+			app.Tap(x => x.Id("Gender Neutral User-50@2x.png"));
+			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+			app.Tap(x => x.Text("Logout"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Logout");
+			app.Tap(x => x.Marked("Sign-in"));
+			app.Screenshot("Tapped on view with class: UIButton marked: Sign-in");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "minrvatester2@gmail.com");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.Tap(x => x.Id("Speech Bubble-50@2x.png"));
+			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+			app.Tap(x => x.Marked("Hey! Thanks for accepting! Where shall we meet?"));
+			app.Screenshot("Tapped on view with class: UILabel marked: Hey! Thanks for accepting! Where shall we meet?");
+			app.Tap(x => x.Text("Enter Message"));
+			app.Screenshot("Tapped on view with class: UITextView");
+			app.Tap(x => x.Marked("Done"));
+			app.Screenshot("Tapped on view with class: UIToolbarTextButton marked: Done");
+			app.Tap(x => x.Text("Send Message"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Send Message");
+			app.Tap(x => x.Text("Items"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Items");
+			app.Tap(x => x.Text("Back"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Back");
+			app.Tap(x => x.Text("Back"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Back");
+		}
+
+		[Test]
+	public void LenderMarksItemAsReturnedAndCompletesReviewForBorrower()
+	{
+		app.Tap(x => x.Marked("Sign-in"));
+		app.Screenshot("Tapped on view with class: UIButton marked: Sign-in");
+		app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+		app.Screenshot("Tapped on view with class: UIWebView");
+		app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "minrvatester2@gmail.com");
+		app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+		app.Screenshot("Tapped on view with class: UIWebView");
+		app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+		app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+		app.Screenshot("Tapped on view with class: UIWebView");
+		app.Tap(x => x.Id("Gender Neutral User-50@2x.png"));
+		app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+		app.Tap(x => x.Marked("DVD").Index(1));
+		app.Screenshot("Tapped on view with class: UILabel marked: DVD");
+		app.Tap(x => x.Marked("Mark As Returned"));
+		app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Mark As Returned");
+		app.Tap(x => x.Class("SFRatingItem").Index(8));
+		app.Screenshot("Tapped on view with class: SFRatingItem");
+		app.Tap(x => x.Text("Leave a review for this user"));
+		app.Screenshot("Tapped on view with class: UITextView");
+		app.Tap(x => x.Marked("Done"));
+		app.Screenshot("Tapped on view with class: UIToolbarTextButton marked: Done");
+		app.Tap(x => x.Text("Send Review"));
+		app.Screenshot("Tapped on view with class: UIButtonLabel marked: Send Review");
+		app.Tap(x => x.Marked("Ok"));
+		app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Ok");
 	}
-}
+
+		[Test]
+		public void BorrowerClicksOnReturnedNotificationAndCompletesReviewForLenderAndItemBorrowed()
+		{
+			app.Tap(x => x.Marked("Sign-in"));
+			app.Screenshot("Tapped on view with class: UIButton marked: Sign-in");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "otheraccount9898@hotmail.co.uk");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.Tap(x => x.Id("Notifications-50@2x.png"));
+			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+			app.Tap(x => x.Marked("Minrva - Returned"));
+			app.Screenshot("Tapped on view with class: UILabel marked: Minrva - Returned");
+			app.Tap(x => x.Class("SFRatingItem").Index(3));
+			app.Screenshot("Tapped on view with class: SFRatingItem");
+			app.Tap(x => x.Text("Leave a review for this user"));
+			app.Screenshot("Tapped on view with class: UITextView");
+			app.Tap(x => x.Marked("Done"));
+			app.Screenshot("Tapped on view with class: UIToolbarTextButton marked: Done");
+			app.Tap(x => x.Class("SFRatingItem").Index(8));
+			app.Screenshot("Tapped on view with class: SFRatingItem");
+			app.Tap(x => x.Text("Leave a review for this item"));
+			app.Screenshot("Tapped on view with class: UITextView");
+			app.Tap(x => x.Marked("Done"));
+			app.Screenshot("Tapped on view with class: UIToolbarTextButton marked: Done");
+			app.Tap(x => x.Text("Send Review"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Send Review");
+			app.Tap(x => x.Marked("Ok"));
+			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Ok");
+		}
+
+		[Test]
+		public void LenderVouchesForBorrowerAndBorrowerSeesVouchNotificationAndThenChecksVouchesOnProfile()
+		{
+			app.Tap(x => x.Marked("Sign-in"));
+			app.Screenshot("Tapped on view with class: UIButton marked: Sign-in");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "minrvatester2@gmail.com");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.Tap(x => x.Marked("Search"));
+			app.Screenshot("Tapped on view with class: UISearchBarTextField marked: Search");
+			app.EnterText(x => x.Marked("Search"), "M");
+			app.EnterText(x => x.Marked("Search"), "inrva");
+			app.Tap(x => x.Id("minrva_icon.png"));
+			app.Screenshot("Tapped on view with class: UIImageView");
+			app.Tap(x => x.Text("Vouch"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Vouch");
+			app.Tap(x => x.Marked("OK"));
+			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: OK");
+			app.Tap(x => x.Text("Back"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Back");
+			app.Tap(x => x.Id("Gender Neutral User-50@2x.png"));
+			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+			app.Tap(x => x.Text("Logout"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Logout");
+			app.Tap(x => x.Marked("Sign-in"));
+			app.Screenshot("Tapped on view with class: UIButton marked: Sign-in");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "otheraccount9898@hotmail.co.uk");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.Tap(x => x.Id("Notifications-50@2x.png"));
+			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+			app.Tap(x => x.Class("Xamarin_Forms_Platform_iOS_Platform_DefaultRenderer").Index(1));
+			app.Screenshot("Tapped on view with class: Xamarin_Forms_Platform_iOS_Platform_DefaultRenderer");
+			app.Tap(x => x.Id("Gender Neutral User-50@2x.png"));
+			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+			app.Tap(x => x.Text("Vouches"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Vouches");
+			app.ScrollUp();
+			app.Screenshot("Swipped down");
+			app.Tap(x => x.Class("UIImageView").Index(4));
+			app.Screenshot("Tapped on view with class: UIImageView");
+			app.Tap(x => x.Text("Back"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Back");
+		}
+
+		[Test]
+		public void LenderVisitsTrustNetworkOnProfileToVouchForPeopleThatBorrowerHasVouchedFor()
+		{
+			app.Tap(x => x.Marked("Sign-in"));
+			app.Screenshot("Tapped on view with class: UIButton marked: Sign-in");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "minrvatester2@gmail.com");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.Tap(x => x.Id("Gender Neutral User-50@2x.png"));
+			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+			app.Tap(x => x.Text("Trust Network"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Trust Network");
+			app.Tap(x => x.Id("minrva_icon.png"));
+			app.Screenshot("Tapped on view with class: UIImageView");
+			app.Tap(x => x.Class("UIImageView").Index(3));
+			app.Screenshot("Tapped on view with class: UIImageView");
+			app.Tap(x => x.Text("Vouch"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Vouch");
+			app.Tap(x => x.Marked("OK"));
+			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: OK");
+		}
+
+		[Test]
+		public void UserLendsOutAnItemAndSeesGemStoneRankChange()
+		{
+			app.Tap(x => x.Marked("Sign-in"));
+			app.Screenshot("Tapped on view with class: UIButton marked: Sign-in");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "minrvatester2@gmail.com");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.Tap(x => x.Id("Plus-50@2x.png"));
+			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+			app.Tap(x => x.Marked("Enter Category"));
+			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Category");
+			app.Tap(x => x.Marked("Book"));
+			app.Screenshot("Tapped on view with class: UILabel marked: Book");
+			app.Tap(x => x.Marked("Done"));
+			app.Screenshot("Tapped on view with class: UIToolbarTextButton marked: Done");
+			app.Tap(x => x.Marked("Enter Name"));
+			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Name");
+			app.EnterText(x => x.Class("UITextField").Index(1), "Of Mice and Men");
+			app.Tap(x => x.Text("Enter Description"));
+			app.Screenshot("Tapped on view with class: UITextView");
+			app.Tap(x => x.Marked("Done"));
+			app.Screenshot("Tapped on view with class: UIToolbarTextButton marked: Done");
+			app.Tap(x => x.Marked("Enter Number of Days Willing to Lend"));
+			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Number of Days Willing to Lend");
+			app.EnterText(x => x.Class("UITextField").Index(2), "12");
+			app.Tap(x => x.Class("Xamarin_Forms_Platform_iOS_Platform_DefaultRenderer"));
+			app.Screenshot("Tapped on view with class: Xamarin_Forms_Platform_iOS_Platform_DefaultRenderer");
+			app.Tap(x => x.Marked("Enter Location"));
+			app.Screenshot("Tapped on view with class: UITextFieldLabel marked: Enter Location");
+			app.EnterText(x => x.Class("UITextField").Index(3), "London");
+			app.PressEnter();
+			app.Tap(x => x.Class("UIButtonLabel").Text("Add Item").Marked("Add Item"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Add Item");
+			app.Tap(x => x.Marked("Ok"));
+			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: Ok");
+			app.Tap(x => x.Id("Gender Neutral User-50@2x.png"));
+			app.Screenshot("Tapped on view with class: UITabBarSwappableImageView");
+			app.Tap(x => x.Text("Rank Table"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Rank Table");
+			app.Tap(x => x.Text("Back"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Back");
+		}
+
+		[Test]
+		public void BorrowerCanSeeItemsAvailableFromMapOnFeedAndClickingOnPinGivesItemNameAndDescription()
+		{
+			app.Tap(x => x.Marked("Sign-in"));
+			app.Screenshot("Tapped on view with class: UIButton marked: Sign-in");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "otheraccount9898@hotmail.co.uk");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.Tap(x => x.Marked("Map"));
+			app.Screenshot("Tapped on view with class: UIButton marked: Map");
+			app.Tap(x => x.Marked("Of Mice and Men, American Dream"));
+			app.Screenshot("Tapped on view with class: MKPinAnnotationView marked: Of Mice and Men, American Dream");
+			app.Tap(x => x.ClassFull("_MKSmallCalloutPassthroughButton"));
+			app.Screenshot("Tapped on view with class: _MKSmallCalloutPassthroughButton");
+		}
+
+		[Test]
+		public void LenderReceivesBorrowRequestAndRejectsUser()
+		{
+			app.Tap(x => x.Marked("Sign-in"));
+			app.Screenshot("Tapped on view with class: UIButton marked: Sign-in");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT._56bg._4u9z._5ruq"), "minrvatester2@gmail.com");
+			app.Tap(x => x.Class("UIWebView").Css("INPUT#u_0_2"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.EnterText(x => x.Class("UIWebView").Css("INPUT#u_0_2"), "Imperial09!");
+			app.Tap(x => x.Class("UIWebView").Css("BUTTON#u_0_6"));
+			app.Screenshot("Tapped on view with class: UIWebView");
+			app.Tap(x => x.Text("Notifications"));
+			app.Screenshot("Tapped on view with class: UITabBarButtonLabel marked: Notifications");
+			app.Tap(x => x.Marked("Minrva wants to borrow your item"));
+			app.Screenshot("Tapped on view with class: UILabel marked: Minrva wants to borrow your item");
+			app.Tap(x => x.Marked("View Profile"));
+			app.Screenshot("Tapped on view with class: _UIAlertControllerActionView marked: View Profile");
+			app.Tap(x => x.Text("Reject"));
+			app.Screenshot("Tapped on view with class: UIButtonLabel marked: Reject");
+		}
+
+
+
+
+
+	}
+
