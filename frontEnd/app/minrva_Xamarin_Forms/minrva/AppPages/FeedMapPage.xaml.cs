@@ -25,9 +25,6 @@ namespace minrva
 		private async void displayItems()
 		{
 			MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(currentPosition, Distance.FromMiles(5.0)));
-			//var available = await manager.GetBoardgamesAsync();
-			//string sid = await App.Authenticator.GetUserId();
-			//var list = available.Where(game => !String.Equals(game.Owner, sid) && (game.Borrowed == false));
 			var list = list_of_items;
 			foreach (var item in list)
 			{

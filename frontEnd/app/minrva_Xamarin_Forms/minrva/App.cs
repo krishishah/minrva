@@ -18,23 +18,23 @@ namespace minrva
 
 		public App ()
 		{
-			// The root page of your applicationn
+			// The root page of the applicationn
 			MainPage = new LoginPage();
 		}
 
 		protected override void OnStart ()
 		{
-			// Handle when your app starts
+			// Handle when app starts
 		}
 
 		protected override void OnSleep ()
 		{
-			// Handle when your app sleeps
+			// Handle when app sleeps
 		}
 
 		protected override void OnResume ()
 		{
-			// Handle when your app resumes
+			// Handle when app resumes
 		}
 	}
 }

@@ -67,8 +67,6 @@ namespace minrva
 
 		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
 		{
-			//using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
-			//{
 				string sid = await App.Authenticator.GetUserId();
 				var reqs = await tableManager.GetRequestAsync(syncItems);
 				var games = await tableManager.GetBoardgamesAsync(syncItems);
@@ -116,6 +114,5 @@ namespace minrva
 				borrowList.ItemsSource = borrows;
 				lendList.ItemsSource = lends;
 			}
-		//}
 	}
 }

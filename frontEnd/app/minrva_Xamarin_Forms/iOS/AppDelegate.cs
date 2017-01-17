@@ -33,7 +33,6 @@ namespace minrva.iOS
 
 			UITabBar.Appearance.SelectedImageTintColor = UIColor.Red;
 
-			// Temporary fix to make builds pass
 			Xamarin.Calabash.Start();
 			#if ENABLE_TEST_CLOUD
 
@@ -98,7 +97,6 @@ namespace minrva.iOS
 
 					await TableManager.DefaultManager.CurrentClient.LogoutAsync();
 					var logoutAlert = new UIAlertView("Authentication", "You are now logged out " + user.UserId, null, "OK", null);
-					//logoutAlert.Show();
 				}
 				user = null;
 				success = true;

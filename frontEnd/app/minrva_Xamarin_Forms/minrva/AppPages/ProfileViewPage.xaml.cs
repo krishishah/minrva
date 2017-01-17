@@ -18,11 +18,11 @@ namespace minrva
 		Request req;
 		bool borrowing;
 
+		// View of another user's profile, i.e. only shows items that they are lending out that are still available
 		public ProfileViewPage(User profOwner, Boardgames reqItem, Request req, bool borrowing)
 		{
 			InitializeComponent();
 			tableManager = TableManager.DefaultManager;
-			//vouchButton.Text = "Unvouch";
 			this.profOwner = profOwner;
 			this.reqItem = reqItem;
 			this.borrowing = borrowing;
@@ -194,7 +194,6 @@ namespace minrva
 			await Navigation.PopModalAsync();
 		}
 
-		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh
 		public async void OnRefresh(object sender, EventArgs e)
 		{
 			var list = (ListView)sender;

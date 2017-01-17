@@ -27,10 +27,7 @@ namespace minrva
 			string userId = await App.Authenticator.GetUserId();
 
 			if (firstNameEntry.Text == null || lastNameEntry.Text == null ||
-			   emailEntry.Text == null)
-			{
-				//Throw some error and make user fill in form
-			}
+			   emailEntry.Text == null){}
 
 			var user = new User {UserId = userId, FirstName = firstNameEntry.Text, 
 				            LastName = lastNameEntry.Text, Email = emailEntry.Text };

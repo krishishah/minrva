@@ -48,6 +48,7 @@ namespace minrva
 			await RefreshItems(false, syncItems: false);
 		}
 
+		// Calculating average rating from all ratings received by item
 		async Task<double> getOverallRating()
 		{
 			var ratingsTable = await manager.GetRatingsAsync();

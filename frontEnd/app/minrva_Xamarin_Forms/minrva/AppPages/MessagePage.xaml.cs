@@ -106,6 +106,8 @@ namespace minrva
 				                                || (String.Equals(m.Receiver, sid) && String.Equals(m.Sender, Receiver.UserId)));
 				foreach (Message m in msgs)
 				{
+
+					// Aligning messages to left or right, and changing text colour based on if current user is sender or receiver
 					if (String.Equals(m.Sender, sid))
 					{
 						m.Alignment = LayoutOptions.EndAndExpand;
@@ -130,6 +132,7 @@ namespace minrva
 			}
 		}
 
+		// Creating JSON object to represent message sent, and refreshing chat so message automatically appears
 		public async void SendMessageCommand(object sender, EventArgs e)
 		{
 			if (!Equals(newMessage.Text, descriptionPlaceholder))

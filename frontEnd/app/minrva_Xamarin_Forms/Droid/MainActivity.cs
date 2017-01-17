@@ -42,11 +42,6 @@ namespace minrva.Droid
 		// Define a authenticated user.
 		private MobileServiceUser user;
 
-		//private static async Task<SocialLoginResult> GetUserData()
-		//{
-		//	return await Client.InvokeApiAsync<SocialLoginResult>("getextrauserinfo", HttpMethod.Get, null);
-		//}
-
 		public async Task<bool> Authenticate()
 		{
 			var success = false;
@@ -73,7 +68,6 @@ namespace minrva.Droid
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.SetMessage(message);
 			builder.SetTitle("Sign-in result");
-			//builder.Create().Show();
 
 			return success;
 		}
@@ -103,7 +97,6 @@ namespace minrva.Droid
 					AlertDialog.Builder builder = new AlertDialog.Builder(this);
 					builder.SetMessage(message);
 					builder.SetTitle("Sign-in result");
-					//builder.Create().Show();
 				}
 				user = null;
 				success = true;

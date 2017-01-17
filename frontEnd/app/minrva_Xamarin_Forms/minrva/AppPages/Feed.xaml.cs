@@ -49,6 +49,8 @@ namespace minrva
 			var userTable = await manager.GetUserAsync();
 
 			string sid = await App.Authenticator.GetUserId();
+
+			// Checking if user searched for item or another user
 			var itemResults = boardGamesTable.Where(b => (!String.Equals(b.Owner, sid)) && (String.Equals(b.Name, searchBar.Text, StringComparison.CurrentCultureIgnoreCase)) && b.Borrowed == false);
 			var userResults = userTable.Where(b => String.Equals(b.FirstName, searchBar.Text, StringComparison.CurrentCultureIgnoreCase) || 
 			                                       String.Equals(String.Format("{0} {1}", b.FirstName, b.LastName), searchBar.Text, StringComparison.CurrentCultureIgnoreCase) ||
@@ -91,6 +93,7 @@ namespace minrva
 			await RefreshItems(false, syncItems: false);
 		}
 
+		// Finding items in specific category
 		public async void ShowCategory(object sender, EventArgs e)
 		{
 			string sid = await App.Authenticator.GetUserId();
@@ -109,7 +112,6 @@ namespace minrva
 
 		}
 
-		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh
 		public async void OnRefresh(object sender, EventArgs e)
 		{
 			
@@ -185,6 +187,7 @@ namespace minrva
 			}
 		}
 
+		// Populating the feed list with users
 		private async Task<List<UserFeedViewModel>> createUserFeedView(IEnumerable<User> list)
 		{
 
@@ -211,7 +214,7 @@ namespace minrva
 			
 		}
 
-
+		// Populating the feed list with items
 		private async Task<List<BoardgamesViewModel>> createBoardGameFeedView(IEnumerable<Boardgames> list)
 		{
 
@@ -239,6 +242,7 @@ namespace minrva
 				feedViewList.Add(listElement);
 			}
 
+			// Sorting items in feed by distance from current user
 			feedViewList.Sort((x, y) => x.Distance.CompareTo(y.Distance));
 
 			return feedViewList;

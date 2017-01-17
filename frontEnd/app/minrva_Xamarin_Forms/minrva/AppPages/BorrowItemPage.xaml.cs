@@ -49,6 +49,8 @@ namespace minrva
 		{
 			await tableManager.SaveRequestAsync(item);
 		}
+
+		// Creating JSON object to represent the request made, and then adding it to database table 'requests' in backend
 		public async void OnBorrow(object sender, EventArgs e)
 		{
 			var usersTable = await tableManager.GetUserAsync();

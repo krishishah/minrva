@@ -182,6 +182,7 @@ namespace minrva
 			await Navigation.PushModalAsync(new VoucheesList());
 		}
 
+		// Retrieving information about item selected on profile by current user (e.g. if it has been lent out or not)
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var game = e.SelectedItem as Boardgames;
@@ -224,7 +225,6 @@ namespace minrva
 
 		}
 
-		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh
 		public async void OnRefresh(object sender, EventArgs e)
 		{
 			var list = (ListView)sender;

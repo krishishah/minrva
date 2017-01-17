@@ -51,7 +51,6 @@ namespace minrva
 		private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
 		{
 			DisplayList();
-			//await DisplayAlert("Size", vouchNetwork.Count().ToString(), "OK");
 		}
 
 		private async void DisplayList()
@@ -66,7 +65,6 @@ namespace minrva
 			foreach (Vouch v in currentUserVouchList)
 			{
 				User voucher = userTable.Where(u => String.Equals(u.UserId, v.Voucher)).ElementAt(0);
-				//v.Vouchee = String.Format("{0} {1}", vouchee.FirstName, vouchee.LastName);
 				vouchNetwork.Add(voucher);
 			}
 

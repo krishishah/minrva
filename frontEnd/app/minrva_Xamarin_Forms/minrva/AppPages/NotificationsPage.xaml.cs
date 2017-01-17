@@ -81,7 +81,6 @@ namespace minrva
 		}
 
 
-		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh
 		public async void OnRefresh(object sender, EventArgs e)
 		{
 			var list = (ListView)sender;
@@ -134,6 +133,7 @@ namespace minrva
 				string col = "#00cc00";
 				seenUnseenCol = "#bfbfbf";
 
+				// Finding all the requests that show another user wanting to borrow an item from current user (pending requests)
 				foreach (Request r in lenderPendingRequests)
 				{
 					User borrowingUser = users.Where(user => String.Equals(r.Borrower, user.UserId)).ElementAt(0);
@@ -146,6 +146,7 @@ namespace minrva
 				requestStatus = "Accepted";
 				seenUnseenCol = "White";
 
+				// Finding all the requests that show current user has accepted a request to borrow item
 				foreach (Request r in lenderAcceptedRequests)
 				{
 					User borrowingUser = users.Where(user => String.Equals(r.Borrower, user.UserId)).ElementAt(0);
@@ -160,6 +161,7 @@ namespace minrva
 				col = "#b35050";
 				seenUnseenCol = "White";
 
+				// Finding all the requests that show another user has accepted current user's request to borrow item
 				foreach (Request r in borrowAcceptedRequests)
 				{
 					User lendingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
@@ -173,6 +175,7 @@ namespace minrva
 				requestStatus = "Pending";
 				seenUnseenCol = "White";
 
+				// Finding all the pending requests that show current user has requested to borrow an item
 				foreach (Request r in borrowPendingRequests)
 				{
 					User lendingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
@@ -186,6 +189,7 @@ namespace minrva
 				requestStatus = "Rejected";
 				seenUnseenCol = "White";
 
+				// Finding all the requests that show another user has rejected current user's request to borrow item
 				foreach (Request r in borrowRejectedRequests)
 				{
 					User lendingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
@@ -199,6 +203,7 @@ namespace minrva
 				requestStatus = "Returned";
 				seenUnseenCol = "#bfbfbf";
 
+				// Finding all the requests that show current user has returned an item that they borrowed 
 				foreach (Request r in borrowReturnedRequests)
 				{
 					User lendingUser = users.Where(user => String.Equals(r.Lender, user.UserId)).ElementAt(0);
@@ -211,6 +216,7 @@ namespace minrva
 				col = "#6666ff";
 				seenUnseenCol = "White";
 					
+				// Finding all the users who have vouched for current user, and creating a notification for this
 				foreach (Vouch v in myVouches)
 				{
 					User voucher = users.Where(user => String.Equals(user.UserId, v.Voucher)).ElementAt(0);

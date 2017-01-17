@@ -19,6 +19,7 @@ namespace minrva
 			item = product;
 			this.borrowed = borrowed;
 			manager = TableManager.DefaultManager;
+			// Changing questions based on if borrower or lender is leaving reviews
 			if (borrowed)
 			{
 				userExperienceTitle.Text = String.Format("How was your experience borrowing from {0} {1}?", otherUser.FirstName, otherUser.LastName);
@@ -56,8 +57,10 @@ namespace minrva
 			}
 		}
 
+		//Creating JSON object to represent the ratings and reviews, to send to database table 'ratings' in backend
 		public async void OnSend(object sender, EventArgs e)
 		{
+			// Borrower rates/reviews item and lending user
 			if (borrowed)
 			{
 				if (userRating.Value == 0 || itemRating.Value == 0)
@@ -76,6 +79,7 @@ namespace minrva
 					await Navigation.PopModalAsync();
 				}
 			}
+			// Lender only rates/reviews borrowing user
 			else
 			{
 				if (userRating.Value == 0)

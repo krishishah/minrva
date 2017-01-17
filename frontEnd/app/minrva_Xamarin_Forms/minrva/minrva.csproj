@@ -76,7 +76,6 @@
     <Compile Include="AppPages\UserAuth\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppPages\UserAuth\SocialLogin.cs" />
     <Compile Include="IAuthenticate.cs" />
     <Compile Include="AppPages\MessagePage.xaml.cs">
       <DependentUpon>MessagePage.xaml</DependentUpon>

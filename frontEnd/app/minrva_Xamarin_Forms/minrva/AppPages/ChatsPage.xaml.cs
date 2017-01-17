@@ -30,14 +30,12 @@ namespace minrva
 		public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var chatDetails = e.SelectedItem as ChatDetails;
-			//Boardgames requestedItem = chatDetails.RequestedItem;
 			User recipient = chatDetails.Recipient;
 
 			MessagePage messagePage = new MessagePage(recipient);
 			await Navigation.PushModalAsync(messagePage, false);
 		}
 
-		// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/listview/#pulltorefresh
 		public async void OnRefresh(object sender, EventArgs e)
 		{
 			var list = (ListView)sender;
@@ -91,6 +89,7 @@ namespace minrva
 
 					foreach (ChatDetails c in acceptedMsgs)
 					{
+						// Checking that two chats are not created between the same two users
 						if ((String.Equals(lendingUser.Id, c.Recipient.Id)) || (String.Equals(borrowingUser.Id, c.Recipient.Id)))
 						{
 							seen = true;
@@ -154,7 +153,6 @@ namespace minrva
 
 
 				acceptedList.ItemsSource = acceptedMsgs;
-				//acceptedList.ItemsSource = chats.Where(r => (String.Equals(r.Lender, sid)) || (String.Equals(r.Borrower, sid)));
 
 			}
 		}

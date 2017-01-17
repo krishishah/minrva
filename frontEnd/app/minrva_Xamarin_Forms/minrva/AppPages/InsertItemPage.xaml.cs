@@ -43,14 +43,13 @@ namespace minrva
 			await manager.SaveBoardgamesAsync(item);
 		}
 
+		// Creating JSON object to represent new item, and then sending it to backend to be inserted into database table
 		public async void OnAdd(object sender, EventArgs e)
 		{
 			
-			//loader.IsRunning = true;
-			//loader.IsVisible = true;
-
 			string sid = await App.Authenticator.GetUserId();
 
+			// Checking that user has filled in all required fields
 			if (string.IsNullOrEmpty(newItemName.Text)|| newItemCategory.SelectedIndex.Equals(-1) || string.IsNullOrEmpty(newItemDescription.Text) || string.IsNullOrEmpty(newItemLendDuration.Text) || string.IsNullOrEmpty(newItemLocation.Text))
 			{
 				await DisplayAlert("Error", "All fields must be completed", "Ok");
@@ -77,15 +76,11 @@ namespace minrva
 																		 .OrderByDescending(b => b.CreatedAt)
 																		 .Select(b => b.Id)
 																		 .ElementAt(0);
-							//var itemId = itemsOwnedByCurrentUser[0];
 							var itemName = await ImageManager.GenerateItemPhotoName(itemId);
 							await ImageManager.UploadImage(itemImageFile.GetStream(), itemName);
 							itemImageFile.Dispose();
 							itemImageFile = null;
 						}
-
-						//loader.IsRunning = false;
-						//loader.IsVisible = false;
 
 					}
 					buttonsPanel.IsVisible = true;
